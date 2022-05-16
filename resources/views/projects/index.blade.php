@@ -226,7 +226,7 @@
                                             {{-- عرض المشاريع --}}
                                             <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
                                                 style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;
-                                                                                ">
+                                                                                                                ">
                                                 <div class="col-12 p-0 row d-flex ">
                                                     <div class="col-12 col-lg-9 p-0">
                                                         <h2 style="font-size:16px;height: 23px;"
@@ -327,13 +327,13 @@
 
                                             @foreach ($projects as $project)
                                                 <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
-                                                    style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;
-                                                                                ">
+                                                    style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
                                                     <div class="col-12 p-0 row d-flex ">
                                                         <div class="col-12 col-lg-9 p-0">
                                                             <h2 style="font-size:16px;height: 23px;"
                                                                 class="d-block text-truncate overflow-hidden m-0">
-                                                                <a href="/project" style="color: var(--bg-color-3);"
+                                                                <a href="projects/{{ $project->id }}"
+                                                                    style="color: var(--bg-color-3);"
                                                                     class="text-truncate">{{ $project->title }}</a>
                                                             </h2>
                                                             <div class="col-12 py-2 px-0">
@@ -399,18 +399,25 @@
                                                                     style="font-size: 12px;color: #777777">
                                                                     <span class="far fa-clock " aria-hidden="true"
                                                                         style="font-size: 12px;width:18px;text-align: center;"></span>
-                                                                    <?php
-                                                                    $time = $project->created_at->diffInMinutes(Carbon\Carbon::now());
-                                                                    $time_string = $time . ' دقائق';
-                                                                    if ($time >= 60) {
-                                                                        $time = $project->created_at->diffInHours(Carbon\Carbon::now());
-                                                                        if ($time <= 2 || $time > 10) {
-                                                                            $time_string = $time . ' ساعة';
-                                                                        } elseif ($time > 2) {
-                                                                            $time_string = $time . ' ساعات';
+                                                                    @php
+                                                                        $time = $project->created_at->diffInMinutes(Carbon\Carbon::now());
+                                                                        $time_string = $time . ' دقائق';
+                                                                        if ($time >= 60 && $time < 1440) {
+                                                                            $time = $project->created_at->diffInHours(Carbon\Carbon::now());
+                                                                            if ($time <= 2 || $time > 10) {
+                                                                                $time_string = $time . ' ساعة';
+                                                                            } elseif ($time > 2) {
+                                                                                $time_string = $time . ' ساعات';
+                                                                            }
+                                                                        } elseif ($time >= 1440) {
+                                                                            $time = $project->created_at->diffInDays(Carbon\Carbon::now());
+                                                                            if ($time <= 2 || $time > 10) {
+                                                                                $time_string = $time . ' يوم';
+                                                                            } elseif ($time > 2) {
+                                                                                $time_string = $time . ' أيام';
+                                                                            }
                                                                         }
-                                                                    }
-                                                                    ?>
+                                                                    @endphp
                                                                     منذ
                                                                     {{ $time_string }}
                                                                 </span>
@@ -420,7 +427,7 @@
                                                                     style="font-size: 12px;color: #777777">
                                                                     <span class="far fa-map-marker-alt" aria-hidden="true"
                                                                         style="font-size: 12px;width:18px;text-align: center;"></span>
-                                                                    موريتانيا
+                                                                    {{ $project->user->country }}
                                                                 </span>
                                                             </div>
                                                             <div class="d-inline-block d-lg-block px-1">

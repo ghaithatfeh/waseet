@@ -22,4 +22,8 @@ class Project extends Model
     {
         return $this->belongsTo(Budget::class);
     }
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
 }

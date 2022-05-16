@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,14 +22,12 @@ Route::get('/freelancers', function () {
     return view('freelancers');
 });
 
-// Route::get('/projects', function () {
-//     return view('projects.index');
-// });
-// Route::get('/project', function () {
-//     return view('projects.view');
-// });
-// Route::get('/project/create', function () {
-//     return view('projects.create');
-// });
 
-Route::resource('projects', ProjectController::class);
+Route::resources([
+    'projects' => ProjectController::class,
+    'services' => ServiceController::class,
+]);
+
+Route::get('/service', function(){
+    return view('services.services');
+});

@@ -545,16 +545,16 @@
                                 المنفذين </a>
                         </div>
                         <div class="nav-item">
-                            <a class="nav-link" href="https://nafezly.com/portfolios"><span
-                                    class="fal fa-images mx-2"></span> تصفح الأعمال </a>
+                            <a class="nav-link" href="/portfolios"><span class="fal fa-images mx-2"></span> تصفح
+                                الأعمال </a>
                         </div>
                         <div class="nav-item">
-                            <a class="nav-link" href="https://nafezly.com/services"><span
-                                    class="fal fa-boxes mx-2"></span> تصفح الخدمات </a>
+                            <a class="nav-link" href="/services"><span class="fal fa-boxes mx-2"></span> تصفح
+                                الخدمات </a>
                         </div>
                         <div class="nav-item">
-                            <a class="nav-link" href="https://nafezly.com/community"><span
-                                    class="fal fa-users mx-2"></span> مجتمع نفذلي </a>
+                            <a class="nav-link" href="/community"><span class="fal fa-users mx-2"></span> مجتمع
+                                نفذلي </a>
                         </div>
                         <div class="nav-item change-mood">
                             <a class="nav-link" href="#dark-mood"><span class="fal fa-moon mx-2"></span> تغيير
@@ -639,7 +639,7 @@
                         <div class="col-11  row px-0" style="justify-content: flex-end;">
                             <a class="  nav-bar-icon text-center  ml-1 d-none d-md-inline-block"
                                 style="position: relative;cursor: pointer;padding: 14px 0px 0px;text-align: center;color: #65676b;min-width: 107px;border-radius: 5px;"
-                                id="nav-services" href="https://nafezly.com/services">
+                                id="nav-services" href="/services">
                                 <span class="fas fa-boxes"
                                     style="; font-size: 18px;text-align: center;display: inline-block; padding:0px;"
                                     class="nav-item d-inline-block"></span>
@@ -647,7 +647,7 @@
                             </a>
                             <a class="nav-bar-icon text-center d-none d-md-inline-block ml-1"
                                 style="position: relative;cursor: pointer;padding: 14px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;"
-                                href="https://nafezly.com/portfolios">
+                                href="/portfolios">
                                 <span class="far fa-images"
                                     style="; font-size: 18px;text-align: center;display: inline-block; padding:0px;"
                                     class="nav-item d-inline-block"></span>

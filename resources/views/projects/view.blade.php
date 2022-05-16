@@ -19,8 +19,9 @@
                 <input type="hidden" name="_token" value="wTltBzOqWTCgKGnIgFPvX9FrkPP3Kjqgun8qDNEm">
             </form>
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="    z-index: 454454545;
-                        background: rgba(0, 0, 0, 0.45);">
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                style="    z-index: 454454545;
+                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -35,9 +36,9 @@
                         <div class="modal-body">
                             <div class="alert nafezly-alert mb-0">
                                 <ul class="p-2 py-3 mb-0">
-                                    <li class="font-1">تضمن منصة نفذلي حقوقك كاملةً ويظل المبلغ في
+                                    <li class="font-1">تضمن منصة وسيط حقوقك كاملةً ويظل المبلغ في
                                         حسابك كاملاً لحين اعتماد انتهاء الصفقة من خلالك </li>
-                                    <li class="font-1">خدمة عملاء نفذلي على مدار الساعة لإمدادك بالمزيد
+                                    <li class="font-1">خدمة عملاء وسيط على مدار الساعة لإمدادك بالمزيد
                                         من الدعم على المنصة لذا لا تتردد ابدا في التواصل معنا إذا كان لديك اي
                                         استفسار او تساؤل</li>
                                 </ul>
@@ -54,8 +55,9 @@
                 </div>
             </div>
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="    z-index: 454454545;
-                        background: rgba(0, 0, 0, 0.45);">
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                style="    z-index: 454454545;
+                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -83,8 +85,9 @@
                 </div>
             </div>
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="    z-index: 454454545;
-                        background: rgba(0, 0, 0, 0.45);">
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                style="    z-index: 454454545;
+                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -95,7 +98,7 @@
                             <div class="alert nafezly-alert mb-0">
                                 <ul class="p-2 py-3 mb-0">
                                     <li class="font-1">سوف تقوم الآن بإعادة فتح المشروع ونشره على منصة
-                                        نفذلي وستتمكن من إستقبال عروض جديدة</li>
+                                        وسيط وستتمكن من إستقبال عروض جديدة</li>
                                 </ul>
                             </div>
                         </div>
@@ -131,7 +134,7 @@
                                                 </div>
                                                 <h1 style="display: block;font-size: 17px;color: var(--bg-color-0) ;line-height: 1.5"
                                                     class="kufi font-md-4  mb-0">
-                                                    مطلوب برمجة تتصل ببرنامج سطح مكتب بلغة السي شارب
+                                                    {{ $project->title }}
                                                 </h1>
                                             </div>
                                             <div class="col-12 p-0 text-truncate">
@@ -143,8 +146,8 @@
                                                 </a>
                                                 <a href="https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8"
                                                     style="color:inherit;font-size:11px;opacity:0.7">
-                                                    <span class="font-small px-1">/</span> مطلوب برمجة تتصل
-                                                    ببرنامج سطح مكتب بلغة السي شارب
+                                                    <span class="font-small px-1">/</span>
+                                                    {{ $project->title }}
                                                 </a>
                                             </div>
                                         </div>
@@ -178,7 +181,7 @@
                                                 <div class="col-12 col-lg font-1 text-lg-center py-lg-0 py-2">
                                                     <span
                                                         style="width: 30px;height: 30px;background: var(--bg-main-bg);border-radius: 50%;"
-                                                        class="text-center d-inline-block project-state active  mx-2 mx-md-0">
+                                                        class="text-center d-inline-block project-state active mx-2 mx-md-0">
                                                         <span class="d-flex justify-content-center align-items-center"
                                                             style="width:30px;height:30px">
                                                             <i class="fas fa-check"
@@ -246,24 +249,8 @@
                                     <div class="col-12" style="padding: 20px;;">
                                         <h2 class="col-12  p-0 naskh  font-2 m-0"
                                             style="white-space: pre-line; word-wrap: break-word;overflow: hidden;color:var(--bg-color-0);line-height: 1.6 ; ">
-                                            لدي نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
-                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم في حالة
-                                            كان الكمبيوتر البعيد متصل بالانترنت .
-                                            ماهي الطريقة الافضل لذلك ؟
-                                            وكيف لو فيه زبون لديه اكثر من نقطة بيع يكون له لوحة تحكم واحدة وتشمل
-                                            كل نقاط البيع الخاصة بيه.
-                                            مثال :
-                                            نقطة بيع رقم 1 القاهرة :
-                                            المالية اليوم :
-                                            مجموع الداخل 500000
-                                            مجموع الخارج 250000
-                                            المتبقي في الخزنة : 25000
-                                            تقرير الاصناف اوشكت على الانتهاء :
-                                            الصنف 1 متبقي 10فقط
-                                            الصنف 2 متبقي 4 فقط
-                                            الصنف 9 متبقي منه 12 فقط.
-                                            - تقرير غرفة المراقبة
-                                            وهكذا</h2>
+                                            {{ $project->description }}
+                                        </h2>
                                         <div class="col-12 p-0 mt-2">
                                         </div>
                                     </div>
@@ -278,33 +265,11 @@
                                         <a href="https://nafezly.com/projects/skill/html"
                                             class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
                                                 class="far fa-tags pl-1"></span> HTML</a>
-                                        <a href="https://nafezly.com/projects/skill/css"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> CSS</a>
-                                        <a href="https://nafezly.com/projects/skill/php"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> PHP</a>
-                                        <a href="https://nafezly.com/projects/skill/javascript"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> جافاسكربت</a>
-                                        <a href="https://nafezly.com/projects/skill/software-development"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> تطوير البرمجيات</a>
-                                        <a href="https://nafezly.com/projects/skill/database-programming"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> برمجة قواعد البيانات</a>
-                                        <a href="https://nafezly.com/projects/skill/laravel"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> Laravel</a>
-                                        <a href="https://nafezly.com/projects/skill/software-architecture"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> هندسة البرمجيات</a>
-                                        <a href="https://nafezly.com/projects/skill/software-testing"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> إختبار البرمجيات</a>
-                                        <a href="https://nafezly.com/projects/skill/codeigniter"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> Codeigniter</a>
+                                        @foreach ($project->skills as $skill)
+                                            <a href="https://nafezly.com/projects/skill/html"
+                                                class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
+                                                    class="far fa-tags pl-1"></span> {{ $skill->name }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -341,8 +306,8 @@
                                 </div>
                             </div>
                             <div class="col-12 px-0 py-1 py-lg-3">
-                                <div class="col-12   px-0   main-nafez-box-styles ">
-                                    <div class="col-12  "
+                                <div class="col-12 px-0 main-nafez-box-styles">
+                                    <div class="col-12"
                                         style="border-bottom: 1px solid var(--bg-main-bg);color: var(--bg-second-bg);color: var(--bg-color-0)">
                                         <div class="col-12 px-0 row d-flex justify-content-between">
                                             <div class="col px-0 py-3">
@@ -379,8 +344,7 @@
                                     </div>
                                     <div class="col-12 px-0" id="project-load-offers">
                                         <div class="col-12 offers-list px-0 ">
-                                            <div class="col-12 offer-order 
-        "
+                                            <div class="col-12 offer-order"
                                                 style="border-bottom: 1px solid var(--bg-main-bg);padding: 21px 15px;"
                                                 data-score="27.659574468085">
                                                 <div class="col-12 row px-0 d-flex">
@@ -447,10 +411,7 @@
                                                                     style=" cursor: pointer;" data-id="627fb62772dbd"
                                                                     data-type="offer" data-type_id="23121"
                                                                     id="love_id_627fb62772dbd">
-                                                                    <span
-                                                                        class="fa-heart love-favourite
-                                 fal
-                                 font-3"
+                                                                    <span class="fa-heart love-favourite fal font-3"
                                                                         style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
                                                                         id="icon_627fb62772dbd"></span>
                                                                 </span>
@@ -465,6 +426,92 @@
                                                         ...</h3>
                                                 </div>
                                             </div>
+                                            @foreach ($project->offers as $offer)
+                                                <div class="col-12 offer-order"
+                                                    style="border-bottom: 1px solid var(--bg-main-bg);padding: 21px 15px;"
+                                                    data-score="27.659574468085">
+                                                    <div class="col-12 row px-0 d-flex">
+                                                        <div class="text-center d-inline-block"
+                                                            style="width: 55px;padding: 5px!important">
+                                                            <a href="https://nafezly.com/u/raafatc" style="display: block;">
+                                                                <div style="width: 55px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;max-height: 55px;"
+                                                                    class="d-inline-block">
+                                                                    <img data-src=""
+                                                                        src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/small/23046_1651361072_626dc5305f6eb.jpg"
+                                                                        style="width: 100%;border-radius: 50%!important;padding: 3px;height: 45px"
+                                                                        alt="صورة صاحب مقدم العرض">
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="p-0 d-inline-block">
+                                                            <div class="col-12 px-2">
+                                                                <div class="px-0 pt-0  mt-1 row col-12  ">
+                                                                    <div class="col-12 px-0 kufi">
+                                                                        <a href="https://nafezly.com/u/raafatc"
+                                                                            style="font-size: 15px;line-height: 1.1;"
+                                                                            class="pt-0 kufi  mt-0 d-inline-block">
+                                                                            رأفت قطان
+                                                                            <div class="d-block">
+                                                                                <div style="position: relative;top: 0px;">
+                                                                                    <span class="fal fa-star"
+                                                                                        style="color: var(--bg-color-4);font-size:9px;"></span>
+                                                                                    <span class="fal fa-star"
+                                                                                        style="color: var(--bg-color-4);font-size:9px;"></span>
+                                                                                    <span class="fal fa-star"
+                                                                                        style="color: var(--bg-color-4);font-size:9px;"></span>
+                                                                                    <span class="fal fa-star"
+                                                                                        style="color: var(--bg-color-4);font-size:9px;"></span>
+                                                                                    <span class="fal fa-star"
+                                                                                        style="color: var(--bg-color-4);font-size:9px;"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                        <span
+                                                                            style="color: #919191;position: relative;top: 0px"
+                                                                            class="naskh font-small d-block">
+                                                                            <span class="fal fa-clock " aria-hidden="true"
+                                                                                style="font-size: 10px"></span>
+                                                                            منذ ساعة &nbsp; &nbsp;
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    style=" display: inline-block;position: relative;font-size: 14px;color: #919191">
+                                                                    <div class="col-12  px-0  text-right text-md-right "
+                                                                        style="color: #919191;font-size: 13px;padding: 0px 0px">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-inline-flex mr-auto pt-2">
+                                                            <div class="p-0 d-inline-block mr-auto"
+                                                                style="white-space: nowrap;">
+                                                                <div class="col-12 px-1 d-flex align-items-center">
+                                                                    <span class="d-inline-block pt-2 ml-1"
+                                                                        style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                                        id="counter_627fb62772dbd">
+                                                                    </span>
+                                                                    <span
+                                                                        class="d-inline-block love-favourite-area noselect  "
+                                                                        style=" cursor: pointer;" data-id="627fb62772dbd"
+                                                                        data-type="offer" data-type_id="23121"
+                                                                        id="love_id_627fb62772dbd">
+                                                                        <span class="fa-heart love-favourite fal font-3"
+                                                                            style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
+                                                                            id="icon_627fb62772dbd"></span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h3 class="col-12 px-1 col-lg-11 naskh "
+                                                            style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
+                                                            تحياتي استاذ نسيم يمكنني تنفيذ طلبك لكن احتاج إلى بعض
+                                                            التفاصيل والمعلومات من حضرتك قبل البدء بالعمل وقبول عرضي
+                                                            يسعدني ان اكون قادر على حل مشكلتك
+                                                            ...</h3>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                             <div class="col-12 px-0 py-2">
                                             </div>
                                             <script type="text/javascript">
@@ -498,36 +545,37 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                    ماهي الطريقة الافضل لذلك ؟
+                                                                                                ماهي الطريقة الافضل لذلك ؟
 
-                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                    مثال :
-
-
-                    نقطة بيع  رقم 1 القاهرة :
-
-                    المالية اليوم :
-
-                    مجموع الداخل 500000
-                    مجموع الخارج  250000
-
-                    المتبقي في الخزنة : 25000
+                                                                                                مثال :
 
 
-                    تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                نقطة بيع  رقم 1 القاهرة :
 
-                    الصنف 1 متبقي 10فقط
+                                                                                                المالية اليوم :
 
-                    الصنف 2 متبقي   4 فقط
+                                                                                                مجموع الداخل 500000
+                                                                                                مجموع الخارج  250000
 
-                    الصنف 9 متبقي منه 12 فقط.
+                                                                                                المتبقي في الخزنة : 25000
 
-                    -  تقرير غرفة المراقبة
 
-                    وهكذا&source=نفذلي" class="d-inline-block p-1" target="_blank">
+                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                الصنف 1 متبقي 10فقط
+
+                                                                                                الصنف 2 متبقي   4 فقط
+
+                                                                                                الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                -  تقرير غرفة المراقبة
+
+                                                                                                وهكذا&source=وسيط"
+                                                class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                             </a>
@@ -572,7 +620,8 @@
                                                         <span
                                                             style="background:#28a745; color: #fff; padding: 0px 7px 1px!important; display: inline-block;position: relative ;font-size: 10px;border-radius:2px;line-height: 1.6;"
                                                             class=" p-1">
-                                                            مفتوح </span>
+                                                            {{ $project->status }}
+                                                        </span>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -582,7 +631,27 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        منذ ساعتين
+                                                        @php
+                                                            $time = $project->created_at->diffInMinutes(Carbon\Carbon::now());
+                                                            $time_string = $time . ' دقائق';
+                                                            if ($time >= 60 && $time < 1440) {
+                                                                $time = $project->created_at->diffInHours(Carbon\Carbon::now());
+                                                                if ($time <= 2 || $time > 10) {
+                                                                    $time_string = $time . ' ساعة';
+                                                                } elseif ($time > 2) {
+                                                                    $time_string = $time . ' ساعات';
+                                                                }
+                                                            } elseif ($time >= 1440) {
+                                                                $time = $project->created_at->diffInDays(Carbon\Carbon::now());
+                                                                if ($time <= 2 || $time > 10) {
+                                                                    $time_string = $time . ' يوم';
+                                                                } elseif ($time > 2) {
+                                                                    $time_string = $time . ' أيام';
+                                                                }
+                                                            }
+                                                        @endphp
+                                                        منذ
+                                                        {{ $time_string }}
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -592,7 +661,7 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        10 أيام
+                                                        {{ $project->expected_deadline }} يوم
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -602,7 +671,7 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        100 - 250 $
+                                                        {{ number_format($project->budget->from) . ' - ' . number_format($project->budget->to) }} ل.س
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -679,36 +748,37 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                    ماهي الطريقة الافضل لذلك ؟
+                                                                                                ماهي الطريقة الافضل لذلك ؟
 
-                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                    مثال :
-
-
-                    نقطة بيع  رقم 1 القاهرة :
-
-                    المالية اليوم :
-
-                    مجموع الداخل 500000
-                    مجموع الخارج  250000
-
-                    المتبقي في الخزنة : 25000
+                                                                                                مثال :
 
 
-                    تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                نقطة بيع  رقم 1 القاهرة :
 
-                    الصنف 1 متبقي 10فقط
+                                                                                                المالية اليوم :
 
-                    الصنف 2 متبقي   4 فقط
+                                                                                                مجموع الداخل 500000
+                                                                                                مجموع الخارج  250000
 
-                    الصنف 9 متبقي منه 12 فقط.
+                                                                                                المتبقي في الخزنة : 25000
 
-                    -  تقرير غرفة المراقبة
 
-                    وهكذا&source=نفذلي" class="d-inline-block p-1" target="_blank">
+                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                الصنف 1 متبقي 10فقط
+
+                                                                                                الصنف 2 متبقي   4 فقط
+
+                                                                                                الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                -  تقرير غرفة المراقبة
+
+                                                                                                وهكذا&source=وسيط"
+                                                class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                             </a>
