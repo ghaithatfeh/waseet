@@ -25,16 +25,16 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // Budget::insert([
-        //     ['from' => 10000, 'to' => 50000],
-        //     ['from' => 50000, 'to' => 100000],
-        //     ['from' => 100000, 'to' => 200000],
-        //     ['from' => 200000, 'to' => 300000],
-        //     ['from' => 300000, 'to' => 400000],
-        //     ['from' => 400000, 'to' => 500000],
-        //     ['from' => 500000, 'to' => 1000000],
-        // ]);
-        // Skill::factory(10)->create();
+        Budget::insert([
+            ['from' => 10000, 'to' => 50000],
+            ['from' => 50000, 'to' => 100000],
+            ['from' => 100000, 'to' => 200000],
+            ['from' => 200000, 'to' => 300000],
+            ['from' => 300000, 'to' => 400000],
+            ['from' => 400000, 'to' => 500000],
+            ['from' => 500000, 'to' => 1000000],
+        ]);
+        Skill::factory(10)->create();
         Category::insert([
             ['name' => 'أعمال وخدمات استشارية وإدارية'],
             ['name' => 'برمجة، تطوير المواقع والتطبيقات'],

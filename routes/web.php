@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -26,8 +27,14 @@ Route::get('/freelancers', function () {
 Route::resources([
     'projects' => ProjectController::class,
     'services' => ServiceController::class,
+    'freelancers' => FreelancerController::class,
 ]);
 
 Route::get('/service', function(){
     return view('services.services');
 });
+
+Auth::routes();
+
+//للاستطلاع
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

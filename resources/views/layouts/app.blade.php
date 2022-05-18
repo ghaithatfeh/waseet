@@ -552,23 +552,11 @@
                             <a class="nav-link" href="/services"><span class="fal fa-boxes mx-2"></span> تصفح
                                 الخدمات </a>
                         </div>
-                        <div class="nav-item">
-                            <a class="nav-link" href="/community"><span class="fal fa-users mx-2"></span> مجتمع
-                                نفذلي </a>
-                        </div>
                         <div class="nav-item change-mood">
                             <a class="nav-link" href="#dark-mood"><span class="fal fa-moon mx-2"></span> تغيير
                                 الوضع</a>
                         </div>
-                        <div class="nav-item ">
-                            <a class="nav-link" href="/guide"><span class="fal fa-book mx-2"></span> الدليل
-                                الإرشادي</a>
-                        </div>
-                        <div class="nav-item ">
-                            <a class="nav-link" href="/support"><span class="fal fa-life-ring mx-2"></span> الدعم
-                                الفني</a>
-                        </div>
-                        <div class="nav-item ">
+                        {{-- <div class="nav-item ">
                             <div class="nav-link" style="cursor: pointer;"
                                 onclick="$('#more-left-nav-nafezly').slideToggle('fast');$('#more-left-nav-nafezly-turn').toggleClass('open');">
                                 <div class="col-12 px-0 row">
@@ -611,11 +599,21 @@
                                         الاستخدام </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="nav-item">
-                            <a class="nav-link  " href="https://nafezly.com/project/create-guest"><span
+                            <a class="nav-link" href="/projects/create"><span
                                     class="fal fa-plus mx-2"></span>إضافة مشروع</a>
                         </div>
+                        @auth
+                            <div class="nav-item ">
+                                <a class="nav-link"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    style="color: var(--bg-color-0)">
+                                    <span class="fal fa-sign-out-alt mx-2"></span>
+                                    تسجيل خروج
+                                </a>
+                            </div>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -633,10 +631,10 @@
                             <a class="navbar-brand" href="/">
                                 <img src="/site_images/logos/logo2-01.svg"
                                     style="height: 45px; background: var(--bg-second-bg); padding: 2px!important"
-                                    alt="لوجو موقع نفذلي" id="nafezly-logo">
+                                    alt="لوجو موقع وسيط" id="nafezly-logo">
                             </a>
                         </div>
-                        <div class="col-11  row px-0" style="justify-content: flex-end;">
+                        <div class="col-11 row px-0" style="justify-content: flex-end;">
                             <a class="  nav-bar-icon text-center  ml-1 d-none d-md-inline-block"
                                 style="position: relative;cursor: pointer;padding: 14px 0px 0px;text-align: center;color: #65676b;min-width: 107px;border-radius: 5px;"
                                 id="nav-services" href="/services">
@@ -670,18 +668,75 @@
                                 <span class="kufi pr-1 "
                                     style="position: relative;top: 0px;font-size: 14px">المنفذين</span>
                             </a>
-                            <a href="/login" class="text-center ml-2 ml-md-1 "
-                                style="position: relative;cursor: pointer;padding: 9px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
-                                href="/freelancers">
-                                <button class="btn btn-primary py-2 font-1"
-                                    style="border-radius: 5px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
-                            </a>
-                            <a href="/register" class=" text-center  ml-2 d-none d-md-inline-block"
-                                style="position: relative;cursor: pointer;padding: 9px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
-                                href="/freelancers">
-                                <button class="btn btn-primary py-2 font-1" style="border-radius: 5px;">حساب
-                                    جديد</button>
-                            </a>
+
+                            @guest
+                                <a href="/login" class="text-center ml-2 ml-md-1 "
+                                    style="position: relative;cursor: pointer;padding: 9px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
+                                    href="/freelancers">
+                                    <button class="btn btn-primary py-2 font-1"
+                                        style="border-radius: 5px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
+                                </a>
+                                <a href="/register" class=" text-center  ml-2 d-none d-md-inline-block"
+                                    style="position: relative;cursor: pointer;padding: 9px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
+                                    href="/freelancers">
+                                    <button class="btn btn-primary py-2 font-1" style="border-radius: 5px;">حساب
+                                        جديد</button>
+                                </a>
+                            @else
+                                <div class="d-md-inline-block" style="height: 55px;">
+                                    <span class="d-inline-block  nav-bar-icon text-center mx-1"
+                                        style="position: relative;width: 50px;cursor: pointer;padding: 9px 0px 0px;text-align: center;height: 55px;border-radius: 5px"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/site_images/user.png"
+                                            style="width: 36px;border-radius: 50%!important;padding: 0px;height: 36px;border:0px solid #fff;background: var(--bg-main-bg)"
+                                            alt="الصورة الشخصية">
+                                        <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton"
+                                            style="padding: 0px 0px ;box-shadow: 0 6px 12px rgba(0,0,0,0.175); left: -47px;top: 58px;border-radius: 0px 0px 3px 3px;overflow: hidden;  ">
+                                            <span class="fas fa-caret-up"
+                                                style="color:  var(--bg-main-bg);position: absolute;top:-13px;left: 40%;font-size: 21px"></span>
+                                            <div style="  padding: 7px 0px ;background: var(--bg-second-bg);"
+                                                class="col-12 row text-right dropdown-items">
+                                                <ul
+                                                    style="list-style: none;padding: 0px 0px;width: 100%;margin-bottom: 0px">
+                                                    <a href="#dark-mood"
+                                                        class="py-2 px-3  d-block hover-darker change-mood">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
+                                                                class="fal fa-moon ml-2"></span> تغيير الوضع </li>
+                                                    </a>
+                                                    <a href="/" class="py-2 px-3  d-block  hover-darker">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
+                                                                class="fal fa-tachometer-alt-slow ml-2"></span>لوحة
+                                                            التحكم
+                                                        </li>
+                                                    </a>
+                                                    <a href="https://nafezly.com/my/projects/all"
+                                                        class="py-2 px-3  d-block hover-darker">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
+                                                                class="fal  fa-suitcase ml-2"></span> مشاريعي </li>
+                                                    </a>
+                                                    <a href="/freelancer/{{auth()->user()->id}}"
+                                                        class="py-2 px-3  d-block hover-darker">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
+                                                                class="fal fa-user ml-2"></span> حسابي الشخصي</li>
+                                                    </a>
+                                                    <a href="#" class="py-2 px-3 d-block logout-nafezly hover-darker"
+                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)">
+                                                            <span class="fal fa-sign-in-alt ml-2"></span> تسجيل خروج
+                                                        </li>
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            @endguest
+
+
                             <div class="d-none" style="height: 55px;">
                                 <span class="d-inline-block  nav-bar-icon text-center mx-1"
                                     style="position: relative;width: 50px;cursor: pointer;padding: 9px 0px 0px;text-align: center;height: 55px;border-radius: 5px"

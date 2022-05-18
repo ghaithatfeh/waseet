@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
+    <div class="col-12 px-0" id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <div class="col-12 " style="padding: 0px;
                                                 background-size: cover!important;
                                                 background-position: center!important;

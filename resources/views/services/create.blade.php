@@ -18,15 +18,6 @@
                                 <div class="col px-0 font-2 font-lg-4 pt-1">
                                     أضف خدمة جديدة
                                 </div>
-                                <div class="col px-0 text-left">
-                                    <a href="https://nafezly.com/help/how-to-make-professional-service"
-                                        class="btn hover-darker d-inline-block"
-                                        style="border-radius: 0px;font-size: 13px;margin-top:1px;border:1px solid var(--bg-color-3);color: var(--bg-color-3)"
-                                        target="_blank">
-                                        <span class="fal fa-link"
-                                            style="font-size: 13px;color: var(--bg-color-3)"></span> نصائح لقبول خدمتك
-                                    </a>
-                                </div>
                             </div>
                             <div class="col-12    px-0 main-nafez-box-styles mx-auto col-12 col-lg-8">
                                 <form action="https://nafezly.com/service" method="POST" class="col-12 px-0"
