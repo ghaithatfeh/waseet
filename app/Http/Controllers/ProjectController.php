@@ -17,6 +17,8 @@ class ProjectController extends Controller
 
     public function create()
     {
+        if(!auth()->check())
+            return redirect('login');
         return view('projects.create', [
             'skills' => Skill::all(),
             'budgets' => Budget::all()
@@ -25,8 +27,10 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
+        if(!auth()->check())
+            return redirect('login');
         $project = new Project();
-        $project->user_id = 1;
+        $project->user_id = auth()->id();
         $project->status = 'published';
         $project->title = $request->title;
         $project->description = $request->description;

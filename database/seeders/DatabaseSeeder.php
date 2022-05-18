@@ -9,6 +9,7 @@ use App\Models\Skill;
 use App\Models\Skills;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,12 +20,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'first_name' => 'Ghaith',
+            'last_name' => 'Atfeh',
+            'email' => 'admin@test.com',
+            'password' => Hash::make('asd')
+        ]);
         Budget::insert([
             ['from' => 10000, 'to' => 50000],
             ['from' => 50000, 'to' => 100000],

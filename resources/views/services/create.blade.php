@@ -19,10 +19,10 @@
                                     أضف خدمة جديدة
                                 </div>
                             </div>
-                            <div class="col-12    px-0 main-nafez-box-styles mx-auto col-12 col-lg-8">
-                                <form action="https://nafezly.com/service" method="POST" class="col-12 px-0"
-                                    id="service-form">
-                                    <input type="hidden" name="_token" value="foDtKBduKoaAgOXaRPYSu9Z1DCUohuzoSFml72Ol">
+                            <div class="col-12 px-0 main-nafez-box-styles mx-auto col-12 col-lg-8">
+                                <form action="/services" method="POST" class="col-12 px-0"
+                                    id="service-form" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="col-12 px-0 pb-2 row">
                                         <div class="col-12 mb-3 px-0 px-md-2">
                                             <div class="col-12  row px-0">
@@ -86,7 +86,7 @@
                                                                             style="overflow: hidden">
                                                                             <div class="col-12 px-0"
                                                                                 id="file-uploader-nafezly-main">
-                                                                                <input name="image" type="file" multiple
+                                                                                <input name="images[]" type="file" multiple
                                                                                     class="form-control-file" />
                                                                             </div>
                                                                         </div>
