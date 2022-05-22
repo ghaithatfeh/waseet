@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-12 px-0 row">
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service"
+                                    <a href="/service/تصميم وأعمال فنية وإبداعية"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
@@ -56,7 +56,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=development,web-backend-services,html-css-services,content-management-systems,mobile-development,development-tech-services"
+                                    <a href="/service/برمجة، تطوير المواقع والتطبيقات"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
@@ -73,7 +73,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=business,ecommerce-services,voice-services,legal-services,finance-services,research-services,business-tips"
+                                    <a href="/service/أعمال وخدمات استشارية وإدارية"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
@@ -90,7 +90,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=writing-translation,writing-manual-pages,writing-audio,writing-proof-writing,writing-translation-subcat,writing-resume,writing-copy-writing"
+                                    <a href="/service/كتابة، صناعة محتوى، ترجمة ولغات"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
@@ -107,7 +107,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=marketing,website-advertising,social-media-marketing,seo-services,reviews"
+                                    <a href="/service/تسويق الكتروني ومبيعات"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
@@ -124,7 +124,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=training,learn-programming,learn-marketing,learn-designing,learn-languages,learn-school-help"
+                                    <a href="/service/تدريب، تعليم ومساعدة عن بعد"
                                         style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                     cursor: pointer
@@ -141,7 +141,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=voice-services" style="color: var(--bg-color-0);">
+                                    <a href="/service/أعمال وخدمات استشارية وإدارية" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                     cursor: pointer
                                      ;background:var(--bg-second-bg);border-radius: 0px;">
@@ -157,7 +157,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/services?specialize=other" style="color: var(--bg-color-0);">
+                                    <a href="/service/أمور أخرى" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                 cursor: pointer
                                  ;background:var(--bg-second-bg);border-radius: 0px;">

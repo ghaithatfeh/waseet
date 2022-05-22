@@ -30,9 +30,7 @@ Route::resources([
     'freelancers' => FreelancerController::class,
 ]);
 
-Route::get('/service', function(){
-    return view('services.services');
-});
+Route::get('/service/{category}', [ServiceController::class, 'service']);
 
 Auth::routes();
 

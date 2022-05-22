@@ -608,7 +608,69 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            @foreach ($services as $service)
+                                <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4" id="service-4745">
+                                    <div class="col-12 row  main-nafez-box-styles service-card p-0 rounded ">
+                                        <div class="col-12 position-relative"
+                                            style="padding-top: 70%; background: url('/site_images/transparent.svg'); background-size: 100%;">
+                                            <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
+                                                class="d-block">
+                                                <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
+                                                    style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
+                                            </a>
+                                        </div>
+                                        <div class="col-12 font-1 p-2 ">
+                                            <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
+                                                class="d-block" style="height:60px;overflow: hidden;">
+                                                <h2 class="col-12 py-1 px-0"
+                                                    style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
+                                                    {{ $service->title }}
+                                                </h2>
+                                            </a>
+                                            <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
+                                                <a href="/services?specialize=logos-design" class="d-block"
+                                                    style="color:var(--bg-color-0);">
+                                                    <span class="fal fa-tag"
+                                                        style="color:var(--bg-color-3);font-size: 11px;"></span><span
+                                                        style="opacity: .7;font-size: 11px;">
+                                                        {{ $service->category->name }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;"></div>
+                                        <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
+                                            <div class="d-inline-block py-2 pr-3"
+                                                style="height: 36px;overflow: hidden;width: auto;">
+                                                <span
+                                                    style="color:#1dbf73;font-size: 14px;font-weight: bold;white-space: nowrap;"
+                                                    class="d-inline-block">
+                                                    {{ $service->price }}
+                                                    <span class="fas fa-usd-circle" style="font-size:12px"></span>
+                                                </span>
+                                            </div>
+                                            <div class="d-inline-block  py-2 d-flex justify-content-end align-items-center float-left"
+                                                style="padding-left: 13px;">
+                                                <div class="col-12 p-0" style="white-space: nowrap;">
+                                                    <span class="fas fa-star"
+                                                        style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                    <span class="fas fa-star"
+                                                        style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                    <span class="fas fa-star"
+                                                        style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                    <span class="fas fa-star"
+                                                        style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                    <span class="fas fa-star"
+                                                        style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 px-0"
+                                            style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
                         </div>
                         <div class="col-12 px-0">
                             <nav>

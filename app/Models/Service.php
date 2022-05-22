@@ -11,15 +11,15 @@ class Service extends Model
     protected $fillable = ['title', 'description', 'deadline', 'price', 'category_id', 'user_id'];
 
     public function user(){
-        return $this->belongsTo('users');
+        return $this->belongsTo(User::class);
     }
     public function category(){
-        return $this->belongsTo('categories');
+        return $this->belongsTo(Category::class);
     }
     public function skills(){
-        return $this->belongsToMany('skills', 'service_skill');
+        return $this->belongsToMany(Skill::class, 'service_skill');
     }
     public function images(){
-        return $this->hasMany('service_images');
+        return $this->hasMany(ServiceImage::class);
     }
 }

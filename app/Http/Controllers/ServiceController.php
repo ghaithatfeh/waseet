@@ -53,4 +53,11 @@ class ServiceController extends Controller
         }
         return redirect('services');
     }
+    public function service($category)
+    {
+        $services = Service::join('categories', 'services.category_id', '=', 'categories.id')
+            ->where(['categories.name' => $category])
+            ->get('services.*');
+        return view('services.services', ['services' => $services]);
+    }
 }
