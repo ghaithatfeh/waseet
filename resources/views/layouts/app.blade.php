@@ -304,6 +304,9 @@
             }(w, d, 0, "script");
         })(window, document);
     </script>
+
+
+    @livewireStyles
 </head>
 <style type="text/css">
     html {
@@ -714,7 +717,7 @@
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal  fa-suitcase ml-2"></span> مشاريعي </li>
                                                     </a>
-                                                    <a href="/freelancer/{{auth()->user()->id}}"
+                                                    <a href="/freelancer/{{ auth()->user()->id }}"
                                                         class="py-2 px-3  d-block hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal fa-user ml-2"></span> حسابي الشخصي</li>
@@ -832,6 +835,7 @@
         integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
         data-cf-beacon='{"rayId":"70b32f372f708fd0","version":"2021.12.0","r":1,"token":"e3146e29712049fe8454df255b17cf54","si":100}'
         crossorigin="anonymous"></script>
+    @livewireScripts
 </body>
 
 </html>

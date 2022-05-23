@@ -105,13 +105,10 @@
                                         class=" py-2  pt-3 pt-md-0 px-2 mb-0  "> بحث </h2>
                                     <div class="col-12  px-2 mb-3  ">
                                         <input type="" name="key" class="form-control nafezly-filter " data-filter="key"
-                                            value="">
+                                            value="" wire:model="search">
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         التصنيفات </h2>
-                                        @php
-                                            print_r($categories)
-                                        @endphp
                                     <div class="control-group pt-2 px-2">
                                         <div class="col-12 px-0 ">
                                             <label class="control control-checkbox main-cat mb-2">
@@ -122,8 +119,7 @@
                                                     استشارية وإدارية </label>
                                                 <input type="checkbox" id="business" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="1"
-                                                    class="nafezly-filter main-cat-input"
-                                                    wire:model="categories" />
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -182,8 +178,7 @@
                                                     والتطبيقات </label>
                                                 <input type="checkbox" id="development" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="2"
-                                                    class="nafezly-filter main-cat-input" 
-                                                    wire:model="categories"/>
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -235,8 +230,7 @@
                                                     وإبداعية </label>
                                                 <input type="checkbox" id="design" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="3"
-                                                    class="nafezly-filter main-cat-input"
-                                                    wire:model="categories" />
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -492,142 +486,19 @@
                 </div>
                 <div class="col-12 col-md-8  col-lg-9 px-0 px-md-1 mb-5 search-response-container">
                     <div class="col-12 row px-0">
-                        <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4" id="service-2169">
-                            <div class="col-12 row  main-nafez-box-styles service-card p-0 rounded ">
-                                <div class="col-12 position-relative"
-                                    style="padding-top: 70%; background: url('/site_images/transparent.svg'); background-size: 100%;">
-                                    <a href="https://nafezly.com/service/2169-%D9%85%D9%88%D8%B4%D9%86-%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A"
-                                        class="d-block">
-                                        <img src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/services/small/8173_6013c8265bce7-1611909158.jpg"
-                                            alt="موشن جرافيك احترافي"
-                                            style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
-                                    </a>
-                                </div>
-                                <div class="col-12 font-1 p-2 ">
-                                    <a href="https://nafezly.com/service/2169-%D9%85%D9%88%D8%B4%D9%86-%D8%AC%D8%B1%D8%A7%D9%81%D9%8A%D9%83-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A"
-                                        class="d-block" style="height:60px;overflow: hidden;">
-                                        <h2 class="col-12 py-1 px-0"
-                                            style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
-                                            موشن جرافيك احترافي
-                                        </h2>
-                                    </a>
-                                    <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
-                                        <a href="/services?specialize=video" class="d-block"
-                                            style="color:var(--bg-color-0);">
-                                            <span class="fal fa-tag"
-                                                style="color:var(--bg-color-3);font-size: 11px;"></span><span
-                                                style="opacity: .7;font-size: 11px;"> فيديو ومونتاچ</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;"></div>
-                                <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
-                                    <div class="d-inline-block py-2 pr-3"
-                                        style="height: 36px;overflow: hidden;width: 56px;">
-                                        <span
-                                            style="color:#1dbf73;font-size: 14px;font-weight: bold;white-space: nowrap;"
-                                            class="d-inline-block">
-                                            50
-                                            <span class="fas fa-usd-circle" style="font-size:12px"></span>
-                                        </span>
-                                    </div>
-                                    <div class="d-inline-block  py-2 d-flex justify-content-end align-items-center float-left"
-                                        style="padding-left: 13px;">
-                                        <div class="col-12 p-0" style="white-space: nowrap;">
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 px-0"
-                                    style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4" id="service-4745">
-                            <div class="col-12 row  main-nafez-box-styles service-card p-0 rounded ">
-                                <div class="col-12 position-relative"
-                                    style="padding-top: 70%; background: url('/site_images/transparent.svg'); background-size: 100%;">
-                                    <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
-                                        class="d-block">
-                                        <img src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/services/small/15010_61012cd17c565-1627466961.jpg"
-                                            alt="تصميم شعار احترافي وبجودة عالية"
-                                            style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
-                                    </a>
-                                </div>
-                                <div class="col-12 font-1 p-2 ">
-                                    <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
-                                        class="d-block" style="height:60px;overflow: hidden;">
-                                        <h2 class="col-12 py-1 px-0"
-                                            style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
-                                            تصميم شعار احترافي وبجودة عالية
-                                        </h2>
-                                    </a>
-                                    <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
-                                        <a href="/services?specialize=logos-design" class="d-block"
-                                            style="color:var(--bg-color-0);">
-                                            <span class="fal fa-tag"
-                                                style="color:var(--bg-color-3);font-size: 11px;"></span><span
-                                                style="opacity: .7;font-size: 11px;"> تصميم الشعارات</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;"></div>
-                                <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
-                                    <div class="d-inline-block py-2 pr-3"
-                                        style="height: 36px;overflow: hidden;width: 56px;">
-                                        <span
-                                            style="color:#1dbf73;font-size: 14px;font-weight: bold;white-space: nowrap;"
-                                            class="d-inline-block">
-                                            10
-                                            <span class="fas fa-usd-circle" style="font-size:12px"></span>
-                                        </span>
-                                    </div>
-                                    <div class="d-inline-block  py-2 d-flex justify-content-end align-items-center float-left"
-                                        style="padding-left: 13px;">
-                                        <div class="col-12 p-0" style="white-space: nowrap;">
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            <span class="fas fa-star"
-                                                style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 px-0"
-                                    style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
-                                </div>
-                            </div>
-                        </div>
                         @foreach ($services as $service)
-                            <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4" id="service-4745">
-                                <div class="col-12 row  main-nafez-box-styles service-card p-0 rounded ">
-                                    <div class="col-12 position-relative"
-                                        style="padding-top: 70%; background: url('/site_images/transparent.svg'); background-size: 100%;">
-                                        <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
-                                            class="d-block">
+                            <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
+                                <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
+                                    <div class="col-12 position-relative" style="padding-top: 70%;">
+                                        <a href="" class="d-block">
                                             <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
                                                 style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
                                         </a>
                                     </div>
                                     <div class="col-12 font-1 p-2 ">
-                                        <a href="https://nafezly.com/service/4745-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D8%AD%D8%AA%D8%B1%D8%A7%D9%81%D9%8A-%D9%88%D8%A8%D8%AC%D9%88%D8%AF%D8%A9-%D8%B9%D8%A7%D9%84%D9%8A%D8%A9"
-                                            class="d-block" style="height:60px;overflow: hidden;">
+                                        <a href="" class="d-block" style="height:60px;overflow: hidden;">
                                             <h2 class="col-12 py-1 px-0"
-                                                style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
+                                                style="line-height: 1.8;color:#333;font-size: 14px;">
                                                 {{ $service->title }}
                                             </h2>
                                         </a>
@@ -635,24 +506,25 @@
                                             <a href="/services?specialize=logos-design" class="d-block"
                                                 style="color:var(--bg-color-0);">
                                                 <span class="fal fa-tag"
-                                                    style="color:var(--bg-color-3);font-size: 11px;"></span><span
-                                                    style="opacity: .7;font-size: 11px;">
-                                                    {{ $service->category->name }}</span>
+                                                    style="color:#333;font-size: 11px;"></span>
+                                                <span style="opacity: .7;font-size: 11px;">
+                                                    {{ $service->category->name }}
+                                                </span>
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;"></div>
+                                    <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;">
+                                    </div>
                                     <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
                                         <div class="d-inline-block py-2 pr-3"
                                             style="height: 36px;overflow: hidden;width: auto;">
-                                            <span
-                                                style="color:#1dbf73;font-size: 14px;font-weight: bold;white-space: nowrap;"
-                                                class="d-inline-block">
+                                            <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
+                                                class="d-inline-block text-nowrap">
                                                 {{ $service->price }}
                                                 <span class="fas fa-usd-circle" style="font-size:12px"></span>
                                             </span>
                                         </div>
-                                        <div class="d-inline-block  py-2 d-flex justify-content-end align-items-center float-left"
+                                        <div class="d-inline-block py-2 d-flex justify-content-end align-items-center float-left"
                                             style="padding-left: 13px;">
                                             <div class="col-12 p-0" style="white-space: nowrap;">
                                                 <span class="fas fa-star"
@@ -674,7 +546,6 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                     <div class="col-12 px-0">
                         <nav>
