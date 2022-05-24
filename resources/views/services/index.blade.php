@@ -15,8 +15,7 @@
                                     wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;tLmfEG3zBxMfJHF8XY9F&quot;,&quot;name&quot;:&quot;search-services&quot;,&quot;locale&quot;:&quot;ar&quot;,&quot;path&quot;:&quot;services&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;7b28e0f3&quot;,&quot;data&quot;:{&quot;key&quot;:&quot;&quot;},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;746a417631b3e094976896d7053658fed64b1eb6090f035899b586df8fe67afb&quot;}}"
                                     class="col-12">
                                     <div class="col-12 px-0 mb-2" style="">
-                                        <form method="GET" action="/services" onsubmit="
-                            ">
+                                        <form method="GET" action="/services">
                                             <div class="col-12 px-0 row mx-auto " style="max-width: 100%;">
                                                 <input type="text" name="key" wire:model.debounce.200ms="key"
                                                     class="form-control main-nafez-box-styles "
@@ -35,20 +34,16 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-12 px-0 row">
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/تصميم وأعمال فنية وإبداعية"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/3" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background:var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/paint.svg" style="max-width: 100%;"
                                                     class="d-inline-block main-services-img" alt="الاستشارات و التدريب">
-                                                <div
-                                                    class="col-12 text-center font-1 pt-3 px-0 home-specialization-header">
+                                                <div class="col-12 text-center font-1 pt-3 px-0 home-specialization-header">
                                                     تصاميم فنية
                                                 </div>
                                             </div>
@@ -56,11 +51,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/برمجة، تطوير المواقع والتطبيقات"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/2" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background:var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/coding.svg" style="max-width: 100%; "
                                                     class="d-inline-block main-services-img" alt="برمجة و تطوير">
@@ -73,11 +66,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/أعمال وخدمات استشارية وإدارية"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/1" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background: var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background: var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/workspace.svg" style="max-width: 100%; "
                                                     class="d-inline-block main-services-img" alt="ترجمة و لغات">
@@ -90,11 +81,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/كتابة، صناعة محتوى، ترجمة ولغات"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/5" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background:var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/contract.svg" style="max-width: 100%; "
                                                     class="d-inline-block main-services-img" alt="الكتابة و التحرير">
@@ -107,11 +96,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/تسويق الكتروني ومبيعات"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/4" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background:var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/hand.svg" style="max-width: 100%; "
                                                     class="d-inline-block main-services-img" alt="التسويق و المبيعات">
@@ -124,11 +111,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/تدريب، تعليم ومساعدة عن بعد"
-                                        style="color: var(--bg-color-0);">
+                                    <a href="/service/6" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                    cursor: pointer
-                                     ;background:var(--bg-second-bg);border-radius: 0px;">
+                                                cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/advisor.svg" style="max-width: 100%;"
                                                     class="d-inline-block main-services-img" alt="الاستشارات و التدريب">
@@ -141,10 +126,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/أعمال وخدمات استشارية وإدارية" style="color: var(--bg-color-0);">
+                                    <a href="/service/1" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                    cursor: pointer
-                                     ;background:var(--bg-second-bg);border-radius: 0px;">
+                                                cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/wave.svg" style="max-width: 100%;"
                                                     class="d-inline-block main-services-img" alt="الاستشارات و التدريب">
@@ -157,10 +141,9 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/أمور أخرى" style="color: var(--bg-color-0);">
+                                    <a href="/service/7" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
-                                cursor: pointer
-                                 ;background:var(--bg-second-bg);border-radius: 0px;">
+                                            cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
                                                 <img src="/site_images/home/survey.svg" style="max-width: 100%;"
                                                     class="d-inline-block main-services-img" alt="الاستشارات و التدريب">

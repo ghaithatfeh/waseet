@@ -3,6 +3,7 @@
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,8 @@ Route::resources([
     'freelancers' => FreelancerController::class,
 ]);
 
-Route::get('/service/{category}', [ServiceController::class, 'service']);
+// Route::get('/service/{category}', [ServiceController::class, 'service']);
+Route::get('/service/{category}', Services::class);
 
 Auth::routes();
 

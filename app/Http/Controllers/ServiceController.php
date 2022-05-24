@@ -7,6 +7,7 @@ use App\Models\ServiceImage;
 use App\Models\ServiceSkill;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Livewire\Livewire;
 
 class ServiceController extends Controller
 {
@@ -52,12 +53,5 @@ class ServiceController extends Controller
             }
         }
         return redirect('services');
-    }
-    public function service($category)
-    {
-        // $services = Service::join('categories', 'services.category_id', '=', 'categories.id')
-        //     ->where(['categories.name' => $category])
-        //     ->get('services.*');
-        return view('services.services');
     }
 }

@@ -473,7 +473,7 @@
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class=" py-2  pt-3 px-2 mb-0 "> السعر </h2>
                                     <div style="" dir="ltr"
-                                        class="px-2  text-center nafezly-slider-projects-search nafezly-filter"
+                                        class="px-2 text-center nafezly-slider-projects-search nafezly-filter"
                                         style="direction: ltr">
                                         <input type="" name=""
                                             class="js-range-slider-service nafezly-transition pricing"
@@ -503,7 +503,7 @@
                                             </h2>
                                         </a>
                                         <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
-                                            <a href="/services?specialize=logos-design" class="d-block"
+                                            <a href="/service/{{ $service->category->id }}" class="d-block"
                                                 style="color:var(--bg-color-0);">
                                                 <span class="fal fa-tag"
                                                     style="color:#333;font-size: 11px;"></span>
@@ -548,18 +548,7 @@
                         @endforeach
                     </div>
                     <div class="col-12 px-0">
-                        <nav>
-                            <ul class="pagination">
-                                <li class="page-item disabled" aria-disabled="true">
-                                    <span class="page-link">&laquo; السابق</span>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link"
-                                        href="https://nafezly.com/services?specialize=design%2Clogos-design%2Ccovers-design%2Cbanners-design%2Cbusiness-cards%2Cpresentation-services%2Cvideo%2Cphoto-editing&amp;page=2"
-                                        rel="next">التالي &raquo;</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        {{ $services->links('pagination-links') }}
                     </div>
                 </div>
             </div>

@@ -784,6 +784,7 @@
             </nav>
             <main style="opacity:1;padding-top: 60px;z-index: 10" class="nafez-main-content">
                 @yield('content')
+                {{ $slot ?? '' }}
             </main>
         </div>
     </div>
@@ -799,8 +800,8 @@
     </script>
     <script type="text/javascript"></script>
     <script type="text/javascript"></script>
-    <script src="/livewire/livewire.js?id=a3766c6f9aadee9b7977" data-turbo-eval="false" data-turbolinks-eval="false">
-    </script>
+
+    @livewireScripts
     <script data-turbo-eval="false" data-turbolinks-eval="false">
         window.livewire = new Livewire();
         window.Livewire = window.livewire;
@@ -835,7 +836,7 @@
         integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
         data-cf-beacon='{"rayId":"70b32f372f708fd0","version":"2021.12.0","r":1,"token":"e3146e29712049fe8454df255b17cf54","si":100}'
         crossorigin="anonymous"></script>
-    @livewireScripts
+
 </body>
 
 </html>
