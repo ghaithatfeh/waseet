@@ -717,7 +717,7 @@
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal  fa-suitcase ml-2"></span> مشاريعي </li>
                                                     </a>
-                                                    <a href="/freelancer/{{ auth()->user()->id }}"
+                                                    <a href="/freelancers/{{ auth()->user()->id }}"
                                                         class="py-2 px-3  d-block hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal fa-user ml-2"></span> حسابي الشخصي</li>

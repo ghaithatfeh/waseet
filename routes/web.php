@@ -20,10 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/freelancers', function () {
-    return view('freelancers');
-});
+Route::view('/profile', 'freelancers.profile');
 
+Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
 
 Route::resources([
     'projects' => ProjectController::class,

@@ -22,6 +22,16 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'job_name',
+        'description',
+        'phone',
+        'social_media',
+        'gender',
+        'birthdate',
+        'likes',
+        'profile_image',
+        'status',
+        'category_id'
     ];
 
     /**
@@ -47,8 +57,24 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
+    
     public function services()
     {
         return $this->hasMany(Service::class);
+    }
+
+    public function specialization()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'user_skills');
     }
 }

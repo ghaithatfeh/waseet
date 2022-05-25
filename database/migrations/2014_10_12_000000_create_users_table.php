@@ -21,6 +21,19 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->string('job_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->nullable();
+            $table->date('birthdate')->nullable();
+            $table->integer('likes')->default(0);
+            $table->boolean('status')->default(1);
+            $table->text('description')->nullable();
+            $table->text('social_media')->nullable();
+            $table->text('profile_image')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('country_id')->nullable();
+
             $table->timestamps();
         });
     }

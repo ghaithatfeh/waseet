@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <div class="col-12 px-0">
             <div class="container pt-md-4 pt-2   " style="min-height: 90vh">
@@ -265,7 +264,7 @@
                                     style="border-radius: 8px!important;border:1px solid var(--bg-main-bg)!important;overflow: hidden;">
                                     <div
                                         style="width: 90px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;box-shadow: 0px 0px 12px var(--bg-main-bg);max-width: 100%; height: 90px; left: 0;   right: 0;margin: 10px auto;">
-                                        <a href="https://nafezly.com/u/mogtaba_ahmed">
+                                        <a href="/freelancers/1">
                                             <img src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/small/4483_1651756151_6273cc77a522f.jpg"
                                                 style="width: 100%;border-radius:inherit;padding: 6px;height: 100%;border-radius: 50%;">
                                         </a>
@@ -276,7 +275,7 @@
                                             class="fas verified-nafezly-badge fa-check-circle  text-center"
                                             data-placement="top" data-content="موثوق من منصة نفذلي" data-toggle="popover">
                                         </span>
-                                        <a href="https://nafezly.com/u/mogtaba_ahmed" style="color: inherit;">
+                                        <a href="/freelancers/1" style="color: inherit;">
                                             Mohammed Almogtaba
                                         </a>
                                         <span class='fas fa-circle' style='color:#3bc100;font-size:12px'></span>
@@ -304,7 +303,7 @@
                                             style="color: var(--bg-color-4);font-size:10px;"></span>
                                     </h6>
                                     <div class="col-12 py-3" style="background: var(--bg-second-bg)"><a
-                                            href="https://nafezly.com/u/mogtaba_ahmed" style="display: block;"><span
+                                            href="/freelancers/1" style="display: block;"><span
                                                 class="btn btn-success text-center hover-darker col-12 font-1"
                                                 style="background: var(--bg-color-3);border:none;border-radius: 4px;color: #fff">
                                                 الملف الشخصي</span></a></div>
