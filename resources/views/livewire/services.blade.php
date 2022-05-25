@@ -293,8 +293,8 @@
                                                     style="cursor: pointer;color: var(--bg-font-4)">تسويق الكتروني
                                                     ومبيعات </label>
                                                 <input type="checkbox" id="marketing" name="titles[]" data-ui=""
-                                                    data-filter="specialize" value="marketing"
-                                                    class="nafezly-filter main-cat-input" />
+                                                    data-filter="specialize" value="4"
+                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -335,8 +335,8 @@
                                                     style="cursor: pointer;color: var(--bg-font-4)">كتابة، صناعة محتوى،
                                                     ترجمة ولغات </label>
                                                 <input type="checkbox" id="writing-translation" name="titles[]"
-                                                    data-ui="" data-filter="specialize" value="writing-translation"
-                                                    class="nafezly-filter main-cat-input" />
+                                                    data-ui="" data-filter="specialize" value="5"
+                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -393,8 +393,8 @@
                                                     style="cursor: pointer;color: var(--bg-font-4)">تدريب، تعليم ومساعدة
                                                     عن بعد </label>
                                                 <input type="checkbox" id="training" name="titles[]" data-ui=""
-                                                    data-filter="specialize" value="training"
-                                                    class="nafezly-filter main-cat-input" />
+                                                    data-filter="specialize" value="6"
+                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -442,7 +442,7 @@
                                                 <label class="kufi font-1 d-inline " for="other"
                                                     style="cursor: pointer;color: var(--bg-font-4)">أمور أخرى </label>
                                                 <input type="checkbox" id="other" name="titles[]" data-ui=""
-                                                    data-filter="specialize" value="other"
+                                                    data-filter="specialize" value="7" wire:model="categories"
                                                     class="nafezly-filter main-cat-input" />
                                                 <div class="control_indicator"></div>
                                             </label>

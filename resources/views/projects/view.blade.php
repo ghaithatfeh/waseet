@@ -21,7 +21,7 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                        background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -57,7 +57,7 @@
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                        background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -87,7 +87,7 @@
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                        background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -545,36 +545,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                ماهي الطريقة الافضل لذلك ؟
+                                                                                                    ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                مثال :
-
-
-                                                                                                نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                المالية اليوم :
-
-                                                                                                مجموع الداخل 500000
-                                                                                                مجموع الخارج  250000
-
-                                                                                                المتبقي في الخزنة : 25000
+                                                                                                    مثال :
 
 
-                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                    نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                الصنف 1 متبقي 10فقط
+                                                                                                    المالية اليوم :
 
-                                                                                                الصنف 2 متبقي   4 فقط
+                                                                                                    مجموع الداخل 500000
+                                                                                                    مجموع الخارج  250000
 
-                                                                                                الصنف 9 متبقي منه 12 فقط.
+                                                                                                    المتبقي في الخزنة : 25000
 
-                                                                                                -  تقرير غرفة المراقبة
 
-                                                                                                وهكذا&source=وسيط"
+                                                                                                    تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                    الصنف 1 متبقي 10فقط
+
+                                                                                                    الصنف 2 متبقي   4 فقط
+
+                                                                                                    الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                    -  تقرير غرفة المراقبة
+
+                                                                                                    وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
@@ -632,26 +632,10 @@
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
                                                         @php
-                                                            $time = $project->created_at->diffInMinutes(Carbon\Carbon::now());
-                                                            $time_string = $time . ' دقائق';
-                                                            if ($time >= 60 && $time < 1440) {
-                                                                $time = $project->created_at->diffInHours(Carbon\Carbon::now());
-                                                                if ($time <= 2 || $time > 10) {
-                                                                    $time_string = $time . ' ساعة';
-                                                                } elseif ($time > 2) {
-                                                                    $time_string = $time . ' ساعات';
-                                                                }
-                                                            } elseif ($time >= 1440) {
-                                                                $time = $project->created_at->diffInDays(Carbon\Carbon::now());
-                                                                if ($time <= 2 || $time > 10) {
-                                                                    $time_string = $time . ' يوم';
-                                                                } elseif ($time > 2) {
-                                                                    $time_string = $time . ' أيام';
-                                                                }
-                                                            }
+                                                            Carbon\Carbon::setLocale('ar_EH');
+                                                            $time = $project->created_at->diffForHumans(Carbon\Carbon::now());
                                                         @endphp
-                                                        منذ
-                                                        {{ $time_string }}
+                                                        {{ $time }}
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -671,7 +655,8 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        {{ number_format($project->budget->from) . ' - ' . number_format($project->budget->to) }} ل.س
+                                                        {{ number_format($project->budget->from) . ' - ' . number_format($project->budget->to) }}
+                                                        ل.س
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">
@@ -748,36 +733,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                ماهي الطريقة الافضل لذلك ؟
+                                                                                                    ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                مثال :
-
-
-                                                                                                نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                المالية اليوم :
-
-                                                                                                مجموع الداخل 500000
-                                                                                                مجموع الخارج  250000
-
-                                                                                                المتبقي في الخزنة : 25000
+                                                                                                    مثال :
 
 
-                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                    نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                الصنف 1 متبقي 10فقط
+                                                                                                    المالية اليوم :
 
-                                                                                                الصنف 2 متبقي   4 فقط
+                                                                                                    مجموع الداخل 500000
+                                                                                                    مجموع الخارج  250000
 
-                                                                                                الصنف 9 متبقي منه 12 فقط.
+                                                                                                    المتبقي في الخزنة : 25000
 
-                                                                                                -  تقرير غرفة المراقبة
 
-                                                                                                وهكذا&source=وسيط"
+                                                                                                    تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                    الصنف 1 متبقي 10فقط
+
+                                                                                                    الصنف 2 متبقي   4 فقط
+
+                                                                                                    الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                    -  تقرير غرفة المراقبة
+
+                                                                                                    وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
