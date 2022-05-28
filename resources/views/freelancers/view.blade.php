@@ -66,7 +66,7 @@
                                         <span class="fas fa-user-tie pl-2 mb-md-3 mb-2 mb-md-0 "></span>
                                         {{ $user->job_name }}
                                         &nbsp; <span class="fas fa-map-marker-alt pl-2"></span>
-                                        {{ $user->country }}
+                                        {{ $user->country->name ?? '' }}
                                     </h3>
                                     <div class="col-12 px-0 text-center text-md-right col-12 col-lg-4 col-md-7 ">
                                         <span
@@ -93,7 +93,7 @@
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
                                                             id="counter_628e639a6bf90">
-                                                            {{ $user->likes != 0 ? $user->likes : '' }}
+                                                            {{ $user->likes ?? '' }}
                                                         </span>
                                                         <span class="d-inline-block love-favourite-area noselect  "
                                                             style=" cursor: pointer;" data-id="628e639a6bf90"
@@ -281,8 +281,9 @@
                                                 style="color: var(--bg-color-0);">نبذة عني</h6>
                                         </div>
                                         <div class="col-6  text-left pt-2">
-                                            @if(auth()->id() == $user->id)
-                                                <span class="btn btn-primary cairo font-1 edit-bio-btn" style="cursor: pointer;"
+                                            @if (auth()->id() == $user->id)
+                                                <span class="btn btn-primary cairo font-1 edit-bio-btn"
+                                                    style="cursor: pointer;"
                                                     onclick="$(this).fadeToggle(0);$('.bio-old').fadeOut(0);$('.bio-new').slideDown();"><span
                                                         class="fal fa-edit"></span> تعديل </span>
                                             @endif
@@ -295,7 +296,8 @@
 
                                     {{-- لتعديل الوصف لصاحب اليوزر --}}
                                     <div class="col-12 bio-new pb-4 pt-4" style="display: none;">
-                                        <form method="POST" action="/freelancers/edit-bio/{{$user->id}}" class="col-12">
+                                        <form method="POST" action="/freelancers/edit-bio/{{ $user->id }}"
+                                            class="col-12">
                                             @method('PUT')
                                             @csrf
                                             <textarea class="form-control" style="min-height: 200px" name="description">
@@ -321,7 +323,13 @@
                                             <h6 class="heada__title kufi font-2   px-3 py-3 mb-0"
                                                 style="color: var(--bg-color-0);">مهاراتي</h6>
                                         </div>
-                                        <div class="col-6  text-left pt-2">
+                                        <div class="col-6 text-left pt-2">
+                                            @if (auth()->id() == $user->id)
+                                                <a href="https://nafezly.com/profile/nafezly-settings"
+                                                    class="btn btn-primary  font-1 edit-bio-btn"
+                                                    style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-12 py-3 d-flex row">

@@ -3,6 +3,8 @@
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Livewire\Freelancers;
+use App\Http\Livewire\Projects;
 use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('/profile', 'freelancers.profile');
 
 Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
 
@@ -32,6 +33,8 @@ Route::resources([
 
 // Route::get('/service/{category}', [ServiceController::class, 'service']);
 Route::get('/service/{category}', Services::class);
+Route::get('/freelancers', Freelancers::class);
+Route::get('/projects', Projects::class);
 
 Auth::routes();
 

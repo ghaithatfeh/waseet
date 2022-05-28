@@ -21,7 +21,7 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                        background: rgba(0, 0, 0, 0.45);">
+                                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -57,7 +57,7 @@
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                        background: rgba(0, 0, 0, 0.45);">
+                                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -87,7 +87,7 @@
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                        background: rgba(0, 0, 0, 0.45);">
+                                                                                                                    background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -275,32 +275,149 @@
                             </div>
                             <div class="col-12 px-0 py-1 py-lg-3" id="add-offer">
                                 <div class="col-12 px-0 main-nafez-box-styles">
-                                    <div class="col-12   main-nafez-box-styles px-0">
+                                    <div class="col-12 main-nafez-box-styles px-0">
                                         <div class="col-12 pt-3 pb-2" style="border-bottom: 1px solid var(--bg-main-bg)">
                                             <h5 style="color: var(--bg-color-0);font-size: 17px">أضف عرضك الآن
                                             </h5>
                                         </div>
                                         <div class="col-12 p-0 ">
-                                            <div class="col-12 px-0 py-3 text-center font-1 ">
-                                                <div class="col-12 px-0 row text-center justify-content-center d-flex">
-                                                    <a href="/login"
-                                                        class=" text-center    ml-1 
-                                                "
-                                                        style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
-                                                        href="https://nafezly.com/freelancers">
-                                                        <button class="btn btn-primary py-2 rounded-0"
-                                                            style="border-radius: 3px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
-                                                    </a>
-                                                    <a href="/register"
-                                                        class=" text-center  ml-1 ml-1  
-                                                "
-                                                        style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
-                                                        href="https://nafezly.com/freelancers">
-                                                        <button class="btn btn-primary py-2 rounded-0"
-                                                            style="border-radius: 3px;">حساب جديد</button>
-                                                    </a>
+                                            @guest
+                                                <div class="col-12 px-0 py-3 text-center font-1 ">
+                                                    <div class="col-12 px-0 row text-center justify-content-center d-flex">
+                                                        <a href="/login" class="text-center ml-1"
+                                                            style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
+                                                            href="https://nafezly.com/freelancers">
+                                                            <button class="btn btn-primary py-2 rounded-0"
+                                                                style="border-radius: 3px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
+                                                        </a>
+                                                        <a href="/register" class="text-center ml-1 ml-1"
+                                                            style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
+                                                            href="https://nafezly.com/freelancers">
+                                                            <button class="btn btn-primary py-2 rounded-0"
+                                                                style="border-radius: 3px;">حساب جديد</button>
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endguest
+                                            @auth
+                                                <div class="col-12 mt-4  px-0 mt-0 aardk pb-2">
+                                                    <div class="col-12 mt-2  px-0 px-md-2">
+                                                        <form class="col-12 px-0 row" id="offer-form" method="POST"
+                                                            action="https://nafezly.com/offer/create">
+                                                            <input type="hidden" name="_token"
+                                                                value="ScqOFeeHg6q2pf7RvkfxSkhqZfhnHvUNtRHqlYXy">
+                                                            <div class="col-12 px-0 mb-2 row">
+                                                                <input type="hidden" name="project_id" value="5752">
+                                                                <div class="col-6  col-md-4 ">
+                                                                    <div class="col-12 mt-2   font-1 px-0">
+                                                                        مدة التنفيذ <span style="color: #919191;font-size: 12px"
+                                                                            class="naskh">( بالايام )</span>
+                                                                    </div>
+                                                                    <div class="col-12 mt-2 row px-0">
+                                                                        <div class="col-12 px-0">
+                                                                            <input type="number" name="period"
+                                                                                class="form-control" min="1" max="90"
+                                                                                required="" id="period">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6  col-md-4 ">
+                                                                    <div class="col-12 mt-2  font-1 px-0">
+                                                                        قيمة عرضك <span style="color: #919191;font-size: 12px"
+                                                                            class="naskh">(
+                                                                            بالدولار )</span>
+                                                                    </div>
+                                                                    <div class="col-12 mt-2 row px-0">
+                                                                        <div class="col-12 px-0">
+                                                                            <input type="number" name="cost"
+                                                                                class="form-control" required="" min="50"
+                                                                                max="200" id="cost"
+                                                                                onkeyup="$('#gain_value').val($(this).val()- ($(this).val()*15/100) );$('.gain_value').text($(this).val()- ($(this).val()*15/100) );">
+                                                                            <div class="d-md-none naskh font-1"
+                                                                                style="font-size: 12px;color: var(--bg-font-4);padding-top: 3px">
+                                                                                مستحقاتك <span class="gain_value"
+                                                                                    style="font-size: 12px;">0</span>
+                                                                                $
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  col-md-4  d-none d-md-block">
+                                                                    <div class="col-12 mt-2  px-0 font-1">
+                                                                        سوف تحصل على <span
+                                                                            style="color: #919191;font-size: 12px"
+                                                                            class="naskh">( بالدولار )</span>
+                                                                    </div>
+                                                                    <div class="col-12 mt-2 row px-0">
+                                                                        <div class="col-12 px-0">
+                                                                            <input type="number" class="form-control"
+                                                                                required="" min="50" max="200" id="gain_value"
+                                                                                disabled="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  px-0 mt-2">
+                                                                    <div class="col-12 mt-2 font-1 ">
+                                                                        تفاصيل عرضك
+                                                                    </div>
+                                                                    <div class="col-12 mt-2">
+                                                                        <textarea class="form-control mb-2" style="min-height: 234px;" placeholder="تفاصيل العرض" required="" minlength="30"
+                                                                            maxlength="5000" id="offer_description"
+                                                                            name="offer_description"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12  row">
+                                                                    <div class="col-6   px-0 mt-2 pt-2">
+                                                                        <span class="btn btn-light pt-2 pb-1  "
+                                                                            style="background: #eee;border:1px solid #ddd;font-size: 13px;cursor: pointer;"
+                                                                            onclick="$('.attach').slideToggle();">
+                                                                            <h6 class=" px-0 mb-1 font-1"> <span
+                                                                                    class="fal fa-paperclip"
+                                                                                    aria-hidden="true"></span> إرفاق ملفات </h6>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="col-6  px-0 mt-2 pt-2 text-left">
+                                                                        <button class="btn btn-primary  pb-2 font-1"
+                                                                            style="border:none; display: inline-block;"
+                                                                            id="make-offer">
+                                                                            تقديم عرضك
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12   mb-3">
+                                                                </div>
+                                                                <div class="col-12 attach "
+                                                                    style="display: none;overflow: hidden!important">
+                                                                    <div class="col-12 px-0" id="file-uploader-nafezly">
+                                                                        <input name="file" type="file" multiple
+                                                                            class="file-uploader-files"
+                                                                            data-fileuploader-files='[]' style="opacity: 0" />
+                                                                    </div>
+                                                                    <div class="col-12 px-0 py-2"></div>
+                                                                </div>
+                                                                <div class="col-12 px-0">
+                                                                    <ul>
+                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                            class="naskh">لا
+                                                                            تستخدم وسائل تواصل خارجية</li>
+                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                            class="naskh">لا
+                                                                            تضع روابط خارجية، قم بالاهتمام <a
+                                                                                href="/my/portfolios" class="naskh">
+                                                                                بمعرض أعمالك </a> بدلا منها</li>
+                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                            class="naskh">اقرا
+                                                                            <a href="https://blog.nafezly.com/how-to-write-good-proposal-in-nafezly/"
+                                                                                class="naskh">هنا كيف تضيف عرضا مميزا
+                                                                                على أي مشروع </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            @endauth
                                         </div>
                                     </div>
                                 </div>
@@ -353,10 +470,9 @@
                                                         <a href="https://nafezly.com/u/raafatc" style="display: block;">
                                                             <div style="width: 55px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;max-height: 55px;"
                                                                 class="d-inline-block">
-                                                                <img data-src=""
-                                                                    src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/small/23046_1651361072_626dc5305f6eb.jpg"
+                                                                <img data-src="" src=""
                                                                     style="width: 100%;border-radius: 50%!important;padding: 3px;height: 45px"
-                                                                    alt="صورة صاحب مقدم العرض">
+                                                                    alt="صورة مقدم العرض">
                                                             </div>
                                                         </a>
                                                     </div>
@@ -545,36 +661,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                    ماهي الطريقة الافضل لذلك ؟
+                                                                                                                ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                    مثال :
-
-
-                                                                                                    نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                    المالية اليوم :
-
-                                                                                                    مجموع الداخل 500000
-                                                                                                    مجموع الخارج  250000
-
-                                                                                                    المتبقي في الخزنة : 25000
+                                                                                                                مثال :
 
 
-                                                                                                    تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                    الصنف 1 متبقي 10فقط
+                                                                                                                المالية اليوم :
 
-                                                                                                    الصنف 2 متبقي   4 فقط
+                                                                                                                مجموع الداخل 500000
+                                                                                                                مجموع الخارج  250000
 
-                                                                                                    الصنف 9 متبقي منه 12 فقط.
+                                                                                                                المتبقي في الخزنة : 25000
 
-                                                                                                    -  تقرير غرفة المراقبة
 
-                                                                                                    وهكذا&source=وسيط"
+                                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                الصنف 1 متبقي 10فقط
+
+                                                                                                                الصنف 2 متبقي   4 فقط
+
+                                                                                                                الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                -  تقرير غرفة المراقبة
+
+                                                                                                                وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
@@ -690,19 +806,19 @@
                                                     style="flex-wrap: nowrap;">
                                                     <div class="d-flex align-items-center" style="width:calc(100% - 96px)">
                                                         <a href="https://nafezly.com/u/oulka11" class="d-inline-block">
-                                                            <img src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/small/8117_1605639900_5fb41edce8a68.jpg"
+                                                            <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
                                                                 style="width: 70px;border-radius:inherit;padding: 6px;;border-radius: 50%;height: 70px;">
                                                         </a>
                                                         <div class="d-inline-block px-1" style="font-size:15px">
                                                             <a href="https://nafezly.com/u/oulka11" style="color: inherit;">
-                                                                Nasim Lemine
+                                                                {{ $project->user->first_name . ' ' . $project->user->last_name }}
                                                             </a>
                                                             <div class="d-block mt-1"
                                                                 style="font-size:10px;opacity: 0.7;">
                                                                 <span class="d-inline-block">
                                                                     <span
                                                                         class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
-                                                                    موريتانيا
+                                                                    {{ $project->user->country->name }}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -733,36 +849,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                    واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                    ماهي الطريقة الافضل لذلك ؟
+                                                                                                                ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                    وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                    مثال :
-
-
-                                                                                                    نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                    المالية اليوم :
-
-                                                                                                    مجموع الداخل 500000
-                                                                                                    مجموع الخارج  250000
-
-                                                                                                    المتبقي في الخزنة : 25000
+                                                                                                                مثال :
 
 
-                                                                                                    تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                    الصنف 1 متبقي 10فقط
+                                                                                                                المالية اليوم :
 
-                                                                                                    الصنف 2 متبقي   4 فقط
+                                                                                                                مجموع الداخل 500000
+                                                                                                                مجموع الخارج  250000
 
-                                                                                                    الصنف 9 متبقي منه 12 فقط.
+                                                                                                                المتبقي في الخزنة : 25000
 
-                                                                                                    -  تقرير غرفة المراقبة
 
-                                                                                                    وهكذا&source=وسيط"
+                                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                الصنف 1 متبقي 10فقط
+
+                                                                                                                الصنف 2 متبقي   4 فقط
+
+                                                                                                                الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                -  تقرير غرفة المراقبة
+
+                                                                                                                وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
