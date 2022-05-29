@@ -120,8 +120,8 @@
                                     <div class="col-12 px-0" id="file-uploader-nafezly">
                                         <input type="hidden" name="uploaded_files" value=""
                                             class="file-uploader-uploaded-files">
-                                        <input name="file" type="file" multiple class="file-uploader-files"
-                                            data-fileuploader-files="" style="opacity: 0" />
+                                            <input name="file" type="file" multiple class="file-uploader-files"
+                                                data-fileuploader-files="" style="opacity: 0" />
                                     </div>
                                 </div>
                                 <div class="col-12 pb-3">
@@ -135,16 +135,16 @@
                     <div class="col-12    px-4 col-12 col-lg-4 d-none d-lg-block">
                         <div class="col-12 px-2">
                             <div class="col-12 px-0 mb-4">
-                                <h6 class="pb-2 col-12 px-0">أنشر مشروعك على نفذلي</h6>
-                                <div class="col-12 px-0 d-none d-lg-block mb-2">
+                                <h6 class="pb-2 col-12 px-0">أنشر مشروعك على وسيط</h6>
+                                {{-- <div class="col-12 px-0 d-none d-lg-block mb-2">
                                     <iframe
                                         src="https://www.youtube.com/embed/0xor8bLf5NE?controls=1&rel=0&showinfo=0&color=white"
                                         style="width: 100%;height: 202px" allowfullscreen></iframe>
-                                </div>
+                                </div> --}}
                                 <div class="col-12 px-0">
                                     <p style="color: var(--bg-font-4);font-size: 16px" class="naskh">تساعدك منصة
-                                        نفذلي على الوصول إلى أفضل المستقلين المحترفين لإنجاز أعمالك عن بعد . بعد إضافة
-                                        مشروعك على نفذلي ومراجعته ، سيتقدم إليك عدد من العروض من المستقلين المتخصيين يمكنك
+                                        وسيط على الوصول إلى أفضل المستقلين المحترفين لإنجاز أعمالك عن بعد . بعد إضافة
+                                        مشروعك على وسيط ومراجعته ، سيتقدم إليك عدد من العروض من المستقلين المتخصيين يمكنك
                                         إختيار العرض الأنسب لك من العروض المقدمة وإعتماده </p>
                                 </div>
                             </div>
