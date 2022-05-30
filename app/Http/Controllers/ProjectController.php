@@ -61,4 +61,9 @@ class ProjectController extends Controller
     {
         //
     }
+
+    public function upload(Request $request)
+    {
+        return true;
+    }
 }

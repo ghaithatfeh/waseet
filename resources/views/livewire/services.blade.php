@@ -294,7 +294,7 @@
                                                     ومبيعات </label>
                                                 <input type="checkbox" id="marketing" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="4"
-                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -336,7 +336,7 @@
                                                     ترجمة ولغات </label>
                                                 <input type="checkbox" id="writing-translation" name="titles[]"
                                                     data-ui="" data-filter="specialize" value="5"
-                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -394,7 +394,7 @@
                                                     عن بعد </label>
                                                 <input type="checkbox" id="training" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="6"
-                                                    class="nafezly-filter main-cat-input" wire:model="categories"/>
+                                                    class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -490,15 +490,17 @@
                             <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
                                 <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
                                     <div class="col-12 position-relative" style="padding-top: 70%;">
-                                        <a href="" class="d-block">
+                                        <a href="{{ route('services.show', ['service' => $service]) }}"
+                                            class="d-block">
                                             <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
                                                 style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
                                         </a>
                                     </div>
                                     <div class="col-12 font-1 p-2 ">
-                                        <a href="" class="d-block" style="height:60px;overflow: hidden;">
+                                        <a href="{{ route('services.show', ['service' => $service]) }}"
+                                            class="d-block" style="height:60px;overflow: hidden;">
                                             <h2 class="col-12 py-1 px-0"
-                                                style="line-height: 1.8;color:#333;font-size: 14px;">
+                                                style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
                                                 {{ $service->title }}
                                             </h2>
                                         </a>
@@ -506,7 +508,7 @@
                                             <a href="/service/{{ $service->category->id }}" class="d-block"
                                                 style="color:var(--bg-color-0);">
                                                 <span class="fal fa-tag"
-                                                    style="color:#333;font-size: 11px;"></span>
+                                                    style="color:var(--bg-color-3);font-size: 11px;"></span>
                                                 <span style="opacity: .7;font-size: 11px;">
                                                     {{ $service->category->name }}
                                                 </span>

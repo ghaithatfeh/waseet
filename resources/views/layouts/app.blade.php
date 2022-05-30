@@ -304,8 +304,6 @@
             }(w, d, 0, "script");
         })(window, document);
     </script>
-
-
     @livewireStyles
 </head>
 <style type="text/css">
@@ -837,6 +835,317 @@
         data-cf-beacon='{"rayId":"70b32f372f708fd0","version":"2021.12.0","r":1,"token":"e3146e29712049fe8454df255b17cf54","si":100}'
         crossorigin="anonymous"></script>
 
+    <script>
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            rtl: true,
+            loop: true,
+            navRewind: false,
+            lazyLoad: true,
+            autopaly: true,
+            autopalyHoverPause: true,
+            navigation: false,
+            nav: true
+        });
+
+
+
+        @yield('script')
+    </script>
+
+
+    <style>
+        .selectize-input {
+            border: 1px solid #cdcdcd;
+        }
+
+        .fileuploader-theme-dragdrop .fileuploader-input {
+            border-radius: 0px !important;
+            border: 1px solid #cdcdcd !important;
+        }
+
+        .fileuploader {
+            margin: 0px !important;
+        }
+
+        .fileuploader-input {
+            text-align: center;
+        }
+
+        .fileuploader-input * {
+            text-align: center;
+        }
+
+        .fileuploader-theme-dragdrop .fileuploader-input {
+            background: var(--bg-second-bg);
+            border: 1px dashed var(--bg-main-bg);
+        }
+
+        .fileuploader {
+            background: var(--bg-second-bg);
+
+            padding: 0px;
+        }
+
+        /*  .dropzone{
+        padding: 0px!important;
+    }
+*/
+        *[class^="fileuploader"] {
+            direction: ltr !important;
+
+        }
+
+        .fileuploader-items .fileuploader-item {
+            padding: 7px !important;
+        }
+
+        .fileuploader-items-list {
+            width: 100% !important;
+            margin: 0px !important;
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            /*padding-top: 5px!important;
+        padding-bottom: 5px!important; */
+        }
+
+        .fileuploader-popup {
+            z-index: 66666666666666666;
+
+        }
+
+        .fileuploader-popup * {
+            text-align: center !important;
+
+        }
+
+        .fileuploader-popup-button[data-action="cancel"] {
+            font-size: 0px !important
+        }
+
+        .fileuploader-popup .fileuploader-popup-header .fileuploader-popup-button {
+            padding: 5px 15px !important;
+            text-shadow: none;
+        }
+
+        .fileuploader-popup-button[data-action="cancel"]:after {
+            content: 'إغلاق';
+            font-size: 13px !important
+        }
+
+        .fileuploader-popup-footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .fileuploader-popup .fileuploader-popup-tools button[data-action="remove"] {
+            font-size: 0px !important
+        }
+
+        .fileuploader-popup .fileuploader-popup-tools button[data-action="remove"]:after {
+            content: ' حذف';
+            font-size: 13px !important
+        }
+
+        *[class^="fileuploader-icon-"] {
+            text-align: center !important;
+        }
+
+        .fileuploader-items .fileuploader-item {
+            border-color: var(--bg-second-bg) !important;
+        }
+
+        .fileuploader-items .fileuploader-item .fileuploader-action+.fileuploader-action {
+            margin-left: 0px !important;
+            margin-right: 16px !important;
+        }
+
+        .fileuploader-input {
+            padding-top: 30px !important;
+            padding-bottom: 30px !important;
+        }
+
+        .fileuploader-icon-main {
+            margin: 0px !important;
+            padding: 10px !important;
+            font-size: 30px !important;
+        }
+
+        .fileuploader-input-caption {
+            font-size: 14px !important;
+        }
+
+        .fileuploader-input-inner p,
+        .fileuploader-input-button {
+            display: none !important
+        }
+
+        .fileuploader-input-inner:hover {
+            opacity: .5 !important;
+        }
+
+        .fileuploader-icon-remove:before {
+            content: "\e923";
+            position: relative;
+            top: -2px;
+        }
+
+    </style>
+    <script>
+        $('#file-uploader-nafezly .file-uploader-files').fileuploader({
+            addMore: true,
+            limit: 20,
+            maxSize: 50,
+            inputNameBrackets: false,
+            enableApi: true,
+            extensions: ['3gp', '7z', '7zip', 'ai', 'apk', 'avi', 'bin', 'bmp', 'bz2', 'css', 'csv', 'doc', 'docx',
+                'egg',
+                'flv', 'gif', 'gz', 'h264', 'htm', 'html', 'ia', 'icns', 'ico', 'jpeg', 'jpg', 'm4v',
+                'markdown', 'md', 'mdb', 'mkv', 'mov', 'mp3', 'mp4', 'mpa', 'mpeg', 'mpg', 'mpga',
+                'octet-stream', 'odp', 'ods', 'odt', 'ogg', 'otf', 'pak', 'pdf', 'pea', 'png', 'pps', 'ppt',
+                'pptx', 'psd', 'rar', 'rm', 'rss', 'rtf', 's7z', 'sql', 'svg', 'tar', 'tar', 'gz', 'tbz2',
+                'tex', 'tgz', 'tif', 'tiff', 'tlz', 'ttf', 'vob', 'wav', 'webm', 'wma', 'wmv', 'xhtml', 'xlr',
+                'xls', 'xlsx', 'xml', 'z', 'zip', 'zipx', 'qt'
+            ],
+            changeInput: '<div class="fileuploader-input mb-2">' +
+                '<div class="fileuploader-input-inner">' +
+                '<div class="fileuploader-icon-main"></div>' +
+                '<h3 class="fileuploader-input-caption"><span>قم بإرفاق الملفات</span></h3>' +
+                '<p>${captions.or}</p>' +
+                '<button type="button" class="fileuploader-input-button"><span>${captions.button}</span></button>' +
+                '</div>' +
+                '</div>',
+            theme: 'dragdrop',
+
+            captions: {
+                button: function(options) {
+                    return 'تصفح ' + (options.limit == 1 ? 'ملف' : 'ملفات');
+                },
+                feedback: function(options) {
+                    return 'اختر ' + (options.limit == 1 ? '1' : 'ملف') + ' للرفع';
+                },
+                feedback2: function(options) {
+                    return options.length + ' ' + (options.length > 1 ? 'ملفات هنا' : 'ملفات كانت') + ' مختارة';
+                },
+                confirm: 'تأكيد',
+                cancel: 'الغاء',
+                name: 'الاسم',
+                type: 'النوع',
+                size: 'الحجم',
+                dimensions: 'الأبعاد',
+                duration: 'المدة',
+                crop: 'اقتصاص',
+                rotate: 'تدوير',
+                sort: 'ترتيب',
+                download: 'تحميل',
+                remove: 'حذف',
+                drop: 'قم بافلات الملفات هنا للرفع',
+                paste: '<div class="fileuploader-pending-loader"></div> ملف تالف اضغط للحذف.',
+                removeConfirmation: 'هل أنت متأكد من حذف الملف ?',
+                errors: {
+                    filesLimit: function(options) {
+                        return 'فقط ${limit} ' + (options.limit == 1 ? 'ملف' : 'ملفات') + ' يمكن رفعها.'
+                    },
+                    filesType: 'فقط ${extensions} الانواع السابقة من الملفات التي يمكن رفعها.',
+                    fileSize: '${name} حجمه كبير جداً! يمكن رفع ملفات لحد أقصى ${fileMaxSize}MB.',
+                    filesSizeAll: 'الملفات المستخدمة كبيرة للغاية! من فضلك قم بإختيار ملفات لحد اقصى ${maxSize} MB.',
+                    fileName: 'الملف بالاسم ${name} مستخدم من قبل.',
+                    remoteFile: 'دوران الملف غير مسموح به.',
+                    folderUpload: 'ملفات غير مدعومة.'
+                }
+            },
+
+            upload: {
+                url: '{{ route("upload") }}',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                type: 'POST',
+                enctype: 'multipart/form-data',
+                start: true,
+                synchron: true,
+                beforeSend: null,
+                onSuccess: function(result, item) {
+                    console.log(result);
+                    $("#submitEvaluation").attr("disabled", false);
+                    $('.pace-inactive').fadeOut('fast');
+                    var data = {};
+                    // get data
+                    if (result && result.files)
+                        data = result;
+                    else
+                        data.hasWarnings = true;
+                    // if success
+                    if (data.isSuccess && data.files[0]) {
+                        item.name = data.files[0].name;
+                        item.html.find('.column-title > div:first-child').text(data.files[0].name).attr('title',
+                            data.files[0].name);
+                    }
+                    // if warnings
+                    if (data.hasWarnings) {
+                        for (var warning in data.warnings) {
+                            alert(data.warnings[warning]);
+                        }
+                        item.html.removeClass('upload-successful').addClass('upload-failed');
+                        // go out from success function by calling onError function
+                        // in this case we have a animation there
+                        // you can also response in PHP with 404
+                        return this.onError ? this.onError(item) : null;
+                    }
+                    item.html.find('.fileuploader-action-remove').addClass('fileuploader-action-success');
+                    setTimeout(function() {
+                        item.html.find('.progress-bar2').fadeOut(400);
+                    }, 400);
+                },
+                onError: function(item) {
+                    $("#submitEvaluation").attr("disabled", false);
+                    $('.pace-inactive').fadeOut('fast');
+                    var progressBar = item.html.find('.progress-bar2');
+                    if (progressBar.length) {
+                        progressBar.find('span').html(0 + "%");
+                        progressBar.find('.fileuploader-progressbar .bar').width(0 + "%");
+                        item.html.find('.progress-bar2').fadeOut(400);
+                    }
+                    item.upload.status != 'cancelled' && item.html.find('.fileuploader-action-retry').length ==
+                        0 ? item.html.find('.column-actions').prepend(
+                            '<button type="button" class="fileuploader-action fileuploader-action-retry text-center" style="background:#03A9F4;border-radius:50%;margin-left:10px;" title="اعادة المحاولة"><i class="far fa-redo-alt font-1" style="color:#fff;position: relative;left: -2px;top: -2px;padding: 1px;"></i></button>'
+                        ) : null;
+                },
+                onProgress: function(data, item) {
+                    $("#submitEvaluation").attr("disabled", true);
+                    $('.pace-inactive').fadeIn('fast');
+                    var progressBar = item.html.find('.progress-bar2');
+                    if (progressBar.length > 0) {
+                        progressBar.show();
+                        progressBar.find('span').html(data.percentage + "%");
+                        progressBar.find('.fileuploader-progressbar .bar').width(data.percentage + "%");
+                    }
+                },
+                onComplete: null,
+            },
+            onRemove: function(item) {
+                $.ajax({
+                    url: 'https://nafezly.com/ajax/project/delete-file',
+                    method: 'POST',
+                    data: {
+                        name: item.name,
+                        '_token': 'Z3WrjXrtyhCz3Vv61uzZv3NWoMugL9oDyIqTnDDL',
+                        type: 'new',
+                        parent_id: item.name
+                    }
+                }).done(function(msg) {
+                    console.log(msg);
+                });
+            },
+            captions: $.extend(true, {}, $.fn.fileuploader.languages['en'], {
+                feedback: 'اضغط او قم بالسحب و الافلات هنا',
+                feedback2: 'رفع المزيد',
+                drop: 'قم بإفلات الملفات',
+                or: 'او',
+                button: 'تصفح الملفات',
+            })
+        });
+    </script>
 </body>
 
 </html>

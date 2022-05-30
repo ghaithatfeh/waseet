@@ -54,4 +54,9 @@ class ServiceController extends Controller
         }
         return redirect('services');
     }
+
+    public function show(Service $service)
+    {
+        return view('services.view', ['service' => $service]);
+    }
 }
