@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -21,13 +22,11 @@ class Freelancers extends Component
     {
         $search_value = '%' . $this->search . '%';
         if ($this->categories == [])
-            $users = User::where('first_name', 'LIKE', $search_value)
-                ->orWhere('last_name', 'LIKE', $search_value)
+            $users = User::where(DB::raw('CONCAT(first_name, " ",last_name)'), 'LIKE', $search_value)
                 ->paginate(2);
         else
             $users = User::whereIn('category_id', $this->categories)
-                ->where('first_name', 'LIKE', $search_value)
-                ->orWhere('last_name', 'LIKE', $search_value)
+                ->where(DB::raw('CONCAT(first_name, " ",last_name)'), 'LIKE', $search_value)
                 ->paginate(2);
 
         return view('livewire.freelancers', ['users' => $users]);

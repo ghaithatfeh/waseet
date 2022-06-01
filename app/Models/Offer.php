@@ -9,6 +9,8 @@ class Offer extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['deadline', 'price', 'description', 'project_id', 'user_id'];
+
     public function projects()
     {
         return $this->belongsTo(Project::class);
@@ -16,5 +18,9 @@ class Offer extends Model
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+    public function attachments()
+    {
+        return $this->hasMany(Attachment::class);
     }
 }

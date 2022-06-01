@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('description');
             $table->float('price');
-            $table->date('deadline');
+            $table->integer('deadline');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('project_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

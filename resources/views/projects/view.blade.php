@@ -21,7 +21,7 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -57,7 +57,7 @@
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -87,7 +87,7 @@
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                    background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -252,6 +252,33 @@
                                             {{ $project->description }}
                                         </h2>
                                         <div class="col-12 p-0 mt-2">
+                                            @foreach ($project->attachments as $attachment)
+                                                <div class="col-12 px-0">
+                                                    <a href="{{ asset('uploaded_images/projects/' . $attachment->file_name) }}"
+                                                        class="d-block hover-light not-pace group_msg_attach_6297c242e8b1a"
+                                                        style="padding: 4px;margin-bottom: 4px"
+                                                        rel='group_msg_attach_6297c242e8b1a' download>
+                                                        <div style="border-top: none; " class="px-2 pb-1">
+                                                            <span
+                                                                style="color: var(--bg-font-4);border-radius: 50px;padding-top: 3px;line-height: 1.2"
+                                                                class=" d-inline-block text-center">
+                                                                <span class="far fa-paperclip p-1"></span>
+                                                            </span>
+                                                            <span style="direction: ltr;position: relative;top: -2px"
+                                                                class="d-inline-block   naskh font-small">
+                                                                {{ $attachment->file_name }}
+                                                            </span>
+                                                            <span class="d-inline-block font-small naskh"
+                                                                style="color: var(--bg-font-4);position: relative;top: -2px">
+                                                                [
+                                                                {{ round(filesize('uploaded_images/projects/' . $attachment->file_name) / 1048576, 2) }}
+                                                                ميغا
+                                                                ]
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -262,9 +289,6 @@
                                         <h5 style="font-size: 17px;color:var(--bg-color-0)"> مهارات مطلوبة</h5>
                                     </div>
                                     <div class="col-12 p-3 row d-flex">
-                                        <a href="https://nafezly.com/projects/skill/html"
-                                            class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
-                                                class="far fa-tags pl-1"></span> HTML</a>
                                         @foreach ($project->skills as $skill)
                                             <a href="https://nafezly.com/projects/skill/html"
                                                 class="mx-1 d-inline-block btn font-small rounded-pill py-1 my-1 tag-class"><span
@@ -303,46 +327,39 @@
                                                 <div class="col-12 mt-4  px-0 mt-0 aardk pb-2">
                                                     <div class="col-12 mt-2  px-0 px-md-2">
                                                         <form class="col-12 px-0 row" id="offer-form" method="POST"
-                                                            action="https://nafezly.com/offer/create">
-                                                            <input type="hidden" name="_token"
-                                                                value="ScqOFeeHg6q2pf7RvkfxSkhqZfhnHvUNtRHqlYXy">
+                                                            enctype="multipart/form-data" action="/offer/create">
+                                                            @csrf
                                                             <div class="col-12 px-0 mb-2 row">
-                                                                <input type="hidden" name="project_id" value="5752">
-                                                                <div class="col-6  col-md-4 ">
+                                                                <input type="hidden" name="project_id"
+                                                                    value="{{ $project->id }}">
+                                                                <div class="col-6">
                                                                     <div class="col-12 mt-2   font-1 px-0">
                                                                         مدة التنفيذ <span style="color: #919191;font-size: 12px"
                                                                             class="naskh">( بالايام )</span>
                                                                     </div>
                                                                     <div class="col-12 mt-2 row px-0">
                                                                         <div class="col-12 px-0">
-                                                                            <input type="number" name="period"
+                                                                            <input type="number" name="deadline"
                                                                                 class="form-control" min="1" max="90"
-                                                                                required="" id="period">
+                                                                                required="" id="deadline">
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-6  col-md-4 ">
-                                                                    <div class="col-12 mt-2  font-1 px-0">
+                                                                <div class="col-6">
+                                                                    <div class="col-12 mt-2 font-1 px-0">
                                                                         قيمة عرضك <span style="color: #919191;font-size: 12px"
-                                                                            class="naskh">(
-                                                                            بالدولار )</span>
+                                                                            class="naskh">( بالليرة السورية )</span>
                                                                     </div>
                                                                     <div class="col-12 mt-2 row px-0">
                                                                         <div class="col-12 px-0">
-                                                                            <input type="number" name="cost"
+                                                                            <input type="number" name="price"
                                                                                 class="form-control" required="" min="50"
-                                                                                max="200" id="cost"
+                                                                                id="price"
                                                                                 onkeyup="$('#gain_value').val($(this).val()- ($(this).val()*15/100) );$('.gain_value').text($(this).val()- ($(this).val()*15/100) );">
-                                                                            <div class="d-md-none naskh font-1"
-                                                                                style="font-size: 12px;color: var(--bg-font-4);padding-top: 3px">
-                                                                                مستحقاتك <span class="gain_value"
-                                                                                    style="font-size: 12px;">0</span>
-                                                                                $
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12  col-md-4  d-none d-md-block">
+                                                                {{-- <div class="col-12  col-md-4  d-none d-md-block">
                                                                     <div class="col-12 mt-2  px-0 font-1">
                                                                         سوف تحصل على <span
                                                                             style="color: #919191;font-size: 12px"
@@ -355,46 +372,51 @@
                                                                                 disabled="">
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                                 <div class="col-12  px-0 mt-2">
                                                                     <div class="col-12 mt-2 font-1 ">
                                                                         تفاصيل عرضك
                                                                     </div>
                                                                     <div class="col-12 mt-2">
                                                                         <textarea class="form-control mb-2" style="min-height: 234px;" placeholder="تفاصيل العرض" required="" minlength="30"
-                                                                            maxlength="5000" id="offer_description"
-                                                                            name="offer_description"></textarea>
+                                                                            maxlength="5000" id="description"
+                                                                            name="description"></textarea>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12  row">
-                                                                    <div class="col-6   px-0 mt-2 pt-2">
-                                                                        <span class="btn btn-light pt-2 pb-1  "
-                                                                            style="background: #eee;border:1px solid #ddd;font-size: 13px;cursor: pointer;"
-                                                                            onclick="$('.attach').slideToggle();">
-                                                                            <h6 class=" px-0 mb-1 font-1"> <span
-                                                                                    class="fal fa-paperclip"
-                                                                                    aria-hidden="true"></span> إرفاق ملفات </h6>
-                                                                        </span>
+                                                                <div class="col-12 row">
+                                                                    <div class="col-6 px-0 mt-2 pt-2">
+                                                                        <label id="files-label" for="files"
+                                                                            class="btn btn-light pt-2 pb-1 font-1"
+                                                                            style="background: var(--bg-main-bg);border:1px solid var(--bg-main-bg);cursor: pointer;">
+                                                                            <h6 class=" px-0 mb-1 font-1">
+                                                                                <span class="fal fa-paperclip"
+                                                                                    aria-hidden="true"></span> إرفاق ملفات
+                                                                            </h6>
+                                                                        </label>
+                                                                        <div id="files-names" class="mr-3"></div>
+                                                                        <input class="d-none" type="file"
+                                                                            name="files[]" id="files" multiple>
+                                                                        <script>
+                                                                            let input = document.getElementById("files");
+                                                                            let imagesLabel = document.getElementById("files-names")
+                                                                            input.addEventListener("change", () => {
+                                                                                let inputImage = input.files;
+                                                                                imagesLabel.innerHTML = '';
+                                                                                Object.values(inputImage).forEach(val => {
+                                                                                    imagesLabel.innerHTML += val.name + '<br>';
+                                                                                });
+                                                                            })
+                                                                        </script>
                                                                     </div>
-                                                                    <div class="col-6  px-0 mt-2 pt-2 text-left">
-                                                                        <button class="btn btn-primary  pb-2 font-1"
+                                                                    <div class="col-6 px-0 mt-2 pt-2 text-left">
+                                                                        <button class="btn btn-primary pb-2 font-1"
                                                                             style="border:none; display: inline-block;"
                                                                             id="make-offer">
                                                                             تقديم عرضك
                                                                         </button>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12   mb-3">
-                                                                </div>
-                                                                <div class="col-12 attach "
-                                                                    style="display: none;overflow: hidden!important">
-                                                                    <div class="col-12 px-0" id="file-uploader-nafezly">
-                                                                        <input name="file" type="file" multiple
-                                                                            class="file-uploader-files"
-                                                                            data-fileuploader-files='[]' style="opacity: 0" />
-                                                                    </div>
-                                                                    <div class="col-12 px-0 py-2"></div>
-                                                                </div>
+                                                                <div class="col-12 mb-3"></div>
                                                                 <div class="col-12 px-0">
                                                                     <ul>
                                                                         <li style="font-size: 13px;color: var(--bg-font-4);"
@@ -661,36 +683,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                مثال :
-
-
-                                                                                                                نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                المالية اليوم :
-
-                                                                                                                مجموع الداخل 500000
-                                                                                                                مجموع الخارج  250000
-
-                                                                                                                المتبقي في الخزنة : 25000
+                                                                                                                                            مثال :
 
 
-                                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                الصنف 1 متبقي 10فقط
+                                                                                                                                            المالية اليوم :
 
-                                                                                                                الصنف 2 متبقي   4 فقط
+                                                                                                                                            مجموع الداخل 500000
+                                                                                                                                            مجموع الخارج  250000
 
-                                                                                                                الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                            المتبقي في الخزنة : 25000
 
-                                                                                                                -  تقرير غرفة المراقبة
 
-                                                                                                                وهكذا&source=وسيط"
+                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                            الصنف 1 متبقي 10فقط
+
+                                                                                                                                            الصنف 2 متبقي   4 فقط
+
+                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                            -  تقرير غرفة المراقبة
+
+                                                                                                                                            وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
@@ -849,36 +871,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                مثال :
-
-
-                                                                                                                نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                المالية اليوم :
-
-                                                                                                                مجموع الداخل 500000
-                                                                                                                مجموع الخارج  250000
-
-                                                                                                                المتبقي في الخزنة : 25000
+                                                                                                                                            مثال :
 
 
-                                                                                                                تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                الصنف 1 متبقي 10فقط
+                                                                                                                                            المالية اليوم :
 
-                                                                                                                الصنف 2 متبقي   4 فقط
+                                                                                                                                            مجموع الداخل 500000
+                                                                                                                                            مجموع الخارج  250000
 
-                                                                                                                الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                            المتبقي في الخزنة : 25000
 
-                                                                                                                -  تقرير غرفة المراقبة
 
-                                                                                                                وهكذا&source=وسيط"
+                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                            الصنف 1 متبقي 10فقط
+
+                                                                                                                                            الصنف 2 متبقي   4 فقط
+
+                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                            -  تقرير غرفة المراقبة
+
+                                                                                                                                            وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>

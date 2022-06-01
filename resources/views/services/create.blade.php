@@ -20,8 +20,8 @@
                                 </div>
                             </div>
                             <div class="col-12 px-0 main-nafez-box-styles mx-auto col-12 col-lg-8">
-                                <form action="/services" method="POST" class="col-12 px-0"
-                                    id="service-form" enctype="multipart/form-data">
+                                <form action="/services" method="POST" class="col-12 px-0" id="service-form"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="col-12 px-0 pb-2 row">
                                         <div class="col-12 mb-3 px-0 px-md-2">
@@ -79,18 +79,41 @@
                                                             <div class="col-12 mt-4 text-right px-0 " style=" ">
                                                                 <div class="col-12 px-0 mt-2 px-0">
                                                                     <div class="col-12 mt-3 font-1 px-0 ">
-                                                                        صورة الخدمة
+                                                                        صور الخدمة
                                                                     </div>
                                                                     <div class="col-12 mt-2 px-0">
                                                                         <div class="col-12 pb-3 mb-0 attach px-0"
                                                                             style="overflow: hidden">
                                                                             <div class="col-12 px-0"
                                                                                 id="file-uploader-nafezly-main">
-                                                                                <input name="images[]" type="file" multiple
-                                                                                    class="form-control-file" />
+                                                                                <label id="images-label" for="images"
+                                                                                    style="height: auto; padding: 9px 8px; cursor: pointer; border-width: 1px; color: #707070 !important"
+                                                                                    class="form-control m-0">اختيار
+                                                                                    الملفات</label>
+                                                                                <input style="display: none" id="images"
+                                                                                    name="images[]" type="file" multiple
+                                                                                    class="form-control" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <script>
+                                                                        let input = document.getElementById("images");
+                                                                        let imagesLabel = document.getElementById("images-label")
+
+                                                                        input.addEventListener("change", () => {
+                                                                            let inputImage = document.querySelector("input[type=file]").files;
+                                                                            if (inputImage.length != 0) {
+                                                                                imagesLabel.innerHTML = '';
+                                                                                imagesLabel.style.color = '#fff';
+                                                                                Object.values(inputImage).forEach(val => {
+                                                                                    imagesLabel.innerHTML += val.name + '<br>';
+                                                                                });
+                                                                            } else {
+                                                                                imagesLabel.innerHTML = 'اختيار الملفات';
+                                                                                imagesLabel.style.color = '#707070';
+                                                                            }
+                                                                        })
+                                                                    </script>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -101,8 +124,8 @@
                                                                 class="font-small">(إختياري)</span>
                                                         </div>
                                                         <div class="col-12 mt-2">
-                                                            <select class="select2 col-12" multiple=""
-                                                                name="skills[]" size="1" style="opacity: 0">
+                                                            <select class="select2 col-12" multiple="" name="skills[]"
+                                                                size="1" style="opacity: 0">
                                                                 @foreach ($skills as $skill)
                                                                     <option value="{{ $skill->id }}">{{ $skill->name }}
                                                                     </option>

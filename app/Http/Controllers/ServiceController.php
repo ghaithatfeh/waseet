@@ -17,16 +17,12 @@ class ServiceController extends Controller
     }
     public function create()
     {
-        if (!auth()->check())
-            return redirect('login');
         return view('services.create', [
             'skills' => Skill::all()
         ]);
     }
     public function store(Request $request)
     {
-        if (!auth()->check())
-            return redirect('login');
         $request->validate([
             'title' => 'required',
             'category_id' => 'required',

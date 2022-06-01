@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FreelancerController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Livewire\Freelancers;
@@ -30,6 +31,7 @@ Route::resources([
     'services' => ServiceController::class,
     'freelancers' => FreelancerController::class,
 ]);
+Route::post('/offer/create', [OfferController::class, 'create']);
 
 // Route::get('/service/{category}', [ServiceController::class, 'service']);
 Route::get('/service/{category}', Services::class);
@@ -40,5 +42,3 @@ Auth::routes();
 
 //للاستطلاع
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::post('/projects/upload', [ProjectController::class, 'upload'])->name('upload');

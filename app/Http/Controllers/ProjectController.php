@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Budget;
 use App\Models\Project;
+use App\Models\Attachment;
 use App\Models\ProjectSkill;
 use App\Models\Skill;
 use Illuminate\Http\Request;
@@ -13,8 +14,6 @@ class ProjectController extends Controller
 
     public function create()
     {
-        if(!auth()->check())
-            return redirect('login');
         return view('projects.create', [
             'skills' => Skill::all(),
             'budgets' => Budget::all()
@@ -23,8 +22,6 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        if(!auth()->check())
-            return redirect('login');
         $project = new Project();
         $project->user_id = auth()->id();
         $project->status = 'published';
@@ -33,11 +30,21 @@ class ProjectController extends Controller
         $project->budget_id = $request->project_budget;
         $project->expected_deadline = $request->expected_deadline;
         $project->save();
-        foreach ($request->project_tags as $skill) {
-            ProjectSkill::create([
-                'project_id' => $project->id,
-                'skill_id' => $skill
-            ]);
+        if ($request->has('project_tags'))
+            foreach ($request->project_tags as $skill) {
+                ProjectSkill::create([
+                    'project_id' => $project->id,
+                    'skill_id' => $skill
+                ]);
+            }
+
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            foreach ($files as $file) {
+                $file_name = time() . '_' . $file->getClientOriginalName();
+                if ($file->move(public_path('uploaded_images/projects'), $file_name))
+                    Attachment::create(['project_id' => $project->id, 'file_name' => $file_name]);
+            }
         }
         return redirect('/projects');
     }
@@ -60,10 +67,5 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
-    }
-
-    public function upload(Request $request)
-    {
-        return true;
     }
 }

@@ -19,7 +19,8 @@
                         </div>
                     </div>
                     <div class="col-12    px-0 main-nafez-box-styles col-12 col-lg-8">
-                        <form method="POST" action="/projects" class="col-12 px-0 row" id="project-form">
+                        <form method="POST" action="/projects" class="col-12 px-0 row" id="project-form"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="col-12 row  py-0 px-0 px-md-2 ">
                                 <div class="col-12 px-0 mt-2">
@@ -84,7 +85,8 @@
                                                 <option value="" disabled="" selected=""></option>
                                                 @foreach ($budgets as $budget)
                                                     <option value="{{ $budget->id }}">
-                                                        {{ number_format($budget->from) . ' - ' . number_format($budget->to) }} ل.س</option>
+                                                        {{ number_format($budget->from) . ' - ' . number_format($budget->to) }}
+                                                        ل.س</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -108,26 +110,33 @@
                                 </div>
                                 <div class="col-12 px-0 mt-3">
                                 </div>
-                                <div class="col-12   mb-3">
-                                    <span class="btn btn-light pt-2 pb-1 font-1 "
-                                        style="background: var(--bg-main-bg);border:1px solid var(--bg-main-bg);cursor: pointer;"
-                                        onclick="$('.attach').slideToggle();">
-                                        <h6 class=" px-0 mb-1 font-1"> <span class="fal fa-paperclip"
-                                                aria-hidden="true"></span> إرفاق ملفات </h6>
-                                    </span>
+                                <div class="col-12 mb-3">
+                                    <label id="files-label" for="files" class="btn btn-light pt-2 pb-1 font-1"
+                                        style="background: var(--bg-main-bg);border:1px solid var(--bg-main-bg);cursor: pointer;">
+                                        <h6 class=" px-0 mb-1 font-1">
+                                            <span class="fal fa-paperclip" aria-hidden="true"></span> إرفاق ملفات
+                                        </h6>
+                                    </label>
+                                    <div id="files-names" class="mr-3"></div>
                                 </div>
-                                <div class="col-12   attach " style="display: none;overflow: hidden;">
-                                    <div class="col-12 px-0" id="file-uploader-nafezly">
-                                        <input type="hidden" name="uploaded_files" value=""
-                                            class="file-uploader-uploaded-files">
-                                            <input name="file" type="file" multiple class="file-uploader-files"
-                                                data-fileuploader-files="" style="opacity: 0" />
-                                    </div>
-                                </div>
+                                <input class="d-none" type="file" name="files[]" id="files" multiple>
+                                <script>
+                                    let input = document.getElementById("files");
+                                    let imagesLabel = document.getElementById("files-names")
+                                    input.addEventListener("change", () => {
+                                        let inputImage = input.files;
+                                        imagesLabel.innerHTML = '';
+                                        Object.values(inputImage).forEach(val => {
+                                            imagesLabel.innerHTML += val.name + '<br>';
+                                        });
+                                    })
+                                </script>
+
                                 <div class="col-12 pb-3">
                                     <button class="btn btn-success mt-2   text-center font-1 mb-2"
                                         style="border-radius: 0px;padding: 10px 16px" id="submitEvaluation">انشر
-                                        الآن</button>
+                                        الآن
+                                    </button>
                                 </div>
                             </div>
                         </form>
