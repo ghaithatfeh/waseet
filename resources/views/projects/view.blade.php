@@ -21,7 +21,7 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -57,7 +57,7 @@
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -87,7 +87,7 @@
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -297,69 +297,74 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 px-0 py-1 py-lg-3" id="add-offer">
-                                <div class="col-12 px-0 main-nafez-box-styles">
-                                    <div class="col-12 main-nafez-box-styles px-0">
-                                        <div class="col-12 pt-3 pb-2" style="border-bottom: 1px solid var(--bg-main-bg)">
-                                            <h5 style="color: var(--bg-color-0);font-size: 17px">أضف عرضك الآن
-                                            </h5>
-                                        </div>
-                                        <div class="col-12 p-0 ">
-                                            @guest
-                                                <div class="col-12 px-0 py-3 text-center font-1 ">
-                                                    <div class="col-12 px-0 row text-center justify-content-center d-flex">
-                                                        <a href="/login" class="text-center ml-1"
-                                                            style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
-                                                            href="https://nafezly.com/freelancers">
-                                                            <button class="btn btn-primary py-2 rounded-0"
-                                                                style="border-radius: 3px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
-                                                        </a>
-                                                        <a href="/register" class="text-center ml-1 ml-1"
-                                                            style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
-                                                            href="https://nafezly.com/freelancers">
-                                                            <button class="btn btn-primary py-2 rounded-0"
-                                                                style="border-radius: 3px;">حساب جديد</button>
-                                                        </a>
+                            @if (!(auth()->id() == $project->user_id || in_array(auth()->id(), $project->offers->pluck('user_id')->toArray())))
+                                <div class="col-12 px-0 py-1 py-lg-3" id="add-offer">
+                                    <div class="col-12 px-0 main-nafez-box-styles">
+                                        <div class="col-12 main-nafez-box-styles px-0">
+                                            <div class="col-12 pt-3 pb-2"
+                                                style="border-bottom: 1px solid var(--bg-main-bg)">
+                                                <h5 style="color: var(--bg-color-0);font-size: 17px">أضف عرضك الآن
+                                                </h5>
+                                            </div>
+                                            <div class="col-12 p-0 ">
+                                                @guest
+                                                    <div class="col-12 px-0 py-3 text-center font-1 ">
+                                                        <div class="col-12 px-0 row text-center justify-content-center d-flex">
+                                                            <a href="/login" class="text-center ml-1"
+                                                                style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 60px;border-radius: 5px;   "
+                                                                href="https://nafezly.com/freelancers">
+                                                                <button class="btn btn-primary py-2 rounded-0"
+                                                                    style="border-radius: 3px;background: transparent!important;color:var(--bg-color-0)">دخول</button>
+                                                            </a>
+                                                            <a href="/register" class="text-center ml-1 ml-1"
+                                                                style="position: relative;cursor: pointer;padding: 7px 0px 0px;text-align: center;;min-width: 107px;border-radius: 5px;   "
+                                                                href="https://nafezly.com/freelancers">
+                                                                <button class="btn btn-primary py-2 rounded-0"
+                                                                    style="border-radius: 3px;">حساب جديد</button>
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endguest
-                                            @auth
-                                                <div class="col-12 mt-4  px-0 mt-0 aardk pb-2">
-                                                    <div class="col-12 mt-2  px-0 px-md-2">
-                                                        <form class="col-12 px-0 row" id="offer-form" method="POST"
-                                                            enctype="multipart/form-data" action="/offer/create">
-                                                            @csrf
-                                                            <div class="col-12 px-0 mb-2 row">
-                                                                <input type="hidden" name="project_id"
-                                                                    value="{{ $project->id }}">
-                                                                <div class="col-6">
-                                                                    <div class="col-12 mt-2   font-1 px-0">
-                                                                        مدة التنفيذ <span style="color: #919191;font-size: 12px"
-                                                                            class="naskh">( بالايام )</span>
-                                                                    </div>
-                                                                    <div class="col-12 mt-2 row px-0">
-                                                                        <div class="col-12 px-0">
-                                                                            <input type="number" name="deadline"
-                                                                                class="form-control" min="1" max="90"
-                                                                                required="" id="deadline">
+                                                @endguest
+                                                @auth
+                                                    <div class="col-12 mt-4  px-0 mt-0 aardk pb-2">
+                                                        <div class="col-12 mt-2  px-0 px-md-2">
+                                                            <form class="col-12 px-0 row" id="offer-form" method="POST"
+                                                                enctype="multipart/form-data" action="/offer/create">
+                                                                @csrf
+                                                                <div class="col-12 px-0 mb-2 row">
+                                                                    <input type="hidden" name="project_id"
+                                                                        value="{{ $project->id }}">
+                                                                    <div class="col-6">
+                                                                        <div class="col-12 mt-2   font-1 px-0">
+                                                                            مدة التنفيذ <span
+                                                                                style="color: #919191;font-size: 12px"
+                                                                                class="naskh">( بالايام )</span>
+                                                                        </div>
+                                                                        <div class="col-12 mt-2 row px-0">
+                                                                            <div class="col-12 px-0">
+                                                                                <input type="number" name="deadline"
+                                                                                    class="form-control" min="1" max="90"
+                                                                                    required="" id="deadline">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <div class="col-12 mt-2 font-1 px-0">
-                                                                        قيمة عرضك <span style="color: #919191;font-size: 12px"
-                                                                            class="naskh">( بالليرة السورية )</span>
-                                                                    </div>
-                                                                    <div class="col-12 mt-2 row px-0">
-                                                                        <div class="col-12 px-0">
-                                                                            <input type="number" name="price"
-                                                                                class="form-control" required="" min="50"
-                                                                                id="price"
-                                                                                onkeyup="$('#gain_value').val($(this).val()- ($(this).val()*15/100) );$('.gain_value').text($(this).val()- ($(this).val()*15/100) );">
+                                                                    <div class="col-6">
+                                                                        <div class="col-12 mt-2 font-1 px-0">
+                                                                            قيمة عرضك <span
+                                                                                style="color: #919191;font-size: 12px"
+                                                                                class="naskh">( بالليرة السورية
+                                                                                )</span>
+                                                                        </div>
+                                                                        <div class="col-12 mt-2 row px-0">
+                                                                            <div class="col-12 px-0">
+                                                                                <input type="number" name="price"
+                                                                                    class="form-control" required="" min="50"
+                                                                                    id="price"
+                                                                                    onkeyup="$('#gain_value').val($(this).val()- ($(this).val()*15/100) );$('.gain_value').text($(this).val()- ($(this).val()*15/100) );">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                {{-- <div class="col-12  col-md-4  d-none d-md-block">
+                                                                    {{-- <div class="col-12  col-md-4  d-none d-md-block">
                                                                     <div class="col-12 mt-2  px-0 font-1">
                                                                         سوف تحصل على <span
                                                                             style="color: #919191;font-size: 12px"
@@ -373,77 +378,80 @@
                                                                         </div>
                                                                     </div>
                                                                 </div> --}}
-                                                                <div class="col-12  px-0 mt-2">
-                                                                    <div class="col-12 mt-2 font-1 ">
-                                                                        تفاصيل عرضك
+                                                                    <div class="col-12  px-0 mt-2">
+                                                                        <div class="col-12 mt-2 font-1 ">
+                                                                            تفاصيل عرضك
+                                                                        </div>
+                                                                        <div class="col-12 mt-2">
+                                                                            <textarea class="form-control mb-2" style="min-height: 234px;" placeholder="تفاصيل العرض" required="" minlength="30"
+                                                                                maxlength="5000" id="description"
+                                                                                name="description"></textarea>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-12 mt-2">
-                                                                        <textarea class="form-control mb-2" style="min-height: 234px;" placeholder="تفاصيل العرض" required="" minlength="30"
-                                                                            maxlength="5000" id="description"
-                                                                            name="description"></textarea>
+                                                                    <div class="col-12 row">
+                                                                        <div class="col-6 px-0 mt-2 pt-2">
+                                                                            <label id="files-label" for="files"
+                                                                                class="btn btn-light pt-2 pb-1 font-1"
+                                                                                style="background: var(--bg-main-bg);border:1px solid var(--bg-main-bg);cursor: pointer;">
+                                                                                <h6 class=" px-0 mb-1 font-1">
+                                                                                    <span class="fal fa-paperclip"
+                                                                                        aria-hidden="true"></span> إرفاق ملفات
+                                                                                </h6>
+                                                                            </label>
+                                                                            <div id="files-names" class="mr-3"></div>
+                                                                            <input class="d-none" type="file"
+                                                                                name="files[]" id="files" multiple>
+                                                                            <script>
+                                                                                let input = document.getElementById("files");
+                                                                                let imagesLabel = document.getElementById("files-names")
+                                                                                input.addEventListener("change", () => {
+                                                                                    let inputImage = input.files;
+                                                                                    imagesLabel.innerHTML = '';
+                                                                                    Object.values(inputImage).forEach(val => {
+                                                                                        imagesLabel.innerHTML += val.name + '<br>';
+                                                                                    });
+                                                                                })
+                                                                            </script>
+                                                                        </div>
+                                                                        <div class="col-6 px-0 mt-2 pt-2 text-left">
+                                                                            <button class="btn btn-primary pb-2 font-1"
+                                                                                style="border:none; display: inline-block;"
+                                                                                id="make-offer">
+                                                                                تقديم عرضك
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-12 mb-3"></div>
+                                                                    <div class="col-12 px-0">
+                                                                        <ul>
+                                                                            <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                                class="naskh">لا
+                                                                                تستخدم وسائل تواصل خارجية</li>
+                                                                            <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                                class="naskh">لا
+                                                                                تضع روابط خارجية، قم بالاهتمام <a
+                                                                                    href="/my/portfolios"
+                                                                                    class="naskh">
+                                                                                    بمعرض أعمالك </a> بدلا منها</li>
+                                                                            <li style="font-size: 13px;color: var(--bg-font-4);"
+                                                                                class="naskh">اقرا
+                                                                                <a href="https://blog.nafezly.com/how-to-write-good-proposal-in-nafezly/"
+                                                                                    class="naskh">هنا كيف تضيف عرضا
+                                                                                    مميزا
+                                                                                    على أي مشروع </a>
+                                                                            </li>
+                                                                        </ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-12 row">
-                                                                    <div class="col-6 px-0 mt-2 pt-2">
-                                                                        <label id="files-label" for="files"
-                                                                            class="btn btn-light pt-2 pb-1 font-1"
-                                                                            style="background: var(--bg-main-bg);border:1px solid var(--bg-main-bg);cursor: pointer;">
-                                                                            <h6 class=" px-0 mb-1 font-1">
-                                                                                <span class="fal fa-paperclip"
-                                                                                    aria-hidden="true"></span> إرفاق ملفات
-                                                                            </h6>
-                                                                        </label>
-                                                                        <div id="files-names" class="mr-3"></div>
-                                                                        <input class="d-none" type="file"
-                                                                            name="files[]" id="files" multiple>
-                                                                        <script>
-                                                                            let input = document.getElementById("files");
-                                                                            let imagesLabel = document.getElementById("files-names")
-                                                                            input.addEventListener("change", () => {
-                                                                                let inputImage = input.files;
-                                                                                imagesLabel.innerHTML = '';
-                                                                                Object.values(inputImage).forEach(val => {
-                                                                                    imagesLabel.innerHTML += val.name + '<br>';
-                                                                                });
-                                                                            })
-                                                                        </script>
-                                                                    </div>
-                                                                    <div class="col-6 px-0 mt-2 pt-2 text-left">
-                                                                        <button class="btn btn-primary pb-2 font-1"
-                                                                            style="border:none; display: inline-block;"
-                                                                            id="make-offer">
-                                                                            تقديم عرضك
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 mb-3"></div>
-                                                                <div class="col-12 px-0">
-                                                                    <ul>
-                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">لا
-                                                                            تستخدم وسائل تواصل خارجية</li>
-                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">لا
-                                                                            تضع روابط خارجية، قم بالاهتمام <a
-                                                                                href="/my/portfolios" class="naskh">
-                                                                                بمعرض أعمالك </a> بدلا منها</li>
-                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">اقرا
-                                                                            <a href="https://blog.nafezly.com/how-to-write-good-proposal-in-nafezly/"
-                                                                                class="naskh">هنا كيف تضيف عرضا مميزا
-                                                                                على أي مشروع </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </form>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            @endauth
+                                                @endauth
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="col-12 px-0 py-1 py-lg-3">
                                 <div class="col-12 px-0 main-nafez-box-styles">
                                     <div class="col-12"
@@ -483,88 +491,7 @@
                                     </div>
                                     <div class="col-12 px-0" id="project-load-offers">
                                         <div class="col-12 offers-list px-0 ">
-                                            <div class="col-12 offer-order"
-                                                style="border-bottom: 1px solid var(--bg-main-bg);padding: 21px 15px;"
-                                                data-score="27.659574468085">
-                                                <div class="col-12 row px-0 d-flex">
-                                                    <div class="text-center d-inline-block"
-                                                        style="width: 55px;padding: 5px!important">
-                                                        <a href="https://nafezly.com/u/raafatc" style="display: block;">
-                                                            <div style="width: 55px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;max-height: 55px;"
-                                                                class="d-inline-block">
-                                                                <img data-src="" src=""
-                                                                    style="width: 100%;border-radius: 50%!important;padding: 3px;height: 45px"
-                                                                    alt="صورة مقدم العرض">
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                    <div class="p-0 d-inline-block">
-                                                        <div class="col-12 px-2">
-                                                            <div class="px-0 pt-0  mt-1 row col-12  ">
-                                                                <div class="col-12 px-0 kufi">
-                                                                    <a href="https://nafezly.com/u/raafatc"
-                                                                        style="font-size: 15px;line-height: 1.1;"
-                                                                        class="pt-0 kufi  mt-0 d-inline-block">
-                                                                        رأفت قطان
-                                                                        <div class="d-block">
-                                                                            <div style="position: relative;top: 0px;">
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </a>
-                                                                    <span style="color: #919191;position: relative;top: 0px"
-                                                                        class="naskh font-small d-block">
-                                                                        <span class="fal fa-clock " aria-hidden="true"
-                                                                            style="font-size: 10px"></span>
-                                                                        منذ ساعة &nbsp; &nbsp;
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <div
-                                                                style=" display: inline-block;position: relative;font-size: 14px;color: #919191">
-                                                                <div class="col-12  px-0  text-right text-md-right "
-                                                                    style="color: #919191;font-size: 13px;padding: 0px 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-inline-flex mr-auto pt-2">
-                                                        <div class="p-0 d-inline-block mr-auto"
-                                                            style="white-space: nowrap;">
-                                                            <div class="col-12 px-1 d-flex align-items-center">
-                                                                <span class="d-inline-block pt-2 ml-1"
-                                                                    style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                                    id="counter_627fb62772dbd">
-                                                                </span>
-                                                                <span class="d-inline-block love-favourite-area noselect  "
-                                                                    style=" cursor: pointer;" data-id="627fb62772dbd"
-                                                                    data-type="offer" data-type_id="23121"
-                                                                    id="love_id_627fb62772dbd">
-                                                                    <span class="fa-heart love-favourite fal font-3"
-                                                                        style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                                        id="icon_627fb62772dbd"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <h3 class="col-12 px-1 col-lg-11 naskh "
-                                                        style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
-                                                        تحياتي استاذ نسيم يمكنني تنفيذ طلبك لكن احتاج إلى بعض
-                                                        التفاصيل والمعلومات من حضرتك قبل البدء بالعمل وقبول عرضي
-                                                        يسعدني ان اكون قادر على حل مشكلتك
-                                                        ...</h3>
-                                                </div>
-                                            </div>
-                                            @foreach ($project->offers as $offer)
+                                            @foreach ($project->offers->sortByDesc('created_at') as $offer)
                                                 <div class="col-12 offer-order"
                                                     style="border-bottom: 1px solid var(--bg-main-bg);padding: 21px 15px;"
                                                     data-score="27.659574468085">
@@ -574,8 +501,7 @@
                                                             <a href="https://nafezly.com/u/raafatc" style="display: block;">
                                                                 <div style="width: 55px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;max-height: 55px;"
                                                                     class="d-inline-block">
-                                                                    <img data-src=""
-                                                                        src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/small/23046_1651361072_626dc5305f6eb.jpg"
+                                                                    <img src="{{ asset('uploaded_images/users/' . ($offer->user->profile_image ?? 'defualt.png')) }}"
                                                                         style="width: 100%;border-radius: 50%!important;padding: 3px;height: 45px"
                                                                         alt="صورة صاحب مقدم العرض">
                                                                 </div>
@@ -588,7 +514,7 @@
                                                                         <a href="https://nafezly.com/u/raafatc"
                                                                             style="font-size: 15px;line-height: 1.1;"
                                                                             class="pt-0 kufi  mt-0 d-inline-block">
-                                                                            رأفت قطان
+                                                                            {{ $offer->user->first_name . ' ' . $offer->user->last_name }}
                                                                             <div class="d-block">
                                                                                 <div style="position: relative;top: 0px;">
                                                                                     <span class="fal fa-star"
@@ -609,7 +535,11 @@
                                                                             class="naskh font-small d-block">
                                                                             <span class="fal fa-clock " aria-hidden="true"
                                                                                 style="font-size: 10px"></span>
-                                                                            منذ ساعة &nbsp; &nbsp;
+                                                                            @php
+                                                                                Carbon\Carbon::setLocale('ar_EH');
+                                                                                $offerCreatedAt = $offer->created_at->diffForHumans(Carbon\Carbon::now());
+                                                                            @endphp
+                                                                            {{ $offerCreatedAt }} &nbsp; &nbsp;
                                                                         </span>
                                                                     </div>
                                                                 </div>
@@ -641,12 +571,70 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h3 class="col-12 px-1 col-lg-11 naskh "
+                                                        @if ($project->user->id == auth()->id() || $offer->user_id == auth()->id())
+                                                            <div class="col-12 px-0 naskh row pb-2  mb-1 border"
+                                                                style="border-color: var(--bg-main-bg)!important;padding: 5px 0px;">
+                                                                <div class="col-6 col-lg font-1  d-block"
+                                                                    style="border-color: var(--bg-main-bg)!important">
+                                                                    <span style="opacity: .7;color: green;"
+                                                                        class="font-1 pt-1 d-inline-block">
+                                                                        <span class="fal fa-money-bill-alt"></span>
+                                                                        {{ $offer->price }} ل.س
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-6 col-lg font-1  d-block"
+                                                                    style="border-color: var(--bg-main-bg)!important">
+                                                                    <span style="opacity: .7;color: green;"
+                                                                        class="font-1 pt-1 d-inline-block">
+                                                                        <span class="fal fa-calendar-day font-1"></span>
+                                                                        {{ $offer->deadline }} أيام
+                                                                    </span>
+                                                                </div>
+                                                                <div class="col-6 col-lg font-1  d-block">
+                                                                    <a href="https://nafezly.com/u/ghaith_atfeh/portfolio"
+                                                                        style="font-size: 12px;opacity: 1"
+                                                                        class="pt-1">
+                                                                        <span class="fal fa-images"></span> 3 أعمال في
+                                                                        المعرض
+                                                                        <!-- warning  -->
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-6 col-lg font-1  d-block row ">
+                                                                    <div class="col-12 px-0 row d-flex">
+                                                                        <div style="width: 30px" class="mt-1">
+                                                                            <span class="far fa-info-circle"
+                                                                                style="opacity: .7" data-toggle="popover"
+                                                                                data-placement="top"
+                                                                                data-content="قوة حساب مقدم العرض."
+                                                                                data-trigger="hover">
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="px-0 mt-2"
+                                                                            style="width: calc(100% - 30px);padding-top: 2px">
+                                                                            <div class="col-12 px-0 "
+                                                                                style="overflow: hidden;height: 8px;border-radius: 5px;">
+                                                                                <div class="d-inline-block"
+                                                                                    style="width: 100%;">
+                                                                                    <div class="progress">
+                                                                                        <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                                                                            role="progressbar"
+                                                                                            aria-valuenow="27.659574468085"
+                                                                                            aria-valuemin="0"
+                                                                                            aria-valuemax="100"
+                                                                                            style="width: 27.659574468085%">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                        <h3 class="col-12 px-1 col-lg-11 naskh"
                                                             style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
-                                                            تحياتي استاذ نسيم يمكنني تنفيذ طلبك لكن احتاج إلى بعض
-                                                            التفاصيل والمعلومات من حضرتك قبل البدء بالعمل وقبول عرضي
-                                                            يسعدني ان اكون قادر على حل مشكلتك
-                                                            ...</h3>
+                                                            {{ $offer->description }}
+                                                        </h3>
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -683,36 +671,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                                                                        واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                                                                        ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                                                                        وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                                            مثال :
-
-
-                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                                            المالية اليوم :
-
-                                                                                                                                            مجموع الداخل 500000
-                                                                                                                                            مجموع الخارج  250000
-
-                                                                                                                                            المتبقي في الخزنة : 25000
+                                                                                                                                                                                        مثال :
 
 
-                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                                                                        نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                                            الصنف 1 متبقي 10فقط
+                                                                                                                                                                                        المالية اليوم :
 
-                                                                                                                                            الصنف 2 متبقي   4 فقط
+                                                                                                                                                                                        مجموع الداخل 500000
+                                                                                                                                                                                        مجموع الخارج  250000
 
-                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                                                                        المتبقي في الخزنة : 25000
 
-                                                                                                                                            -  تقرير غرفة المراقبة
 
-                                                                                                                                            وهكذا&source=وسيط"
+                                                                                                                                                                                        تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                                                                        الصنف 1 متبقي 10فقط
+
+                                                                                                                                                                                        الصنف 2 متبقي   4 فقط
+
+                                                                                                                                                                                        الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                                                                        -  تقرير غرفة المراقبة
+
+                                                                                                                                                                                        وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
@@ -814,7 +802,10 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        200 $
+                                                        @php
+                                                            $prices = $project->offers->pluck('price')->toArray();
+                                                        @endphp
+                                                        {{ $prices ? array_sum($prices) / count($prices) : 0 }} ل.س
                                                     </div>
                                                 </div>
                                                 <div class="col-12 p-0 my-3"
@@ -871,36 +862,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                                                                        واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                                                                        ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                                                                        وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                                            مثال :
-
-
-                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                                            المالية اليوم :
-
-                                                                                                                                            مجموع الداخل 500000
-                                                                                                                                            مجموع الخارج  250000
-
-                                                                                                                                            المتبقي في الخزنة : 25000
+                                                                                                                                                                                        مثال :
 
 
-                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                                                                        نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                                            الصنف 1 متبقي 10فقط
+                                                                                                                                                                                        المالية اليوم :
 
-                                                                                                                                            الصنف 2 متبقي   4 فقط
+                                                                                                                                                                                        مجموع الداخل 500000
+                                                                                                                                                                                        مجموع الخارج  250000
 
-                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                                                                        المتبقي في الخزنة : 25000
 
-                                                                                                                                            -  تقرير غرفة المراقبة
 
-                                                                                                                                            وهكذا&source=وسيط"
+                                                                                                                                                                                        تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                                                                        الصنف 1 متبقي 10فقط
+
+                                                                                                                                                                                        الصنف 2 متبقي   4 فقط
+
+                                                                                                                                                                                        الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                                                                        -  تقرير غرفة المراقبة
+
+                                                                                                                                                                                        وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>

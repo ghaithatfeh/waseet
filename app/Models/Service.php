@@ -10,16 +10,20 @@ class Service extends Model
     use HasFactory;
     protected $fillable = ['title', 'description', 'deadline', 'price', 'category_id', 'user_id'];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
-    public function skills(){
-        return $this->belongsToMany(Skill::class, 'service_skill');
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'service_skills');
     }
-    public function images(){
+    public function images()
+    {
         return $this->hasMany(ServiceImage::class);
     }
 }

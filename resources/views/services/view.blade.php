@@ -117,10 +117,10 @@
                                                                         src="{{ asset('uploaded_images/services/' . $image->image_name) }}"
                                                                         alt="صورة الخدمة تصميم صفحه ويب متجاوبه مع كل الشاشات"
                                                                         style="max-height: 450px;  width: 100%;
-                                                                                            min-height: 300px;
-                                                                                            font-family: 'object-fit: cover; object-position: bottom;';
-                                                                                            vertical-align: middle;
-                                                                                            border-radius: 3px!important;object-fit: cover;">
+                                                                                                min-height: 300px;
+                                                                                                font-family: 'object-fit: cover; object-position: bottom;';
+                                                                                                vertical-align: middle;
+                                                                                                border-radius: 3px!important;object-fit: cover;">
                                                                 </div>
                                                             </div>
                                                         @endforeach
@@ -138,39 +138,30 @@
                                     </div>
                                 </div>
                             </div>
+                            @if (isset($service->skills[0]))
+                                <div class="col-12 px-0 py-1 py-lg-3  ">
+                                    <div class="col-12 main-nafez-box-styles px-0">
+                                        <div class="col-12 pt-3 pb-2" style="border-bottom: 1px solid var(--bg-main-bg);">
+                                            <h5 style="font-size: 17px;color:var(--bg-color-0)"> مهارات متعلقة بالخدمة</h5>
+                                        </div>
+                                        <div class="col-12 p-3 row">
+                                            @foreach ($service->skills as $skill)
+                                                <a href="#"
+                                                    class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
+                                                        class="far fa-tags ml-1"></span> {{ $skill->name }}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="col-12 px-0 py-1 py-lg-3  ">
-                                <div class="col-12   main-nafez-box-styles px-0">
+                                <div class="col-12 main-nafez-box-styles px-0">
                                     <div class="col-12 pt-3 pb-2" style="border-bottom: 1px solid var(--bg-main-bg);">
                                         <h5 style="font-size: 17px;color:var(--bg-color-0)"> مهارات البائع</h5>
                                     </div>
                                     <div class="col-12 p-3 row">
-                                        {{-- <a href="https://nafezly.com/services/skill/html"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> HTML</a>
-                                        <a href="https://nafezly.com/services/skill/psd-to-html"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> PSD to HTML</a>
-                                        <a href="https://nafezly.com/services/skill/pugjs"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> pugjs</a>
-                                        <a href="https://nafezly.com/services/skill/css"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> CSS</a>
-                                        <a href="https://nafezly.com/services/skill/sass"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> CSS Sass</a>
-                                        <a href="https://nafezly.com/services/skill/jquery"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> jQuery</a>
-                                        <a href="https://nafezly.com/services/skill/javascript"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> جافاسكربت</a>
-                                        <a href="https://nafezly.com/services/skill/bootstrap"
-                                            class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
-                                                class="far fa-tags ml-1"></span> Bootstrap</a> --}}
-
                                         @forelse ($service->user->skills as $skill)
-                                            <a href="https://nafezly.com/services/skill/html"
+                                            <a href="#"
                                                 class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1"><span
                                                     class="far fa-tags ml-1"></span> {{ $skill->name }}</a>
                                         @empty
@@ -198,17 +189,17 @@
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA&title=تصميم صفحه ويب متجاوبه مع كل الشاشات&summary=سوف اقوم بإنشاء صفحه ويب كامله مقابل 10 دولار علي أن تكون الصفحه متجاوبه مع جميع الشاشات
-                                                        مع امكانيه استخدام التقنيات الحديثة مثل
-                                                        Sass
-                                                        Pug
-                                                        حتي يكون المشروع منظم بقدر الإمكان
-                                                        بالتأكيد استخدم في المشروع
-                                                        Html5
-                                                        Css3
-                                                        JavaScript or jQuery
-                                                        Bootstrap
-                                                        Pug
-                                                        Sass&source=نفذلي" class="d-inline-block p-1" target="_blank">
+                                                            مع امكانيه استخدام التقنيات الحديثة مثل
+                                                            Sass
+                                                            Pug
+                                                            حتي يكون المشروع منظم بقدر الإمكان
+                                                            بالتأكيد استخدم في المشروع
+                                                            Html5
+                                                            Css3
+                                                            JavaScript or jQuery
+                                                            Bootstrap
+                                                            Pug
+                                                            Sass&source=نفذلي" class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                             </a>
@@ -358,17 +349,17 @@
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA&title=تصميم صفحه ويب متجاوبه مع كل الشاشات&summary=سوف اقوم بإنشاء صفحه ويب كامله مقابل 10 دولار علي أن تكون الصفحه متجاوبه مع جميع الشاشات
-                                                        مع امكانيه استخدام التقنيات الحديثة مثل
-                                                        Sass
-                                                        Pug
-                                                        حتي يكون المشروع منظم بقدر الإمكان
-                                                        بالتأكيد استخدم في المشروع
-                                                        Html5
-                                                        Css3
-                                                        JavaScript or jQuery
-                                                        Bootstrap
-                                                        Pug
-                                                        Sass&source=نفذلي" class="d-inline-block p-1" target="_blank">
+                                                            مع امكانيه استخدام التقنيات الحديثة مثل
+                                                            Sass
+                                                            Pug
+                                                            حتي يكون المشروع منظم بقدر الإمكان
+                                                            بالتأكيد استخدم في المشروع
+                                                            Html5
+                                                            Css3
+                                                            JavaScript or jQuery
+                                                            Bootstrap
+                                                            Pug
+                                                            Sass&source=نفذلي" class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                             </a>
