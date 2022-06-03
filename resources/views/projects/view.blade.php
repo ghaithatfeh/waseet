@@ -21,7 +21,7 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="col-12 px-0 row">
@@ -57,7 +57,7 @@
             <div class="modal fade close-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -87,7 +87,7 @@
             <div class="modal fade reopen-project-modal" id="exampleModalCenter" role="dialog"
                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                 style="    z-index: 454454545;
-                                                                                                                                                                                            background: rgba(0, 0, 0, 0.45);">
+                                                                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
                 <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                     <div class="modal-content">
                         <div class="modal-header p-3">
@@ -572,7 +572,7 @@
                                                             </div>
                                                         </div>
                                                         @if ($project->user->id == auth()->id() || $offer->user_id == auth()->id())
-                                                            <div class="col-12 px-0 naskh row pb-2  mb-1 border"
+                                                            <div class="col-12 px-0 naskh row pb-2  mb-4 border"
                                                                 style="border-color: var(--bg-main-bg)!important;padding: 5px 0px;">
                                                                 <div class="col-6 col-lg font-1  d-block"
                                                                     style="border-color: var(--bg-main-bg)!important">
@@ -634,6 +634,35 @@
                                                         <h3 class="col-12 px-1 col-lg-11 naskh"
                                                             style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
                                                             {{ $offer->description }}
+                                                            @foreach ($offer->attachments as $attachment)
+                                                                <div class="col-12 mt-3 px-0">
+                                                                    <a href="{{ asset('uploaded_images/offers/' . $attachment->file_name) }}"
+                                                                        class="d-block hover-light not-pace group_msg_attach_6297c242e8b1a"
+                                                                        style="padding: 4px;margin-bottom: 4px"
+                                                                        rel='group_msg_attach_6297c242e8b1a' download>
+                                                                        <div style="border-top: none; "
+                                                                            class="px-2 pb-1">
+                                                                            <span
+                                                                                style="color: var(--bg-font-4);border-radius: 50px;padding-top: 3px;line-height: 1.2"
+                                                                                class=" d-inline-block text-center">
+                                                                                <span class="far fa-paperclip p-1"></span>
+                                                                            </span>
+                                                                            <span
+                                                                                style="direction: ltr;position: relative;top: -2px"
+                                                                                class="d-inline-block   naskh font-small">
+                                                                                {{ $attachment->file_name }}
+                                                                            </span>
+                                                                            <span class="d-inline-block font-small naskh"
+                                                                                style="color: var(--bg-font-4);position: relative;top: -2px">
+                                                                                [
+                                                                                {{ round(filesize('uploaded_images/offers/' . $attachment->file_name) / 1048576, 2) }}
+                                                                                ميغا
+                                                                                ]
+                                                                            </span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            @endforeach
                                                         </h3>
                                                     </div>
                                                 </div>
@@ -671,36 +700,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                                                                                        واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                                                                                        ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                                                                                        وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                                                                                        مثال :
-
-
-                                                                                                                                                                                        نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                                                                                        المالية اليوم :
-
-                                                                                                                                                                                        مجموع الداخل 500000
-                                                                                                                                                                                        مجموع الخارج  250000
-
-                                                                                                                                                                                        المتبقي في الخزنة : 25000
+                                                                                                                                                                                            مثال :
 
 
-                                                                                                                                                                                        تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                                                                                        الصنف 1 متبقي 10فقط
+                                                                                                                                                                                            المالية اليوم :
 
-                                                                                                                                                                                        الصنف 2 متبقي   4 فقط
+                                                                                                                                                                                            مجموع الداخل 500000
+                                                                                                                                                                                            مجموع الخارج  250000
 
-                                                                                                                                                                                        الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                                                                            المتبقي في الخزنة : 25000
 
-                                                                                                                                                                                        -  تقرير غرفة المراقبة
 
-                                                                                                                                                                                        وهكذا&source=وسيط"
+                                                                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                                                                            الصنف 1 متبقي 10فقط
+
+                                                                                                                                                                                            الصنف 2 متبقي   4 فقط
+
+                                                                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                                                                            -  تقرير غرفة المراقبة
+
+                                                                                                                                                                                            وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
@@ -862,36 +891,36 @@
                                             </a>
                                             <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/project/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8&title=مطلوب برمجة  تتصل ببرنامج سطح مكتب بلغة السي شارب&summary=لدي  نظام محاسبي يعمل على سطح المكتب بلغة السي شارب ,
 
-                                                                                                                                                                                        واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
+                                                                                                                                                                                            واريد طريقة يمكن للزبناء الاتصال بالبرنامج عن بعد من هواتفهم    في حالة كان الكمبيوتر  البعيد متصل بالانترنت .
 
-                                                                                                                                                                                        ماهي الطريقة الافضل لذلك ؟
+                                                                                                                                                                                            ماهي الطريقة الافضل لذلك ؟
 
-                                                                                                                                                                                        وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
+                                                                                                                                                                                            وكيف لو فيه زبون لديه اكثر من  نقطة بيع يكون له لوحة تحكم واحدة وتشمل كل نقاط البيع الخاصة بيه.
 
-                                                                                                                                                                                        مثال :
-
-
-                                                                                                                                                                                        نقطة بيع  رقم 1 القاهرة :
-
-                                                                                                                                                                                        المالية اليوم :
-
-                                                                                                                                                                                        مجموع الداخل 500000
-                                                                                                                                                                                        مجموع الخارج  250000
-
-                                                                                                                                                                                        المتبقي في الخزنة : 25000
+                                                                                                                                                                                            مثال :
 
 
-                                                                                                                                                                                        تقرير الاصناف اوشكت على الانتهاء :
+                                                                                                                                                                                            نقطة بيع  رقم 1 القاهرة :
 
-                                                                                                                                                                                        الصنف 1 متبقي 10فقط
+                                                                                                                                                                                            المالية اليوم :
 
-                                                                                                                                                                                        الصنف 2 متبقي   4 فقط
+                                                                                                                                                                                            مجموع الداخل 500000
+                                                                                                                                                                                            مجموع الخارج  250000
 
-                                                                                                                                                                                        الصنف 9 متبقي منه 12 فقط.
+                                                                                                                                                                                            المتبقي في الخزنة : 25000
 
-                                                                                                                                                                                        -  تقرير غرفة المراقبة
 
-                                                                                                                                                                                        وهكذا&source=وسيط"
+                                                                                                                                                                                            تقرير الاصناف اوشكت على الانتهاء :
+
+                                                                                                                                                                                            الصنف 1 متبقي 10فقط
+
+                                                                                                                                                                                            الصنف 2 متبقي   4 فقط
+
+                                                                                                                                                                                            الصنف 9 متبقي منه 12 فقط.
+
+                                                                                                                                                                                            -  تقرير غرفة المراقبة
+
+                                                                                                                                                                                            وهكذا&source=وسيط"
                                                 class="d-inline-block p-1" target="_blank">
                                                 <span class="fab fa-linkedin-in d-inline-block "
                                                     style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
