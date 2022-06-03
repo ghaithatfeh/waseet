@@ -76,14 +76,15 @@
                                             class="fad fa-users-crown font-4 text-center pt-1 nafezly-badge-style user_badge"
                                             data-placement='bottom' data-content='شريك نجاح'></span>
                                     </div>
-                                    <div class="m-auto m-md-0  pt-2 d-block d-md-none row "
+                                    <div class="m-auto m-md-0 pt-2 d-block d-md-none row "
                                         style="max-width: 100%;width: 300px;">
                                         <div class="col-12 px-0 row justify-content-center" style="">
                                             <div style="width: calc(100% - 130px)">
-                                                <a href="https://nafezly.com/project/create-guest?freelancer=mogtaba_ahmed">
+                                                <a href="/freelancers/personal-data/{{ $user->id }}">
                                                     <span class="btn btn-primary font-1 text-center   col-12"
                                                         style="border-radius: 2px">
-                                                        <span class="fal fa-suitcase"></span> توظيف </span>
+                                                        <span class="fal fa-suitcase"></span> تعديل المعلومات الشخصية
+                                                    </span>
                                                 </a>
                                             </div>
                                             <div class=" text-right text-md-left  pr-2"
@@ -205,14 +206,16 @@
                                 <div class="form-inline my-2 my-lg-0 px-3 px-lg-3 d-none d-md-block pb-2">
                                     <div class="m-auto m-md-0  d-inline-block " style="max-width: 100%;padding-top: 13px">
                                         <div class="col-12 px-0 row">
-                                            <a href="https://nafezly.com/project/create-guest?freelancer=mogtaba_ahmed"
-                                                class="d-inline-block">
-                                                <span class="btn btn-primary font-1 text-center   col-12"
-                                                    style="border-radius: 2px">
-                                                    <span class="fal fa-suitcase"></span>
-                                                    <span class="d-lg-inline-block"> توظيف </span>
-                                                </span>
-                                            </a>
+                                            @if ($user->id == auth()->id())
+                                                <a href="/freelancers/personal-data/{{ $user->id }}"
+                                                    class="d-inline-block">
+                                                    <span class="btn btn-primary font-1 text-center   col-12"
+                                                        style="border-radius: 2px">
+                                                        <span class="fal fa-suitcase"></span>
+                                                        <span class="d-lg-inline-block"> تعديل المعلومات الشخصية </span>
+                                                    </span>
+                                                </a>
+                                            @endif
                                             <span class="d-inline-block pr-2" style="position: relative;">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
@@ -290,7 +293,7 @@
                                         </div>
                                     </div>
                                     <h1 class="col-12 py-3 bio-old font-lg-2"
-                                        style="min-height: 80px; white-space: pre-line;font-size: 15px;color: var(--bg-font-4);line-height: 1.8; word-wrap: break-word;overflow: hidden;">
+                                        style="font-size: 15px;color: var(--bg-font-4);line-height: 1.8; word-wrap: break-word;overflow: hidden;">
                                         {{ $user->description ?? 'لم يكتب نبذة شخصية.' }}
                                     </h1>
 
@@ -300,9 +303,7 @@
                                             class="col-12">
                                             @method('PUT')
                                             @csrf
-                                            <textarea class="form-control" style="min-height: 200px" name="description">
-                                                {{ $user->description }}
-                                            </textarea>
+                                            <textarea class="form-control" style="min-height: 200px" name="description">{{ $user->description }}</textarea>
                                             <div class="col-12 pt-2 px-0">
                                                 <div class="col-12 text-left px-0">
                                                     <span class="btn btn-info kufi font-1" style="cursor: pointer;"

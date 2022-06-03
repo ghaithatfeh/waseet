@@ -17,8 +17,16 @@ class FreelancerController extends Controller
 
     public function editBio(Request $request, User $user)
     {
-        if ($user->id == auth()->id())
-            $user->update($request->all());
+        if ($user->id != auth()->id())
+            return abort(403);
+        $user->update($request->all());
         return redirect()->back();
+    }
+
+    public function personalData(User $user)
+    {
+        if ($user->id != auth()->id())
+            return abort(403);
+        return view('freelancers.personal-data', ['user' => $user]);
     }
 }

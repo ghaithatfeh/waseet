@@ -25,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
+Route::get('/freelancers/personal-data/{user}', [FreelancerController::class, 'personalData']);
 
 Route::resources([
     'projects' => ProjectController::class,
