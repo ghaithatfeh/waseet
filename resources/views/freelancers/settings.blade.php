@@ -1,50 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
-        <style type="text/css">
-            .croppie-container .cr-viewport {
-                box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5) !important;
-            }
-
-            .ltr,
-            .ltr * {
-                direction: ltr !important;
-                text-align: unset;
-            }
-
-        </style>
-        <button type="button" class="change-pic-btn d-none" data-toggle="modal" data-target=".ch-pic-modal"></button>
-        <div class="modal fade ch-pic-modal" tabindex="-1" role="dialog" aria-hidden="true" id="avatar-modal">
-            <div class="modal-dialog modal-lg" style="width: 500px;max-width: 100%">
-                <div class="modal-content">
-                    <div class="mx-auto col-12 px-0" style="max-width: 100%;border-radius: 3px;overflow: hidden;">
-                        <div class="col-12 row border-bottom">
-                            <div class="col-9 py-3">
-                                تغيير الصورة الشخصية
-                            </div>
-                            <div class="col-3   text-left pt-1 px-0">
-                                <span class="far fa-times p-3" style="color: #333;cursor: pointer;" data-dismiss="modal"
-                                    aria-label="Close"></span>
-                            </div>
-                        </div>
-                        <div class="col-12 pt-5 pb-4 px-2">
-                            <div class="col-12 px-0 ltr">
-                                <img class="my-image" id="demo-basic" style="z-index: 45454" />
-                            </div>
-                            <div class="col-12 text-left mt-3">
-                                <button class="btn btn-secondary mx-1 font-1" data-dismiss="modal"
-                                    aria-label="Close">إلغاء</button>
-                                <button class="btn btn-primary mx-1 font-1 save-image" data-dismiss="modal"
-                                    aria-label="Close">تغيير الصورة</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 pt-5 change-profile-pic-modal"
-            style="position: fixed;width: 100%;z-index: 66666;background: var(--bg-second-bg);height: 100vh;display: none;margin-top: -60px">
-        </div>
         <div class="col-12 px-0">
             <div class="container  ">
                 <div class="col-12 row  px-0">
@@ -63,69 +19,73 @@
                         }
 
                         /*.dash-list-area a>div {
-                                        border-bottom: 1px solid var(--bg-second-bg)
-                                    }
+            border-bottom: 1px solid var(--bg-second-bg)
+        }
 
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area a:hover * {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area a:hover * {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+        .dash-list-area a:hover * {
+            color: var(--bg-second-bg) !important;
+        }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area .active * {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active * {
+            color: var(--bg-second-bg) !important;
+        }
+        .dash-list-area a:hover * {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+        .dash-list-area a:hover span {
+            color: var(--bg-second-bg) !important;
+        }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active span {
+            color: var(--bg-second-bg) !important;
+        }
+        .dash-list-area a:hover * {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+        .dash-list-area a:hover span {
+            color: var(--bg-second-bg) !important;
+        }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active span {
+            color: var(--bg-second-bg) !important;
+        }
+        .dash-list-area a:hover * {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+        .dash-list-area a:hover span {
+            color: var(--bg-second-bg) !important;
+        }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+        .dash-list-area .active {
+            background: var(--bg-color-3) !important;
+        }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }*/
+        .dash-list-area .active span {
+            color: var(--bg-second-bg) !important;
+        }*/
+
+
+
+
                         .croppie-container .cr-resizer,
                         .croppie-container .cr-viewport {
                             box-shadow: unset;
@@ -145,12 +105,12 @@
                                     style="display: inline-block;padding: 0px!important;border-radius: 6px!important;padding: 37px 0px!important;max-width: 100%">
                                     <div
                                         style="width: 150px; display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;height: 150px;">
-                                        <a href="/freelancers/{{ $user->id }}">
+                                        <a href="https://nafezly.com/u/ghaith_atfeh">
                                             <div
                                                 style="width: 150px;display: inline-block;border-radius: 50%!important;box-shadow: 0px 0px 12px var(--bg-main-bg);max-width: 100%; height: 150px;position: absolute;  left: 0;   right: 0;  margin-left: auto;   margin-right: auto;  ">
-                                                <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
+                                                <img src="https://nafezly-production.s3.eu-west-3.amazonaws.com/uploads/avatars/24414_1653664595_6290eb5310a48.jpg"
                                                     style="width: 100%;border-radius:inherit;padding: 10px;height: 100%;border-radius: 50%">
-                                                <a href="/freelancers/personal-data/{{ $user->id }}">
+                                                <a href="https://nafezly.com/profile/personal-data">
                                                     <div style="position: absolute;width: 40px;height: 40px;left: 6px;bottom: 10px;border-radius: 50%!important;background: var(--bg-second-bg);cursor: pointer;padding: 8px 0px;border:1px dashed var(--bg-font-4)"
                                                         class="  text-center hover-darker">
                                                         <span class="fal fa-user-edit"
@@ -161,9 +121,10 @@
                                         </a>
                                     </div>
                                     <h5 class="text-center pt-2 mb-0 pb-0 mt-2 almaria"
-                                        style="font-size: 23px;color: var(--bg-font-4); ">
-                                        {{ $user->first_name . ' ' . $user->last_name }}</h5>
+                                        style="font-size: 23px;color: var(--bg-font-4); ">Ghaith Atfeh</h5>
                                 </div>
+                            </div>
+                            <div>
                             </div>
                             <div class="col-12  mb-2 mt-4    d-block d-md-none p-3 main-nafez-box-styles " style="">
                                 <div class="col-12 row px-0">
@@ -313,13 +274,17 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/my/verification" class="d-block"
+                                            <a href="/my/verification"
+                                                class="d-block
+                                                "
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
                                                     <div class="col-12 p-0 text-center">
-                                                        <span class="fas fa-badge-check  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2); color: #4caf50!important;"></span>
+                                                        <span class="fas fa-badge-check  d-inline-block  font-3" style="color: var(--bg-color-2);
+                                                                                        color: #4caf50!important;
+                                                
+                                            "></span>
                                                         <div class="col-12 px-0 text-center title">
                                                             توثيق
                                                         </div>
@@ -328,7 +293,9 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/my/referral" class="d-block"
+                                            <a href="/my/referral"
+                                                class="d-block
+                                                "
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -429,16 +396,14 @@
                         </div>
                     </div>
                     <div class="col-12  col-lg-9 col-md-8 text-center  content-area  px-0 px-md-3 pb-2">
-                        <form method="POST" action="/freelancers/personal_data_update/{{ $user->id }}"
-                            enctype="multipart/form-data" id="profile-update-form">
-                            @csrf
-                            @method('put')
-                            <div style="padding: 0px; min-height: 700px; "
-                                class="col-12 row mt-0 mt-md-5 main-nafez-box-styles">
-                                <div class="col-12 px-0">
-                                    <div class="col-12 px-0" style="border-bottom: 1px solid var(--bg-main-bg)">
-                                        <nav class="navbar navbar-expand-lg px-0 py-0">
-                                            <span class="navbar-brand" href="#"
+                        <form method="POST" action="https://nafezly.com/profile/website_settings" id="profile-update-form">
+                            <input type="hidden" name="_token" value="Z3WrjXrtyhCz3Vv61uzZv3NWoMugL9oDyIqTnDDL">
+                            <div style=";padding: 0px; min-height: 700px; "
+                                class="col-12 row  mt-0 mt-md-5   main-nafez-box-styles">
+                                <div style=";" class="col-12   px-0    ">
+                                    <div class="col-12 px-0  " style="border-bottom: 1px solid var(--bg-main-bg);   ">
+                                        <nav class="navbar navbar-expand-lg   px-0 py-0">
+                                            <span class="navbar-brand " href="#"
                                                 style="padding: 12px 0px!important;color: var(--bg-color-0) ;font-size: 16px">حسابي</span>
                                             <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
                                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -451,14 +416,13 @@
                                                     <li class="nav-item">
                                                         <a class="nav-link font-1 py-3 px-3 d-inline-block "
                                                             href="/freelancers/personal-data/{{ $user->id }}"
-                                                            style="color: var(--bg-color-0); border-bottom: 3px solid #000">
-                                                            البيانات الشخصية
-                                                        </a>
+                                                            style="color: var(--bg-color-0);">البيانات الشخصية</a>
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link font-1 py-3 px-3 d-inline-block "
                                                             href="/freelancers/settings/{{ $user->id }}"
-                                                            style="color: var(--bg-color-0);">بيانات الموقع</a>
+                                                            style="color: var(--bg-color-0);border-bottom: 3px solid #000">بيانات
+                                                            الموقع</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -466,128 +430,158 @@
                                     </div>
                                     <div class="col-12" style="padding:12px 5px">
                                         <div class="col-12 col-md-12 mb-4 py-4 row text-center row">
-                                            <div class="col-12 col-md-3 text-center mb-5">
-                                                {{-- upload profile image --}}
-                                                <div class="text-center"
-                                                    style="height: 130px;width: 130px;border-radius: 50%!important;background-image: url('{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}'); background-size: cover; background-position: center;display: inline-block;cursor: pointer;position: relative;"
-                                                    id="pf_foto">
-                                                    <div class="text-left px-0 "
-                                                        style="position: absolute;bottom: 10px;width: 100%;z-index: 2">
-                                                        <span
-                                                            class="btn  font-small d-inline-block mx-auto hover-darker btn-primary"
-                                                            style="border-radius: 30px;z-index: 2;position: relative;"
-                                                            onclick="$('#profile_image').click();">تغيير الصورة</span>
-                                                    </div>
-                                                    <input type="file" name="profile_image" id="profile_image"
-                                                        style="width: 100%;height: 130px;opacity: 0;z-index: 1;cursor: pointer;border-radius: 50%"
-                                                        onclick="this.value=null;">
-                                                    {{-- <input type="hidden" name="avatar" id="encoded_image"> --}}
+                                            <div class="col-12 col-md-6 mb-3">
+                                                <div class="col-12 font-1">
+                                                    التخصص
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <select class=" col-12 font-1 form-control py-0 px-2"
+                                                        name="specialization_id">
+                                                        <option selected="" disabled=""></option>
+                                                        <option value="1">أعمال وخدمات استشارية وإدارية</option>
+                                                        <option value="2" selected>برمجة، تطوير المواقع والتطبيقات</option>
+                                                        <option value="3">تصميم وأعمال فنية وإبداعية</option>
+                                                        <option value="4">تسويق الكتروني ومبيعات</option>
+                                                        <option value="5">كتابة، صناعة محتوى، ترجمة ولغات</option>
+                                                        <option value="6">تدريب، تعليم ومساعدة عن بعد</option>
+                                                        <option value="7">أمور أخرى</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="col-12 col-md-9 row">
-                                                <div class="col-12 mb-4">
-                                                    <div class="col-12 font-1">
-                                                        الاسم الاول
-                                                    </div>
-                                                    <div class="col-12 mt-2">
-                                                        <input type="" name="firstname" class="form-control"
-                                                            minlength="2" maxlenght="30" required=""
-                                                            value="{{ $user->first_name }}">
-                                                    </div>
+                                            <div class="col-12 col-md-6  mb-3">
+                                                <div class="col-12  kufi font-1 ">
+                                                    المسمى الوظيفي
                                                 </div>
-                                                <div class="col-12 mb-4">
-                                                    <div class="col-12 font-1">
-                                                        اسم العائلة
-                                                    </div>
-                                                    <div class="col-12 mt-2">
-                                                        <input type="" name="lastname" class="form-control" minlength="2"
-                                                            maxlenght="30" required="" value="{{ $user->last_name }}">
-                                                    </div>
+                                                <div class="col-12 mt-2">
+                                                    <input type="text" name="job_title" class="form-control" required=""
+                                                        minlength="3" maxlength="20" value="Full Stack Developer"
+                                                        id="job_title">
+                                                    <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
+                                                        class="pt-1 naskh">أدخل مسمى وظيفي واحد لتظهر بنتائج البحث.
+                                                        مثال: مهندس معماري </div>
                                                 </div>
-                                                <div class="col-12 mb-4">
-                                                    <div class="col-12 font-1">
-                                                        رقم الهاتف <span style="color: #919191;"
-                                                            class="font-small"></span>
-                                                    </div>
-                                                    <div class="col-12 mt-2">
-                                                        <input type="" name="phone" class="form-control" minlength="10"
-                                                            minlength="30" value="{{ $user->phone }}" readonly=""
-                                                            disabled="">
-                                                    </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 font-1">
+                                                    نبذة
                                                 </div>
-                                                <div class="col-12 col-md-6 mb-4">
-                                                    <div class="col-12 font-1">
-                                                        الجنس <span style="color: #919191;" class="font-small">(
-                                                            إختياري )</span>
-                                                    </div>
-                                                    <div class="col-12 mt-2">
-                                                        <select class="form-control py-0 px-3" name="sex">
-                                                            <option selected="" disabled=""></option>
-                                                            <option value="male"
-                                                                {{ $user->gender == 'Male' ? 'selected' : '' }}>ذكر
-                                                            </option>
-                                                            <option value="female"
-                                                                {{ $user->gender == 'Female' ? 'selected' : '' }}>انثى
-                                                            </option>
-                                                        </select>
-                                                    </div>
+                                                <div class="col-12 mt-2">
+                                                    <textarea class="col-12 form-control" style="min-height: 250px" name="bio"></textarea>
                                                 </div>
-                                                <div class="col-12 col-md-6 mb-4">
-                                                    <div class="col-12 font-1">
-                                                        تاريخ الميلاد <span style="color: #919191;"
-                                                            class="font-small">( إختياري )</span>
-                                                    </div>
-                                                    <div class="col-12 mt-2 row">
-                                                        <div class="col-4 px-0">
-                                                            <select class="form-control py-0 px-1" name="day">
-                                                                <option selected="" disabled="">يوم</option>
-                                                                @for ($i = 1; $i <= 31; $i++)
-                                                                    <option
-                                                                        {{ $user->birthdate->format('d') == $i ? 'selected' : '' }}
-                                                                        value="{{ $i }}">
-                                                                        {{ $i }}
-                                                                    </option>
-                                                                @endfor
-                                                            </select>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 font-1">
+                                                    المهارات الشخصية
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <select class="select3-skills col-12 px-0" multiple="" name="tag_id[]"
+                                                        style="height: 35px;border-color: #d0d0d0!important;"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 font-1">
+                                                    نوع الحساب
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <div class="d-inline-block border ">
+                                                        <div class="px-3">
+                                                            <div class="col-12 px-0 row mt-2 ">
+                                                                <div style="width: 40px">
+                                                                    <div class="control-group py-2 px-2">
+                                                                        <label class="control control-checkbox">
+                                                                            <input type="checkbox" id="employer"
+                                                                                name="user_type_employer" data-ui=""
+                                                                                data-filter="specialize" value="employer" />
+                                                                            <div class="control_indicator"></div>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: calc(100% - 40px)"
+                                                                    class="pt-2">
+                                                                    <label class="kufi mb-0" for="employer"
+                                                                        style="cursor: pointer;color: var(--bg-font-4);font-size: 12px">صاحب
+                                                                        مشاريع - مشتري خدمات</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-4 px-0">
-                                                            <select class="form-control py-0 px-1"
-                                                                style="border-left: none;border-right: none;" name="month">
-                                                                <option selected="" disabled="">شهر</option>
-                                                                @for ($i = 1; $i <= 12; $i++)
-                                                                    <option
-                                                                        {{ $user->birthdate->format('m') == $i ? 'selected' : '' }}
-                                                                        value="{{ $i }}">
-                                                                        {{ $i }}
-                                                                    </option>
-                                                                @endfor
-                                                            </select>
+                                                        <hr class="mb-1">
+                                                        <div class="px-3">
+                                                            <div class="col-12 px-0 row"
+                                                                onclick="if($('#freelancer').is(':checked')) $('#available-freelancer').prop('checked', false);">
+                                                                <div style="width: 40px">
+                                                                    <div class="control-group py-2 px-2">
+                                                                        <label class="control control-checkbox">
+                                                                            <input type="checkbox" id="freelancer"
+                                                                                name="user_type_freelancer" data-ui=""
+                                                                                data-filter="specialize" value="freelancer"
+                                                                                checked="" />
+                                                                            <div class="control_indicator"></div>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: calc(100% - 40px)"
+                                                                    class="pt-2">
+                                                                    <label class="kufi mb-0" for="freelancer"
+                                                                        style="cursor: pointer;color: var(--bg-font-4);font-size: 12px">منفذ
+                                                                        مشاريع - بائع خدمات</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 px-0 row pr-4"
+                                                                onclick="if($('#available-freelancer').is(':checked')) $('#freelancer').prop('checked', true);">
+                                                                <div style="width: 40px">
+                                                                    <div class="control-group py-0 px-2">
+                                                                        <label class="control control-checkbox">
+                                                                            <input type="checkbox" id="available-freelancer"
+                                                                                name="user_type_freelancer" data-ui=""
+                                                                                data-filter="specialize"
+                                                                                value="available-freelancer" checked="" />
+                                                                            <div class="control_indicator"></div>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: calc(100% - 40px)"
+                                                                    class="pt-2">
+                                                                    <label class="kufi mb-3"
+                                                                        for="available-freelancer"
+                                                                        style="cursor: pointer;color: var(--bg-font-4);font-size: 12px">متاح
+                                                                        للتوظيف حالياً</label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-4 px-0">
-                                                            <select class="form-control py-0 px-1" name="year">
-                                                                <option selected="" disabled="">سنة</option>
-                                                                @for ($i = 2010; $i >= 1950; $i--)
-                                                                    <option
-                                                                        {{ $user->birthdate->format('Y') == $i ? 'selected' : '' }}
-                                                                        value="{{ $i }}">
-                                                                        {{ $i }}
-                                                                    </option>
-                                                                @endfor
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 mb-4 mt-2">
-                                                    <div class="col-12 text-left">
-                                                        <button class="btn btn-primary font-1">حفظ التغييرات</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12 px-0 mt-2" style="position: relative;display: none;">
-                                                <div class="col-12 mt-3 ">
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 mt-2">
+                                                    <div class="d-inline-block ">
+                                                        <div class="px-3">
+                                                            <div class="col-12 px-0 row mt-2 ">
+                                                                <div style="width: 40px">
+                                                                    <div class="control-group py-2 px-2">
+                                                                        <label class="control control-checkbox">
+                                                                            <input type="checkbox" id="subscribe_newsletter"
+                                                                                name="subscribe_newsletter" data-ui=""
+                                                                                data-filter="specialize" value="1"
+                                                                                checked="" />
+                                                                            <div class="control_indicator"></div>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="width: calc(100% - 40px)"
+                                                                    class="pt-2">
+                                                                    <label class="kufi mb-0"
+                                                                        for="subscribe_newsletter"
+                                                                        style="cursor: pointer;color: var(--bg-font-4);font-size: 12px">الإشتراك
+                                                                        في القائمة البريدية</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="col-12 mt-2 text-center">
-                                                    <br>
+                                            </div>
+                                            <div class="col-12 mb-4 mt-2">
+                                                <div class="col-12 text-left">
+                                                    <button class="btn btn-primary font-1">حفظ التغييرات</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -599,32 +593,5 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function(event) {
-                $.extend($.validator.messages, {
-                    required: "برجاء ملئ هذا الحقل",
-                    remote: "يرجى تصحيح هذا الحقل للمتابعة",
-                    email: "رجاء إدخال عنوان بريد إلكتروني صحيح",
-                    url: "رجاء إدخال عنوان موقع إلكتروني صحيح",
-                    date: "رجاء إدخال تاريخ صحيح",
-                    dateISO: "رجاء إدخال تاريخ صحيح (ISO)",
-                    number: "رجاء إدخال عدد بطريقة صحيحة",
-                    digits: "رجاء إدخال أرقام فقط",
-                    creditcard: "رجاء إدخال رقم بطاقة ائتمان صحيح",
-                    equalTo: "رجاء إدخال نفس القيمة",
-                    extension: "رجاء إدخال ملف بامتداد موافق عليه",
-                    maxlength: $.validator.format("الحد الأقصى لعدد الحروف هو {0}"),
-                    minlength: $.validator.format("الحد الأدنى لعدد الحروف هو {0}"),
-                    rangelength: $.validator.format("عدد الحروف يجب أن يكون بين {0} و {1}"),
-                    range: $.validator.format("رجاء إدخال عدد قيمته بين {0} و {1}"),
-                    max: $.validator.format("رجاء إدخال عدد أقل من أو يساوي {0}"),
-                    min: $.validator.format("رجاء إدخال عدد أكبر من أو يساوي {0}")
-                });
-            });
-        </script>
-        <script type="text/javascript"></script>
-    @section('script')
-        $("#profile-update-form").validate({});
-    @endsection
-</div>
+    </div>
 @endsection

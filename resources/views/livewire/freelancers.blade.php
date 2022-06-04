@@ -318,26 +318,15 @@
                         @endforeach
                     </div>
                     <div class="col-12 row px-0 pt-0 pb-4">
-                        {{-- <nav>
-                            <ul class="pagination">
-                                <li class="page-item disabled" aria-disabled="true">
-                                    <span class="page-link">&laquo; السابق</span>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="https://nafezly.com/freelancers?page=2"
-                                        rel="next">التالي &raquo;</a>
-                                </li>
-                            </ul>
-                        </nav> --}}
                         {{ $users->links('pagination-links') }}
                     </div>
-                    <script type="text/javascript">
+                    @section('script')
                         $(function() {
-                            $('[data-toggle="popover"]').popover({
-                                trigger: "hover"
-                            });
+                        $('[data-toggle="popover"]').popover({
+                        trigger: "hover"
                         });
-                    </script>
+                        });
+                    @endsection
                 </div>
             </div>
         </div>

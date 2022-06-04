@@ -29,4 +29,25 @@ class FreelancerController extends Controller
             return abort(403);
         return view('freelancers.personal-data', ['user' => $user]);
     }
+    public function personalDataUpdate(Request $request, User $user)
+    {
+        return $request;
+
+        if ($user->id != auth()->id())
+            return abort(403);
+        return back();
+    }
+
+    public function settings(User $user)
+    {
+        if ($user->id != auth()->id())
+            return abort(403);
+        return view('freelancers.settings', ['user' => $user]);
+    }
+    public function settingsUpdate(Request $request, User $user)
+    {
+        if ($user->id != auth()->id())
+            return abort(403);
+        return back();
+    }
 }

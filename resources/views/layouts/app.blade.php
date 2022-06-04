@@ -12,7 +12,7 @@
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <style>
-        @font-face {
+        /* @font-face {
             font-family: kufi-arabic;
             font-style: normal;
             font-weight: 400;
@@ -105,7 +105,7 @@
             src: url(../fonts/Frutiger-Bold.woff2) format("woff2"), url(../fonts/Frutiger-Bold.woff) format("woff"), url(../fonts/Frutiger-Bold.ttf) format("truetype");
             font-weight: 700;
             font-style: normal
-        }
+        } */
 
     </style>
     {{-- my css --}}
@@ -146,7 +146,6 @@
 
     <link rel="icon" type="image/png" href="" />
     <link rel="icon" type="image/png" sizes="512x512" href="" />
-    <link rel="manifest" href="https://nafezly.com/manifest.json">
     <link rel='help' title='FAQ' href='https://nafezly.com/faq' />
     <link rel="alternate" type="application/rss+xml" title="المشاريع المفتوحة" href="https://nafezly.com/feed">
     <script type="application/ld+json">
@@ -261,7 +260,7 @@
         }
 
     </style>
-    <script nonce="e936d653-9d60-497a-b942-bccee4116b30">
+    {{-- <script nonce="e936d653-9d60-497a-b942-bccee4116b30">
         (function(w, d) {
             ! function(a, e, t, r) {
                 a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = {
@@ -303,7 +302,7 @@
                 }))
             }(w, d, 0, "script");
         })(window, document);
-    </script>
+    </script> --}}
     @livewireStyles
 </head>
 <style type="text/css">
@@ -800,7 +799,7 @@
     <script type="text/javascript"></script>
 
     @livewireScripts
-    <script data-turbo-eval="false" data-turbolinks-eval="false">
+    {{-- <script data-turbo-eval="false" data-turbolinks-eval="false">
         window.livewire = new Livewire();
         window.Livewire = window.livewire;
         window.livewire_app_url = '';
@@ -823,7 +822,7 @@
                 started = true;
             }
         });
-    </script>
+    </script> --}}
     <script type="text/javascript">
         $('#recorderNafezly').on('hide.bs.modal', function() {
             $(this).find('audio').attr('src', '');

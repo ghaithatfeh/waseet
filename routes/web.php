@@ -5,6 +5,7 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Livewire\Freelancers;
+use App\Http\Livewire\PersonalData;
 use App\Http\Livewire\Projects;
 use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,9 @@ Route::get('/', function () {
 
 Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
 Route::get('/freelancers/personal-data/{user}', [FreelancerController::class, 'personalData']);
+Route::get('/freelancers/settings/{user}', [FreelancerController::class, 'settings']);
+Route::put('/freelancers/personal_data_update/{user}', [FreelancerController::class, 'personalDataUpdate']);
+Route::put('/freelancers/settings_update/{user}', [FreelancerController::class, 'settingsUpdate']);
 
 Route::resources([
     'projects' => ProjectController::class,
