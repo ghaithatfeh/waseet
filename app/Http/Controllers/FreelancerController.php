@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
@@ -27,27 +28,28 @@ class FreelancerController extends Controller
     {
         if ($user->id != auth()->id())
             return abort(403);
-        return view('freelancers.personal-data', ['user' => $user]);
+        $categories = Category::all();
+        return view('freelancers.personal-data', [
+            'user' => $user,
+            'categories' => $categories
+        ]);
     }
+
     public function personalDataUpdate(Request $request, User $user)
     {
-        return $request;
+        if ($user->id != auth()->id())
+            return abort(403);
 
-        if ($user->id != auth()->id())
-            return abort(403);
-        return back();
-    }
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required|min:10',
+            'category_id' => 'required|numeric',
+            'job_name' => 'required',
+        ]);
+        $request['birthdate'] = $request->year . '-' . $request->month . '-' . $request->day;
 
-    public function settings(User $user)
-    {
-        if ($user->id != auth()->id())
-            return abort(403);
-        return view('freelancers.settings', ['user' => $user]);
-    }
-    public function settingsUpdate(Request $request, User $user)
-    {
-        if ($user->id != auth()->id())
-            return abort(403);
-        return back();
+        $user->update($request->all());
+        return back()->with('message-success', 'تم تحديث البيانات بنجاح');
     }
 }

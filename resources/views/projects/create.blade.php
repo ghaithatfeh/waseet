@@ -177,5 +177,8 @@
             </div>
         </div>
     </div>
+@section('script')
+    $("#project-form").validate({});
+@endsection
 
-@stop
+@endsection

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <style type="text/css">
             .croppie-container .cr-viewport {
@@ -63,69 +64,69 @@
                         }
 
                         /*.dash-list-area a>div {
-                                        border-bottom: 1px solid var(--bg-second-bg)
-                                    }
+                                                                    border-bottom: 1px solid var(--bg-second-bg)
+                                                                }
 
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area a:hover * {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area a:hover * {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+                                                                .dash-list-area a:hover * {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area .active * {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active * {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
+                                                                .dash-list-area a:hover * {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+                                                                .dash-list-area a:hover span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
+                                                                .dash-list-area a:hover * {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+                                                                .dash-list-area a:hover span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
-                                    .dash-list-area a:hover * {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
+                                                                .dash-list-area a:hover * {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area a:hover span {
-                                        color: var(--bg-second-bg) !important;
-                                    }
+                                                                .dash-list-area a:hover span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }
 
-                                    .dash-list-area .active {
-                                        background: var(--bg-color-3) !important;
-                                    }
+                                                                .dash-list-area .active {
+                                                                    background: var(--bg-color-3) !important;
+                                                                }
 
-                                    .dash-list-area .active span {
-                                        color: var(--bg-second-bg) !important;
-                                    }*/
+                                                                .dash-list-area .active span {
+                                                                    color: var(--bg-second-bg) !important;
+                                                                }*/
                         .croppie-container .cr-resizer,
                         .croppie-container .cr-viewport {
                             box-shadow: unset;
@@ -428,12 +429,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12  col-lg-9 col-md-8 text-center  content-area  px-0 px-md-3 pb-2">
+                    <div x-data="{ formType: true }"
+                        class="col-12  col-lg-9 col-md-8 text-center  content-area  px-0 px-md-3 pb-2">
                         <form method="POST" action="/freelancers/personal_data_update/{{ $user->id }}"
                             enctype="multipart/form-data" id="profile-update-form">
                             @csrf
-                            @method('put')
-                            <div style="padding: 0px; min-height: 700px; "
+                            <div style="padding: 0px; min-height: 700px;"
                                 class="col-12 row mt-0 mt-md-5 main-nafez-box-styles">
                                 <div class="col-12 px-0">
                                     <div class="col-12 px-0" style="border-bottom: 1px solid var(--bg-main-bg)">
@@ -449,22 +450,25 @@
                                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                                 <ul class="navbar-nav mr-auto pr-0">
                                                     <li class="nav-item">
-                                                        <a class="nav-link font-1 py-3 px-3 d-inline-block "
-                                                            href="/freelancers/personal-data/{{ $user->id }}"
-                                                            style="color: var(--bg-color-0); border-bottom: 3px solid #000">
+                                                        <a @click.prevent="formType= true"
+                                                            class="nav-link font-1 py-3 px-3 d-inline-block" href="#"
+                                                            :style="formType && { borderBottom: '3px solid #000' }"
+                                                            style="color: var(--bg-color-0);">
                                                             البيانات الشخصية
                                                         </a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link font-1 py-3 px-3 d-inline-block "
-                                                            href="/freelancers/settings/{{ $user->id }}"
+                                                        <a @click.prevent="formType = false"
+                                                            class="nav-link font-1 py-3 px-3 d-inline-block" href="#"
+                                                            :style="!formType && { borderBottom: '3px solid #000' }"
                                                             style="color: var(--bg-color-0);">بيانات الموقع</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </nav>
                                     </div>
-                                    <div class="col-12" style="padding:12px 5px">
+
+                                    <div x-show="formType" class="col-12" style="padding:12px 5px">
                                         <div class="col-12 col-md-12 mb-4 py-4 row text-center row">
                                             <div class="col-12 col-md-3 text-center mb-5">
                                                 {{-- upload profile image --}}
@@ -490,7 +494,7 @@
                                                         الاسم الاول
                                                     </div>
                                                     <div class="col-12 mt-2">
-                                                        <input type="" name="firstname" class="form-control"
+                                                        <input type="" name="first_name" class="form-control"
                                                             minlength="2" maxlenght="30" required=""
                                                             value="{{ $user->first_name }}">
                                                     </div>
@@ -500,8 +504,9 @@
                                                         اسم العائلة
                                                     </div>
                                                     <div class="col-12 mt-2">
-                                                        <input type="" name="lastname" class="form-control" minlength="2"
-                                                            maxlenght="30" required="" value="{{ $user->last_name }}">
+                                                        <input type="" name="last_name" class="form-control"
+                                                            minlength="2" maxlenght="30" required=""
+                                                            value="{{ $user->last_name }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mb-4">
@@ -511,8 +516,7 @@
                                                     </div>
                                                     <div class="col-12 mt-2">
                                                         <input type="" name="phone" class="form-control" minlength="10"
-                                                            minlength="30" value="{{ $user->phone }}" readonly=""
-                                                            disabled="">
+                                                            minlength="30" value="{{ $user->phone }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6 mb-4">
@@ -521,13 +525,14 @@
                                                             إختياري )</span>
                                                     </div>
                                                     <div class="col-12 mt-2">
-                                                        <select class="form-control py-0 px-3" name="sex">
+                                                        <select class="form-control py-0 px-3" name="gender">
                                                             <option selected="" disabled=""></option>
-                                                            <option value="male"
+                                                            <option value="Male"
                                                                 {{ $user->gender == 'Male' ? 'selected' : '' }}>ذكر
                                                             </option>
-                                                            <option value="female"
-                                                                {{ $user->gender == 'Female' ? 'selected' : '' }}>انثى
+                                                            <option value="Female"
+                                                                {{ $user->gender == 'Female' ? 'selected' : '' }}>
+                                                                انثى
                                                             </option>
                                                         </select>
                                                     </div>
@@ -592,6 +597,71 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div x-show="!formType" class="col-12" style="padding:12px 5px">
+                                        <div class="col-12 col-md-12 mb-4 py-4 row text-center row">
+                                            <div class="col-12 col-md-6 mb-3">
+                                                <div class="col-12 font-1">
+                                                    التخصص
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <select class=" col-12 font-1 form-control py-0 px-2"
+                                                        name="category_id">
+                                                        {{-- <option selected="" disabled=""></option>
+                                                        <option value="1">أعمال وخدمات استشارية وإدارية</option>
+                                                        <option value="2" selected>برمجة، تطوير المواقع والتطبيقات</option>
+                                                        <option value="3">تصميم وأعمال فنية وإبداعية</option>
+                                                        <option value="4">تسويق الكتروني ومبيعات</option>
+                                                        <option value="5">كتابة، صناعة محتوى، ترجمة ولغات</option>
+                                                        <option value="6">تدريب، تعليم ومساعدة عن بعد</option>
+                                                        <option value="7">أمور أخرى</option> --}}
+                                                        @foreach ($categories as $category)
+                                                            <option
+                                                                {{ $user->category_id == $category->id ? 'selected' : '' }}
+                                                                value="{{ $category->id }}">
+                                                                {{ $category->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6  mb-3">
+                                                <div class="col-12  kufi font-1 ">
+                                                    المسمى الوظيفي
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <input type="text" name="job_name" class="form-control" required=""
+                                                        minlength="3" maxlength="20" value="{{ $user->job_name }}"
+                                                        id="job_title">
+                                                    <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
+                                                        class="pt-1 naskh">أدخل مسمى وظيفي واحد لتظهر بنتائج البحث.
+                                                        مثال: مهندس معماري </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 font-1">
+                                                    نبذة
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <textarea class="col-12 form-control" style="min-height: 250px" name="description">{{ $user->description }}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <div class="col-12 font-1">
+                                                    المهارات الشخصية
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <select class="select3-skills col-12 px-0" multiple="" name="tag_id[]"
+                                                        style="height: 35px;border-color: #d0d0d0!important;"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-4 mt-2">
+                                                <div class="col-12 text-left">
+                                                    <button class="btn btn-primary font-1">حفظ التغييرات</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -628,3 +698,4 @@
     @endsection
 </div>
 @endsection
+

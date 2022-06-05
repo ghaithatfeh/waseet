@@ -201,4 +201,7 @@
             </div>
         </div>
     </div>
-@stop
+@section('script')
+    $("#service-form").validate({});
+@endsection
+@endsection

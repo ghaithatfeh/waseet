@@ -111,6 +111,7 @@
     {{-- my css --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/all-mixed.css') }}">
 
+
     <style type="text/css">
         #nafezly-navbar {
             box-shadow: unset !important;
@@ -701,7 +702,7 @@
                                                     <a href="/" class="py-2 px-3  d-block  hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal fa-tachometer-alt-slow ml-2"></span>
-                                                                الرئيسية
+                                                            الرئيسية
                                                         </li>
                                                     </a>
                                                     <a href="#dark-mood"
@@ -795,8 +796,6 @@
             e.preventDefault();
         });
     </script>
-    <script type="text/javascript"></script>
-    <script type="text/javascript"></script>
 
     @livewireScripts
     {{-- <script data-turbo-eval="false" data-turbolinks-eval="false">
@@ -852,6 +851,23 @@
         @yield('script')
     </script>
 
+    @if (session()->has('message-success'))
+        <div id="toast-container" class="toast-top-left">
+            <div class="toast toast-success" aria-live="polite" style="">
+                <div class="toast-progress" style="width: 100%;"></div>
+                <div class="toast-message">{{ session()->get('message-success') }}</div>
+            </div>
+        </div>
+        <script>
+            let width = 100;
+            setInterval(() => {
+                $('.toast-progress').css('width', width + '%')
+                width = width - 0.1
+                if (width <= 1)
+                    $('#toast-container').fadeOut()
+            }, 2.5);
+        </script>
+    @endif
 
     <style>
         .selectize-input {
