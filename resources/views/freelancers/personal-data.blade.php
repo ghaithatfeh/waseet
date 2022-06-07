@@ -12,7 +12,6 @@
                 direction: ltr !important;
                 text-align: unset;
             }
-
         </style>
         <button type="button" class="change-pic-btn d-none" data-toggle="modal" data-target=".ch-pic-modal"></button>
         <div class="modal fade ch-pic-modal" tabindex="-1" role="dialog" aria-hidden="true" id="avatar-modal">
@@ -64,69 +63,69 @@
                         }
 
                         /*.dash-list-area a>div {
-                                                                    border-bottom: 1px solid var(--bg-second-bg)
-                                                                }
+                                                                                                border-bottom: 1px solid var(--bg-second-bg)
+                                                                                            }
 
-                                                                .dash-list-area a:hover * {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area a:hover * {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area a:hover * {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
+                                                                                            .dash-list-area a:hover * {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active * {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
-                                                                .dash-list-area a:hover * {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active * {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
+                                                                                            .dash-list-area a:hover * {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area a:hover span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
+                                                                                            .dash-list-area a:hover span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
-                                                                .dash-list-area a:hover * {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
+                                                                                            .dash-list-area a:hover * {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area a:hover span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
+                                                                                            .dash-list-area a:hover span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
-                                                                .dash-list-area a:hover * {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
+                                                                                            .dash-list-area a:hover * {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area a:hover span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }
+                                                                                            .dash-list-area a:hover span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active {
-                                                                    background: var(--bg-color-3) !important;
-                                                                }
+                                                                                            .dash-list-area .active {
+                                                                                                background: var(--bg-color-3) !important;
+                                                                                            }
 
-                                                                .dash-list-area .active span {
-                                                                    color: var(--bg-second-bg) !important;
-                                                                }*/
+                                                                                            .dash-list-area .active span {
+                                                                                                color: var(--bg-second-bg) !important;
+                                                                                            }*/
                         .croppie-container .cr-resizer,
                         .croppie-container .cr-viewport {
                             box-shadow: unset;
@@ -137,7 +136,6 @@
                             height: unset !important;
                             /* height: 100%; */
                         }
-
                     </style>
                     <div class="col-12 col-lg-3 col-md-4 text-center px-0  " style="width: 100%;position: relative;">
                         <div class="col-12 px-0 ">
@@ -607,14 +605,7 @@
                                                 <div class="col-12 mt-2">
                                                     <select class=" col-12 font-1 form-control py-0 px-2"
                                                         name="category_id">
-                                                        {{-- <option selected="" disabled=""></option>
-                                                        <option value="1">أعمال وخدمات استشارية وإدارية</option>
-                                                        <option value="2" selected>برمجة، تطوير المواقع والتطبيقات</option>
-                                                        <option value="3">تصميم وأعمال فنية وإبداعية</option>
-                                                        <option value="4">تسويق الكتروني ومبيعات</option>
-                                                        <option value="5">كتابة، صناعة محتوى، ترجمة ولغات</option>
-                                                        <option value="6">تدريب، تعليم ومساعدة عن بعد</option>
-                                                        <option value="7">أمور أخرى</option> --}}
+                                                        <option selected="" disabled=""></option>
                                                         @foreach ($categories as $category)
                                                             <option
                                                                 {{ $user->category_id == $category->id ? 'selected' : '' }}
@@ -651,8 +642,16 @@
                                                     المهارات الشخصية
                                                 </div>
                                                 <div class="col-12 mt-2">
-                                                    <select class="select3-skills col-12 px-0" multiple="" name="tag_id[]"
-                                                        style="height: 35px;border-color: #d0d0d0!important;"></select>
+                                                    <select class="select3 col-12 px-0" multiple="" name="skills[]"
+                                                        style="height: 35px;border-color: #d0d0d0!important;">
+                                                        @foreach (App\Models\Skill::all() as $skill)
+                                                            <option
+                                                                {{ in_array($skill->id, $user->skills->pluck('id')->toArray()) ? 'selected' : '' }}
+                                                                value="{{ $skill->id }}">
+                                                                {{ $skill->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-12 mb-4 mt-2">
@@ -699,3 +698,39 @@
 </div>
 @endsection
 
+@section('script')
+(function() {
+var $select305877 = $('.select3-skills').selectize({
+plugins: ['remove_button'],
+maxItems: 20,
+searchField: ['value', 'slug'],
+valueField: 'id',
+render: {
+item: function(data) {
+return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
+                    data.slug + "' class='item'>" + data.tag_name + " </div>";
+},
+option: function(data, escape) {
+return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
+                    data.slug + "' class='py-1'>" + data.tag_name + "</div>";
+}
+}
+});
+var selectize = $select305877[0].selectize;
+var selected = [399, 400, 420, 427, 429, 618, 483, 403, 515, 870, 433, 762];
+$.ajax({
+url: 'https://nafezly.com/search/skills',
+type: 'GET',
+success: function(results) {
+$.each(results, function(key, value) {
+selectize.addOption(value);
+//console.log(selected.includes(value.id));
+if (selected.includes(value.id)) {
+//console.log(value.id);
+selectize.addItem(value.id);
+}
+});
+}
+});
+})();
+@endsection

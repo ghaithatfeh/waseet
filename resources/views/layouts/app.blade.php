@@ -846,8 +846,6 @@
             nav: true
         });
 
-
-
         @yield('script')
     </script>
 

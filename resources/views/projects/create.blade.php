@@ -42,20 +42,6 @@
                                     <div class="col-12 mt-2" style="min-height: 70px">
                                         <select class=" select3 col-12" multiple="" name="project_tags[]" style="opacity:0;"
                                             size="1">
-                                            <option value="1">إدارة البريد الإلكتروني</option>
-                                            <option value="380">الفوتوشوب</option>
-                                            <option value="381">العربية</option>
-                                            <option value="382">الإنجليزية</option>
-                                            <option value="383">تصميم الفوتوشوب</option>
-                                            <option value="384">Illustrator</option>
-                                            <option value="385">Microsoft Word</option>
-                                            <option value="386">تصميم الشعارات</option>
-                                            <option value="387">تصميم الجرافيك</option>
-                                            <option value="388">إعادة كتابة المقالات</option>
-                                            <option value="389">التصميم الإبداعي</option>
-                                            <option value="390">الترجمة</option>
-                                            <option value="391">تصميم الإعلانات</option>
-                                            <option value="392">إدخال البيانات </option>
                                             @foreach ($skills as $skill)
                                                 <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                                             @endforeach

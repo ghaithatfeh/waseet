@@ -35,7 +35,7 @@ class ServiceController extends Controller
         $service = Service::create($request->all());
 
         if ($request->skills) {
-            $skills = [];
+            
             foreach ($request->skills as $skill)
                 $skills[] = ['skill_id' => $skill, 'service_id' => $service->id];
             ServiceSkill::insert($skills);

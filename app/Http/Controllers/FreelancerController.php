@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\User;
+use App\Models\UserSkill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 
 class FreelancerController extends Controller
@@ -49,6 +51,12 @@ class FreelancerController extends Controller
         ]);
         $request['birthdate'] = $request->year . '-' . $request->month . '-' . $request->day;
 
+        if ($request->has('skills')) {
+            DB::table('user_skills')->where('user_id', $user->id)->delete();
+            foreach ($request->skills as $skill)
+                $data[] = ['user_id' => $user->id, 'skill_id' => $skill];
+            UserSkill::insert($data);
+        }
         $user->update($request->all());
         return back()->with('message-success', 'تم تحديث البيانات بنجاح');
     }
