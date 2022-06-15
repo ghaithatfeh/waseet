@@ -45,17 +45,29 @@ class FreelancerController extends Controller
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required|min:10',
-            'category_id' => 'required|numeric',
-            'job_name' => 'required',
+            'phone' => 'nullable|min:10',
+            'category_id' => 'numeric',
+            'country_id' => 'numeric',
+            'image' => 'image'
         ]);
-        $request['birthdate'] = $request->year . '-' . $request->month . '-' . $request->day;
+        if ($request->year && $request->month && $request->day)
+            $request['birthdate'] = $request->year . '-' . $request->month . '-' . $request->day;
 
         if ($request->has('skills')) {
             DB::table('user_skills')->where('user_id', $user->id)->delete();
             foreach ($request->skills as $skill)
                 $data[] = ['user_id' => $user->id, 'skill_id' => $skill];
             UserSkill::insert($data);
+        }
+
+        if ($request->hasFile('image')) {
+            if ($user->profile_image != null) {
+                unlink('uploaded_images/users/' . $user->profile_image);
+            }
+            $file = $request
+                ->file('image')
+                ->store('users', ['disk' => 'public_uploade']);
+            $request['profile_image'] = substr($file, 6);
         }
         $user->update($request->all());
         return back()->with('message-success', 'تم تحديث البيانات بنجاح');

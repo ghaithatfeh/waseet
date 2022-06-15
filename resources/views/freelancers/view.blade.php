@@ -1,3 +1,6 @@
+@php
+// dd(Carbon\Carbon::now());
+@endphp
 @extends('layouts.app')
 @section('content')
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
@@ -11,7 +14,6 @@
                 border-radius: 4px;
                 margin-top: 8px;
             }
-
         </style>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
 
@@ -34,18 +36,17 @@
                                             stroke-dasharray="64,100" stroke-linecap="round" fill="none" cx="16.91549431"
                                             cy="16.91549431" r="15.91549431" />
                                         <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
-                                            style="width: 100%;border-radius: 50%!important;height: 150px;position: absolute;padding: 10px"
+                                            style="width: 100%;border-radius: 50%!important;height: 150px;position: absolute;padding: 10px;object-fit: cover;"
                                             alt="الصورة الشخصية" />
                                     </svg>
                                 </div>
                                 <div class="container text-center pt-2 pb-2">
                                     <h1 class="text-center pt-0 mb-0 pb-0 mt-2 almaria"
                                         style="font-size: 21px;color: var(--bg-color-0); text-transform: capitalize;">
-                                        <span style="font-size: 13px;color:#1877f2;cursor: pointer;"
-                                            class="fas verified-nafezly-badge fa-check-circle  text-center"
-                                            data-placement="top" data-content="موثوق من منصة نفذلي" data-toggle="popover">
-                                        </span>
                                         {{ $user->first_name . ' ' . $user->last_name }}
+                                        @if ($user->last_login == null)
+                                            <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>
+                                        @endif
                                     </h1>
                                 </div>
                             </div>
@@ -54,7 +55,6 @@
                                     font-size: 11px;
                                     padding: 6px 14px;
                                 }
-
                             </style>
                             <style type="text/css">
 
@@ -125,7 +125,6 @@
                                                                 .dots-628e639a6bf90 {
                                                                     display: inline-block !important;
                                                                 }
-
                                                             </style>
                                                         </div>
                                                     </div>
@@ -154,15 +153,14 @@
                                     width: 0px;
                                     display: none;
                                 }
-
                             </style>
-                            <div class=" user-nav row  my-lg-0 d-flex" id="navbarSupportedContent"
+                            <div class="user-nav row my-lg-0 d-flex" id="navbarSupportedContent"
                                 style="background:var(--bg-second-bg);justify-content: space-between;">
                                 <div class="d-inline-block px-0 hide-scrollbar" style="overflow-y:auto">
                                     <ul class=" ml-auto pr-lg-0 pr-0 d-flex "
                                         style=" background:var(--bg-second-bg);margin-bottom: 0px; border-radius: 5px; position: relative;">
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
+                                            <a class="nav-link kufi  font-small font-md-1 text-center active"
                                                 href="https://nafezly.com/u/mogtaba_ahmed"
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-user font-md-1 font-4"></span>
@@ -253,7 +251,6 @@
                                                                 .dots-628e639a6c189 {
                                                                     display: inline-block !important;
                                                                 }
-
                                                             </style>
                                                         </div>
                                                     </div>
@@ -326,7 +323,7 @@
                                         </div>
                                         <div class="col-6 text-left pt-2">
                                             @if (auth()->id() == $user->id)
-                                                <a href="https://nafezly.com/profile/nafezly-settings"
+                                                <a href="/freelancers/personal-data/{{ $user->id }}"
                                                     class="btn btn-primary  font-1 edit-bio-btn"
                                                     style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
                                                 </a>
@@ -425,7 +422,12 @@
                                                 <tr>
                                                     <td style="color: var(--bg-font-4)">آخر تواجد</td>
                                                     <td style="color: var(--bg-font-4)">
-                                                        منذ ساعة
+                                                        @if ($user->last_login != null)
+                                                            {{ $user->last_login->diffForHumans() }}
+                                                        @else
+                                                            <span class="fas fa-circle"
+                                                                style="color:#3bc100;font-size:12px"></span> متصل
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             </tbody>

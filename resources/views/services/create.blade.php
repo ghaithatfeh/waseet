@@ -202,6 +202,8 @@
         </div>
     </div>
 @section('script')
+<script>
     $("#service-form").validate({});
+</script>
 @endsection
 @endsection

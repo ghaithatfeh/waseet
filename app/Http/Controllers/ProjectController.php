@@ -11,13 +11,28 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'only' => [
+                'store',
+                'create'
+            ]
+        ]);
+    }
     public function create()
     {
-        return view('projects.create', [
-            'skills' => Skill::all(),
-            'budgets' => Budget::all()
-        ]);
+        if (!isset($_GET['project_id']))
+            return view('projects.create', [
+                'skills' => Skill::all(),
+                'budgets' => Budget::all()
+            ]);
+        else
+            return view('projects.create', [
+                'skills' => Skill::all(),
+                'budgets' => Budget::all(),
+                'project' => Project::find($_GET['project_id'])
+            ]);
     }
 
     public function store(Request $request)

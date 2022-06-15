@@ -154,7 +154,7 @@
                                         <div class="col-12 col-lg-3 px-0 d-flex d-flex justify-content-end ">
                                             <div
                                                 class="col-12 px-0  d-flex align-items-center justify-content-between justify-content-lg-end  py-2">
-                                                <a href="https://nafezly.com/project/create-guest?template_type=project&template_id=5605"
+                                                <a href="/projects/create?project_id={{$project->id}}"
                                                     class="btn btn-primary font-1 text-center "
                                                     style="border-radius: 2px;border-radius: 428px;padding: 5px 18px!important;cursor: pointer;">
                                                     <span class="fas fa-plus"></span>
@@ -847,12 +847,12 @@
                                                 <div class="col-12 px-2 row d-flex align-items-center justify-content-between text-truncate"
                                                     style="flex-wrap: nowrap;">
                                                     <div class="d-flex align-items-center" style="width:calc(100% - 96px)">
-                                                        <a href="https://nafezly.com/u/oulka11" class="d-inline-block">
-                                                            <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
+                                                        <a href="/freelancers/{{$project->user->id}}" class="d-inline-block">
+                                                            <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
                                                                 style="width: 70px;border-radius:inherit;padding: 6px;;border-radius: 50%;height: 70px;">
                                                         </a>
                                                         <div class="d-inline-block px-1" style="font-size:15px">
-                                                            <a href="https://nafezly.com/u/oulka11" style="color: inherit;">
+                                                            <a href="/freelancers/{{$project->user->id}}" style="color: inherit;">
                                                                 {{ $project->user->first_name . ' ' . $project->user->last_name }}
                                                             </a>
                                                             <div class="d-block mt-1"
@@ -860,7 +860,7 @@
                                                                 <span class="d-inline-block">
                                                                     <span
                                                                         class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
-                                                                    {{ $project->user->country->name }}
+                                                                    {{ $project->user->country->name ?? '' }}
                                                                 </span>
                                                             </div>
                                                         </div>

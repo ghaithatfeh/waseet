@@ -21,7 +21,6 @@
                         .irs-bar {
                             position: relative !important;
                         }
-
                     </style>
                     <style type="text/css">
                         .tt {
@@ -67,7 +66,6 @@
                             outline: 0;
                             box-shadow: unset !important;
                         }
-
                     </style>
                     <div class="col-12  mb-3  py-md-0 px-0 px-md-1 position-md-relative d-md-block filter-aside outside"
                         style="width:100%">
@@ -186,45 +184,10 @@
                                         المهارات</h2>
                                     <div class="control-group py-2 px-2" style="min-height: 64px">
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
-                                            style="width: 100%;background: #fff;opacity: 0" data-filter="skills"
-                                            size="1">
-                                            <option value="kayako"
-                                                data-extra-search="{'tag_name':'Kayako','arabic_name':'','english_name':'Kayako','slug':'kayako'}">
-                                                Kayako</option>
-                                            <option value="vuejs"
-                                                data-extra-search="{'tag_name':'VueJs','arabic_name':'فيو js','english_name':'VueJs','slug':'vuejs'}">
-                                                VueJs</option>
+                                            style="width: 100%;background: #fff;opacity: 0" size="1">
+                                            <option value="kayako">Kayako</option>
+                                            <option value="vuejs">VueJs</option>
                                         </select>
-                                    </div>
-                                    <div class="form-group pt-1">
-                                        <label for="freelancer__rating" style="font-size: 16px;color: var(--bg-color-0)"
-                                            class=" py-2  pt-3 px-2 mb-0 ">التقييم</label>
-                                        <div class="text-beta">
-                                            <style type="text/css">
-                                                .star-disactive {
-                                                    color: #e0e0e0;
-                                                }
-
-                                                .star-active {
-                                                    color: var(--bg-color-4);
-                                                }
-
-                                                .rating-input * {
-                                                    cursor: pointer;
-                                                }
-
-                                            </style>
-                                            <span class="rating-input n-s-rating-input px-2" data-filter="rating">
-                                                <i class="fas fa-star font-3 star-disactive" data-value="1"></i>
-                                                <i class="fas fa-star font-3 star-disactive" data-value="2"></i>
-                                                <i class="fas fa-star font-3 star-disactive" data-value="3"></i>
-                                                <i class="fas fa-star font-3 star-disactive" data-value="4"></i>
-                                                <i class="fas fa-star font-3 star-disactive" data-value="5"></i>
-                                                <span class="float-left removeActive">
-                                                    <span class="fas fa-times font-3 "
-                                                        style="color: #e0e0e0;padding-top: 3px;padding-left: 6px"></span>
-                                                </span>
-                                        </div>
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         متصل </h2>
@@ -235,20 +198,11 @@
                                             <label class="kufi font-1" for="online"
                                                 style="cursor: pointer;color: var(--bg-font-4)">متصل الآن </label>
                                             <input type="checkbox" id="online" name="titles[]" data-ui=""
-                                                data-filter="online" value="1" class="nafezly-filter" />
-                                            <div class="control_indicator"></div>
-                                        </label>
-                                    </div>
-                                    <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
-                                        موثوق </h2>
-                                    <div class="control-group py-2 px-2">
-                                        <label class="control control-checkbox">
-                                            <span class="fal fa-shield-check ml-1 " aria-hidden="true"
-                                                style="color: green"></span>
-                                            <label class="kufi font-1" for="verified"
-                                                style="cursor: pointer;color: var(--bg-font-4)">هوية موثوقة </label>
-                                            <input type="checkbox" id="verified" name="titles[]" data-ui=""
-                                                data-filter="verified" value="1" class="nafezly-filter" />
+                                                data-filter="online" value="1" class="nafezly-filter" 
+                                                wire:model="online"/>
+                                                @php
+                                                    // dd($categories);
+                                                @endphp
                                             <div class="control_indicator"></div>
                                         </label>
                                     </div>
@@ -282,7 +236,9 @@
                                         <a href="/freelancers/{{ $user->id }}" style="color: inherit;">
                                             {{ $user->first_name . ' ' . $user->last_name }}
                                         </a>
-                                        {{-- <span class='fas fa-circle' style='color:#3bc100;font-size:12px'></span> نقطة اونلاين --}}
+                                        @if ($user->last_login == null)
+                                            <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>
+                                        @endif
                                     </h2>
                                     <h2 class="text-center px-1  kufi mt-1 mb-0 font-small pt-1 "
                                         style="opacity: 0.65;">
@@ -321,11 +277,13 @@
                         {{ $users->links('pagination-links') }}
                     </div>
                     @section('script')
-                        $(function() {
-                        $('[data-toggle="popover"]').popover({
-                        trigger: "hover"
-                        });
-                        });
+                        <script>
+                            $(function() {
+                                $('[data-toggle="popover"]').popover({
+                                    trigger: "hover"
+                                });
+                            });
+                        </script>
                     @endsection
                 </div>
             </div>

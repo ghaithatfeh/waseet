@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Project;
+use App\Models\Skill;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,6 +13,13 @@ class Projects extends Component
     use WithPagination;
     public $categories = [];
     public $search;
+    public $all_skills;
+    public $skills = [];
+
+    public function __construct()
+    {
+        $this->all_skills = Skill::all();
+    }
 
     public function updatingSearch()
     {
@@ -21,15 +29,13 @@ class Projects extends Component
     public function render()
     {
         $search_value = '%' . $this->search . '%';
-        if ($this->categories == [])
-            $projects = Project::where('title', 'LIKE', $search_value)
-                ->paginate(2);
-        else
-            $projects = Project::select('projects.*')
-                ->join('users', 'projects.user_id', 'users.id')
-                ->whereIn('category_id', $this->categories)
-                ->where('title', 'LIKE', $search_value)
-                ->paginate(2);
+        $query = Project::select('projects.*')
+            ->where('title', 'LIKE', $search_value);
+        if ($this->categories != [])
+            $query->join('users', 'projects.user_id', 'users.id')
+                ->whereIn('category_id', $this->categories);
+
+        $projects = $query->paginate(20);
 
         return view('livewire.projects', ['projects' => $projects]);
     }

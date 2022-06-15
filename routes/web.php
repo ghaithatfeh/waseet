@@ -26,7 +26,7 @@ Route::get('/', function () {
 });
 
 Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
-Route::get('/freelancers/personal-data/{user}', [FreelancerController::class, 'personalData']);
+Route::get('/freelancers/personal-data/{user}', [FreelancerController::class, 'personalData'])->name('personal-data');
 Route::get('/freelancers/settings/{user}', [FreelancerController::class, 'settings']);
 Route::post('/freelancers/personal_data_update/{user}', [FreelancerController::class, 'personalDataUpdate']);
 

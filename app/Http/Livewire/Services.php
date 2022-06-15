@@ -26,11 +26,11 @@ class Services extends Component
     {
         $search_value = '%' . $this->search . '%';
         if ($this->categories == [])
-            $services = Service::where('title', 'LIKE', $search_value)->paginate(2);
+            $services = Service::where('title', 'LIKE', $search_value)->paginate(29);
         else
             $services = Service::whereIn('category_id', $this->categories)
             ->where('title', 'LIKE', $search_value)
-            ->paginate(2);
+            ->paginate(29);
 
         return view('livewire.services', ['services' => $services]);
     }

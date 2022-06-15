@@ -22,7 +22,7 @@
                             <div class="col-9 py-3">
                                 تغيير الصورة الشخصية
                             </div>
-                            <div class="col-3   text-left pt-1 px-0">
+                            <div class="col-3 text-left pt-1 px-0">
                                 <span class="far fa-times p-3" style="color: #333;cursor: pointer;" data-dismiss="modal"
                                     aria-label="Close"></span>
                             </div>
@@ -63,69 +63,69 @@
                         }
 
                         /*.dash-list-area a>div {
-                                                                                                border-bottom: 1px solid var(--bg-second-bg)
-                                                                                            }
+                                                                                                                            border-bottom: 1px solid var(--bg-second-bg)
+                                                                                                                        }
 
-                                                                                            .dash-list-area a:hover * {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area a:hover * {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area a:hover * {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area a:hover * {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active * {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
-                                                                                            .dash-list-area a:hover * {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active * {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
+                                                                                                                        .dash-list-area a:hover * {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area a:hover span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area a:hover span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
-                                                                                            .dash-list-area a:hover * {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
+                                                                                                                        .dash-list-area a:hover * {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area a:hover span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area a:hover span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
-                                                                                            .dash-list-area a:hover * {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
+                                                                                                                        .dash-list-area a:hover * {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area a:hover span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area a:hover span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active {
-                                                                                                background: var(--bg-color-3) !important;
-                                                                                            }
+                                                                                                                        .dash-list-area .active {
+                                                                                                                            background: var(--bg-color-3) !important;
+                                                                                                                        }
 
-                                                                                            .dash-list-area .active span {
-                                                                                                color: var(--bg-second-bg) !important;
-                                                                                            }*/
+                                                                                                                        .dash-list-area .active span {
+                                                                                                                            color: var(--bg-second-bg) !important;
+                                                                                                                        }*/
                         .croppie-container .cr-resizer,
                         .croppie-container .cr-viewport {
                             box-shadow: unset;
@@ -148,7 +148,7 @@
                                             <div
                                                 style="width: 150px;display: inline-block;border-radius: 50%!important;box-shadow: 0px 0px 12px var(--bg-main-bg);max-width: 100%; height: 150px;position: absolute;  left: 0;   right: 0;  margin-left: auto;   margin-right: auto;  ">
                                                 <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
-                                                    style="width: 100%;border-radius:inherit;padding: 10px;height: 100%;border-radius: 50%">
+                                                    style="width: 100%;border-radius:inherit;padding: 10px;height: 100%;border-radius: 50%;object-fit: cover;">
                                                 <a href="/freelancers/personal-data/{{ $user->id }}">
                                                     <div style="position: absolute;width: 40px;height: 40px;left: 6px;bottom: 10px;border-radius: 50%!important;background: var(--bg-second-bg);cursor: pointer;padding: 8px 0px;border:1px dashed var(--bg-font-4)"
                                                         class="  text-center hover-darker">
@@ -161,7 +161,11 @@
                                     </div>
                                     <h5 class="text-center pt-2 mb-0 pb-0 mt-2 almaria"
                                         style="font-size: 23px;color: var(--bg-font-4); ">
-                                        {{ $user->first_name . ' ' . $user->last_name }}</h5>
+                                        {{ $user->first_name . ' ' . $user->last_name }}
+                                        @if ($user->last_login == null)
+                                            <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>
+                                        @endif
+                                    </h5>
                                 </div>
                             </div>
                             <div class="col-12  mb-2 mt-4    d-block d-md-none p-3 main-nafez-box-styles " style="">
@@ -480,10 +484,12 @@
                                                             style="border-radius: 30px;z-index: 2;position: relative;"
                                                             onclick="$('#profile_image').click();">تغيير الصورة</span>
                                                     </div>
-                                                    <input type="file" name="profile_image" id="profile_image"
+                                                    <input type="file" name="image" id="profile_image" accept="image/*"
                                                         style="width: 100%;height: 130px;opacity: 0;z-index: 1;cursor: pointer;border-radius: 50%"
                                                         onclick="this.value=null;">
-                                                    {{-- <input type="hidden" name="avatar" id="encoded_image"> --}}
+                                                    @error('image')
+                                                        <label class="error mt-4 text-nowrap">يجب ان يكون الملف صورة</label>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="col-12 col-md-9 row">
@@ -514,7 +520,30 @@
                                                     </div>
                                                     <div class="col-12 mt-2">
                                                         <input type="" name="phone" class="form-control" minlength="10"
-                                                            minlength="30" value="{{ $user->phone }}">
+                                                            minlength="30" value="{{ old('phone') ?? $user->phone }}">
+                                                        @error('phone')
+                                                            <small class="text-danger">
+                                                                رقم الهاتف مطلوب، يجب ان يتألف على الاقل من 10 ارقام.
+                                                            </small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mb-4">
+                                                    <div class="col-12 font-1">
+                                                        البلد
+                                                    </div>
+                                                    <div class="col-12 mt-2">
+                                                        <select class="col-12 font-1 form-control py-0 px-2"
+                                                            name="country_id">
+                                                            <option selected="" disabled=""></option>
+                                                            @foreach (App\Models\Country::all() as $country)
+                                                                <option
+                                                                    {{ $user->country_id == $country->id ? 'selected' : '' }}
+                                                                    value="{{ $country->id }}">
+                                                                    {{ $country->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-md-6 mb-4">
@@ -541,12 +570,21 @@
                                                             class="font-small">( إختياري )</span>
                                                     </div>
                                                     <div class="col-12 mt-2 row">
+                                                        @php
+                                                            $user_birthday = '';
+                                                            $user_birthmonth = '';
+                                                            $user_birthyear = '';
+                                                            if (isset($user->birthdate)) {
+                                                                $user_birthday = $user->birthdate->format('d');
+                                                                $user_birthmonth = $user->birthdate->format('m');
+                                                                $user_birthyear = $user->birthdate->format('Y');
+                                                            }
+                                                        @endphp
                                                         <div class="col-4 px-0">
                                                             <select class="form-control py-0 px-1" name="day">
                                                                 <option selected="" disabled="">يوم</option>
                                                                 @for ($i = 1; $i <= 31; $i++)
-                                                                    <option
-                                                                        {{ $user->birthdate->format('d') == $i ? 'selected' : '' }}
+                                                                    <option {{ $user_birthday == $i ? 'selected' : '' }}
                                                                         value="{{ $i }}">
                                                                         {{ $i }}
                                                                     </option>
@@ -559,7 +597,7 @@
                                                                 <option selected="" disabled="">شهر</option>
                                                                 @for ($i = 1; $i <= 12; $i++)
                                                                     <option
-                                                                        {{ $user->birthdate->format('m') == $i ? 'selected' : '' }}
+                                                                        {{ $user_birthmonth == $i ? 'selected' : '' }}
                                                                         value="{{ $i }}">
                                                                         {{ $i }}
                                                                     </option>
@@ -570,8 +608,7 @@
                                                             <select class="form-control py-0 px-1" name="year">
                                                                 <option selected="" disabled="">سنة</option>
                                                                 @for ($i = 2010; $i >= 1950; $i--)
-                                                                    <option
-                                                                        {{ $user->birthdate->format('Y') == $i ? 'selected' : '' }}
+                                                                    <option {{ $user_birthyear == $i ? 'selected' : '' }}
                                                                         value="{{ $i }}">
                                                                         {{ $i }}
                                                                     </option>
@@ -692,45 +729,55 @@
             });
         </script>
         <script type="text/javascript"></script>
-    @section('script')
-        $("#profile-update-form").validate({});
-    @endsection
-</div>
+    </div>
 @endsection
 
 @section('script')
-(function() {
-var $select305877 = $('.select3-skills').selectize({
-plugins: ['remove_button'],
-maxItems: 20,
-searchField: ['value', 'slug'],
-valueField: 'id',
-render: {
-item: function(data) {
-return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
-                    data.slug + "' class='item'>" + data.tag_name + " </div>";
-},
-option: function(data, escape) {
-return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
-                    data.slug + "' class='py-1'>" + data.tag_name + "</div>";
-}
-}
-});
-var selectize = $select305877[0].selectize;
-var selected = [399, 400, 420, 427, 429, 618, 483, 403, 515, 870, 433, 762];
-$.ajax({
-url: 'https://nafezly.com/search/skills',
-type: 'GET',
-success: function(results) {
-$.each(results, function(key, value) {
-selectize.addOption(value);
-//console.log(selected.includes(value.id));
-if (selected.includes(value.id)) {
-//console.log(value.id);
-selectize.addItem(value.id);
-}
-});
-}
-});
-})();
+    <script>
+        $("#profile-update-form").validate({});
+
+        // (function() {
+        //     var $select305877 = $('.select3-skills').selectize({
+        //         plugins: ['remove_button'],
+        //         maxItems: 20,
+        //         searchField: ['value', 'slug'],
+        //         valueField: 'id',
+        //         render: {
+        //             item: function(data) {
+        //                 return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
+        //                     data.slug + "' class='item'>" + data.tag_name + " </div>";
+        //             },
+        //             option: function(data, escape) {
+        //                 return "<div value='" + data.id + "' data-value='" + data.id + "' data-slug='" +
+        //                     data.slug + "' class='py-1'>" + data.tag_name + "</div>";
+        //             }
+        //         }
+        //     });
+        //     var selectize = $select305877[0].selectize;
+        //     var selected = [399, 400, 420, 427, 429, 618, 483, 403, 515, 870, 433, 762];
+        //     $.ajax({
+        //         url: 'https://nafezly.com/search/skills',
+        //         type: 'GET',
+        //         success: function(results) {
+        //             $.each(results, function(key, value) {
+        //                 selectize.addOption(value);
+        //                 //console.log(selected.includes(value.id));
+        //                 if (selected.includes(value.id)) {
+        //                     //console.log(value.id);
+        //                     selectize.addItem(value.id);
+        //                 }
+        //             });
+        //         }
+        //     });
+        // })();
+
+        $('#profile_image').change(function() {
+            let file = this.files[0];
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onloadend = () => {
+                $('#pf_foto').css('background-image', 'url(' + reader.result + ')');
+            }
+        })
+    </script>
 @endsection

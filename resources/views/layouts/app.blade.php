@@ -688,8 +688,8 @@
                                     <span class="d-inline-block  nav-bar-icon text-center mx-1"
                                         style="position: relative;width: 50px;cursor: pointer;padding: 9px 0px 0px;text-align: center;height: 55px;border-radius: 5px"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="/site_images/user.png"
-                                            style="width: 36px;border-radius: 50%!important;padding: 0px;height: 36px;border:0px solid #fff;background: var(--bg-main-bg)"
+                                        <img src="{{asset('uploaded_images/users/' . (auth()->user()->profile_image ?? 'defualt.png'))}}"
+                                            style="width: 36px;border-radius: 50%!important;padding: 0px;height: 36px;border:0px solid #fff;background: var(--bg-main-bg);object-fit: cover;"
                                             alt="الصورة الشخصية">
                                         <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton"
                                             style="padding: 0px 0px ;box-shadow: 0 6px 12px rgba(0,0,0,0.175); left: -47px;top: 58px;border-radius: 0px 0px 3px 3px;overflow: hidden;  ">
@@ -845,9 +845,9 @@
             navigation: false,
             nav: true
         });
-
-        @yield('script')
     </script>
+
+    @yield('script')
 
     @if (session()->has('message-success'))
         <div id="toast-container" class="toast-top-left">

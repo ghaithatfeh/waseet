@@ -103,17 +103,21 @@
                 </div>
             </div>
         </div>
-        <script src="https://www.google.com/recaptcha/api.js?render=6Lc1ELAZAAAAAEqL84DevF3OWMRLfzTwzsZdZATQ"></script>
-        <script>
-            grecaptcha.ready(function() {
-                grecaptcha.execute('6Lc1ELAZAAAAAEqL84DevF3OWMRLfzTwzsZdZATQ', {
-                    action: 'contact'
-                }).then(function(token) {
-                    if (token) {
-                        document.getElementById('recaptcha').value = token;
-                    }
-                });
-            });
-        </script>
     </div>
+@endsection
+
+@section('script')
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc1ELAZAAAAAEqL84DevF3OWMRLfzTwzsZdZATQ"></script>
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Lc1ELAZAAAAAEqL84DevF3OWMRLfzTwzsZdZATQ', {
+                action: 'contact'
+            }).then(function(token) {
+                if (token) {
+                    document.getElementById('recaptcha').value = token;
+                }
+            });
+        });
+        $("#register-form").validate({});
+    </script>
 @endsection

@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="col-12 mt-2">
                                         <input type="text" name="title" class="form-control" required="" minlength="10"
-                                            value="" id="project_name" autofocus="">
+                                            value="{{ $project->title ?? '' }}" id="project_name" autofocus="">
                                         <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                             class="pt-1 naskh">أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </div>
                                     </div>
@@ -42,8 +42,16 @@
                                     <div class="col-12 mt-2" style="min-height: 70px">
                                         <select class=" select3 col-12" multiple="" name="project_tags[]" style="opacity:0;"
                                             size="1">
+                                            @php
+                                                $project_skills = [];
+                                                if (isset($project))
+                                                    $project_skills = $project->skills->pluck('id')->toArray() ?? '';
+                                            @endphp
                                             @foreach ($skills as $skill)
-                                                <option value="{{ $skill->id }}">{{ $skill->name }}</option>
+                                                <option {{ in_array($skill->id, $project_skills) ? 'selected' : '' }}
+                                                    value="{{ $skill->id }}">
+                                                    {{ $skill->name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                         <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
@@ -56,7 +64,7 @@
                                     </div>
                                     <div class="col-12 mt-2">
                                         <textarea name="description" class="form-control" style="min-height: 250px" required="" minlength="100"
-                                            id="project_details"></textarea>
+                                            id="project_details">{{ $project->description ?? '' }}</textarea>
                                         <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                             class="pt-1 naskh">أدرج وصفا مفصّلا ودقيقا لمشروعك. </div>
                                     </div>
@@ -70,7 +78,8 @@
                                             <select class="form-control kufi py-0 px-2" name="project_budget" required="">
                                                 <option value="" disabled="" selected=""></option>
                                                 @foreach ($budgets as $budget)
-                                                    <option value="{{ $budget->id }}">
+                                                    <option {{ isset($project->budget) && $project->budget == $budget ? 'selected' : '' }}
+                                                        value="{{ $budget->id }}">
                                                         {{ number_format($budget->from) . ' - ' . number_format($budget->to) }}
                                                         ل.س</option>
                                                 @endforeach
@@ -88,7 +97,7 @@
                                     <div class="col-12 mt-2 row" style="position: relative;">
                                         <div class="col-12 px-0">
                                             <input type="number" name="expected_deadline" class="form-control" required=""
-                                                value="" min="1" max="90">
+                                                value="{{ $project->expected_deadline ?? '' }}" min="1" max="90">
                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                 class="pt-1 naskh">متى تحتاج استلام مشروعك </div>
                                         </div>
@@ -164,7 +173,9 @@
         </div>
     </div>
 @section('script')
+<script>
     $("#project-form").validate({});
+</script>
 @endsection
 
 @endsection

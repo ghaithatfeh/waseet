@@ -105,3 +105,9 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+    <script>
+        $("#login-form").validate({});
+    </script>
+@endsection

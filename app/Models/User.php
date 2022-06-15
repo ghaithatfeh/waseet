@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $dates = ['birthdate'];
+    protected $dates = ['birthdate', 'last_login'];
     protected $fillable = [
         'first_name',
         'last_name',
@@ -32,7 +32,9 @@ class User extends Authenticatable
         'likes',
         'profile_image',
         'status',
-        'category_id'
+        'category_id',
+        'country_id',
+        'last_login'
     ];
 
     /**
@@ -77,5 +79,10 @@ class User extends Authenticatable
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'user_skills');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
