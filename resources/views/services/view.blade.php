@@ -292,13 +292,12 @@
                                                     <div class="col-12 px-2 row d-flex align-items-center justify-content-between text-truncate"
                                                         style="flex-wrap: nowrap;">
                                                         <div class="d-flex align-items-center">
-                                                            <a href="https://nafezly.com/u/omar_kammah"
-                                                                class="d-inline-block">
-                                                                <img src="{{ asset('uploaded_images/users/' . ($service->user->profile_image ?? 'defualt.png')) }}"
-                                                                    style="width: 70px;border-radius:inherit;padding: 6px;;border-radius: 50%;">
+                                                            <a href="/freelancers/{{$service->user->id}}" class="d-inline-block">
+                                                                <img  src="{{ asset('uploaded_images/users/' . ($service->user->profile_image ?? 'defualt.png')) }}"
+                                                                style="width: 70px;border-radius:inherit;padding: 6px;;border-radius: 50%;height: 70px;object-fit: cover;">
                                                             </a>
                                                             <div class="d-inline-block px-1" style="font-size:15px">
-                                                                <a href="https://nafezly.com/u/omar_kammah"
+                                                                <a href="/freelancers/{{$service->user->id}}"
                                                                     style="color: inherit;">
                                                                     {{ $service->user->first_name . ' ' . $service->user->last_name }}
                                                                 </a>
@@ -313,7 +312,8 @@
                                                             </div>
                                                         </div>
                                                         <div style="width:96px">
-                                                            <a href="https://nafezly.com/message/create/omar_kammah/service/223"
+                                                            {{-- زر تواصل --}}
+                                                            <a href=""
                                                                 class="d-inline-block  p-0">
                                                                 <span
                                                                     class="btn btn-outline-primary font-1 text-center  font-1"

@@ -29,11 +29,14 @@ class Projects extends Component
     public function render()
     {
         $search_value = '%' . $this->search . '%';
-        $query = Project::select('projects.*')
-            ->where('title', 'LIKE', $search_value);
+
+        $query = Project::select('projects.*')->join('users', 'projects.user_id', 'users.id')
+            ->where(function ($query) use ($search_value) {
+                $query->where('title', 'LIKE', $search_value)
+                    ->orWhere(DB::raw('CONCAT(users.first_name, " ",users.last_name)'), 'LIKE', $search_value);
+            });
         if ($this->categories != [])
-            $query->join('users', 'projects.user_id', 'users.id')
-                ->whereIn('category_id', $this->categories);
+            $query->whereIn('users.category_id', $this->categories);
 
         $projects = $query->paginate(20);
 

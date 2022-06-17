@@ -248,8 +248,8 @@
                                                             <div class="d-flex align-items-center">
                                                                 <a href="/freelancers/{{$project->user->id}}"
                                                                     class="d-inline-block">
-                                                                    <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
-                                                                        style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%)">
+                                                                    <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
+                                                                        style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
                                                                 </a>
                                                                 <div class="d-inline-block pl-0 pr-3"
                                                                     style="font-size:13px">
