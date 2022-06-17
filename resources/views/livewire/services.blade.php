@@ -451,7 +451,7 @@
                                         </div>
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
-                                        class=" py-2  pt-3 px-2 mb-0 ">المهارات</h2>
+                                        class="py-2 pt-3 px-2 mb-0">المهارات</h2>
                                     <div class="control-group py-2 px-2" style="min-height: 64px">
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
                                             style="width: 100%;background: #fff;opacity: 0" data-filter="skills"
@@ -484,7 +484,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8  col-lg-9 px-0 px-md-1 mb-5 search-response-container">
+                <div class="col-12 col-md-8 col-lg-9 px-0 px-md-1 mb-5 search-response-container">
                     <div class="col-12 row px-0">
                         @foreach ($services as $service)
                             <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">

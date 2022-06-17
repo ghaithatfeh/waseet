@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <div class="col-12 px-0 pb-5">
             <div class="container pt-2  pb-5">
@@ -28,24 +27,26 @@
                                         عنوان المشروع
                                     </div>
                                     <div class="col-12 mt-2">
-                                        <input type="text" name="title" class="form-control" required="" minlength="10"
-                                            value="{{ $project->title ?? '' }}" id="project_name" autofocus="">
-                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
-                                            class="pt-1 naskh">أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </div>
+                                        <input type="text" name="title" class="form-control" required=""
+                                            minlength="10" value="{{ $project->title ?? '' }}" id="project_name"
+                                            autofocus="">
+                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="pt-1 naskh">
+                                            أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </div>
                                     </div>
                                 </div>
                                 <div class="col-12  px-0 mt-2 px-0">
                                     <div class="col-12 mt-3 kufi font-1 ">
-                                        مهارات متعلقة بالمشروع <span style="color: #919191;font-size: 12px"
-                                            class="naskh">( إختياري )</span>
+                                        مهارات متعلقة بالمشروع <span style="color: #919191;font-size: 12px" class="naskh">(
+                                            إختياري )</span>
                                     </div>
                                     <div class="col-12 mt-2" style="min-height: 70px">
-                                        <select class=" select3 col-12" multiple="" name="project_tags[]" style="opacity:0;"
-                                            size="1">
+                                        <select class=" select3 col-12" multiple="" name="project_tags[]"
+                                            style="opacity:0;" size="1">
                                             @php
                                                 $project_skills = [];
-                                                if (isset($project))
+                                                if (isset($project)) {
                                                     $project_skills = $project->skills->pluck('id')->toArray() ?? '';
+                                                }
                                             @endphp
                                             @foreach ($skills as $skill)
                                                 <option {{ in_array($skill->id, $project_skills) ? 'selected' : '' }}
@@ -54,8 +55,8 @@
                                                 </option>
                                             @endforeach
                                         </select>
-                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
-                                            class="naskh">حدد أهم المهارات المطلوبة لتنفيذ مشروعك. </div>
+                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="naskh">حدد
+                                            أهم المهارات المطلوبة لتنفيذ مشروعك. </div>
                                     </div>
                                 </div>
                                 <div class="col-12 px-0 mt-2">
@@ -65,8 +66,8 @@
                                     <div class="col-12 mt-2">
                                         <textarea name="description" class="form-control" style="min-height: 250px" required="" minlength="100"
                                             id="project_details">{{ $project->description ?? '' }}</textarea>
-                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
-                                            class="pt-1 naskh">أدرج وصفا مفصّلا ودقيقا لمشروعك. </div>
+                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="pt-1 naskh">
+                                            أدرج وصفا مفصّلا ودقيقا لمشروعك. </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 px-0 mt-2">
@@ -75,29 +76,32 @@
                                     </div>
                                     <div class="col-12 mt-2 row">
                                         <div class="col-12 px-0">
-                                            <select class="form-control kufi py-0 px-2" name="project_budget" required="">
+                                            <select class="form-control kufi py-0 px-2" name="project_budget"
+                                                required="">
                                                 <option value="" disabled="" selected=""></option>
                                                 @foreach ($budgets as $budget)
-                                                    <option {{ isset($project->budget) && $project->budget == $budget ? 'selected' : '' }}
+                                                    <option
+                                                        {{ isset($project->budget) && $project->budget == $budget ? 'selected' : '' }}
                                                         value="{{ $budget->id }}">
                                                         {{ number_format($budget->from) . ' - ' . number_format($budget->to) }}
                                                         ل.س</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
-                                            class="pt-1 naskh">اختر ميزانية مناسبة لتحصل على عروض جيدة </div>
+                                        <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="pt-1 naskh">
+                                            اختر ميزانية مناسبة لتحصل على عروض جيدة </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 px-0 mt-4">
                                     <div class="col-12 mt-0 kufi font-1">
-                                        المدة المتوقعة للتسليم <span style="color: #919191;font-size: 12px"
-                                            class="naskh">( بالايام )</span>
+                                        المدة المتوقعة للتسليم <span style="color: #919191;font-size: 12px" class="naskh">(
+                                            بالايام )</span>
                                     </div>
                                     <div class="col-12 mt-2 row" style="position: relative;">
                                         <div class="col-12 px-0">
-                                            <input type="number" name="expected_deadline" class="form-control" required=""
-                                                value="{{ $project->expected_deadline ?? '' }}" min="1" max="90">
+                                            <input type="number" name="expected_deadline" class="form-control"
+                                                required="" value="{{ $project->expected_deadline ?? '' }}"
+                                                min="1" max="90">
                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                 class="pt-1 naskh">متى تحتاج استلام مشروعك </div>
                                         </div>
@@ -173,9 +177,8 @@
         </div>
     </div>
 @section('script')
-<script>
-    $("#project-form").validate({});
-</script>
+    <script>
+        $("#project-form").validate({});
+    </script>
 @endsection
-
 @endsection

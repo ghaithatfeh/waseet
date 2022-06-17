@@ -191,24 +191,39 @@
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         المهارات</h2>
-                                    <div class="control-group py-2 px-2" style="min-height: 64px">
+                                    <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
-                                            style="width: 100%;background: #fff;opacity: 0" data-filter="skills"
-                                            size="1" wire:model="skills">
+                                            style="width: 100%;background: #fff;opacity: 0" size="1" >
                                             @foreach ($all_skills as $skill)
                                                 <option value="{{$skill->id}}">{{$skill->name}}</option>
                                             @endforeach
                                         </select>
-                                        {{$skills[0] ?? ""}}
                                     </div>
+                                    @section('script')
+                                        <script>
+                                            $('.select3').change(function(){
+                                                let items = $('.selectize-input.items.not-full.has-options.has-items .item')
+                                                let data = []
+                                                items.each(() => {
+                                                    data.push($(this).val()) 
+                                                });
+                                                console.log(data[0])
+                                                Livewire.emit('set-skills', data[0])
+                                            })
+                                        </script>
+                                    @endsection
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         الميزانية </h2>
-                                    <div style="" dir="ltr"
+                                    <div style="" dir="ltr" wire:ignore
                                         class="px-2  text-center nafezly-slider-projects-search nafezly-filter"
                                         style="direction: ltr">
                                         {{-- <input type="range" min="1" max="100000" name=""> --}}
                                         <input type="" name="" class="js-range-slider nafezly-transition pricing" style="opacity: 0" data-filter="pricing">
                                     </div>
+                                    
+                                    @php
+                                        print_r($skills)
+                                    @endphp
                                 </div>
                             </div>
                         </div>

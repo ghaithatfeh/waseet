@@ -11,6 +11,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    {{-- my css --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/all-mixed.css') }}">
+    <link rel="icon" type="image/png" href="" />
+    <link rel="icon" type="image/png" sizes="512x512" href="" />
     <style>
         /* @font-face {
             font-family: kufi-arabic;
@@ -106,49 +110,35 @@
             font-weight: 700;
             font-style: normal
         } */
-
     </style>
-    {{-- my css --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/all-mixed.css') }}">
 
 
     <style type="text/css">
         #nafezly-navbar {
             box-shadow: unset !important;
         }
-
         .home-specialization:hover .specialization-details {
             opacity: 0 !important;
         }
-
         .home-specialization .specialization-details {
             opacity: 1;
             transition: all .05s ease;
         }
-
         .home-specialization:hover .specialization-btns {
             opacity: 1 !important;
             top: 0px;
             z-index: 11;
         }
-
         .specialization-btns {
             transition: .5s all ease-out;
             top: 10px;
             opacity: 0;
         }
-
         html {
             scroll-padding-top: 0px !important;
             scroll-behavior: smooth;
         }
-
     </style>
-
-    <link rel="icon" type="image/png" href="" />
-    <link rel="icon" type="image/png" sizes="512x512" href="" />
-    <link rel='help' title='FAQ' href='https://nafezly.com/faq' />
-    <link rel="alternate" type="application/rss+xml" title="المشاريع المفتوحة" href="https://nafezly.com/feed">
     <script type="application/ld+json">
         {
             "@context": "http://schema.org",
@@ -196,17 +186,6 @@
                 "@type": "Organization",
                 "name": "نفذلي"
             }
-        }
-    </script>
-    <script type="text/javascript">
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/serviceworker.js', {
-                scope: '.'
-            }).then(function(registration) {
-                console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                console.log('Laravel PWA: ServiceWorker registration failed: ', err);
-            });
         }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149847603-1"></script>
@@ -261,49 +240,6 @@
         }
 
     </style>
-    {{-- <script nonce="e936d653-9d60-497a-b942-bccee4116b30">
-        (function(w, d) {
-            ! function(a, e, t, r) {
-                a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = {
-                    deferred: []
-                }, a.zaraz.q = [], a.zaraz._f = function(e) {
-                    return function() {
-                        var t = Array.prototype.slice.call(arguments);
-                        a.zaraz.q.push({
-                            m: e,
-                            a: t
-                        })
-                    }
-                };
-                for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e);
-                a.addEventListener("DOMContentLoaded", (() => {
-                    var t = e.getElementsByTagName(r)[0],
-                        z = e.createElement(r),
-                        n = e.getElementsByTagName("title")[0];
-                    for (n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.x =
-                        Math.random(), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a
-                        .zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a
-                        .location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a
-                        .zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a
-                        .zarazData.q = []; a.zaraz.q.length;) {
-                        const e = a.zaraz.q.shift();
-                        a.zarazData.q.push(e)
-                    }
-                    z.defer = !0;
-                    for (const e of [localStorage, sessionStorage]) Object.keys(e).filter((a => a
-                        .startsWith("_zaraz_"))).forEach((t => {
-                        try {
-                            a.zarazData["z_" + t.slice(7)] = JSON.parse(e.getItem(t))
-                        } catch {
-                            a.zarazData["z_" + t.slice(7)] = e.getItem(t)
-                        }
-                    }));
-                    z.referrerPolicy = "origin", z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(
-                        JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t)
-                }))
-            }(w, d, 0, "script");
-        })(window, document);
-    </script> --}}
     @livewireStyles
 </head>
 <style type="text/css">
@@ -398,7 +334,6 @@
         align-items: center;
         justify-content: center;
     }
-
 </style>
 
 <body id="body" style="direction: rtl!important;">
@@ -636,12 +571,12 @@
                             </a>
                         </div>
                         <div class="col-11 row px-0" style="justify-content: flex-end;">
-                            <a class="  nav-bar-icon text-center  ml-1 d-none d-md-inline-block"
+                            <a class="nav-bar-icon text-center  ml-1 d-none d-md-inline-block"
                                 style="position: relative;cursor: pointer;padding: 14px 0px 0px;text-align: center;color: #65676b;min-width: 107px;border-radius: 5px;"
                                 id="nav-services" href="/services">
                                 <span class="fas fa-boxes"
                                     style="; font-size: 18px;text-align: center;display: inline-block; padding:0px;"
-                                    class="nav-item d-inline-block"></span>
+                                    class="nav-item d-inline-block "></span>
                                 <span class="kufi pr-1 " style="position: relative;font-size: 14px">الخدمات</span>
                             </a>
                             <a class="nav-bar-icon text-center d-none d-md-inline-block ml-1"
@@ -848,6 +783,7 @@
     </script>
 
     @yield('script')
+    @stack('scripts')
 
     @if (session()->has('message-success'))
         <div id="toast-container" class="toast-top-left">
@@ -918,8 +854,6 @@
             margin: 0px !important;
             padding-left: 0px !important;
             padding-right: 0px !important;
-            /*padding-top: 5px!important;
-        padding-bottom: 5px!important; */
         }
 
         .fileuploader-popup {

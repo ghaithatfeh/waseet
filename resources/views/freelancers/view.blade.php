@@ -1,22 +1,20 @@
-@php
-// dd(Carbon\Carbon::now());
-@endphp
 @extends('layouts.app')
 @section('content')
-    <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
-        <style type="text/css">
-            .nafezly-badge-style {
-                color: var(--bg-color-4);
-                background: #f9f9f9;
-                height: 35px;
-                width: 45px;
-                box-shadow: 0px 4px 7px #e6e6e6;
-                border-radius: 4px;
-                margin-top: 8px;
-            }
-        </style>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+    <style type="text/css">
+        .nafezly-badge-style {
+            color: var(--bg-color-4);
+            background: #f9f9f9;
+            height: 35px;
+            width: 45px;
+            box-shadow: 0px 4px 7px #e6e6e6;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <div x-data="{ activeItem: 'about' }" class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <div class="col-12 pt-0 profile-banner  px-0 pb-md-4"
             style=" display: flex;background-size: cover;background-position: center;">
             <div class="container px-0 px-lg-3 pb-lg-1">
@@ -159,41 +157,42 @@
                                 <div class="d-inline-block px-0 hide-scrollbar" style="overflow-y:auto">
                                     <ul class=" ml-auto pr-lg-0 pr-0 d-flex "
                                         style=" background:var(--bg-second-bg);margin-bottom: 0px; border-radius: 5px; position: relative;">
-                                        <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center active"
-                                                href="https://nafezly.com/u/mogtaba_ahmed"
+                                        <li class="nav-item text-center">
+                                            <a class="nav-link kufi font-small font-md-1 text-center"
+                                                :class="activeItem == 'about' ? 'active' : ''"
+                                                @click.prevent="activeItem = 'about'" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-user font-md-1 font-4"></span>
                                                 <div class="text-center mt-2 d-md-inline-block mt-md-0"> نبذة عني </div>
                                             </a>
                                         </li>
-                                        <li class="nav-item  text-center">
+                                        <li class="nav-item text-center">
                                             <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                href="https://nafezly.com/u/mogtaba_ahmed/portfolio"
+                                                :class="activeItem == 'portfolios' ? 'active' : ''"
+                                                @click.prevent="activeItem = 'portfolios'" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-images font-md-1 font-4"></span>
                                                 <div class="text-center mt-2 d-md-inline-block mt-md-0"> الأعمال </div>
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                href="https://nafezly.com/u/mogtaba_ahmed/services"
+                                            <a class="nav-link kufi  font-small font-md-1 text-center" 
+                                                :class="activeItem == 'services' ? 'active' : ''"
+                                                @click.prevent="activeItem = 'services'" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-boxes font-md-1 font-4"></span>
                                                 <div class="text-center mt-2 d-md-inline-block mt-md-0"> الخدمات </div>
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                href="https://nafezly.com/u/mogtaba_ahmed/ratings"
+                                            <a class="nav-link kufi  font-small font-md-1 text-center" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-star font-md-1 font-4"></span>
                                                 <div class="text-center mt-2 d-md-inline-block mt-md-0"> التقييمات </div>
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                href="https://nafezly.com/u/mogtaba_ahmed/cv"
+                                            <a class="nav-link kufi  font-small font-md-1 text-center" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
                                                     class="fal fa-id-card-alt font-md-1 font-4"></span>
                                                 <div class="text-center mt-2 d-md-inline-block mt-md-0"> السيرة </div>
@@ -224,7 +223,8 @@
                                                         </span>
                                                         <span class="d-inline-block love-favourite-area noselect  "
                                                             style=" cursor: pointer;" data-id="628e639a6c189"
-                                                            data-type="user" data-type_id="4483" id="love_id_628e639a6c189">
+                                                            data-type="user" data-type_id="4483"
+                                                            id="love_id_628e639a6c189">
                                                             <span class="fa-heart love-favourite fal font-3"
                                                                 style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
                                                                 id="icon_628e639a6c189"></span>
@@ -233,8 +233,9 @@
                                                             <span
                                                                 class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
                                                                 style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
-                                                                role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false"></span>
+                                                                role="button" id="dropdownMenuLink"
+                                                                data-toggle="dropdown" aria-haspopup="true"
+                                                                aria-expanded="false"></span>
                                                             <div class="dropdown-menu border"
                                                                 aria-labelledby="dropdownMenuLink"
                                                                 style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
@@ -266,83 +267,156 @@
             </div>
         </div>
 
-        {{-- component --}}
         <div class="col-12 pt-0 mt-md-5 mt-lg-4 pt-2 px-0 pb-5 mb-5" style="position: relative;">
             <div class="col-12 px-0  ">
                 <div class="container px-0 mb-5">
                     <div class="col-12 row px-0 response-container">
-                        <div class="col-12 col-lg-8  px-0">
-                            <div class="col-12 p-1 px-lg-3 my-lg-3 d-flex">
-                                <div class="panel panel-default mrg--bm px-0  rounded main-nafez-box-styles"
-                                    id="profile-stats">
-                                    <div class="heada border-bottom row" style="border-color:var(--bg-main-bg)!important">
-                                        <div class="col-6 px-0 ">
-                                            <h6 class="heada__title kufi font-2   px-3 py-3 mb-0"
-                                                style="color: var(--bg-color-0);">نبذة عني</h6>
+                        {{-- about component --}}
+                        <template x-if="activeItem == 'about'">
+                            <div class="col-12 col-lg-8 px-0">
+                                <div class="col-12 p-1 px-lg-3 my-lg-3 d-flex">
+                                    <div class="panel panel-default mrg--bm px-0  rounded main-nafez-box-styles"
+                                        id="profile-stats">
+                                        <div class="heada border-bottom row"
+                                            style="border-color:var(--bg-main-bg)!important">
+                                            <div class="col-6 px-0 ">
+                                                <h6 class="heada__title kufi font-2   px-3 py-3 mb-0"
+                                                    style="color: var(--bg-color-0);">نبذة عني</h6>
+                                            </div>
+                                            <div class="col-6  text-left pt-2">
+                                                @if (auth()->id() == $user->id)
+                                                    <span class="btn btn-primary cairo font-1 edit-bio-btn"
+                                                        style="cursor: pointer;"
+                                                        onclick="$(this).fadeToggle(0);$('.bio-old').fadeOut(0);$('.bio-new').slideDown();"><span
+                                                            class="fal fa-edit"></span> تعديل </span>
+                                                @endif
+                                            </div>
                                         </div>
-                                        <div class="col-6  text-left pt-2">
-                                            @if (auth()->id() == $user->id)
-                                                <span class="btn btn-primary cairo font-1 edit-bio-btn"
-                                                    style="cursor: pointer;"
-                                                    onclick="$(this).fadeToggle(0);$('.bio-old').fadeOut(0);$('.bio-new').slideDown();"><span
-                                                        class="fal fa-edit"></span> تعديل </span>
-                                            @endif
+                                        <h1 class="col-12 py-3 bio-old font-lg-2"
+                                            style="font-size: 15px;color: var(--bg-font-4);line-height: 1.8; word-wrap: break-word;overflow: hidden;">
+                                            {{ $user->description ?? 'لم يكتب نبذة شخصية.' }}
+                                        </h1>
+                                        {{-- لتعديل الوصف لصاحب اليوزر --}}
+                                        <div class="col-12 bio-new pb-4 pt-4" style="display: none;">
+                                            <form method="POST" action="/freelancers/edit-bio/{{ $user->id }}"
+                                                class="col-12">
+                                                @method('PUT')
+                                                @csrf
+                                                <textarea class="form-control" style="min-height: 200px" name="description">{{ $user->description }}</textarea>
+                                                <div class="col-12 pt-2 px-0">
+                                                    <div class="col-12 text-left px-0">
+                                                        <span class="btn btn-info kufi font-1" style="cursor: pointer;"
+                                                            onclick="$('.edit-bio-btn').fadeIn(0);$('.bio-new').fadeOut(0);$('.bio-old').slideDown();">إلغاء</span>
+                                                        <button class="btn btn-success kufi font-1">حفظ</button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <h1 class="col-12 py-3 bio-old font-lg-2"
-                                        style="font-size: 15px;color: var(--bg-font-4);line-height: 1.8; word-wrap: break-word;overflow: hidden;">
-                                        {{ $user->description ?? 'لم يكتب نبذة شخصية.' }}
-                                    </h1>
+                                </div>
+                                <div class="col-12 p-1 px-lg-3 my-lg-3">
+                                    <div class="panel panel-default mrg--bm px-0  rounded main-nafez-box-styles  "
+                                        id="profile-stats">
+                                        <div class="heada border-bottom row"
+                                            style="border-color:var(--bg-main-bg)!important">
+                                            <div class="col-6 px-0 ">
+                                                <h6 class="heada__title kufi font-2   px-3 py-3 mb-0"
+                                                    style="color: var(--bg-color-0);">مهاراتي</h6>
+                                            </div>
+                                            <div class="col-6 text-left pt-2">
+                                                @if (auth()->id() == $user->id)
+                                                    <a href="/freelancers/personal-data/{{ $user->id }}"
+                                                        class="btn btn-primary  font-1 edit-bio-btn"
+                                                        style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-12 py-3 d-flex row">
+                                            @forelse ($user->skills as $skill)
+                                                <a href="https://nafezly.com/freelancers/skill/translation"
+                                                    class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1">
+                                                    <span class="far fa-tags ml-1"></span> {{ $skill->name }}
+                                                </a>
+                                            @empty
+                                                لم يحدد المهارات بعد.
+                                            @endforelse
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        {{-- end component --}}
 
-                                    {{-- لتعديل الوصف لصاحب اليوزر --}}
-                                    <div class="col-12 bio-new pb-4 pt-4" style="display: none;">
-                                        <form method="POST" action="/freelancers/edit-bio/{{ $user->id }}"
-                                            class="col-12">
-                                            @method('PUT')
-                                            @csrf
-                                            <textarea class="form-control" style="min-height: 200px" name="description">{{ $user->description }}</textarea>
-                                            <div class="col-12 pt-2 px-0">
-                                                <div class="col-12 text-left px-0">
-                                                    <span class="btn btn-info kufi font-1" style="cursor: pointer;"
-                                                        onclick="$('.edit-bio-btn').fadeIn(0);$('.bio-new').fadeOut(0);$('.bio-old').slideDown();">إلغاء</span>
-                                                    <button class="btn btn-success kufi font-1">حفظ</button>
+                        {{-- services component --}}
+                        <template x-if="activeItem == 'services'">
+                            <div class="col-12 col-lg-8 px-0 row my-lg-3 py-1">
+                                @foreach ($user->services as $service)
+                                    <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
+                                        <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
+                                            <div class="col-12 position-relative" style="padding-top: 70%;">
+                                                <a href="{{ route('services.show', ['service' => $service]) }}"
+                                                    class="d-block">
+                                                    <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
+                                                        style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
+                                                </a>
+                                            </div>
+                                            <div class="col-12 font-1 p-2 ">
+                                                <a href="{{ route('services.show', ['service' => $service]) }}"
+                                                    class="d-block" style="height:60px;overflow: hidden;">
+                                                    <h2 class="col-12 py-1 px-0"
+                                                        style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
+                                                        {{ $service->title }}
+                                                    </h2>
+                                                </a>
+                                                <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
+                                                    <a href="/service/{{ $service->category->id }}" class="d-block"
+                                                        style="color:var(--bg-color-0);">
+                                                        <span class="fal fa-tag"
+                                                            style="color:var(--bg-color-3);font-size: 11px;"></span>
+                                                        <span style="opacity: .7;font-size: 11px;">
+                                                            {{ $service->category->name }}
+                                                        </span>
+                                                    </a>
                                                 </div>
                                             </div>
-                                        </form>
+                                            <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;">
+                                            </div>
+                                            <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
+                                                <div class="d-inline-block py-2 pr-3"
+                                                    style="height: 36px;overflow: hidden;width: auto;">
+                                                    <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
+                                                        class="d-inline-block text-nowrap">
+                                                        {{ $service->price }}
+                                                        <span class="fas fa-usd-circle" style="font-size:12px"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="d-inline-block py-2 d-flex justify-content-end align-items-center float-left"
+                                                    style="padding-left: 13px;">
+                                                    <div class="col-12 p-0" style="white-space: nowrap;">
+                                                        <span class="fas fa-star"
+                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                        <span class="fas fa-star"
+                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                        <span class="fas fa-star"
+                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                        <span class="fas fa-star"
+                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                        <span class="fas fa-star"
+                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 px-0"
+                                                style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                            </div>
+                                        </div>
                                     </div>
+                                @endforeach
+                            </div>
+                        </template>
+                        {{-- end component --}}
 
-                                </div>
-                            </div>
-                            <div class="col-12 p-1 px-lg-3 my-lg-3">
-                                <div class="panel panel-default mrg--bm px-0  rounded main-nafez-box-styles  "
-                                    id="profile-stats">
-                                    <div class="heada border-bottom row" style="border-color:var(--bg-main-bg)!important">
-                                        <div class="col-6 px-0 ">
-                                            <h6 class="heada__title kufi font-2   px-3 py-3 mb-0"
-                                                style="color: var(--bg-color-0);">مهاراتي</h6>
-                                        </div>
-                                        <div class="col-6 text-left pt-2">
-                                            @if (auth()->id() == $user->id)
-                                                <a href="/freelancers/personal-data/{{ $user->id }}"
-                                                    class="btn btn-primary  font-1 edit-bio-btn"
-                                                    style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
-                                                </a>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-12 py-3 d-flex row">
-                                        @forelse ($user->skills as $skill)
-                                            <a href="https://nafezly.com/freelancers/skill/translation"
-                                                class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1">
-                                                <span class="far fa-tags ml-1"></span> {{ $skill->name }}
-                                            </a>
-                                        @empty
-                                            لم يحدد المهارات بعد.
-                                        @endforelse
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-12 col-lg-4 p-0">
                             <div class="col-12 p-1 px-lg-3 my-lg-3">
                                 <div class="col-12   main-nafez-box-styles px-0">

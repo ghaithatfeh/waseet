@@ -182,8 +182,8 @@
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         المهارات</h2>
-                                    <div class="control-group py-2 px-2" style="min-height: 64px">
-                                        <select class="select3 px-0 border-0 nafezly-filter" multiple=""
+                                    <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
+                                        <select class="select3 px-0 border-0 nafezly-filter" multiple="" wire:model=""
                                             style="width: 100%;background: #fff;opacity: 0" size="1">
                                             <option value="kayako">Kayako</option>
                                             <option value="vuejs">VueJs</option>

@@ -1,18 +1,18 @@
 @extends('layouts.app')
 @section('content')
+    <style type="text/css">
+        .croppie-container .cr-viewport {
+            box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .ltr,
+        .ltr * {
+            direction: ltr !important;
+            text-align: unset;
+        }
+    </style>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
-        <style type="text/css">
-            .croppie-container .cr-viewport {
-                box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5) !important;
-            }
-
-            .ltr,
-            .ltr * {
-                direction: ltr !important;
-                text-align: unset;
-            }
-        </style>
         <button type="button" class="change-pic-btn d-none" data-toggle="modal" data-target=".ch-pic-modal"></button>
         <div class="modal fade ch-pic-modal" tabindex="-1" role="dialog" aria-hidden="true" id="avatar-modal">
             <div class="modal-dialog modal-lg" style="width: 500px;max-width: 100%">
@@ -63,69 +63,69 @@
                         }
 
                         /*.dash-list-area a>div {
-                                                                                                                            border-bottom: 1px solid var(--bg-second-bg)
-                                                                                                                        }
+                                                                                                                                border-bottom: 1px solid var(--bg-second-bg)
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area a:hover * {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area a:hover * {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area a:hover * {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area a:hover * {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active * {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
-                                                                                                                        .dash-list-area a:hover * {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active * {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
+                                                                                                                            .dash-list-area a:hover * {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area a:hover span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area a:hover span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
-                                                                                                                        .dash-list-area a:hover * {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
+                                                                                                                            .dash-list-area a:hover * {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area a:hover span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area a:hover span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
-                                                                                                                        .dash-list-area a:hover * {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
+                                                                                                                            .dash-list-area a:hover * {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area a:hover span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area a:hover span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active {
-                                                                                                                            background: var(--bg-color-3) !important;
-                                                                                                                        }
+                                                                                                                            .dash-list-area .active {
+                                                                                                                                background: var(--bg-color-3) !important;
+                                                                                                                            }
 
-                                                                                                                        .dash-list-area .active span {
-                                                                                                                            color: var(--bg-second-bg) !important;
-                                                                                                                        }*/
+                                                                                                                            .dash-list-area .active span {
+                                                                                                                                color: var(--bg-second-bg) !important;
+                                                                                                                            }*/
                         .croppie-container .cr-resizer,
                         .croppie-container .cr-viewport {
                             box-shadow: unset;
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                             <div class="col-12 px-0 px-md-3 mb-3 mb-md-0">
-                                <div class="col-12  text-center px-0 dash-list-area  d-peter-none "
+                                <div class="col-12  text-center px-0 dash-list-area d-peter-none"
                                     style="border:1px solid var(--bg-main-bg) ;overflow: hidden;">
                                     <div class="col-12 p-2">
                                         لوحة التحكم
@@ -205,9 +205,7 @@
                                         </div>
                                         <div class="col-4 p-1  text-center font-1" style="">
                                             <a href="/profile/personal-data"
-                                                class="d-block
-                                                    active
-                                                "
+                                                class="d-block active"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -216,21 +214,6 @@
                                                             style="color: var(--bg-color-2);"></span>
                                                         <div class="col-12 px-0 text-center title">
                                                             حسابي
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/balance" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-money-check  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            الرصيد
                                                         </div>
                                                     </div>
                                                 </div>
@@ -299,23 +282,6 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/tickets"
-                                                class="d-block
-                                                "
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-ticket-alt  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            تذاكري
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
                                             <a href="/my/verification" class="d-block"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
@@ -325,100 +291,6 @@
                                                             style="color: var(--bg-color-2); color: #4caf50!important;"></span>
                                                         <div class="col-12 px-0 text-center title">
                                                             توثيق
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/my/referral" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-usd-circle  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            التسويق
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="https://nafezly.com/analytics" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-chart-bar d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            إحصائيات
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="https://nafezly.com/community" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-users d-inline-block  font-3"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            المجتمع
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 p-2">
-                                        مركز المساعدة
-                                    </div>
-                                    <div class="col-12 row p-0">
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/guide" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-book d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            الدليل
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="#" class="d-block" style="border-radius: 7px;overflow: hidden;"
-                                                onclick="$('.nafezly-robot').slideToggle();">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-robot  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            الروبوت
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1" style="">
-                                            <a href="/support" class="d-block"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-life-ring  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            الدعم
                                                         </div>
                                                     </div>
                                                 </div>
@@ -444,8 +316,9 @@
                                             <span class="navbar-brand" href="#"
                                                 style="padding: 12px 0px!important;color: var(--bg-color-0) ;font-size: 16px">حسابي</span>
                                             <button class="navbar-toggler p-0" type="button" data-toggle="collapse"
-                                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                                aria-expanded="false" aria-label="Toggle navigation">
+                                                data-target="#navbarSupportedContent"
+                                                aria-controls="navbarSupportedContent" aria-expanded="false"
+                                                aria-label="Toggle navigation">
                                                 <span class="fal fa-caret-down font-2 border ml-2 py-1 px-2 hover-light"
                                                     style="color: #999"></span>
                                             </button>
@@ -453,7 +326,8 @@
                                                 <ul class="navbar-nav mr-auto pr-0">
                                                     <li class="nav-item">
                                                         <a @click.prevent="formType= true"
-                                                            class="nav-link font-1 py-3 px-3 d-inline-block" href="#"
+                                                            class="nav-link font-1 py-3 px-3 d-inline-block"
+                                                            href="#"
                                                             :style="formType && { borderBottom: '3px solid #000' }"
                                                             style="color: var(--bg-color-0);">
                                                             البيانات الشخصية
@@ -461,7 +335,8 @@
                                                     </li>
                                                     <li class="nav-item">
                                                         <a @click.prevent="formType = false"
-                                                            class="nav-link font-1 py-3 px-3 d-inline-block" href="#"
+                                                            class="nav-link font-1 py-3 px-3 d-inline-block"
+                                                            href="#"
                                                             :style="!formType && { borderBottom: '3px solid #000' }"
                                                             style="color: var(--bg-color-0);">بيانات الموقع</a>
                                                     </li>
@@ -484,7 +359,8 @@
                                                             style="border-radius: 30px;z-index: 2;position: relative;"
                                                             onclick="$('#profile_image').click();">تغيير الصورة</span>
                                                     </div>
-                                                    <input type="file" name="image" id="profile_image" accept="image/*"
+                                                    <input type="file" name="image" id="profile_image"
+                                                        accept="image/*"
                                                         style="width: 100%;height: 130px;opacity: 0;z-index: 1;cursor: pointer;border-radius: 50%"
                                                         onclick="this.value=null;">
                                                     @error('image')
@@ -519,8 +395,9 @@
                                                             class="font-small"></span>
                                                     </div>
                                                     <div class="col-12 mt-2">
-                                                        <input type="" name="phone" class="form-control" minlength="10"
-                                                            minlength="30" value="{{ old('phone') ?? $user->phone }}">
+                                                        <input type="" name="phone" class="form-control"
+                                                            minlength="10" minlength="30"
+                                                            value="{{ old('phone') ?? $user->phone }}">
                                                         @error('phone')
                                                             <small class="text-danger">
                                                                 رقم الهاتف مطلوب، يجب ان يتألف على الاقل من 10 ارقام.
@@ -566,8 +443,8 @@
                                                 </div>
                                                 <div class="col-12 col-md-6 mb-4">
                                                     <div class="col-12 font-1">
-                                                        تاريخ الميلاد <span style="color: #919191;"
-                                                            class="font-small">( إختياري )</span>
+                                                        تاريخ الميلاد <span style="color: #919191;" class="font-small">(
+                                                            إختياري )</span>
                                                     </div>
                                                     <div class="col-12 mt-2 row">
                                                         @php
@@ -593,7 +470,8 @@
                                                         </div>
                                                         <div class="col-4 px-0">
                                                             <select class="form-control py-0 px-1"
-                                                                style="border-left: none;border-right: none;" name="month">
+                                                                style="border-left: none;border-right: none;"
+                                                                name="month">
                                                                 <option selected="" disabled="">شهر</option>
                                                                 @for ($i = 1; $i <= 12; $i++)
                                                                     <option
@@ -658,9 +536,9 @@
                                                     المسمى الوظيفي
                                                 </div>
                                                 <div class="col-12 mt-2">
-                                                    <input type="text" name="job_name" class="form-control" required=""
-                                                        minlength="3" maxlength="20" value="{{ $user->job_name }}"
-                                                        id="job_title">
+                                                    <input type="text" name="job_name" class="form-control"
+                                                        required="" minlength="3" maxlength="20"
+                                                        value="{{ $user->job_name }}" id="job_title">
                                                     <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                         class="pt-1 naskh">أدخل مسمى وظيفي واحد لتظهر بنتائج البحث.
                                                         مثال: مهندس معماري </div>

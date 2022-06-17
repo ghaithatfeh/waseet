@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 class Projects extends Component
 {
     use WithPagination;
+    protected $listeners = ['set-skills' => 'setSkills'];
     public $categories = [];
     public $search;
     public $all_skills;
@@ -19,6 +20,11 @@ class Projects extends Component
     public function __construct()
     {
         $this->all_skills = Skill::all();
+    }
+
+    public function setSkills($data){
+        $this->skills = $data;
+        // $this->resetPage();
     }
 
     public function updatingSearch()
@@ -37,6 +43,9 @@ class Projects extends Component
             });
         if ($this->categories != [])
             $query->whereIn('users.category_id', $this->categories);
+            if($this->skills != [])
+            $query->join('project_skills', 'projects.id', 'project_skills.project_id')
+            ->whereIn('project_skills.skill_id', $this->skills);
 
         $projects = $query->paginate(20);
 
