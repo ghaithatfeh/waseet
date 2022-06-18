@@ -452,24 +452,27 @@
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class="py-2 pt-3 px-2 mb-0">المهارات</h2>
-                                    <div class="control-group py-2 px-2" style="min-height: 64px">
+                                    <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
                                             style="width: 100%;background: #fff;opacity: 0" data-filter="skills"
                                             size="1">
-                                            <option value="email-handling"
-                                                data-extra-search="{'tag_name':'إدارة البريد الإلكتروني','arabic_name':'إدارة البريد الإلكتروني','english_name':'Email Handling','slug':'email-handling'}">
-                                                إدارة البريد الإلكتروني</option>
-                                            <option value="photoshop"
-                                                data-extra-search="{'tag_name':'الفوتوشوب','arabic_name':'الفوتوشوب','english_name':'Photoshop','slug':'photoshop'}">
-                                                الفوتوشوب</option>
-                                            <option value="arabic"
-                                                data-extra-search="{'tag_name':'العربية','arabic_name':'العربية','english_name':'Arabic','slug':'arabic'}">
-                                                العربية</option>
-                                            <option value="english"
-                                                data-extra-search="{'tag_name':'الإنجليزية','arabic_name':'الإنجليزية','english_name':'English','slug':'english'}">
-                                                الإنجليزية</option>
+                                            @foreach ($all_skills as $skill)
+                                                <option value="{{$skill->id}}">{{$skill->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
+                                    @section('script')
+                                        <script>
+                                            $('.select3').change(function(){
+                                                let items = $('.selectize-input.items.not-full.has-options.has-items .item')
+                                                let data = []
+                                                items.each(() => {
+                                                    data.push($(this).val()) 
+                                                });
+                                                Livewire.emit('set-skills', data[0])
+                                            })
+                                        </script>
+                                    @endsection
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class=" py-2  pt-3 px-2 mb-0 "> السعر </h2>
                                     <div style="" dir="ltr"

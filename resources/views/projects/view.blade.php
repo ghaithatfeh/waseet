@@ -594,8 +594,8 @@
                                                                     <a href="https://nafezly.com/u/ghaith_atfeh/portfolio"
                                                                         style="font-size: 12px;opacity: 1"
                                                                         class="pt-1">
-                                                                        <span class="fal fa-images"></span> 3 أعمال في
-                                                                        المعرض
+                                                                        <span class="fal fa-images"></span>
+                                                                        3 أعمال في المعرض
                                                                         <!-- warning  -->
                                                                     </a>
                                                                 </div>
@@ -821,7 +821,7 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        1
+                                                        {{ $project->offers->count() }}
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">

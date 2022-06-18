@@ -183,12 +183,25 @@
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         المهارات</h2>
                                     <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
-                                        <select class="select3 px-0 border-0 nafezly-filter" multiple="" wire:model=""
+                                        <select class="select3 px-0 border-0 nafezly-filter" multiple=""
                                             style="width: 100%;background: #fff;opacity: 0" size="1">
-                                            <option value="kayako">Kayako</option>
-                                            <option value="vuejs">VueJs</option>
+                                            @foreach ($all_skills as $skill)
+                                                <option value="{{$skill->id}}">{{$skill->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
+                                    @section('script')
+                                        <script>
+                                            $('.select3').change(function(){
+                                                let items = $('.selectize-input.items.not-full.has-options.has-items .item')
+                                                let data = []
+                                                items.each(() => {
+                                                    data.push($(this).val()) 
+                                                });
+                                                Livewire.emit('set-skills', data[0])
+                                            })
+                                        </script>
+                                    @endsection
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         متصل </h2>
                                     <div class="control-group py-2 px-2">
@@ -200,9 +213,6 @@
                                             <input type="checkbox" id="online" name="titles[]" data-ui=""
                                                 data-filter="online" value="1" class="nafezly-filter" 
                                                 wire:model="online"/>
-                                                @php
-                                                    // dd($categories);
-                                                @endphp
                                             <div class="control_indicator"></div>
                                         </label>
                                     </div>
@@ -228,7 +238,7 @@
                                         style="width: 90px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;box-shadow: 0px 0px 12px var(--bg-main-bg);max-width: 100%; height: 90px; left: 0;   right: 0;margin: 10px auto;">
                                         <a href="/freelancers/{{ $user->id }}">
                                             <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
-                                                style="width: 100%;border-radius:inherit;padding: 6px;height: 100%;border-radius: 50%;">
+                                                style="width: 100%;border-radius:inherit;padding: 6px;height: 100%;border-radius: 50%;object-fit: cover">
                                         </a>
                                     </div>
                                     <h2 class="text-center mb-0 pb-0   almaria font-1 font-md-2"

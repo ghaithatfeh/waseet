@@ -207,7 +207,6 @@
                                                 items.each(() => {
                                                     data.push($(this).val()) 
                                                 });
-                                                console.log(data[0])
                                                 Livewire.emit('set-skills', data[0])
                                             })
                                         </script>
@@ -220,10 +219,6 @@
                                         {{-- <input type="range" min="1" max="100000" name=""> --}}
                                         <input type="" name="" class="js-range-slider nafezly-transition pricing" style="opacity: 0" data-filter="pricing">
                                     </div>
-                                    
-                                    @php
-                                        print_r($skills)
-                                    @endphp
                                 </div>
                             </div>
                         </div>
