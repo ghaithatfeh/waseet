@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -23,6 +25,16 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+
+    public function showRegistrationForm()
+    {
+        Redirect::setIntendedUrl(url()->previous());
+        return view('auth.register');
+    }
+    protected function registered(Request $request)
+    {
+        return redirect('/freelancers/personal-data/' . auth()->id());
+    }
 
     /**
      * Where to redirect users after registration.
