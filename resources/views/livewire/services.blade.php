@@ -28,7 +28,6 @@
                         .irs-bar {
                             position: relative !important;
                         }
-
                     </style>
                     <style type="text/css">
                         .tt {
@@ -74,7 +73,6 @@
                             outline: 0;
                             box-shadow: unset !important;
                         }
-
                     </style>
                     <div class="col-12  mb-3  py-md-0 px-0 px-md-1 position-md-relative d-md-block filter-aside outside"
                         style="width:100%">
@@ -104,8 +102,8 @@
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class=" py-2  pt-3 pt-md-0 px-2 mb-0  "> بحث </h2>
                                     <div class="col-12  px-2 mb-3  ">
-                                        <input type="" name="key" class="form-control nafezly-filter " data-filter="key"
-                                            value="" wire:model="search">
+                                        <input type="" name="key" class="form-control nafezly-filter "
+                                            data-filter="key" value="" wire:model="search">
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         التصنيفات </h2>
@@ -174,10 +172,11 @@
                                                 <span class="fal fa-code ml-1 " aria-hidden="true"
                                                     style="color: var(--bg-font-4)"></span>
                                                 <label class="kufi font-1 d-inline " for="development"
-                                                    style="cursor: pointer;color: var(--bg-font-4)">برمجة، تطوير المواقع
+                                                    style="cursor: pointer;color: var(--bg-font-4)">برمجة، تطوير
+                                                    المواقع
                                                     والتطبيقات </label>
-                                                <input type="checkbox" id="development" name="titles[]" data-ui=""
-                                                    data-filter="specialize" value="2"
+                                                <input type="checkbox" id="development" name="titles[]"
+                                                    data-ui="" data-filter="specialize" value="2"
                                                     class="nafezly-filter main-cat-input" wire:model="categories" />
                                                 <div class="control_indicator"></div>
                                             </label>
@@ -258,14 +257,16 @@
                                         <div class="col-12 pl-0 " style="padding-right: 27px">
                                             <label class="control control-checkbox mb-0">
                                                 <label class="kufi font-1 mb-1" for="business-cards"
-                                                    style="cursor: pointer;color: var(--bg-font-4)">- تصميم بطاقات أعمال
+                                                    style="cursor: pointer;color: var(--bg-font-4)">- تصميم بطاقات
+                                                    أعمال
                                                 </label>
                                             </label>
                                         </div>
                                         <div class="col-12 pl-0 " style="padding-right: 27px">
                                             <label class="control control-checkbox mb-0">
                                                 <label class="kufi font-1 mb-1" for="presentation-services"
-                                                    style="cursor: pointer;color: var(--bg-font-4)">- تصميم عروض تقديمية
+                                                    style="cursor: pointer;color: var(--bg-font-4)">- تصميم عروض
+                                                    تقديمية
                                                 </label>
                                             </label>
                                         </div>
@@ -315,7 +316,8 @@
                                         <div class="col-12 pl-0 " style="padding-right: 27px">
                                             <label class="control control-checkbox mb-0">
                                                 <label class="kufi font-1 mb-1" for="seo-services"
-                                                    style="cursor: pointer;color: var(--bg-font-4)">- خدمات SEO </label>
+                                                    style="cursor: pointer;color: var(--bg-font-4)">- خدمات SEO
+                                                </label>
                                             </label>
                                         </div>
                                         <div class="col-12 pl-0 " style="padding-right: 27px">
@@ -390,7 +392,8 @@
                                                 <span class="fal fa-headset ml-1 " aria-hidden="true"
                                                     style="color: var(--bg-font-4)"></span>
                                                 <label class="kufi font-1 d-inline " for="training"
-                                                    style="cursor: pointer;color: var(--bg-font-4)">تدريب، تعليم ومساعدة
+                                                    style="cursor: pointer;color: var(--bg-font-4)">تدريب، تعليم
+                                                    ومساعدة
                                                     عن بعد </label>
                                                 <input type="checkbox" id="training" name="titles[]" data-ui=""
                                                     data-filter="specialize" value="6"
@@ -450,38 +453,58 @@
                                         <div class="col-12 py-2 px-0">
                                         </div>
                                     </div>
-                                    <h2 style="font-size: 16px;color: var(--bg-color-0)"
-                                        class="py-2 pt-3 px-2 mb-0">المهارات</h2>
+                                    <h2 style="font-size: 16px;color: var(--bg-color-0)" class="py-2 pt-3 px-2 mb-0">
+                                        المهارات</h2>
                                     <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
                                             style="width: 100%;background: #fff;opacity: 0" data-filter="skills"
                                             size="1">
                                             @foreach ($all_skills as $skill)
-                                                <option value="{{$skill->id}}">{{$skill->name}}</option>
+                                                <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    @section('script')
-                                        <script>
-                                            $('.select3').change(function(){
-                                                let items = $('.selectize-input.items.not-full.has-options.has-items .item')
-                                                let data = []
-                                                items.each(() => {
-                                                    data.push($(this).val()) 
-                                                });
-                                                Livewire.emit('set-skills', data[0])
-                                            })
-                                        </script>
-                                    @endsection
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class=" py-2  pt-3 px-2 mb-0 "> السعر </h2>
-                                    <div style="" dir="ltr"
+                                    <div style="" dir="ltr" wire:ignore
                                         class="px-2 text-center nafezly-slider-projects-search nafezly-filter"
                                         style="direction: ltr">
                                         <input type="" name=""
-                                            class="js-range-slider-service nafezly-transition pricing"
-                                            style="opacity: 0" data-filter="pricing-service">
+                                            class="js-range-slider nafezly-transition pricing" style="opacity: 0"
+                                            data-filter="pricing-service">
                                     </div>
+                                    @section('script')
+                                        <script>
+                                            $('.select3').change(function() {
+                                                let items = $('.selectize-input.items.not-full.has-options.has-items .item')
+                                                let data = []
+                                                items.each(() => {
+                                                    data.push($(this).val())
+                                                });
+                                                Livewire.emit('set-skills', data[0])
+                                            });
+
+                                            $(".js-range-slider").ionRangeSlider({
+                                                type: "double",
+                                                skin: "round",
+                                                values: [
+                                                    "5,000", "10,000", "25,000", "50,000", "100,000", "250,000", "500,000"
+                                                ],
+                                                min: 0,
+                                                max: 10,
+                                                from: 0,
+                                                to: 6,
+                                                grid_snap: true,
+                                                from_fixed: false, // fix position of FROM handle
+                                                to_fixed: false,
+                                                onFinish: function() {
+                                                    $this = $('.js-range-slider');
+                                                    let data = $this.val().replace(/,/g, '')
+                                                    Livewire.emit('set-budget', data)
+                                                },
+                                            });
+                                        </script>
+                                    @endsection
                                 </div>
                             </div>
                         </div>
@@ -525,7 +548,7 @@
                                             style="height: 36px;overflow: hidden;width: auto;">
                                             <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
                                                 class="d-inline-block text-nowrap">
-                                                {{ $service->price }}
+                                                {{ number_format($service->price) }}
                                                 <span class="fas fa-usd-circle" style="font-size:12px"></span>
                                             </span>
                                         </div>

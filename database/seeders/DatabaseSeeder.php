@@ -36,6 +36,8 @@ class DatabaseSeeder extends Seeder
             ['from' => 300000, 'to' => 400000],
             ['from' => 400000, 'to' => 500000],
             ['from' => 500000, 'to' => 1000000],
+            ['from' => 1000000, 'to' => 1500000],
+            ['from' => 1500000, 'to' => 2000000],
         ]);
         Skill::factory(10)->create();
         Category::insert([

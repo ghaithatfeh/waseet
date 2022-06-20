@@ -117,23 +117,28 @@
         #nafezly-navbar {
             box-shadow: unset !important;
         }
+
         .home-specialization:hover .specialization-details {
             opacity: 0 !important;
         }
+
         .home-specialization .specialization-details {
             opacity: 1;
             transition: all .05s ease;
         }
+
         .home-specialization:hover .specialization-btns {
             opacity: 1 !important;
             top: 0px;
             z-index: 11;
         }
+
         .specialization-btns {
             transition: .5s all ease-out;
             top: 10px;
             opacity: 0;
         }
+
         html {
             scroll-padding-top: 0px !important;
             scroll-behavior: smooth;
@@ -238,7 +243,6 @@
         @keyframes livewireautofill {
             from {}
         }
-
     </style>
     @livewireStyles
 </head>
@@ -435,8 +439,8 @@
                             <span class="fal fa-ban ml-1 " aria-hidden="true"></span>
                             <label class="kufi font-1" for="illegal"
                                 style="cursor: pointer;color: var(--bg-color-0)">هذا المحتوى مخالف لشروط المنصة</label>
-                            <input type="radio" id="illegal" name="report_type" data-ui="" value="illegal" checked=""
-                                class="hidden_report_report_type">
+                            <input type="radio" id="illegal" name="report_type" data-ui="" value="illegal"
+                                checked="" class="hidden_report_report_type">
                             <div class="control_indicator"></div>
                         </label>
                         <hr>
@@ -537,8 +541,8 @@
                             </div>
                         </div> --}}
                         <div class="nav-item">
-                            <a class="nav-link" href="/projects/create"><span
-                                    class="fal fa-plus mx-2"></span>إضافة مشروع</a>
+                            <a class="nav-link" href="/projects/create"><span class="fal fa-plus mx-2"></span>إضافة
+                                مشروع</a>
                         </div>
                         @auth
                             <div class="nav-item ">
@@ -558,7 +562,7 @@
             <div class="col-12  main-content-dark-layer pb-5"
                 style="height:100vh;position: fixed;width: 100%;z-index: 99999;background: rgba(47, 47, 47, 0.57);top: 0px;display: none;">
             </div>
-            <nav class="navbar navbar-expand-md navbar-inverse navbar-light  fixed-top  py-1 "
+            <nav class="navbar navbar-expand-md navbar-inverse navbar-light fixed-top py-1"
                 style="background: var(--bg-second-bg);padding: 0px 0px;margin-bottom: 0px;z-index: 10000; transition: .3s all cubic-bezier(0.25, 0.46, 0.45, 0.94);width: 100%!important;max-width: 100%!important;right: 0px;left: 0px;box-shadow: 0 .03rem .25rem rgba(0,0,0,0.09)!important;"
                 id="nafezly-navbar">
                 <div class="container text-left  px-0">
@@ -623,7 +627,7 @@
                                     <span class="d-inline-block  nav-bar-icon text-center mx-1"
                                         style="position: relative;width: 50px;cursor: pointer;padding: 9px 0px 0px;text-align: center;height: 55px;border-radius: 5px"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img src="{{asset('uploaded_images/users/' . (auth()->user()->profile_image ?? 'defualt.png'))}}"
+                                        <img src="{{ asset('uploaded_images/users/' . (auth()->user()->profile_image ?? 'defualt.png')) }}"
                                             style="width: 36px;border-radius: 50%!important;padding: 0px;height: 36px;border:0px solid #fff;background: var(--bg-main-bg);object-fit: cover;"
                                             alt="الصورة الشخصية">
                                         <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton"
@@ -655,14 +659,15 @@
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal fa-user ml-2"></span> حسابي الشخصي</li>
                                                     </a>
-                                                    <a href="#" class="py-2 px-3 d-block logout-nafezly hover-darker"
+                                                    <a href="#"
+                                                        class="py-2 px-3 d-block logout-nafezly hover-darker"
                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)">
                                                             <span class="fal fa-sign-in-alt ml-2"></span> تسجيل خروج
                                                         </li>
                                                     </a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                        class="d-none">
+                                                    <form id="logout-form" action="{{ route('logout') }}"
+                                                        method="POST" class="d-none">
                                                         @csrf
                                                     </form>
                                                 </ul>
@@ -671,7 +676,6 @@
                                     </span>
                                 </div>
                             @endguest
-
 
                             <div class="d-none" style="height: 55px;">
                                 <span class="d-inline-block  nav-bar-icon text-center mx-1"
@@ -719,6 +723,199 @@
                 @yield('content')
                 {{ $slot ?? '' }}
             </main>
+        </div>
+    </div>
+
+    <div class="col-12 pt-0 px-0" style="background: var(--bg-main-bg)">
+        <div class="col-12 footer-area  py-0 px-0 pb-0 "
+            style="background: var(--bg-second-bg); border-top: 1px solid var(--bg-main-bg)">
+            <div class="container  px-0">
+                <div class="col-12 px-0  pt-4 row mt-md-3 pb-4">
+                    <div class="col-12  col-md-6   pt-2 pt-4 px-0 p-md-2">
+                        <div class="p-md-0 col-12 px-0">
+                            <div class="col-12 mb-0 pt-2 ">
+                                <h6 class="kufi" style="color: var(--bg-font-1);font-size: 1.10rem"> تعلم </h6>
+                            </div>
+                            <div class="col-12 mt-2 pt-2 ">
+                                <div class="col-12 px-0">
+                                    <ul style="list-style-type: none;" class="px-2">
+                                        <li style="font-size: 7px;" class="mb-2 py-1">
+                                            <div class="col-12 px-0 row" style="overflow:hidden;white-space: nowrap;">
+                                                <div style="width: 20px;margin-top: 1px" class="pt-1">
+                                                    <span class="fas fa-circle pl-2 d-inline-block"
+                                                        style="font-size: 12px;color: #03A9F4;border-radius: 50%;"></span>
+                                                </div>
+                                                <div style="width: calc(100% - 20px) ;">
+                                                    <a href="https://blog.nafezly.com/mobile-app-programming"
+                                                        class="kufi d-block" target="_blank">
+                                                        <h4 class="m-0 p-0 kufi  text-justify text-md-right text-truncate"
+                                                            style="font-size: 14px;color: var(--bg-color-0);line-height: 1.7">
+                                                            ما أهمية برمجة تطبيق جوال لنشاطك التجاري؟</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="font-size: 7px;" class="mb-2 py-1">
+                                            <div class="col-12 px-0 row" style="overflow:hidden;white-space: nowrap;">
+                                                <div style="width: 20px;margin-top: 1px" class="pt-1">
+                                                    <span class="fas fa-circle pl-2 d-inline-block"
+                                                        style="font-size: 12px;color: #03A9F4;border-radius: 50%;"></span>
+                                                </div>
+                                                <div style="width: calc(100% - 20px) ;">
+                                                    <a href="https://blog.nafezly.com/video-design-service"
+                                                        class="kufi d-block" target="_blank">
+                                                        <h4 class="m-0 p-0 kufi  text-justify text-md-right text-truncate"
+                                                            style="font-size: 14px;color: var(--bg-color-0);line-height: 1.7">
+                                                            خدمة تصميم الفيديوهات : إليك كل ما تريد معرفته</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="font-size: 7px;" class="mb-2 py-1">
+                                            <div class="col-12 px-0 row" style="overflow:hidden;white-space: nowrap;">
+                                                <div style="width: 20px;margin-top: 1px" class="pt-1">
+                                                    <span class="fas fa-circle pl-2 d-inline-block"
+                                                        style="font-size: 12px;color: #03A9F4;border-radius: 50%;"></span>
+                                                </div>
+                                                <div style="width: calc(100% - 20px) ;">
+                                                    <a href="https://blog.nafezly.com/professional-company-logo-design"
+                                                        class="kufi d-block" target="_blank">
+                                                        <h4 class="m-0 p-0 kufi  text-justify text-md-right text-truncate"
+                                                            style="font-size: 14px;color: var(--bg-color-0);line-height: 1.7">
+                                                            أسرار تصميم شعار شركة احترافي مع منصة نفذلي</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="font-size: 7px;" class="mb-2 py-1">
+                                            <div class="col-12 px-0 row" style="overflow:hidden;white-space: nowrap;">
+                                                <div style="width: 20px;margin-top: 1px" class="pt-1">
+                                                    <span class="fas fa-circle pl-2 d-inline-block"
+                                                        style="font-size: 12px;color: #03A9F4;border-radius: 50%;"></span>
+                                                </div>
+                                                <div style="width: calc(100% - 20px) ;">
+                                                    <a href="https://blog.nafezly.com/technical-feasibility-study"
+                                                        class="kufi d-block" target="_blank">
+                                                        <h4 class="m-0 p-0 kufi  text-justify text-md-right text-truncate"
+                                                            style="font-size: 14px;color: var(--bg-color-0);line-height: 1.7">
+                                                            دراسة الجدوى الفنية للمشروع: إليك كل ماتريد معرفته عن دراسة
+                                                            المشروع فنيًا</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="font-size: 7px;" class="mb-2 py-1">
+                                            <div class="col-12 px-0 row" style="overflow:hidden;white-space: nowrap;">
+                                                <div style="width: 20px;margin-top: 1px" class="pt-1">
+                                                    <span class="fas fa-circle pl-2 d-inline-block"
+                                                        style="font-size: 12px;color: #03A9F4;border-radius: 50%;"></span>
+                                                </div>
+                                                <div style="width: calc(100% - 20px) ;">
+                                                    <a href="https://blog.nafezly.com/professional-website-design"
+                                                        class="kufi d-block" target="_blank">
+                                                        <h4 class="m-0 p-0 kufi  text-justify text-md-right text-truncate"
+                                                            style="font-size: 14px;color: var(--bg-color-0);line-height: 1.7">
+                                                            كيف يتم تصميم موقع إلكتروني احترافي؟</h4>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-md-0 col-12 px-0 mt-4">
+                            <div class="col-12 px-0">
+                                <div class="col-12">
+                                    <h5 class="" style="color: var(--bg-font-1);font-size: 1.10rem">تابعنا</h5>
+                                    <ul style="display: block;padding: 0px;list-style: none;" class="mt-2 mb-2">
+                                        <a href="https://www.facebook.com/Nafezly" class="d-inline-block p-1">
+                                            <span class="fab fa-facebook-f d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 14px ;border:1px solid var(--bg-font-6);color: #3b5998;cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                        <a href="https://twitter.com/Nafezly" class="d-inline-block p-1">
+                                            <span class="fab fa-twitter d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-font-6);color: #00aced;cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                        <a href="https://www.youtube.com/channel/UC0lI3SXBt-Nn2Oyss4dAbOQ"
+                                            class="d-inline-block p-1">
+                                            <span class="fab fa-youtube d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 10px ;border:1px solid var(--bg-font-6);color: #FF0000;cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                        <a href="https://www.instagram.com/Nafezly" class="d-inline-block p-1">
+                                            <span class="fab fa-instagram d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 12px ;border:1px solid var(--bg-font-6);color: var(--bg-font-4);cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                        <a href="https://www.linkedin.com/company/Nafezly" class="d-inline-block p-1">
+                                            <span class="fab fa-linkedin-in d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 12px ;border:1px solid var(--bg-font-6);color: #1976d2;cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                        <a href="https://www.t.me/Nafezly" class="d-inline-block p-1">
+                                            <span class="fab fa-telegram-plane d-inline-block "
+                                                style="width: 40px;height: 40px;padding: 11px 12px ;border:1px solid var(--bg-font-6);color: #1e96c8;cursor: pointer;background: var(--bg-second-bg);border-radius: 50%!important"></span>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12  col-md-6   py-1 row px-0 px-md-2">
+                        <div class="col-md-6 px-0">
+                            <div class="col-12 pt-2">
+                                <h5 class="" style="color: var(--bg-font-1);font-size: 1.10rem">روابط</h5>
+                                <ul style="display: block;padding: 0px;list-style: none;" class="col-12 mt-2 pt-2 ">
+                                    <li><a href="/guide" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">الدليل الإرشادي</a></li>
+                                    <li><a href="/support" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">الدعم الفني</a></li>
+                                    <li><a href="/terms" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">شروط الاستخدام </a></li>
+                                    <li><a href="/privacy-policy" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">سياسة الخصوصية</a></li>
+                                    <li><a href="/guarantee" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">ضمان الحقوق</a></li>
+                                    <li><a href="https://nafezly.com/faq"
+                                            style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block">الأسئلة الشائعة </a></li>
+                                    <li><a href="/referral" style="color: var(--bg-font-4);font-size: 15px;"
+                                            class="kufi py-1 d-inline-block"> التسويق بالعمولة</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 px-0">
+                            <div class="col-12 pt-2">
+                                <h5 class="" style="color: var(--bg-font-1);font-size: 1.10rem">وسائل الدفع</h5>
+                                <ul style="display: block;padding: 0px;list-style: none;" class="mt-3">
+                                    <img src="/site_images/payments-min.png"
+                                        style="width: 180px;padding: 5px 0px;border-radius: 0px!important; max-width: 100%!important"
+                                        alt="وسائل الدفع">
+                                </ul>
+                            </div>
+                            <div class="col-12 pt-2">
+                                <h5 class="" style="color: var(--bg-font-1);font-size: 1.10rem">وسائل السحب</h5>
+                                <ul style="display: block;padding: 0px;list-style: none;" class="mt-3">
+                                    <img src="/site_images/payouts-min.png"
+                                        style="width: 180px;padding: 5px 0px;border-radius: 0px!important; max-width: 100%!important"
+                                        alt="وسائل السحب">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12"
+        style="background-image: linear-gradient(to right, rgba(0,0,0,0.01) , rgba(0,0,0,0.01) );border-top:1px solid rgb(145 145 145 / 3%);">
+        <div class="container  ">
+            <div class="col-12 row d-flex justify-content-between p-0">
+                <div class="col-12 text-center   mt-1 mb-2 pt-3 pb-2 ">
+                    <h6 style="font-size: 14px;line-height: 1.8" class="my-0  kufi text-center">
+                        <span class="d-inline-block kufi"> جميع الحقوق محفوظة © منصة وسيط 2022 </span>
+                        <span class="d-inline-block kufi"> Wasset.com - All rights reserved</span>
+                    </h6>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -936,7 +1133,6 @@
             position: relative;
             top: -2px;
         }
-
     </style>
 </body>
 

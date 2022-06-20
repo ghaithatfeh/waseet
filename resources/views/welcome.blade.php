@@ -552,7 +552,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 px-0">
+                                {{-- <div class="col-12 px-0">
                                     <div class="card border-0 mb-2">
                                         <div class="card-header border-0 btn py-2" id="headingOne"
                                             style="background: var(--bg-second-bg)">
@@ -582,7 +582,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-12 px-0">
                                     <div class="card border-0 mb-2">
                                         <div class="card-header border-0 btn py-2" id="headingOne"
@@ -692,7 +692,7 @@
                             لبدء مشروعك الخاص ؟</h2>
                         <br>
                     </div>
-                    <a href="/project/create-guest" class="d-inline-block">
+                    <a href="/projects" class="d-inline-block">
                         <button class="btn text-center mx-auto d-inline-block  px-3 py-2"
                             style="width: 150px;border-radius: 0px;color: #fff; background: #fff;color: var(--bg-color-3);">
                             ابدأ الآن</button>

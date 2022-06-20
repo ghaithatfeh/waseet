@@ -28,7 +28,6 @@
                         .irs-bar {
                             position: relative !important;
                         }
-
                     </style>
                     <style type="text/css">
                         .tt {
@@ -74,7 +73,6 @@
                             outline: 0;
                             box-shadow: unset !important;
                         }
-
                     </style>
                     <div class="col-12  mb-3  py-md-0 px-0 px-md-1 position-md-relative d-md-block filter-aside outside"
                         style="width:100%">
@@ -103,8 +101,8 @@
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)"
                                         class=" py-2  pt-3 pt-md-0 px-2 mb-0  "> بحث </h2>
                                     <div class="col-12  px-2 mb-3  ">
-                                        <input type="" name="key" class="form-control nafezly-filter " data-filter="key"
-                                            value="" wire:model="search">
+                                        <input type="" name="key" class="form-control nafezly-filter "
+                                            data-filter="key" value="" wire:model="search">
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         التصنيفات </h2>
@@ -161,9 +159,9 @@
                                             <label class="kufi font-1 d-inline " for="writing-translation"
                                                 style="cursor: pointer;color: var(--bg-font-4)">كتابة، صناعة محتوى،
                                                 ترجمة ولغات </label>
-                                            <input type="checkbox" id="writing-translation" name="titles[]" data-ui=""
-                                                data-filter="specialize" value="5" wire:model="categories"
-                                                class="nafezly-filter" />
+                                            <input type="checkbox" id="writing-translation" name="titles[]"
+                                                data-ui="" data-filter="specialize" value="5"
+                                                wire:model="categories" class="nafezly-filter" />
                                             <div class="control_indicator"></div>
                                         </label>
                                         <label class="control control-checkbox pb-2">
@@ -189,36 +187,61 @@
                                             <div class="control_indicator"></div>
                                         </label>
                                     </div>
-                                    <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
+                                    <h2 style="font-size: 16px;color: var(--bg-color-0)"
+                                        class=" py-2  pt-3 px-2 mb-0 ">
                                         المهارات</h2>
                                     <div class="control-group py-2 px-2" style="min-height: 64px" wire:ignore>
                                         <select class="select3 px-0 border-0 nafezly-filter" multiple=""
-                                            style="width: 100%;background: #fff;opacity: 0" size="1" >
+                                            style="width: 100%;background: #fff;opacity: 0" size="1">
                                             @foreach ($all_skills as $skill)
-                                                <option value="{{$skill->id}}">{{$skill->name}}</option>
+                                                <option value="{{ $skill->id }}">{{ $skill->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    <h2 style="font-size: 16px;color: var(--bg-color-0)"
+                                        class=" py-2  pt-3 px-2 mb-0 ">
+                                        الميزانية </h2>
+                                    <div style="" dir="ltr" wire:ignore
+                                        class="px-2 text-center nafezly-slider-projects-search nafezly-filter"
+                                        style="direction: ltr">
+                                        <input type="" name=""
+                                            class="js-range-slider nafezly-transition pricing" style="opacity: 0"
+                                            data-filter="pricing">
+                                    </div>
                                     @section('script')
                                         <script>
-                                            $('.select3').change(function(){
+                                            $('.select3').change(function() {
                                                 let items = $('.selectize-input.items.not-full.has-options.has-items .item')
                                                 let data = []
                                                 items.each(() => {
-                                                    data.push($(this).val()) 
+                                                    data.push($(this).val())
                                                 });
                                                 Livewire.emit('set-skills', data[0])
-                                            })
+                                            });
+
+                                            $(".js-range-slider").ionRangeSlider({
+                                                type: "double",
+                                                skin: "round",
+                                                values: [
+                                                    "10,000", "50,000", "100,000", "200,000", "300,000", "500,000", "750,000",
+                                                    "1,000,000", "1,500,000", "2,000,000"
+                                                ],
+                                                min: 0,
+                                                max: 10,
+                                                from: 0,
+                                                to: 9,
+                                                /*  grid: true,*/
+                                                grid_snap: true,
+                                                from_fixed: false, // fix position of FROM handle
+                                                to_fixed: false,
+                                                onFinish: function() {
+                                                    $this = $('.js-range-slider');
+                                                    let data = $this.val().replace(/,/g, '')
+                                                    Livewire.emit('set-budget', data)
+                                                },
+                                            });
                                         </script>
                                     @endsection
-                                    <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
-                                        الميزانية </h2>
-                                    <div style="" dir="ltr" wire:ignore
-                                        class="px-2  text-center nafezly-slider-projects-search nafezly-filter"
-                                        style="direction: ltr">
-                                        {{-- <input type="range" min="1" max="100000" name=""> --}}
-                                        <input type="" name="" class="js-range-slider nafezly-transition pricing" style="opacity: 0" data-filter="pricing">
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -256,14 +279,14 @@
                                                         <div class="col-12 px-0 row align-items-center justify-content-between text-truncate mb-2 mb-lg-0 d-lg-flex d-none"
                                                             style="flex-wrap: nowrap;">
                                                             <div class="d-flex align-items-center">
-                                                                <a href="/freelancers/{{$project->user->id}}"
+                                                                <a href="/freelancers/{{ $project->user->id }}"
                                                                     class="d-inline-block">
                                                                     <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
                                                                         style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
                                                                 </a>
                                                                 <div class="d-inline-block pl-0 pr-3"
                                                                     style="font-size:13px">
-                                                                    <a href="/freelancers/{{$project->user->id}}"
+                                                                    <a href="/freelancers/{{ $project->user->id }}"
                                                                         style="color: inherit;opacity: .8;">
                                                                         {{ $project->user->first_name . ' ' . $project->user->last_name }}
                                                                     </a>
@@ -351,32 +374,3 @@
         </div>
     </div>
 </div>
-
-@section('script')
-<script>
-    $(".js-range-slider").ionRangeSlider({
-    type: "double",
-    skin: "round",
-    values: [
-        "10", "25", "50", "100", "250", "500", "1000", "2500", "5000", "10000"
-    ],
-    min: 0,
-    max: 10,
-    from: 0,
-    to: 9,
-    /*  grid: true,*/
-    grid_snap: true,
-    from_fixed: false, // fix position of FROM handle
-    to_fixed: false,
-    onFinish:function(){
-        $this=$('.js-range-slider');
-        //console.log($this.val());
-        //console.log($this.data('filter'));
-        var val=$this.val();
-        var val_new =val.replace(';',',');
-        setGetParam($this.data('filter'),val_new);
-      
-    },
-}); 
-</script>
-@endsection

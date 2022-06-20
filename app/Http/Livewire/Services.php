@@ -10,11 +10,12 @@ use Livewire\WithPagination;
 class Services extends Component
 {
     use WithPagination;
-    protected $listeners = ['set-skills' => 'setSkills'];
+    protected $listeners = ['set-skills' => 'setSkills', 'set-budget' => 'setBudget'];
     public $categories = [];
     public $search;
     public $all_skills;
     public $skills = [];
+    public $budget;
 
     public function __construct()
     {
@@ -24,7 +25,13 @@ class Services extends Component
     public function setSkills($data)
     {
         $this->skills = $data;
-        // $this->resetPage();
+        $this->resetPage();
+    }
+
+    public function setBudget($data)
+    {
+        $this->budget = explode(';', $data);
+        $this->resetPage();
     }
 
     public function mount($category)
@@ -51,6 +58,9 @@ class Services extends Component
         if ($this->skills != [])
             $query->join('service_skills', 'services.id', 'service_skills.service_id')
                 ->whereIn('service_skills.skill_id', $this->skills);
+
+        if ($this->budget != [])
+            $query->whereBetween('price', $this->budget);
 
         $services = $query->paginate(21);
 
