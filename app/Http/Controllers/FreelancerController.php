@@ -26,13 +26,11 @@ class FreelancerController extends Controller
         return redirect()->back();
     }
 
-    public function personalData(User $user)
+    public function personalData()
     {
-        if ($user->id != auth()->id())
-            return abort(403);
         $categories = Category::all();
         return view('freelancers.personal-data', [
-            'user' => $user,
+            'user' => auth()->user(),
             'categories' => $categories
         ]);
     }
@@ -71,5 +69,10 @@ class FreelancerController extends Controller
         }
         $user->update($request->all());
         return back()->with('message-success', 'تم تحديث البيانات بنجاح');
+    }
+
+    public function myProjects()
+    {
+        return view('freelancers.my-projects', ['user' => auth()->user()]);
     }
 }

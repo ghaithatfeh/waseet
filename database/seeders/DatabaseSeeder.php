@@ -3,11 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Budget;
-use App\Models\Budgets;
 use App\Models\Category;
-use App\Models\Skill;
-use App\Models\Skills;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -39,7 +35,6 @@ class DatabaseSeeder extends Seeder
             ['from' => 1000000, 'to' => 1500000],
             ['from' => 1500000, 'to' => 2000000],
         ]);
-        Skill::factory(10)->create();
         Category::insert([
             ['name' => 'أعمال وخدمات استشارية وإدارية'],
             ['name' => 'برمجة، تطوير المواقع والتطبيقات'],
@@ -48,6 +43,11 @@ class DatabaseSeeder extends Seeder
             ['name' => 'كتابة، صناعة محتوى، ترجمة ولغات'],
             ['name' => 'تدريب، تعليم ومساعدة عن بعد'],
             ['name' => 'أمور أخرى'],
+        ]);
+
+        $this->call([
+            CountrySeeder::class,
+            SkillSeeder::class
         ]);
     }
 }

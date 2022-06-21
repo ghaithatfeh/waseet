@@ -638,16 +638,16 @@
                                                 class="col-12 row text-right dropdown-items">
                                                 <ul
                                                     style="list-style: none;padding: 0px 0px;width: 100%;margin-bottom: 0px">
-                                                    <a href="/" class="py-2 px-3  d-block  hover-darker">
-                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
-                                                                class="fal fa-tachometer-alt-slow ml-2"></span>
-                                                            الرئيسية
-                                                        </li>
-                                                    </a>
                                                     <a href="#dark-mood"
                                                         class="py-2 px-3  d-block hover-darker change-mood">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
                                                                 class="fal fa-moon ml-2"></span> تغيير الوضع </li>
+                                                    </a>
+                                                    <a href="/my/profile" class="py-2 px-3  d-block  hover-darker">
+                                                        <li style="font-size: 14px;color: var(--bg-color-0)"> <span
+                                                                class="fal fa-tachometer-alt-slow ml-2"></span>
+                                                            لوحة التحكم
+                                                        </li>
                                                     </a>
                                                     <a href="https://nafezly.com/my/projects/all"
                                                         class="py-2 px-3  d-block hover-darker">
@@ -928,6 +928,7 @@
             e.preventDefault();
         });
     </script>
+    
 
     @livewireScripts
     {{-- <script data-turbo-eval="false" data-turbolinks-eval="false">

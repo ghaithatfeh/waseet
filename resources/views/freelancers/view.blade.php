@@ -78,7 +78,7 @@
                                         style="max-width: 100%;width: 300px;">
                                         <div class="col-12 px-0 row justify-content-center" style="">
                                             <div style="width: calc(100% - 130px)">
-                                                <a href="/freelancers/personal-data/{{ $user->id }}">
+                                                <a href="/my/profile">
                                                     <span class="btn btn-primary font-1 text-center   col-12"
                                                         style="border-radius: 2px">
                                                         <span class="fal fa-suitcase"></span> تعديل المعلومات الشخصية
@@ -176,7 +176,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center" 
+                                            <a class="nav-link kufi  font-small font-md-1 text-center"
                                                 :class="activeItem == 'services' ? 'active' : ''"
                                                 @click.prevent="activeItem = 'services'" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
@@ -185,10 +185,12 @@
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center" href=""
+                                            <a class="nav-link kufi  font-small font-md-1 text-center"
+                                                :class="activeItem == 'projects' ? 'active' : ''"
+                                                @click.prevent="activeItem = 'projects'" href=""
                                                 style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-star font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> التقييمات </div>
+                                                    class="fal fa-suitcase font-md-1 font-4"></span>
+                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> المشاريع </div>
                                             </a>
                                         </li>
                                         <li class="nav-item  text-center">
@@ -204,7 +206,7 @@
                                     <div class="m-auto m-md-0  d-inline-block " style="max-width: 100%;padding-top: 13px">
                                         <div class="col-12 px-0 row">
                                             @if ($user->id == auth()->id())
-                                                <a href="/freelancers/personal-data/{{ $user->id }}"
+                                                <a href="/my/profile"
                                                     class="d-inline-block">
                                                     <span class="btn btn-primary font-1 text-center   col-12"
                                                         style="border-radius: 2px">
@@ -325,7 +327,7 @@
                                             </div>
                                             <div class="col-6 text-left pt-2">
                                                 @if (auth()->id() == $user->id)
-                                                    <a href="/freelancers/personal-data/{{ $user->id }}"
+                                                    <a href="/my/profile"
                                                         class="btn btn-primary  font-1 edit-bio-btn"
                                                         style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
                                                     </a>
@@ -409,6 +411,113 @@
                                             </div>
                                             <div class="col-12 px-0"
                                                 style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </template>
+                        {{-- end component --}}
+
+                        {{-- services component --}}
+                        <template x-if="activeItem == 'projects'">
+                            <div class="col-12 col-lg-8 row my-lg-3 py-1">
+                                @foreach ($user->projects as $project)
+                                    <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
+                                        style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
+                                        <div class="col-12 p-0 row d-flex ">
+                                            <div class="col-12 col-lg-9 p-0">
+                                                <h2 style="font-size:16px;height: 23px;"
+                                                    class="d-block text-truncate overflow-hidden m-0">
+                                                    <a href="/projects/{{ $project->id }}"
+                                                        style="color: var(--bg-color-3);"
+                                                        class="text-truncate">{{ $project->title }}</a>
+                                                </h2>
+                                                <div class="col-12 py-2 px-0">
+                                                    <h3 class="naskh font-1 m-0 col-12 col-lg-10 px-0"
+                                                        style="color:var(--bg-font-4);line-height: 1.8;overflow: hidden;height: 48px">
+                                                        {{ $project->description }}
+                                                    </h3>
+                                                </div>
+                                                <div class="col-12 px-0 row align-items-center justify-content-between text-truncate mb-2 mb-lg-0 d-lg-flex d-none"
+                                                    style="flex-wrap: nowrap;">
+                                                    <div class="d-flex align-items-center">
+                                                        <a href="/freelancers/{{ $project->user->id }}"
+                                                            class="d-inline-block">
+                                                            <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
+                                                                style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
+                                                        </a>
+                                                        <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
+                                                            <a href="/freelancers/{{ $project->user->id }}"
+                                                                style="color: inherit;opacity: .8;">
+                                                                {{ $project->user->first_name . ' ' . $project->user->last_name }}
+                                                            </a>
+                                                            <div class="d-block mt-1"
+                                                                style="font-size:10px;opacity: 0.6;">
+                                                                <span class="d-inline-block">
+                                                                    <span
+                                                                        class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
+                                                                    {{ $project->user->country->name ?? '' }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-3 p-0">
+                                                <div class="d-none d-lg-block  px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="far fa-usd-circle " aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                        {{ number_format($project->budget->from) . ' - ' . number_format($project->budget->to) }}
+                                                        ل.س
+                                                    </span>
+                                                </div>
+                                                <div class="d-none d-lg-block px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="far fa-business-time " aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                        {{ $project->expected_deadline }} أيام
+                                                    </span>
+                                                </div>
+                                                <div class="d-inline-block d-lg-block px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="far fa-ballot " aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                        1 عروض
+                                                    </span>
+                                                </div>
+                                                <div class="d-inline-block d-lg-block px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="far fa-clock " aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                        @php
+                                                            Carbon\Carbon::setLocale('ar_EH');
+                                                            $time = $project->created_at->diffForHumans(Carbon\Carbon::now());
+                                                        @endphp
+                                                        {{ $time }}
+                                                    </span>
+                                                </div>
+                                                <div class="d-inline-block d-lg-none px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="far fa-map-marker-alt" aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                        {{ $project->user->country->name ?? '' }}
+                                                    </span>
+                                                </div>
+                                                <div class="d-inline-block d-lg-block px-1">
+                                                    <span class="d-inline-block kufi "
+                                                        style="font-size: 12px;color: #777777">
+                                                        <span class="fas fa-check-circle " aria-hidden="true"
+                                                            style="font-size: 12px;width:18px;text-align: center;color:#28a745;"></span>
+                                                        {{ $project->status }}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

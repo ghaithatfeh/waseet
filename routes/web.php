@@ -21,13 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::put('/freelancers/edit-bio/{user}', [FreelancerController::class, 'editBio']);
-Route::get('/freelancers/personal-data/{user}', [FreelancerController::class, 'personalData'])->name('personal-data');
-Route::get('/freelancers/settings/{user}', [FreelancerController::class, 'settings']);
+Route::get('/my/profile', [FreelancerController::class, 'personalData'])->name('personal-data')->middleware('auth');
+Route::get('/my/projects', [FreelancerController::class, 'myProjects'])->middleware('auth');
 Route::post('/freelancers/personal_data_update/{user}', [FreelancerController::class, 'personalDataUpdate']);
 
 Route::resources([
@@ -37,12 +38,7 @@ Route::resources([
 ]);
 Route::post('/offer/create', [OfferController::class, 'create']);
 
-// Route::get('/service/{category}', [ServiceController::class, 'service']);
+// livewire components
 Route::get('/service/{category}', Services::class);
 Route::get('/freelancers', Freelancers::class);
 Route::get('/projects', Projects::class);
-
-Auth::routes();
-
-//للاستطلاع
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

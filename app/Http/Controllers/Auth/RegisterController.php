@@ -33,7 +33,7 @@ class RegisterController extends Controller
     }
     protected function registered(Request $request)
     {
-        return redirect('/freelancers/personal-data/' . auth()->id());
+        return redirect('/my/personal-data');
     }
 
     /**
