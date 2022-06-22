@@ -81,6 +81,10 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
-        //
+        if (auth()->id() != $project->user_id)
+            return abort(403);
+            
+        $project->delete();
+        return redirect('/projects');
     }
 }

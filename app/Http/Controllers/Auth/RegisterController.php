@@ -33,7 +33,7 @@ class RegisterController extends Controller
     }
     protected function registered(Request $request)
     {
-        return redirect('/my/personal-data');
+        return redirect('/my/profile');
     }
 
     /**

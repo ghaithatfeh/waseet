@@ -35,7 +35,7 @@ class ServiceController extends Controller
         $service = Service::create($request->all());
 
         if ($request->skills) {
-            
+
             foreach ($request->skills as $skill)
                 $skills[] = ['skill_id' => $skill, 'service_id' => $service->id];
             ServiceSkill::insert($skills);
@@ -54,5 +54,14 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         return view('services.view', ['service' => $service]);
+    }
+
+    public function destroy(Service $service)
+    {
+        if (auth()->id() != $service->user_id)
+            return abort(403);
+
+        $service->delete();
+        return redirect('/services');
     }
 }

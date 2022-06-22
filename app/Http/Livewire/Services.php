@@ -50,20 +50,19 @@ class Services extends Component
 
         $query = Service::select(['services.*', 'service_images.*'])
             ->join('service_images', 'service_images.service_id', 'services.id')
-            ->where('title', 'LIKE', $search_value);
-
-        if ($this->categories != [])
-            $query->whereIn('category_id', $this->categories);
-
-        if ($this->skills != [])
-            $query->join('service_skills', 'services.id', 'service_skills.service_id')
+            ->where('title', 'LIKE', $search_value)
+            ->when($this->categories != [], function ($query) {
+                $query->whereIn('category_id', $this->categories);
+            })
+            ->when($this->skills != [], function ($query) {
+                $query->join('service_skills', 'services.id', 'service_skills.service_id')
                 ->whereIn('service_skills.skill_id', $this->skills);
-
-        if ($this->budget != [])
-            $query->whereBetween('price', $this->budget);
+            })
+            ->when($this->budget != [], function ($query) {
+                $query->whereBetween('price', $this->budget);
+            });
 
         $services = $query->paginate(21);
-
         return view('livewire.services', ['services' => $services]);
     }
 }

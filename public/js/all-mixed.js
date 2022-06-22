@@ -14979,6 +14979,19 @@
             }).then((function(t) {
                 t.value && ($("#remove-portfolio-form").attr("action", $(e).data("remove_url")), $("#remove-portfolio-form").submit())
             }))
+        })), $(".remove-project-click").on("click", (function() {
+            var e = this;
+            Swal.fire({
+                title: "هل انت متأكد من حذف المشروع ؟",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "حذف",
+                cancelButtonText: "إلغاء"
+            }).then((function(t) {
+                t.value && ($("#remove-project-form").attr("action", $(e).data("remove_url")), $("#remove-project-form").submit())
+            }))
         })), $(".lazy").Lazy({
             scrollDirection: "vertical",
             effect: "fadeIn",

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Project;
+use App\Models\Skill;
 use App\Models\User;
 use App\Models\UserSkill;
 use Illuminate\Http\Request;
@@ -28,10 +30,15 @@ class FreelancerController extends Controller
 
     public function personalData()
     {
-        $categories = Category::all();
+        $user = User::where('id', auth()->id())
+        ->with(['projects', 'projects.budget', 'skills', 'country', 'category', 'services', 'services.category', 'services.images'])
+        ->first();
+
         return view('freelancers.personal-data', [
-            'user' => auth()->user(),
-            'categories' => $categories
+            'user' => $user,
+            // 'projects' => Project::where('user_id', $user->id)->paginate(10),
+            'categories' => Category::all(),
+            'skills' => Skill::all()
         ]);
     }
 

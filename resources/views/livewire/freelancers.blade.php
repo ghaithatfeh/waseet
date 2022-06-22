@@ -221,13 +221,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8  col-lg-9 px-0 px-md-1 pt-md-4 search-response-container">
-                    <script type="text/javascript">
-                        var get_body = document.getElementById("body");
-                        if (!get_body) {
-                            location.reload();
-                        }
-                    </script>
+                <div class="col-12 col-md-8  col-lg-9 px-0 px-md-1 pt-md-4 search-response-container" wire:loading.class="loading-state">
                     <div class="col-12 row px-0">
                         @foreach ($users as $user)
                             <div class=" mt-0 col-6 col-sm-6 col-md-6 col-lg-4 p-1 p-lg-2  pb-2 text-center single-profile-card"

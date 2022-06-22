@@ -70,13 +70,17 @@
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         تعديل
                                                                     </a>
-                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-portfolio-click"
-                                                                        href=""
+                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-service-click"
+                                                                        href="#"
                                                                         style="font-size: 13px;color: var(--bg-color-0)">
                                                                         <span class="fal fa-trash text-center"
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         حذف
                                                                     </a>
+                                                                    <form id="remove-service-form" method="post" action="/services/{{$service->id}}">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         @endif

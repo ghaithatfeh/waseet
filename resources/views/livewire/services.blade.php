@@ -510,7 +510,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8 col-lg-9 px-0 px-md-1 mb-5 search-response-container">
+                <div class="col-12 col-md-8 col-lg-9 px-0 px-md-1 mb-5 search-response-container" wire:loading.class="loading-state">
                     <div class="col-12 row px-0">
                         @foreach ($services as $service)
                             <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">

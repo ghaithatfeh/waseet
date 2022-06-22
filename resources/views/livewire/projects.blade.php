@@ -249,13 +249,7 @@
                 </div>
                 <div class="col-12 col-md-8 col-lg-9 px-0 px-md-2">
                     <div class="col-12 px-0 pb-0 ">
-                        <div class="col-12 px-0 search-response-container">
-                            <script type="text/javascript">
-                                var get_body = document.getElementById("body");
-                                if (!get_body) {
-                                    location.reload();
-                                }
-                            </script>
+                        <div class="col-12 px-0 search-response-container" wire:loading.class="loading-state">
                             <div class="col-12 pt-1 px-0 pb-0">
                                 <div class="col-12 px-2">
                                     <div class="col-12 px-0 ">

@@ -3,24 +3,9 @@
 @section('content')
 
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
-        <form method="POST" action="https://nafezly.com/deal/offer-accept" style="display: none;" id="accept-deal">
-            <input type="hidden" name="_token" value="wTltBzOqWTCgKGnIgFPvX9FrkPP3Kjqgun8qDNEm"> <input type="hidden"
-                name="offer_id" id="accept-offer-id">
-        </form>
-        <form method="POST"
-            action="https://nafezly.com/project-update/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8/reopen"
-            style="display: none;" id="project-reopen-form">
-            <input type="hidden" name="_token" value="wTltBzOqWTCgKGnIgFPvX9FrkPP3Kjqgun8qDNEm">
-        </form>
-        <form method="POST"
-            action="https://nafezly.com/project-update/5605-%D9%85%D8%B7%D9%84%D9%88%D8%A8-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AA%D8%AA%D8%B5%D9%84-%D8%A8%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%B3%D8%B7%D8%AD-%D9%85%D9%83%D8%AA%D8%A8-%D8%A8%D9%84%D8%BA%D8%A9-%D8%A7%D9%84%D8%B3%D9%8A-%D8%B4%D8%A7%D8%B1%D8%A8/close"
-            style="display: none;" id="project-close-form">
-            <input type="hidden" name="_token" value="wTltBzOqWTCgKGnIgFPvX9FrkPP3Kjqgun8qDNEm">
-        </form>
         <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
-            style="    z-index: 454454545;
-                                                                                                                                                                                                background: rgba(0, 0, 0, 0.45);">
+            style="z-index: 454454545;background: rgba(0, 0, 0, 0.45);">
             <div class="modal-dialog  modal-lg" role="document" style="z-index: 444;">
                 <div class="modal-content">
                     <div class="col-12 px-0 row">
@@ -187,13 +172,17 @@
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         تعديل
                                                                     </a>
-                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-portfolio-click"
-                                                                        href=""
+                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-project-click"
+                                                                        href="#"
                                                                         style="font-size: 13px;color: var(--bg-color-0)">
                                                                         <span class="fal fa-trash text-center"
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         حذف
                                                                     </a>
+                                                                    <form id="remove-project-form" method="post" action="/projects/{{$project->id}}">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         @endif
@@ -683,15 +672,6 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                        <div class="col-12 px-0 py-2">
-                                        </div>
-                                        <script type="text/javascript">
-                                            $(function() {
-                                                $('[data-toggle="popover"]').popover({
-                                                    trigger: "hover"
-                                                });
-                                            });
-                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -896,4 +876,10 @@
         <div class="col-12 py-1"></div>
     </div>
 
-@stop
+@endsection
+
+@section('script')
+    <script>
+        $("#offer-form").validate({});
+    </script>
+@endsection

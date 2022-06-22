@@ -49,24 +49,23 @@ class Projects extends Component
             ->where(function ($query) use ($search_value) {
                 $query->where('title', 'LIKE', $search_value)
                     ->orWhere(DB::raw('CONCAT(users.first_name, " ",users.last_name)'), 'LIKE', $search_value);
+            })
+            ->when($this->categories != [], function ($query) {
+                $query->whereIn('users.category_id', $this->categories);
+            })
+            ->when($this->skills != [], function ($query) {
+                $query->join('project_skills', 'projects.id', 'project_skills.project_id')
+                    ->whereIn('project_skills.skill_id', $this->skills);
+            })
+            ->when($this->budget != [], function ($query) {
+                $query->join('budgets', 'budgets.id', 'projects.budget_id')
+                    ->where(function ($query) {
+                        $query->whereBetween('budgets.to', $this->budget)
+                            ->orWhere('budgets.from', $this->budget[0]);
+                    });
             });
 
-        if ($this->categories != [])
-            $query->whereIn('users.category_id', $this->categories);
-
-        if ($this->skills != [])
-            $query->join('project_skills', 'projects.id', 'project_skills.project_id')
-                ->whereIn('project_skills.skill_id', $this->skills);
-
-        if ($this->budget != [])
-            $query->join('budgets', 'budgets.id', 'projects.budget_id')
-                ->where(function ($query) {
-                    $query->whereBetween('budgets.to', $this->budget)
-                        ->orWhere('budgets.from', $this->budget[0]);
-                });
-
         $projects = $query->orderBy('id', 'DESC')->paginate(20);
-
         return view('livewire.projects', ['projects' => $projects]);
     }
 }

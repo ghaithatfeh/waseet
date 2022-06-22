@@ -187,7 +187,7 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
-                                            <a href="/my/services" class="d-block" @click.prevent="section='my-services'"
+                                            <a href="" class="d-block" @click.prevent="section='my-services'"
                                                 :class="section == 'my-services' && 'active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
@@ -517,7 +517,7 @@
                                                         <select class="my-select col-12 px-0" multiple=""
                                                             name="skills[]"
                                                             style="height: 35px;border-color: #d0d0d0!important;">
-                                                            @foreach (App\Models\Skill::all() as $skill)
+                                                            @foreach ($skills as $skill)
                                                                 <option
                                                                     {{ in_array($skill->id, $user->skills->pluck('id')->toArray()) ? 'selected' : '' }}
                                                                     value="{{ $skill->id }}">
@@ -702,22 +702,22 @@
                                                     <div class="col-12 px-0 row align-items-center justify-content-between text-truncate mb-2 mb-lg-0 d-lg-flex d-none"
                                                         style="flex-wrap: nowrap;">
                                                         <div class="d-flex align-items-center">
-                                                            <a href="/freelancers/{{ $project->user->id }}"
+                                                            <a href="/freelancers/{{ $user->id }}"
                                                                 class="d-inline-block">
-                                                                <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
+                                                                <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
                                                                     style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
                                                             </a>
                                                             <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
-                                                                <a href="/freelancers/{{ $project->user->id }}"
+                                                                <a href="/freelancers/{{ $user->id }}"
                                                                     style="color: inherit;opacity: .8;">
-                                                                    {{ $project->user->first_name . ' ' . $project->user->last_name }}
+                                                                    {{ $user->first_name . ' ' . $user->last_name }}
                                                                 </a>
                                                                 <div class="d-block mt-1"
                                                                     style="font-size:10px;opacity: 0.6;">
                                                                     <span class="d-inline-block">
                                                                         <span
                                                                             class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
-                                                                        {{ $project->user->country->name ?? '' }}
+                                                                        {{ $user->country->name ?? '' }}
                                                                     </span>
                                                                 </div>
                                                             </div>
@@ -767,7 +767,7 @@
                                                             style="font-size: 12px;color: #777777">
                                                             <span class="far fa-map-marker-alt" aria-hidden="true"
                                                                 style="font-size: 12px;width:18px;text-align: center;"></span>
-                                                            {{ $project->user->country->name ?? '' }}
+                                                            {{ $user->country->name ?? '' }}
                                                         </span>
                                                     </div>
                                                     <div class="d-inline-block d-lg-block px-1">
@@ -782,25 +782,7 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="col-12 px-2">
-                                            <div class="col-12 px-0">
-                                                <script type="text/javascript">
-                                                    var get_body = document.getElementById("body");
-                                                    if (!get_body) {
-                                                        location.reload();
-                                                    }
-                                                </script>
-                                                <div class="col-12 pt-1 px-0 pb-0">
-                                                    <div class="col-12 px-2">
-                                                        <div class="col-12 px-0 ">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 pb-1 pt-2">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 px-2">
+                                        <div class="col-12 px-0">
                                             <div class="row col-12 align-items-center"
                                                 style="min-height: 50vh;margin: 0% 0px;background: var(--bg-second-bg)">
                                                 <div class="row align-items-center">
@@ -820,6 +802,9 @@
                                             </div>
                                         </div>
                                     @endforelse
+                                    {{-- <div class="col-12 pb-1 pt-2">
+                                        {{ $projects->links('pagination-links') }}
+                                    </div> --}}
                                 </div>
                             </div>
                         </template>

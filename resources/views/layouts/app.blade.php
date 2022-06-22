@@ -112,6 +112,11 @@
         } */
     </style>
 
+    <style>
+        .loading-state {
+            opacity: 0.3;
+        }
+    </style>
 
     <style type="text/css">
         #nafezly-navbar {
@@ -928,7 +933,7 @@
             e.preventDefault();
         });
     </script>
-    
+
 
     @livewireScripts
     {{-- <script data-turbo-eval="false" data-turbolinks-eval="false">
