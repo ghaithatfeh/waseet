@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
         <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
@@ -166,7 +165,7 @@
                                                                     aria-labelledby="dropdownMenuLink"
                                                                     style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
                                                                     <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 edit-dots-wedgit "
-                                                                        href=""
+                                                                        href="/projects/{{ $project->id }}/edit"
                                                                         style="font-size: 13px;color: var(--bg-color-0)"><span
                                                                             class="fal fa-edit text-center"
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
@@ -179,7 +178,8 @@
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         حذف
                                                                     </a>
-                                                                    <form id="remove-project-form" method="post" action="/projects/{{$project->id}}">
+                                                                    <form id="remove-project-form" method="post"
+                                                                        action="/projects/{{ $project->id }}">
                                                                         @method('delete')
                                                                         @csrf
                                                                     </form>
@@ -275,8 +275,7 @@
                                 </div>
                                 <div class="col-12" style="padding: 20px;;">
                                     <h2 class="col-12  p-0 naskh  font-2 m-0"
-                                        style="white-space: pre-line; word-wrap: break-word;overflow: hidden;color:var(--bg-color-0);line-height: 1.6 ; ">
-                                        {{ $project->description }}
+                                        style="white-space: pre-line; word-wrap: break-word;overflow: hidden;color:var(--bg-color-0);line-height: 1.6 ; ">{{ $project->description }}
                                     </h2>
                                     <div class="col-12 p-0 mt-2">
                                         @foreach ($project->attachments as $attachment)
@@ -638,8 +637,7 @@
                                                         </div>
                                                     @endif
                                                     <h3 class="col-12 px-1 col-lg-11 naskh"
-                                                        style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
-                                                        {{ $offer->description }}
+                                                        style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">{{ $offer->description }}
                                                         @foreach ($offer->attachments as $attachment)
                                                             <div class="col-12 mt-3 px-0">
                                                                 <a href="{{ asset('uploaded_images/offers/' . $attachment->file_name) }}"
@@ -875,7 +873,6 @@
         </div>
         <div class="col-12 py-1"></div>
     </div>
-
 @endsection
 
 @section('script')

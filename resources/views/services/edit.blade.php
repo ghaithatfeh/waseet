@@ -19,9 +19,10 @@
                                 </div>
                             </div>
                             <div class="col-12 px-0 main-nafez-box-styles mx-auto col-12 col-lg-8">
-                                <form action="/services" method="POST" class="col-12 px-0" id="service-form"
-                                    enctype="multipart/form-data">
+                                <form action="/services/{{ $service->id }}" method="POST" class="col-12 px-0"
+                                    id="service-form" enctype="multipart/form-data">
                                     @csrf
+                                    @method('put')
                                     <div class="col-12 px-0 pb-2 row">
                                         <div class="col-12 mb-3 px-0 px-md-2">
                                             <div class="col-12  row px-0">
@@ -32,7 +33,8 @@
                                                         </div>
                                                         <div class="col-12 mt-2">
                                                             <input type="" name="title" class="form-control"
-                                                                required="" minlength="10" value="">
+                                                                required="" minlength="10"
+                                                                value="{{ $service->title ?? '' }}">
                                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                                 class="pt-1 naskh">أدخل عنواناً واضحاً باللغة العربية
                                                                 يصف الخدمة التي تريد أن تقدمها. لا تدخل رموزاً أو كلمات مثل
@@ -47,19 +49,11 @@
                                                             <div class="col-12 mt-2">
                                                                 <select class="form-control col-12" name="category_id"
                                                                     id="specializations" required="">
-                                                                    <option selected=""></option>
-                                                                    <option value="1">أعمال وخدمات استشارية وإدارية
-                                                                    </option>
-                                                                    <option value="2">برمجة، تطوير المواقع والتطبيقات
-                                                                    </option>
-                                                                    <option value="3">تصميم وأعمال فنية وإبداعية
-                                                                    </option>
-                                                                    <option value="4">تسويق الكتروني ومبيعات</option>
-                                                                    <option value="5">كتابة، صناعة محتوى، ترجمة ولغات
-                                                                    </option>
-                                                                    <option value="6">تدريب، تعليم ومساعدة عن بعد
-                                                                    </option>
-                                                                    <option value="7">أمور أخرى</option>
+                                                                    @foreach ($categories as $category)
+                                                                        <option value="{{ $category->id }}"
+                                                                            {{ $service->category->id == $category->id ? 'selected' : '' }}>
+                                                                            {{ $category->name }}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -69,7 +63,7 @@
                                                             تفاصيل الخدمة
                                                         </div>
                                                         <div class="col-12 mt-2">
-                                                            <textarea class="form-control" style="min-height: 208px;" name="description" required="" minlength="200"></textarea>
+                                                            <textarea class="form-control" style="min-height: 208px;" name="description" required="" minlength="200">{{ $service->description ?? '' }}</textarea>
                                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                                 class="pt-1 naskh">أدخل وصف الخدمة بدقة يتضمن جميع
                                                                 المعلومات والشروط . يمنع وضع البريد الالكتروني، رقم الهاتف
@@ -94,8 +88,22 @@
                                                                                     الملفات</label>
                                                                                 <input style="display: none" id="images"
                                                                                     name="images[]" type="file" multiple
-                                                                                    class="form-control" required />
+                                                                                    class="form-control" />
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="col-12 row align-items-end">
+                                                                            @foreach ($service->images as $image)
+                                                                                <div class="d-flex flex-column col-3">
+                                                                                    <img class="img-fluid rounded-top"
+                                                                                        src="{{ asset('uploaded_images/services/' . $image->image_name) }}"
+                                                                                        alt="">
+                                                                                    <button href=""
+                                                                                        class="btn btn-danger text-center m-0 py-1"
+                                                                                        style="border-radius: 0 0 3px 3px !important; font-size: .8rem">
+                                                                                        <i class="fa fa-trash"></i>
+                                                                                        حذف</button>
+                                                                                </div>
+                                                                            @endforeach
                                                                         </div>
                                                                     </div>
                                                                     <script>
@@ -129,7 +137,10 @@
                                                             <select class="select2 col-12" multiple="" name="skills[]"
                                                                 size="1" style="opacity: 0">
                                                                 @foreach ($skills as $skill)
-                                                                    <option value="{{ $skill->id }}">{{ $skill->name }}
+                                                                    <option
+                                                                        {{ in_array($skill->id, $service->skills->pluck('id')->toArray()) ? 'selected' : '' }}
+                                                                        value="{{ $skill->id }}">
+                                                                        {{ $skill->name }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
@@ -146,10 +157,10 @@
                                                             $deadline = ['يوم واحد', 'يومين', 'ثلاثة أيام', 'أربعة أيام', 'خمسة أيام', 'ستة أيام', 'أسبوع', 'أسبوعين', 'ثلاثة أسابيع', 'شهر'];
                                                         @endphp
                                                         <div class="col-12 mt-2">
-                                                            <select name="deadline" class="form-control font-1" required>
-                                                                <option></option>
+                                                            <select name="deadline" class="form-control font-1">
                                                                 @foreach ($deadline as $d)
-                                                                    <option value={{ $d }}>
+                                                                    <option value={{ $d }}
+                                                                        {{ $d == $service->deadline ? 'selected' : '' }}>
                                                                         {{ $d }}
                                                                     </option>
                                                                 @endforeach
@@ -169,9 +180,9 @@
                                                         @endphp
                                                         <div class="col-12 mt-2">
                                                             <select class="form-control" name="price" required="">
-                                                                <option></option>
                                                                 @foreach ($prices as $price)
-                                                                    <option value="{{ $price }}">
+                                                                    <option value="{{ $price }}"
+                                                                        {{ $price == $service->price ? 'selected' : '' }}>
                                                                         {{ number_format($price) }} ل.س</option>
                                                                 @endforeach
                                                             </select>

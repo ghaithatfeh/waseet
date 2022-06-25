@@ -6,7 +6,7 @@
                 <div class="col-12 row px-0">
                     <div class="col-12 px-2 mt-2 py-4 mx-auto col-12  px-lg-0  justify-content-between row">
                         <div class="col px-0 font-2 font-lg-4 pt-1">
-                            إضافة مشروع
+                            تعديل المشروع: {{ $project->title }}
                         </div>
                         <div class="col px-0 text-left  d-lg-none">
                             <a href="https://www.youtube.com/watch?v=0xor8bLf5NE" class="btn hover-darker d-inline-block"
@@ -18,9 +18,10 @@
                         </div>
                     </div>
                     <div class="col-12    px-0 main-nafez-box-styles col-12 col-lg-8">
-                        <form method="POST" action="/projects" class="col-12 px-0 row" id="project-form"
-                            enctype="multipart/form-data">
+                        <form method="POST" action="/projects/{{ $project->id }}" class="col-12 px-0 row"
+                            id="project-form" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="col-12 row  py-0 px-0 px-md-2 ">
                                 <div class="col-12 px-0 mt-2">
                                     <div class="col-12 mt-3 kufi font-1 ">
@@ -76,8 +77,7 @@
                                     </div>
                                     <div class="col-12 mt-2 row">
                                         <div class="col-12 px-0">
-                                            <select class="form-control kufi py-0 px-2" name="budget_id"
-                                                required="">
+                                            <select class="form-control kufi py-0 px-2" name="budget_id" required="">
                                                 <option value="" disabled="" selected=""></option>
                                                 @foreach ($budgets as $budget)
                                                     <option
@@ -117,6 +117,38 @@
                                         </h6>
                                     </label>
                                     <div id="files-names" class="mr-3"></div>
+                                    <div class="col-12 p-0 mt-2">
+                                        @foreach ($project->attachments as $attachment)
+                                            <div class="col-12 d-flex align-items-center hover-light"
+                                                style="padding: 4px;">
+                                                <button onclick="deleteAttach({{ $attachment->id }})" type="button"
+                                                    class="btn btn-sm btn-danger m-0">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                                <a href="{{ asset('uploaded_images/projects/' . $attachment->file_name) }}"
+                                                    class="d-block w-100" download>
+                                                    <div style="border-top: none; " class="px-2 pb-1">
+                                                        <span
+                                                            style="color: var(--bg-font-4);border-radius: 50px;padding-top: 3px;line-height: 1.2"
+                                                            class=" d-inline-block text-center">
+                                                            <span class="far fa-paperclip p-1"></span>
+                                                        </span>
+                                                        <span style="direction: ltr;position: relative;top: -2px"
+                                                            class="d-inline-block   naskh font-small">
+                                                            {{ $attachment->file_name }}
+                                                        </span>
+                                                        <span class="d-inline-block font-small naskh"
+                                                            style="color: var(--bg-font-4);position: relative;top: -2px">
+                                                            [
+                                                            {{ round(filesize('uploaded_images/projects/' . $attachment->file_name) / 1048576, 2) }}
+                                                            ميغا
+                                                            ]
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <input class="d-none" type="file" name="files[]" id="files" multiple>
                                 <script>
@@ -133,8 +165,8 @@
 
                                 <div class="col-12 pb-3">
                                     <button class="btn btn-success mt-2   text-center font-1 mb-2"
-                                        style="border-radius: 0px;padding: 10px 16px" id="submitEvaluation">انشر
-                                        الآن
+                                        style="border-radius: 0px;padding: 10px 16px" id="submitEvaluation">
+                                        تعديل
                                     </button>
                                 </div>
                             </div>

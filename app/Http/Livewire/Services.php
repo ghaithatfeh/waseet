@@ -48,8 +48,7 @@ class Services extends Component
     {
         $search_value = '%' . $this->search . '%';
 
-        $query = Service::select(['services.*', 'service_images.*'])
-            ->join('service_images', 'service_images.service_id', 'services.id')
+        $query = Service::with('images')
             ->where('title', 'LIKE', $search_value)
             ->when($this->categories != [], function ($query) {
                 $query->whereIn('category_id', $this->categories);
@@ -62,7 +61,7 @@ class Services extends Component
                 $query->whereBetween('price', $this->budget);
             });
 
-        $services = $query->paginate(21);
+        $services = $query->orderBy('id', 'DESC')->paginate(21);
         return view('livewire.services', ['services' => $services]);
     }
 }

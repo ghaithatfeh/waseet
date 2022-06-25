@@ -64,7 +64,7 @@
                                                                     aria-labelledby="dropdownMenuLink"
                                                                     style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
                                                                     <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 edit-dots-wedgit "
-                                                                        href=""
+                                                                        href="/services/{{$service->id}}/edit"
                                                                         style="font-size: 13px;color: var(--bg-color-0)"><span
                                                                             class="fal fa-edit text-center"
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
@@ -259,7 +259,7 @@
                                                     </div>
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        {{ $service->price }} ل.س
+                                                        {{ number_format($service->price) }} ل.س
                                                     </div>
                                                 </div>
                                                 <div class="col-12 row" style="padding:4px 5px">

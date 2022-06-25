@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Service;
 use App\Models\ServiceImage;
 use App\Models\ServiceSkill;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Livewire;
 
 class ServiceController extends Controller
@@ -53,6 +56,7 @@ class ServiceController extends Controller
 
     public function show(Service $service)
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('services.view', ['service' => $service]);
     }
 
@@ -61,7 +65,20 @@ class ServiceController extends Controller
         if (auth()->id() != $service->user_id)
             return abort(403);
 
+        if ($service->images()->count() > 0)
+            foreach ($service->images as $image)
+                File::delete('uploaded_images/services/' . $image->image_name);
+
         $service->delete();
-        return redirect('/services');
+        return redirect()->intended();
+    }
+
+    public function edit(Service $service)
+    {
+        return view('services.edit', [
+            'skills' => Skill::all(),
+            'categories' => Category::all(),
+            'service' => $service
+        ]);
     }
 }

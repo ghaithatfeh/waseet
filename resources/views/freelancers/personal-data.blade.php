@@ -45,8 +45,24 @@
         <div class="col-12 pt-5 change-profile-pic-modal"
             style="position: fixed;width: 100%;z-index: 66666;background: var(--bg-second-bg);height: 100vh;display: none;margin-top: -60px">
         </div>
+        @php
+            $section = $_GET['section'] ?? 'account';
+        @endphp
+        <script>
+            let section = {{ json_decode($section) }}
+            console.log(new URLSearchParams(window.location.search).get('page'))
+        </script>
         <div class="col-12 px-0">
-            <div class="container" x-data="{ formType: true, section: 'my-account' }">
+            <div class="container" x-data="{
+                formType: true,
+                section: new URLSearchParams(window.location.search).get('section') ?? 'account',
+                setSection(newSection){
+                    const url = new URL(window.location);
+                    url.searchParams.set('section', newSection);
+                    window.history.pushState({}, '', url);
+                    this.section = newSection;
+                }
+            }">
                 <div class="col-12 row px-0">
                     <style type="text/css">
                         .dash-list-area a,
@@ -140,8 +156,8 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1 text-center font-1">
-                                            <a href="" @click.prevent="section='my-account'"
-                                                :class="section == 'my-account' && 'd-block active'"
+                                            <a href="" @click.prevent="setSection('account')"
+                                                :class="section == 'account' && 'd-block active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -156,8 +172,8 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1 text-center font-1">
-                                            <a href="" class="d-block" @click.prevent="section='my-projects'"
-                                                :class="section == 'my-projects' && 'd-block active'"
+                                            <a href="" class="d-block" @click.prevent="setSection('projects')"
+                                                :class="section == 'projects' && 'd-block active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -187,8 +203,8 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
-                                            <a href="" class="d-block" @click.prevent="section='my-services'"
-                                                :class="section == 'my-services' && 'active'"
+                                            <a href="" class="d-block" @click.prevent="setSection('services')"
+                                                :class="section == 'services' && 'active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -243,7 +259,7 @@
                         <!-- content area -->
 
                         {{-- personal date --}}
-                        <template x-if="section == 'my-account'">
+                        <template x-if="section == 'account'">
                             <form method="POST" action="/freelancers/personal_data_update/{{ $user->id }}"
                                 enctype="multipart/form-data" id="profile-update-form">
                                 @csrf
@@ -551,8 +567,8 @@
                             </form>
                         </template>
 
-                        {{-- my-services --}}
-                        <template x-if="section == 'my-services'">
+                        {{-- services --}}
+                        <template x-if="section == 'services'">
                             <div style="padding: 0px;" class="col-12 row mt-0 mt-md-5">
                                 <div class="col-12 px-2">
                                     <div style="background: var(--bg-second-bg);" class="col-12 px-0">
@@ -572,67 +588,69 @@
                                     </div>
                                 </div>
                                 <div class="col-12 row pb-5" style="padding:10px 0px;">
-                                    @forelse ($user->services as $service)
-                                    <div class="px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
-                                        <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
-                                            <div class="col-12 position-relative" style="padding-top: 70%;">
-                                                <a href="{{ route('services.show', ['service' => $service]) }}"
-                                                    class="d-block">
-                                                    <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
-                                                        style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
-                                                </a>
-                                            </div>
-                                            <div class="col-12 font-1 p-2 ">
-                                                <a href="{{ route('services.show', ['service' => $service]) }}"
-                                                    class="d-block" style="height:60px;overflow: hidden;">
-                                                    <h2 class="col-12 py-1 px-0"
-                                                        style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
-                                                        {{ $service->title }}
-                                                    </h2>
-                                                </a>
-                                                <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
-                                                    <a href="/service/{{ $service->category->id }}" class="d-block"
-                                                        style="color:var(--bg-color-0);">
-                                                        <span class="fal fa-tag"
-                                                            style="color:var(--bg-color-3);font-size: 11px;"></span>
-                                                        <span style="opacity: .7;font-size: 11px;">
-                                                            {{ $service->category->name }}
-                                                        </span>
+                                    @forelse ($user->services->sortByDesc('id') as $service)
+                                        <div class="px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
+                                            <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
+                                                <div class="col-12 position-relative" style="padding-top: 70%;">
+                                                    <a href="{{ route('services.show', ['service' => $service]) }}"
+                                                        class="d-block">
+                                                        <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
+                                                            style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
                                                     </a>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;">
-                                            </div>
-                                            <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
-                                                <div class="d-inline-block py-2 pr-3"
-                                                    style="height: 36px;overflow: hidden;width: auto;">
-                                                    <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
-                                                        class="d-inline-block text-nowrap">
-                                                        {{ number_format($service->price) }}
-                                                        <span class="fas fa-usd-circle" style="font-size:12px"></span>
-                                                    </span>
-                                                </div>
-                                                <div class="d-inline-block py-2 d-flex justify-content-end align-items-center float-left"
-                                                    style="padding-left: 13px;">
-                                                    <div class="col-12 p-0" style="white-space: nowrap;">
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                <div class="col-12 font-1 p-2 ">
+                                                    <a href="{{ route('services.show', ['service' => $service]) }}"
+                                                        class="d-block" style="height:60px;overflow: hidden;">
+                                                        <h2 class="col-12 py-1 px-0"
+                                                            style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
+                                                            {{ $service->title }}
+                                                        </h2>
+                                                    </a>
+                                                    <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
+                                                        <a href="/service/{{ $service->category->id }}" class="d-block"
+                                                            style="color:var(--bg-color-0);">
+                                                            <span class="fal fa-tag"
+                                                                style="color:var(--bg-color-3);font-size: 11px;"></span>
+                                                            <span style="opacity: .7;font-size: 11px;">
+                                                                {{ $service->category->name }}
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-12 px-0"
-                                                style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                                <div class="col-12 nafezly-divider-full mb-0 mt-1 "
+                                                    style="min-height: 1px;">
+                                                </div>
+                                                <div class="col-12 px-0 d-flex py-1"
+                                                    style="justify-content:space-between">
+                                                    <div class="d-inline-block py-2 pr-3"
+                                                        style="height: 36px;overflow: hidden;width: auto;">
+                                                        <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
+                                                            class="d-inline-block text-nowrap">
+                                                            {{ number_format($service->price) }}
+                                                            <span class="fas fa-usd-circle" style="font-size:12px"></span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-inline-block py-2 d-flex justify-content-end align-items-center float-left"
+                                                        style="padding-left: 13px;">
+                                                        <div class="col-12 p-0" style="white-space: nowrap;">
+                                                            <span class="fas fa-star"
+                                                                style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                            <span class="fas fa-star"
+                                                                style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                            <span class="fas fa-star"
+                                                                style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                            <span class="fas fa-star"
+                                                                style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                            <span class="fas fa-star"
+                                                                style="color: var(--bg-color-4);font-size:10px;"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 px-0"
+                                                    style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @empty
                                         <div class="col-12 px-2">
                                             <div class="row col-12 align-items-center"
@@ -658,8 +676,8 @@
                             </div>
                         </template>
 
-                        {{-- my-projects --}}
-                        <template x-if="section == 'my-projects'">
+                        {{-- projects --}}
+                        <template x-if="section == 'projects'">
                             <div style="padding: 0px;" class="col-12 row mt-0 mt-md-5 ">
                                 <div class="col-12 px-2">
                                     <div style="background: var(--bg-second-bg);" class="col-12 px-0">
@@ -682,7 +700,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 row pb-5 px-2" style="padding:10px 0px;">
-                                    @forelse ($user->projects as $project)
+                                    @forelse ($user->projects->sortByDesc('id') as $project)
                                         <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
                                             style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
                                             <div class="col-12 p-0 row d-flex ">
