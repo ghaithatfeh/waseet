@@ -12,7 +12,7 @@ class ServiceImage extends Model
     public $timestamps = false;
     protected $fillable = ['service_id', 'image_name'];
 
-    public function services(){
+    public function service(){
         return $this->belongsTo(Service::class);
     }
 }

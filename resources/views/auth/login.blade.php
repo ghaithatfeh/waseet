@@ -48,8 +48,7 @@
                                                     <input id="password" type="password"
                                                         class="form-control mt-2 d-inline-block" name="password" required
                                                         autocomplete="off" autofocus
-                                                        style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important"
-                                                        minlength="6">
+                                                        style=";height: 42px;border-color: #eaedf1;border-radius: 3px!important">
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-4 col-12   px-0 pt-2 ">

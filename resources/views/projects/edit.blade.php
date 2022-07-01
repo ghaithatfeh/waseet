@@ -121,8 +121,8 @@
                                         @foreach ($project->attachments as $attachment)
                                             <div class="col-12 d-flex align-items-center hover-light"
                                                 style="padding: 4px;">
-                                                <button onclick="deleteAttach({{ $attachment->id }})" type="button"
-                                                    class="btn btn-sm btn-danger m-0">
+                                                <button id="{{ $attachment->id }}" type="button"
+                                                    class="delete-btn btn btn-sm btn-danger m-0">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
                                                 <a href="{{ asset('uploaded_images/projects/' . $attachment->file_name) }}"
@@ -166,7 +166,7 @@
                                 <div class="col-12 pb-3">
                                     <button class="btn btn-success mt-2   text-center font-1 mb-2"
                                         style="border-radius: 0px;padding: 10px 16px" id="submitEvaluation">
-                                        تعديل
+                                        حفظ التعديل
                                     </button>
                                 </div>
                             </div>
@@ -208,9 +208,40 @@
             </div>
         </div>
     </div>
+@endsection
+
 @section('script')
     <script>
         $("#project-form").validate({});
+        $('.delete-btn').on('click', function() {
+            let file = $(this).attr('id');
+            Swal.fire({
+                title: "هل انت متأكد من حذف هذا الملف من المشروع ؟",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "حذف",
+                cancelButtonText: "إلغاء"
+            }).then((result) => {
+                if (result.isConfirmed)
+                    $.ajax({
+                        method: "delete",
+                        context: $(this),
+                        url: "/projects/delete-file/" + file,
+                        success: function(response) {
+                            if (response) {
+                                this.parent().remove()
+                                Swal.fire({
+                                    title: 'تم الحذف!',
+                                    text: 'تم حذف الملف بنجاح.',
+                                    icon: 'success',
+                                    confirmButtonText: 'حسناً'
+                                })
+                            }
+                        }
+                    });
+            })
+        })
     </script>
-@endsection
 @endsection

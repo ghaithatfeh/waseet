@@ -15022,7 +15022,20 @@
                 confirmButtonText: "حذف",
                 cancelButtonText: "إلغاء"
             }).then((function(t) {
-                t.value && ($("#remove-service-form").attr("action", $(e).data("remove_url")), $("#remove-service-form").submit())
+                t.value && $("#remove-service-form").submit()
+            }))
+        })), $(".remove-offer-click").on("click", (function() {
+            var e = $(this);
+            Swal.fire({
+                title: "هل انت متأكد من حذف العرض ؟",
+                icon: "warning",
+                showCancelButton: !0,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "حذف",
+                cancelButtonText: "إلغاء"
+            }).then((function(t) {
+                t.value && $("#remove-offer-form").submit()
             }))
         })), $(document).ready((function() {
             $(".select3,.select2").selectize({

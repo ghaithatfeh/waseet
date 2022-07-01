@@ -149,55 +149,6 @@
             scroll-behavior: smooth;
         }
     </style>
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "name": "نفذلي",
-            "url": "https://nafezly.com",
-            "logo": "https://nafezly.com/site_images/favicon.png",
-            "sameAs": [
-                "https://twitter.com/Nafezly",
-                "https://www.facebook.com/Nafezly",
-                "https://www.youtube.com/channel/UC0lI3SXBt-Nn2Oyss4dAbOQ",
-                "https://www.instagram.com/Nafezly",
-                "https://www.linkedin.com/company/Nafezly"
-            ],
-            "contactPoint": [{
-                    "@type": "ContactPoint",
-                    "telephone": "+201032738088",
-                    "contactType": "customer support"
-                },
-                {
-                    "@type": "ContactPoint",
-                    "telephone": "+201032738088",
-                    "contactType": "technical support"
-                }, {
-                    "@type": "ContactPoint",
-                    "telephone": "+201032738088",
-                    "contactType": "billing support"
-                }
-            ]
-        } {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "url": "https://nafezly.com",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "?key={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        } {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "نفذلي | نفذ أعمالك بسهولة عبر الإنترنت",
-            "description": "نفذلي هي منصة تمكن اصحاب المشاريع الباحثين عن مبدعين لإنجاز أعمالهم وذلك عن طريق توظيف المبدعين او تصفح وشراء خدماتهم , كما تمكن المبدعين من مشاركة أعمالهم و خدماتهم بسهولة مع ضمان كامل لحقوق كلا الطرفين ",
-            "publisher": {
-                "@type": "Organization",
-                "name": "نفذلي"
-            }
-        }
-    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149847603-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -501,50 +452,6 @@
                             <a class="nav-link" href="#dark-mood"><span class="fal fa-moon mx-2"></span> تغيير
                                 الوضع</a>
                         </div>
-                        {{-- <div class="nav-item ">
-                            <div class="nav-link" style="cursor: pointer;"
-                                onclick="$('#more-left-nav-nafezly').slideToggle('fast');$('#more-left-nav-nafezly-turn').toggleClass('open');">
-                                <div class="col-12 px-0 row">
-                                    <div class="col-10 px-0">
-                                        <span class="fal fa-stream mx-2"></span> عرض المزيد
-                                    </div>
-                                    <div class="col-2 text-left">
-                                        <span class="fal fa-angle-down mx-2 font-3" id="more-left-nav-nafezly-turn"
-                                            style="transform: rotate(90deg)"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="display: none;" id="more-left-nav-nafezly" class="p-3">
-                            <div class="col-12 px-0">
-                                <div class="nav-item ">
-                                    <a class="nav-link" href="/guarantee"><span
-                                            class="fal fa-clipboard-check mx-2"></span>ضمان الحقوق</a>
-                                </div>
-                                <div class="nav-item ">
-                                    <a class="nav-link" href="/referral"><span
-                                            class="fal fa-usd-circle mx-2"></span>التسويق بالعمولة</a>
-                                </div>
-                                <div class="nav-item">
-                                    <a class="nav-link" href="/faq"><span class="fal fa-question mx-2"></span>
-                                        الإسئلة
-                                        الشائعة</a>
-                                </div>
-                                <div class="nav-item">
-                                    <a class="nav-link" href="https://blog.nafezly.com"><span
-                                            class="fal fa-pen-alt mx-2"></span> مدونة نفذلي </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a class="nav-link" href="/privacy-policy"><span
-                                            class="fal fa-lock-alt mx-2"></span> سياسة الخصوصية </a>
-                                </div>
-                                <div class="nav-item">
-                                    <a class="nav-link" href="/terms"><span class="fal fa-list-ul mx-2"></span>
-                                        شروط
-                                        الاستخدام </a>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="nav-item">
                             <a class="nav-link" href="/projects/create"><span class="fal fa-plus mx-2"></span>إضافة
                                 مشروع</a>
@@ -646,30 +553,28 @@
                                                     <a href="#dark-mood"
                                                         class="py-2 px-3  d-block hover-darker change-mood">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
-                                                                class="fal fa-moon ml-2"></span> تغيير الوضع </li>
+                                                                class="fal fa-moon ml-2"></span>تغيير الوضع</li>
                                                     </a>
                                                     <a href="/my/profile" class="py-2 px-3  d-block  hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
-                                                                class="fal fa-tachometer-alt-slow ml-2"></span>
-                                                            لوحة التحكم
+                                                                class="fal fa-tachometer-alt-slow ml-2"></span>لوحة التحكم
                                                         </li>
                                                     </a>
                                                     <a href="/my/profile?section=projects"
                                                         class="py-2 px-3  d-block hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
-                                                                class="fal  fa-suitcase ml-2"></span> مشاريعي </li>
+                                                                class="fal  fa-suitcase ml-2"></span>مشاريعي</li>
                                                     </a>
                                                     <a href="/freelancers/{{ auth()->user()->id }}"
                                                         class="py-2 px-3  d-block hover-darker">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)"> <span
-                                                                class="fal fa-user ml-2"></span> حسابي الشخصي</li>
+                                                                class="fal fa-user ml-2"></span>حسابي الشخصي</li>
                                                     </a>
                                                     <a href="#"
                                                         class="py-2 px-3 d-block logout-nafezly hover-darker"
                                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                         <li style="font-size: 14px;color: var(--bg-color-0)">
-                                                            <span class="fal fa-sign-in-alt ml-2"></span> تسجيل خروج
-                                                        </li>
+                                                            <span class="fal fa-sign-in-alt ml-2"></span>تسجيل خروج</li>
                                                     </a>
                                                     <form id="logout-form" action="{{ route('logout') }}"
                                                         method="POST" class="d-none">

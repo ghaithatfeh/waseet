@@ -6,10 +6,11 @@ use App\Models\Attachment;
 use App\Models\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class OfferController extends Controller
 {
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $users_offers = DB::table('offers')
             ->select('user_id')
@@ -38,6 +39,18 @@ class OfferController extends Controller
                     Attachment::create(['offer_id' => $offer->id, 'file_name' => $file_name]);
             }
         }
+        return back();
+    }
+
+    public function destroy(Offer $offer)
+    {
+        if ($offer->user_id != auth()->id())
+            return abort(403);
+
+        foreach ($offer->attachments as $attachment)
+            File::delete('uploaded_images/offers/' . $attachment->file_name);
+
+        $offer->delete();
         return back();
     }
 }

@@ -72,8 +72,7 @@
                                                             <textarea class="form-control" style="min-height: 208px;" name="description" required="" minlength="200"></textarea>
                                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
                                                                 class="pt-1 naskh">أدخل وصف الخدمة بدقة يتضمن جميع
-                                                                المعلومات والشروط . يمنع وضع البريد الالكتروني، رقم الهاتف
-                                                                أو أي معلومات اتصال أخرى. </div>
+                                                                المعلومات والشروط .</div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 mb-3">
@@ -84,15 +83,15 @@
                                                                         صور الخدمة
                                                                     </div>
                                                                     <div class="col-12 mt-2 px-0">
-                                                                        <div class="col-12 pb-3 mb-0 attach px-0"
-                                                                            style="overflow: hidden">
+                                                                        <div class="col-12 attach px-0"
+                                                                            style="overflow: hidden;">
                                                                             <div class="col-12 px-0"
                                                                                 id="file-uploader-nafezly-main">
                                                                                 <label id="images-label" for="images"
-                                                                                    style="height: auto; padding: 9px 8px; cursor: pointer; border-width: 1px; color: #707070 !important"
+                                                                                    style="height: auto; padding: 9px 8px; cursor: pointer; border-width: 1px; color: #707070 !important; margin-bottom: -17px !important;"
                                                                                     class="form-control m-0">اختيار
                                                                                     الملفات</label>
-                                                                                <input style="display: none" id="images"
+                                                                                <input id="images" style="opacity: 0; height: 0"
                                                                                     name="images[]" type="file" multiple
                                                                                     class="form-control" required />
                                                                             </div>

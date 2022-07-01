@@ -56,7 +56,7 @@
             <div class="container" x-data="{
                 formType: true,
                 section: new URLSearchParams(window.location.search).get('section') ?? 'account',
-                setSection(newSection){
+                setSection(newSection) {
                     const url = new URL(window.location);
                     url.searchParams.set('section', newSection);
                     window.history.pushState({}, '', url);
@@ -219,7 +219,7 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
-                                            <a href="/deals/list?self=2&type=all" class="d-block"
+                                            <a href="" class="d-block" @click.prevent="setSection('offers')"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -227,22 +227,23 @@
                                                         <span class="fal fa-handshake  d-inline-block  font-3"
                                                             style="color: var(--bg-color-2);"></span>
                                                         <div class="col-12 px-0 text-center title">
-                                                            صفقاتي
+                                                            عروضي
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
-                                            <a href="/my/verification" class="d-block"
+                                            <a href="" class="d-block"
+                                                @click.prevent="setSection('change-password')"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
                                                     <div class="col-12 p-0 text-center">
-                                                        <span class="fas fa-badge-check  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2); color: #4caf50!important;"></span>
+                                                        <span class="fas fa-key  d-inline-block  font-3"
+                                                            style="color: var(--bg-color-2);"></span>
                                                         <div class="col-12 px-0 text-center title">
-                                                            توثيق
+                                                            كلمة المرور
                                                         </div>
                                                     </div>
                                                 </div>
@@ -567,6 +568,81 @@
                             </form>
                         </template>
 
+                        {{-- change password --}}
+                        <template x-if="section == 'change-password'">
+                            <form method="POST" action="/change-password" enctype="multipart/form-data"
+                                id="profile-update-form">
+                                @csrf
+                                <div style="padding: 0px; min-height: 400px;"
+                                    class="col-12 col-md-10 mx-auto row mt-0 mt-md-5 main-nafez-box-styles">
+                                    <div class="col-12 px-0">
+                                        <div class="col-12 px-0" style="border-bottom: 1px solid var(--bg-main-bg)">
+                                            <nav class="navbar navbar-expand-lg px-0 py-0">
+                                                <span class="navbar-brand" href="#"
+                                                    style="padding: 12px 0px!important;color: var(--bg-color-0) ;font-size: 16px">
+                                                    تغيير كلمة المرور
+                                                </span>
+                                            </nav>
+                                        </div>
+
+                                        <div class="col-12" style="padding:12px 5px">
+                                            <div class="col-12 col-md-12 mb-4 py-4 row text-center row">
+                                                <div class="col-12 col-md-9 mx-auto row">
+                                                    <div class="col-12 mb-4">
+                                                        <div class="col-12 font-1">
+                                                            كلمة المرور القديمة
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <input type="password" name="old_password"
+                                                                class="form-control" required="">
+                                                            @error('old_password')
+                                                                <label class="error">{{ $message }}</label>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-4">
+                                                        <div class="col-12 font-1">
+                                                            كلمة المرور الجديدة
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <input type="password" name="new_password"
+                                                                class="form-control" minlength="3" maxlenght="30"
+                                                                required="">
+                                                            @error('new_password')
+                                                                <label class="error">{{ $message }}</label>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-4">
+                                                        <div class="col-12 font-1">
+                                                            تأكيد كلمة المرور
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <input type="password" name="new_password_confirmation"
+                                                                class="form-control" minlength="3" maxlenght="30"
+                                                                required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mb-4 mt-2">
+                                                        <div class="col-12 text-center">
+                                                            <button class="btn btn-primary font-1">حفظ كلمة المرور</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 px-0 mt-2" style="position: relative;display: none;">
+                                                    <div class="col-12 mt-3 ">
+                                                    </div>
+                                                    <div class="col-12 mt-2 text-center">
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </template>
+
                         {{-- services --}}
                         <template x-if="section == 'services'">
                             <div style="padding: 0px;" class="col-12 row mt-0 mt-md-5">
@@ -664,7 +740,7 @@
                                                             <h4 class="font-1 p-3 " style="line-height:1.8"> <span
                                                                     class="fal fa-lightbulb"></span> للمستقلين: تتيح لك
                                                                 منصة
-                                                                نفذلي
+                                                                وسيط
                                                                 إمكانية إضافة خدمات يمكنك تقديمها بمقابل تقوم بتحديده </h4>
                                                         </div>
                                                     </div>
@@ -813,7 +889,7 @@
                                                                     class="fal fa-lightbulb"></span> لأصحاب المشاريع:
                                                                 المشاريع
                                                                 هي
-                                                                المهام التي تحتاج أن ينجزها لك أحد المستقلين على نفذلي </h4>
+                                                                المهام التي تحتاج أن ينجزها لك أحد المستقلين على وسيط </h4>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -823,6 +899,154 @@
                                     {{-- <div class="col-12 pb-1 pt-2">
                                         {{ $projects->links('pagination-links') }}
                                     </div> --}}
+                                </div>
+                            </div>
+                        </template>
+
+                        {{-- offers --}}
+                        <template x-if="section == 'offers'">
+                            <div style="padding: 0px;" class="col-12 row mt-0 mt-md-5 ">
+                                <div class="col-12 px-2">
+                                    <div style="background: var(--bg-second-bg);" class="col-12 px-0">
+                                        <div class="col-12  row px-0"
+                                            style="border-bottom: 1px solid var(--bg-main-bg);   ">
+                                            <div class="col-6   p-0">
+                                                <h5 style="color: ;font-size: 17px;"
+                                                    class="m-0 py-3 px-4 font-2 font-md-2 cairo d-inline-block ">
+                                                    المشاريع المتقدم لها
+                                                </h5>
+                                            </div>
+                                            <div class="col-6 text-left px-2" dir="ltr" style="padding-top: 8px;">
+                                                <a href="/projects" class="d-inline-block ">
+                                                    <span class="btn btn-primary cairo"
+                                                        style=" padding: 5px 20px 9px;cursor: pointer;border:none;">
+                                                        تصفح المشاريع
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 row pb-5 px-2" style="padding:10px 0px;">
+                                    @forelse ($user->offers->sortByDesc('offers.created_at') as $offer)
+                                        <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
+                                            style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
+                                            <div class="col-12 p-0 row d-flex ">
+                                                <div class="col-12 col-lg-9 p-0">
+                                                    <h2 style="font-size:16px;height: 23px;"
+                                                        class="d-block text-truncate overflow-hidden m-0">
+                                                        <a href="/projects/{{ $offer->project->id }}"
+                                                            style="color: var(--bg-color-3);"
+                                                            class="text-truncate">{{ $offer->project->title }}</a>
+                                                    </h2>
+                                                    <div class="col-12 py-2 px-0">
+                                                        <h3 class="naskh font-1 m-0 col-12 col-lg-10 px-0"
+                                                            style="color:var(--bg-font-4);line-height: 1.8;overflow: hidden;height: 48px">
+                                                            {{ $offer->project->description }}
+                                                        </h3>
+                                                    </div>
+                                                    <div class="col-12 px-0 row align-items-center justify-content-between text-truncate mb-2 mb-lg-0 d-lg-flex d-none"
+                                                        style="flex-wrap: nowrap;">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="/freelancers/{{ $user->id }}"
+                                                                class="d-inline-block">
+                                                                <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
+                                                                    style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
+                                                            </a>
+                                                            <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
+                                                                <a href="/freelancers/{{ $user->id }}"
+                                                                    style="color: inherit;opacity: .8;">
+                                                                    {{ $user->first_name . ' ' . $user->last_name }}
+                                                                </a>
+                                                                <div class="d-block mt-1"
+                                                                    style="font-size:10px;opacity: 0.6;">
+                                                                    <span class="d-inline-block">
+                                                                        <span
+                                                                            class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
+                                                                        {{ $user->country->name ?? '' }}
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-lg-3 p-0">
+                                                    <div class="d-none d-lg-block  px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="far fa-usd-circle " aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                            {{ number_format($offer->project->budget->from) . ' - ' . number_format($offer->project->budget->to) }}
+                                                            ل.س
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-none d-lg-block px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="far fa-business-time " aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                            {{ $offer->project->expected_deadline }} أيام
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-inline-block d-lg-block px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="far fa-ballot " aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                            1 عروض
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-inline-block d-lg-block px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="far fa-clock " aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                            @php
+                                                                Carbon\Carbon::setLocale('ar_EH');
+                                                                $time = $offer->project->created_at->diffForHumans(Carbon\Carbon::now());
+                                                            @endphp
+                                                            {{ $time }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-inline-block d-lg-none px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="far fa-map-marker-alt" aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;"></span>
+                                                            {{ $user->country->name ?? '' }}
+                                                        </span>
+                                                    </div>
+                                                    <div class="d-inline-block d-lg-block px-1">
+                                                        <span class="d-inline-block kufi "
+                                                            style="font-size: 12px;color: #777777">
+                                                            <span class="fas fa-check-circle " aria-hidden="true"
+                                                                style="font-size: 12px;width:18px;text-align: center;color:#28a745;"></span>
+                                                            {{ $offer->project->status }}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @empty
+                                        <div class="col-12 px-0">
+                                            <div class="row col-12 align-items-center"
+                                                style="min-height: 50vh;margin: 0% 0px;background: var(--bg-second-bg)">
+                                                <div class="row align-items-center">
+                                                    <div class="col text-center">
+                                                        <img src="https://cdn3.iconfinder.com/data/icons/line-icons-set/128/1-07-512.png"
+                                                            width="120" style="opacity: .7;">
+                                                        <div class="col-12 nafezly-alert font-1 mx-auto mt-3"
+                                                            style="max-width:100%;width:500px;">
+                                                            <h4 class="font-1 p-3 " style="line-height:1.8"> <span
+                                                                    class="fal fa-lightbulb"></span>
+                                                                للمستقلين: يتم هنا عرض المشاريع التي قمت بتقديم عرضك لها لتتابع حالة المشروع.
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </template>

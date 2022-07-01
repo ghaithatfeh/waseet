@@ -19,7 +19,10 @@ class ProjectController extends Controller
         $this->middleware('auth', [
             'only' => [
                 'store',
-                'create'
+                'create',
+                'edit',
+                'update',
+                'destroy'
             ]
         ]);
     }
@@ -70,17 +73,21 @@ class ProjectController extends Controller
                     Attachment::create(['project_id' => $project->id, 'file_name' => $file_name]);
             }
         }
-        return redirect('/projects');
+        return view('projects.view', ['project' => $project]);
     }
 
     public function show(Project $project)
     {
-        Redirect::setIntendedUrl(url()->previous());
+        if (!str_contains(url()->previous(), '/edit'))
+            Redirect::setIntendedUrl(url()->previous());
         return view('projects.view', ['project' => $project]);
     }
 
     public function edit(Project $project)
     {
+        if (auth()->id() != $project->user_id)
+            return abort(403);
+
         $skills = Skill::all();
         $budgets = Budget::all();
         return view('projects.edit', compact('project', 'skills', 'budgets'));
@@ -88,6 +95,9 @@ class ProjectController extends Controller
 
     public function update(Request $request, Project $project)
     {
+        if (auth()->id() != $project->user_id)
+            return abort(403);
+
         $request->validate([
             'title' => 'required|min:10',
             'description' => 'required|min:100',
@@ -97,13 +107,11 @@ class ProjectController extends Controller
         $project->update($request->all());
 
         ProjectSkill::where('project_id', $project->id)->delete();
-        if ($request->has('project_tags'))
-            foreach ($request->project_tags as $skill) {
-                ProjectSkill::create([
-                    'project_id' => $project->id,
-                    'skill_id' => $skill
-                ]);
-            }
+        if ($request->has('project_tags')) {
+            foreach ($request->project_tags as $skill)
+                $skills[] = ['skill_id' => $skill, 'project_id' => $project->id];
+            ProjectSkill::insert($skills);
+        }
 
         if ($request->hasFile('files')) {
             $files = $request->file('files');
@@ -122,11 +130,24 @@ class ProjectController extends Controller
         if (auth()->id() != $project->user_id)
             return abort(403);
 
-        if ($project->attachments->count() > 0)
-            foreach ($project->attachments as $attachment)
-                File::delete('uploaded_images/projects/' . $attachment->file_name);
+        foreach ($project->attachments as $attachment)
+            File::delete('uploaded_images/projects/' . $attachment->file_name);
+
+        foreach ($project->offers as $offers)
+            foreach ($offers->attachments as $attachment)
+                File::delete('uploaded_images/offers/' . $attachment->file_name);
 
         $project->delete();
         return redirect()->intended();
+    }
+
+    public function deleteImage(Attachment $file)
+    {
+        if (auth()->id() != $file->project->user_id)
+            return abort(403);
+
+        File::delete('uploaded_images/projects/' . $file->file_name);
+        $file->delete();
+        return true;
     }
 }

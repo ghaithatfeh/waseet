@@ -11,7 +11,7 @@ class Attachment extends Model
     public $fillable = ['file_name', 'project_id', 'offer_id'];
     public $timestamps = false;
 
-    public function projects()
+    public function project()
     {
         return $this->belongsTo(Project::class);
     }

@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\UserSkill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 use Livewire\WithPagination;
 
 class FreelancerController extends Controller
@@ -31,8 +33,8 @@ class FreelancerController extends Controller
     public function personalData()
     {
         $user = User::where('id', auth()->id())
-        ->with(['projects', 'projects.budget', 'skills', 'country', 'category', 'services', 'services.category', 'services.images'])
-        ->first();
+            ->with(['projects', 'projects.budget', 'skills', 'country', 'category', 'services', 'services.category', 'services.images'])
+            ->first();
 
         return view('freelancers.personal-data', [
             'user' => $user,
@@ -78,8 +80,20 @@ class FreelancerController extends Controller
         return back()->with('message-success', 'تم تحديث البيانات بنجاح');
     }
 
-    public function myProjects()
+    public function changePassword(Request $request)
     {
-        return view('freelancers.my-projects', ['user' => auth()->user()]);
+        $user = User::find(auth()->id());
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:3|different:old_password'
+        ]);
+        if (Hash::check($request->old_password, $user->password)) {
+            $user->update([
+                'password' => Hash::make($request->new_password)
+            ]);
+            return redirect('/my/profile')->with('message-success', 'تم تغيير كلمة المرور بنجاح.');
+        } else {
+            throw ValidationException::withMessages(['old_password' => 'كلمة المرور غير صحيحة.']);
+        }
     }
 }

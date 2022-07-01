@@ -11,7 +11,7 @@ class Offer extends Model
 
     protected $fillable = ['deadline', 'price', 'description', 'project_id', 'user_id'];
 
-    public function projects()
+    public function project()
     {
         return $this->belongsTo(Project::class);
     }

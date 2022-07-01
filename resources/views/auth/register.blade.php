@@ -82,7 +82,7 @@
                                             <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                                                 <div class="col-md-12 px-2 pt-0 row" style="position: relative;">
                                                     <div class="col-12 px-0 pt-1 font-1" style="line-height:1.9">
-                                                        بتسجيلك في منصة نفذلي فإنك توافق علي <a href="/terms">شروط
+                                                        بتسجيلك في منصة وسيط فإنك توافق علي <a href="/terms">شروط
                                                             الاستخدام</a> و <a href="/privacy-policy">سياسة الخصوصية</a>
                                                     </div>
                                                     <div class="col-12 px-0 text-left pt-3">

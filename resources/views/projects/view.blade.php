@@ -275,7 +275,8 @@
                                 </div>
                                 <div class="col-12" style="padding: 20px;;">
                                     <h2 class="col-12  p-0 naskh  font-2 m-0"
-                                        style="white-space: pre-line; word-wrap: break-word;overflow: hidden;color:var(--bg-color-0);line-height: 1.6 ; ">{{ $project->description }}
+                                        style="white-space: pre-line; word-wrap: break-word;overflow: hidden;color:var(--bg-color-0);line-height: 1.6 ; ">
+                                        {{ $project->description }}
                                     </h2>
                                     <div class="col-12 p-0 mt-2">
                                         @foreach ($project->attachments as $attachment)
@@ -354,7 +355,7 @@
                                                 <div class="col-12 mt-4  px-0 mt-0 aardk pb-2">
                                                     <div class="col-12 mt-2  px-0 px-md-2">
                                                         <form class="col-12 px-0 row" id="offer-form" method="POST"
-                                                            enctype="multipart/form-data" action="/offer/create">
+                                                            enctype="multipart/form-data" action="/offer/store">
                                                             @csrf
                                                             <div class="col-12 px-0 mb-2 row">
                                                                 <input type="hidden" name="project_id"
@@ -559,28 +560,54 @@
                                                         </div>
                                                     </div>
                                                     <div class="d-inline-flex mr-auto pt-2">
-                                                        <div class="p-0 d-inline-block mr-auto"
-                                                            style="white-space: nowrap;">
-                                                            <div class="col-12 px-1 d-flex align-items-center">
-                                                                <span class="d-inline-block pt-2 ml-1"
-                                                                    style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                                    id="counter_627fb62772dbd">
-                                                                </span>
-                                                                <span class="d-inline-block love-favourite-area noselect  "
-                                                                    style=" cursor: pointer;" data-id="627fb62772dbd"
-                                                                    data-type="offer" data-type_id="23121"
-                                                                    id="love_id_627fb62772dbd">
-                                                                    <span class="fa-heart love-favourite fal font-3"
-                                                                        style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                                        id="icon_627fb62772dbd"></span>
-                                                                </span>
+                                                        <div class="col-12 px-1 d-flex align-items-center">
+                                                            <span class="d-inline-block pt-2 ml-1"
+                                                                style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                                id="counter_62bed6e9f2eff">
+                                                            </span>
+                                                            <span class="d-inline-block love-favourite-area noselect  "
+                                                                style=" cursor: pointer;" data-id="62bed6e9f2eff"
+                                                                data-type="offer" data-type_id="25101"
+                                                                id="love_id_62bed6e9f2eff">
+                                                                <span class="fa-heart love-favourite fal font-3"
+                                                                    style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
+                                                                    id="icon_62bed6e9f2eff"></span>
+                                                            </span>
+                                                            <div class="dropdown show d-none dots-62bed6e9f2eff ">
+                                                                <span
+                                                                    class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
+                                                                    style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
+                                                                    role="button" id="dropdownMenuLink"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false"></span>
+                                                                <div class="dropdown-menu border"
+                                                                    aria-labelledby="dropdownMenuLink"
+                                                                    style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
+                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-offer-click"
+                                                                        href="#"
+                                                                        style="font-size: 13px;color: var(--bg-color-0)">
+                                                                        <span class="fal fa-trash text-center"
+                                                                            style="width: 20px;color: var(--bg-color-0)"></span>
+                                                                        حذف
+                                                                    </a>
+                                                                    <form id="remove-offer-form" method="post"
+                                                                        action="/offer/{{ $offer->id }}">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     @if ($project->user->id == auth()->id() || $offer->user_id == auth()->id())
-                                                        <div class="col-12 px-0 naskh row pb-2  mb-4 border"
+                                                        <style>
+                                                            .dots-62bed6e9f2eff {
+                                                                display: inline-block !important;
+                                                            }
+                                                        </style>
+                                                        <div class="col-12 px-0 naskh row justify-content-around pb-2 mb-4 border"
                                                             style="border-color: var(--bg-main-bg)!important;padding: 5px 0px;">
-                                                            <div class="col-6 col-lg font-1  d-block"
+                                                            <div class="mx-3 font-1 d-block"
                                                                 style="border-color: var(--bg-main-bg)!important">
                                                                 <span style="opacity: .7;color: green;"
                                                                     class="font-1 pt-1 d-inline-block">
@@ -588,7 +615,7 @@
                                                                     {{ $offer->price }} ل.س
                                                                 </span>
                                                             </div>
-                                                            <div class="col-6 col-lg font-1  d-block"
+                                                            <div class="mx-3 font-1 d-block"
                                                                 style="border-color: var(--bg-main-bg)!important">
                                                                 <span style="opacity: .7;color: green;"
                                                                     class="font-1 pt-1 d-inline-block">
@@ -596,7 +623,7 @@
                                                                     {{ $offer->deadline }} أيام
                                                                 </span>
                                                             </div>
-                                                            <div class="col-6 col-lg font-1  d-block">
+                                                            <div class="mx-3 font-1 d-block">
                                                                 <a href="https://nafezly.com/u/ghaith_atfeh/portfolio"
                                                                     style="font-size: 12px;opacity: 1" class="pt-1">
                                                                     <span class="fal fa-images"></span>
@@ -604,40 +631,11 @@
                                                                     <!-- warning  -->
                                                                 </a>
                                                             </div>
-                                                            <div class="col-6 col-lg font-1  d-block row ">
-                                                                <div class="col-12 px-0 row d-flex">
-                                                                    <div style="width: 30px" class="mt-1">
-                                                                        <span class="far fa-info-circle"
-                                                                            style="opacity: .7" data-toggle="popover"
-                                                                            data-placement="top"
-                                                                            data-content="قوة حساب مقدم العرض."
-                                                                            data-trigger="hover">
-                                                                        </span>
-                                                                    </div>
-                                                                    <div class="px-0 mt-2"
-                                                                        style="width: calc(100% - 30px);padding-top: 2px">
-                                                                        <div class="col-12 px-0 "
-                                                                            style="overflow: hidden;height: 8px;border-radius: 5px;">
-                                                                            <div class="d-inline-block"
-                                                                                style="width: 100%;">
-                                                                                <div class="progress">
-                                                                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="27.659574468085"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width: 27.659574468085%">
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     @endif
                                                     <h3 class="col-12 px-1 col-lg-11 naskh"
-                                                        style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">{{ $offer->description }}
+                                                        style="word-wrap: break-word;overflow: hidden; color: var(--bg-color-0);line-height: 1.7;font-size: 16px">
+                                                        {{ $offer->description }}
                                                         @foreach ($offer->attachments as $attachment)
                                                             <div class="col-12 mt-3 px-0">
                                                                 <a href="{{ asset('uploaded_images/offers/' . $attachment->file_name) }}"
