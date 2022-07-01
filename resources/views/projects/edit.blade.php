@@ -35,6 +35,34 @@
                                             أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </div>
                                     </div>
                                 </div>
+                                <div class="col-12 px-0 row">
+                                    <div class="col-12 px-0 mt-2 px-0">
+                                        <div class="col-12 mt-3 font-1">
+                                            نوع المشروع
+                                        </div>
+                                        <div class="col-12 mt-2">
+                                            <select class="form-control col-12" name="category_id" id="specializations"
+                                                required="">
+                                                <option selected=""></option>
+                                                <option value="1">أعمال وخدمات استشارية وإدارية
+                                                </option>
+                                                <option value="2">برمجة، تطوير المواقع والتطبيقات
+                                                </option>
+                                                <option value="3">تصميم وأعمال فنية وإبداعية
+                                                </option>
+                                                <option value="4">تسويق الكتروني ومبيعات</option>
+                                                <option value="5">كتابة، صناعة محتوى، ترجمة ولغات
+                                                </option>
+                                                <option value="6">تدريب، تعليم ومساعدة عن بعد
+                                                </option>
+                                                <option value="7">أمور أخرى</option>
+                                            </select>
+                                            <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="naskh">
+                                                حدد الصنف الذي يتبع له مشروعك.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-12  px-0 mt-2 px-0">
                                     <div class="col-12 mt-3 kufi font-1 ">
                                         مهارات متعلقة بالمشروع <span style="color: #919191;font-size: 12px" class="naskh">(

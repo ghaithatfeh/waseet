@@ -48,19 +48,15 @@
                                                                 <select class="form-control col-12" name="category_id"
                                                                     id="specializations" required="">
                                                                     <option selected=""></option>
-                                                                    <option value="1">أعمال وخدمات استشارية وإدارية
-                                                                    </option>
-                                                                    <option value="2">برمجة، تطوير المواقع والتطبيقات
-                                                                    </option>
-                                                                    <option value="3">تصميم وأعمال فنية وإبداعية
-                                                                    </option>
-                                                                    <option value="4">تسويق الكتروني ومبيعات</option>
-                                                                    <option value="5">كتابة، صناعة محتوى، ترجمة ولغات
-                                                                    </option>
-                                                                    <option value="6">تدريب، تعليم ومساعدة عن بعد
-                                                                    </option>
-                                                                    <option value="7">أمور أخرى</option>
+                                                                    @foreach ($categories as $category)
+                                                                        <option value="{{ $category->id }}">
+                                                                            {{ $category->name }}</option>
+                                                                    @endforeach
                                                                 </select>
+                                                                <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
+                                                                    class="naskh">
+                                                                    حدد الصنف الذي تتبع له خدمتك.
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -91,9 +87,14 @@
                                                                                     style="height: auto; padding: 9px 8px; cursor: pointer; border-width: 1px; color: #707070 !important; margin-bottom: -17px !important;"
                                                                                     class="form-control m-0">اختيار
                                                                                     الملفات</label>
-                                                                                <input id="images" style="opacity: 0; height: 0"
+                                                                                <input id="images"
+                                                                                    style="opacity: 0; height: 0"
                                                                                     name="images[]" type="file" multiple
                                                                                     class="form-control" required />
+                                                                                <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
+                                                                                    class="naskh mt-1">
+                                                                                    اختر الصور المناسبة لابراز خدمتك بشكل مميز.
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>

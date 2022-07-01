@@ -47,6 +47,7 @@ class ProjectController extends Controller
             'title' => 'required|min:10',
             'description' => 'required|min:100',
             'budget_id' => 'required|numeric',
+            'category_id' => 'required|numeric',
             'expected_deadline' => 'required|numeric'
         ]);
         $project = new Project();
@@ -55,6 +56,7 @@ class ProjectController extends Controller
         $project->title = $request->title;
         $project->description = $request->description;
         $project->budget_id = $request->budget_id;
+        $project->category_id = $request->category_id;
         $project->expected_deadline = $request->expected_deadline;
         $project->save();
         if ($request->has('project_tags'))
@@ -102,6 +104,7 @@ class ProjectController extends Controller
             'title' => 'required|min:10',
             'description' => 'required|min:100',
             'budget_id' => 'required|numeric',
+            'category_id' => 'required|numeric',
             'expected_deadline' => 'required|numeric'
         ]);
         $project->update($request->all());

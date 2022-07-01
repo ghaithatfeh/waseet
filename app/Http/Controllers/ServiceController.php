@@ -21,7 +21,8 @@ class ServiceController extends Controller
     public function create()
     {
         return view('services.create', [
-            'skills' => Skill::all()
+            'skills' => Skill::all(),
+            'categories' => Category::all()
         ]);
     }
     public function store(Request $request)

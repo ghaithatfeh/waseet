@@ -51,7 +51,7 @@ class Projects extends Component
                     ->orWhere(DB::raw('CONCAT(users.first_name, " ",users.last_name)'), 'LIKE', $search_value);
             })
             ->when($this->categories != [], function ($query) {
-                $query->whereIn('users.category_id', $this->categories);
+                $query->whereIn('projects.category_id', $this->categories);
             })
             ->when($this->skills != [], function ($query) {
                 $query->join('project_skills', 'projects.id', 'project_skills.project_id')

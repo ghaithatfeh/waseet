@@ -220,6 +220,7 @@
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
                                             <a href="" class="d-block" @click.prevent="setSection('offers')"
+                                                :class="section == 'offers' && 'active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -236,6 +237,7 @@
                                         <div class="col-4 p-1  text-center font-1">
                                             <a href="" class="d-block"
                                                 @click.prevent="setSection('change-password')"
+                                                :class="section == 'change-password' && 'active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -584,7 +586,6 @@
                                                 </span>
                                             </nav>
                                         </div>
-
                                         <div class="col-12" style="padding:12px 5px">
                                             <div class="col-12 col-md-12 mb-4 py-4 row text-center row">
                                                 <div class="col-12 col-md-9 mx-auto row">
@@ -760,7 +761,7 @@
                                         <div class="col-12  row px-0"
                                             style="border-bottom: 1px solid var(--bg-main-bg);   ">
                                             <div class="col-6   p-0">
-                                                <h5 style="color: ;font-size: 17px;"
+                                                <h5 style="color: var(--bg-color-0);font-size: 17px;"
                                                     class="m-0 py-3 px-4 font-2 font-md-2 cairo d-inline-block ">حقيبة
                                                     المشاريع
                                                 </h5>
@@ -896,9 +897,6 @@
                                             </div>
                                         </div>
                                     @endforelse
-                                    {{-- <div class="col-12 pb-1 pt-2">
-                                        {{ $projects->links('pagination-links') }}
-                                    </div> --}}
                                 </div>
                             </div>
                         </template>
@@ -911,7 +909,7 @@
                                         <div class="col-12  row px-0"
                                             style="border-bottom: 1px solid var(--bg-main-bg);   ">
                                             <div class="col-6   p-0">
-                                                <h5 style="color: ;font-size: 17px;"
+                                                <h5 style="color: var(--bg-color-0);font-size: 17px;"
                                                     class="m-0 py-3 px-4 font-2 font-md-2 cairo d-inline-block ">
                                                     المشاريع المتقدم لها
                                                 </h5>
@@ -1039,7 +1037,8 @@
                                                             style="max-width:100%;width:500px;">
                                                             <h4 class="font-1 p-3 " style="line-height:1.8"> <span
                                                                     class="fal fa-lightbulb"></span>
-                                                                للمستقلين: يتم هنا عرض المشاريع التي قمت بتقديم عرضك لها لتتابع حالة المشروع.
+                                                                للمستقلين: يتم هنا عرض المشاريع التي قمت بتقديم عرضك لها
+                                                                لتتابع حالة المشروع.
                                                             </h4>
                                                         </div>
                                                     </div>
