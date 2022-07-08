@@ -238,7 +238,7 @@
                                     <h2 class="text-center mb-0 pb-0   almaria font-1 font-md-2"
                                         style="color: var(--bg-color-0) ;font-size: 16px;text-transform: capitalize;">
                                         <a href="/freelancers/{{ $user->id }}" style="color: inherit;">
-                                            {{ $user->first_name . ' ' . $user->last_name }}
+                                            {{ $user->fullName }}
                                         </a>
                                         @if ($user->last_login == null)
                                             <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>

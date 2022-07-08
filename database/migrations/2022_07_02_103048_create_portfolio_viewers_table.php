@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->timestamp('last_login')->nullable()->after('password');
+        Schema::create('portfolio_viewers', function (Blueprint $table) {
+            $table->foreignId('portfolio_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->primary(['user_id', 'portfolio_id']);
         });
     }
 
@@ -25,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('last_login');
-        });
+        Schema::dropIfExists('portfolio_viewers');
     }
 };

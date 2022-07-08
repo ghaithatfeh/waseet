@@ -299,7 +299,7 @@
                                                         <div class="d-inline-block px-1" style="font-size:15px">
                                                             <a href="/freelancers/{{ $service->user->id }}"
                                                                 style="color: inherit;">
-                                                                {{ $service->user->first_name . ' ' . $service->user->last_name }}
+                                                                {{ $service->user->fullName }}
                                                             </a>
                                                             <div class="d-block mt-1"
                                                                 style="font-size:10px;opacity: 0.7;">

@@ -41,7 +41,7 @@
                                 <div class="container text-center pt-2 pb-2">
                                     <h1 class="text-center pt-0 mb-0 pb-0 mt-2 almaria"
                                         style="font-size: 21px;color: var(--bg-color-0); text-transform: capitalize;">
-                                        {{ $user->first_name . ' ' . $user->last_name }}
+                                        {{ $user->fullName }}
                                         @if ($user->last_login == null)
                                             <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>
                                         @endif
@@ -450,7 +450,7 @@
                                                         <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
                                                             <a href="/freelancers/{{ $project->user->id }}"
                                                                 style="color: inherit;opacity: .8;">
-                                                                {{ $project->user->first_name . ' ' . $project->user->last_name }}
+                                                                {{ $project->user->fullName }}
                                                             </a>
                                                             <div class="d-block mt-1"
                                                                 style="font-size:10px;opacity: 0.6;">

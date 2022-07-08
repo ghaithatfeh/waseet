@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Livewire\Freelancers;
+use App\Http\Livewire\Portfolios;
 use App\Http\Livewire\Projects;
 use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Route;
@@ -32,9 +34,11 @@ Route::resources([
     'projects' => ProjectController::class,
     'services' => ServiceController::class,
     'freelancers' => FreelancerController::class,
+    'portfolios' => PortfolioController::class,
 ]);
 
 // livewire components
 Route::get('/service/{category}', Services::class);
 Route::get('/freelancers', Freelancers::class);
 Route::get('/projects', Projects::class);
+Route::get('/portfolios', Portfolios::class);

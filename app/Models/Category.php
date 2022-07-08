@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = ['name'];
-    
+
     public function services()
     {
         return $this->hasMany(Service::class);
@@ -18,5 +18,15 @@ class Category extends Model
     public function users()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
     }
 }

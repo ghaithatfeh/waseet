@@ -103,7 +103,7 @@
                                                                         let imagesLabel = document.getElementById("images-label")
 
                                                                         input.addEventListener("change", () => {
-                                                                            let inputImage = document.querySelector("input[type=file]").files;
+                                                                            let inputImage = input.files;
                                                                             if (inputImage.length != 0) {
                                                                                 imagesLabel.innerHTML = '';
                                                                                 imagesLabel.style.color = '#fff';

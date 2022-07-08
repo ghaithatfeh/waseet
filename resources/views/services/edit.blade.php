@@ -93,10 +93,17 @@
                                                                                     style="{{ $service->images->count() == 0 ? 'opacity: 0;' : 'display:none;' }} height: 0"
                                                                                     name="images[]" type="file" multiple
                                                                                     class="form-control" required />
-                                                                                    <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
-                                                                                        class="naskh mt-1">
-                                                                                        اختر الصور المناسبة لابراز خدمتك بشكل مميز.
-                                                                                    </div>
+                                                                                @error('images')
+                                                                                    <label id="images-error" class="error"
+                                                                                        for="images">
+                                                                                        {{ $message }}
+                                                                                    </label>
+                                                                                @enderror
+                                                                                <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;"
+                                                                                    class="naskh mt-1">
+                                                                                    اختر الصور المناسبة لابراز خدمتك بشكل
+                                                                                    مميز.
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-12 row align-items-end">

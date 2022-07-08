@@ -501,7 +501,7 @@
                                                         <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
                                                             <a href="/freelancers/{{ $project->user->id }}"
                                                                 style="color: inherit;opacity: .8;">
-                                                                {{ $project->user->first_name . ' ' . $project->user->last_name }}
+                                                                {{ $project->user->fullName }}
                                                             </a>
                                                             <div class="d-block mt-1"
                                                                 style="font-size:10px;opacity: 0.6;">

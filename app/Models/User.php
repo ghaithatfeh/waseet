@@ -90,4 +90,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Offer::class);
     }
+    
+    public function portfolios()
+    {
+        return $this->hasMany(Portfolio::class);
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }

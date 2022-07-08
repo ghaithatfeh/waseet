@@ -506,7 +506,8 @@
                                                 <div class="col-12 row px-0 d-flex">
                                                     <div class="text-center d-inline-block"
                                                         style="width: 55px;padding: 5px!important">
-                                                        <a href="https://nafezly.com/u/raafatc" style="display: block;">
+                                                        <a href="/freelancers/{{ $offer->user_id }}"
+                                                            style="display: block;">
                                                             <div style="width: 55px;background: var(--bg-second-bg);display: inline-block;border-radius: 50%!important;max-width: 100%;position: relative;max-height: 55px;"
                                                                 class="d-inline-block">
                                                                 <img src="{{ asset('uploaded_images/users/' . ($offer->user->profile_image ?? 'defualt.png')) }}"
@@ -519,10 +520,10 @@
                                                         <div class="col-12 px-2">
                                                             <div class="px-0 pt-0  mt-1 row col-12  ">
                                                                 <div class="col-12 px-0 kufi">
-                                                                    <a href="https://nafezly.com/u/raafatc"
+                                                                    <a href="/freelancers/{{ $offer->user_id }}"
                                                                         style="font-size: 15px;line-height: 1.1;"
                                                                         class="pt-0 kufi  mt-0 d-inline-block">
-                                                                        {{ $offer->user->first_name . ' ' . $offer->user->last_name }}
+                                                                        {{ $offer->user->fullName }}
                                                                         <div class="d-block">
                                                                             <div style="position: relative;top: 0px;">
                                                                                 <span class="fal fa-star"
@@ -573,30 +574,32 @@
                                                                     style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
                                                                     id="icon_62bed6e9f2eff"></span>
                                                             </span>
-                                                            <div class="dropdown show d-none dots-62bed6e9f2eff ">
-                                                                <span
-                                                                    class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
-                                                                    style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
-                                                                    role="button" id="dropdownMenuLink"
-                                                                    data-toggle="dropdown" aria-haspopup="true"
-                                                                    aria-expanded="false"></span>
-                                                                <div class="dropdown-menu border"
-                                                                    aria-labelledby="dropdownMenuLink"
-                                                                    style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
-                                                                    <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-offer-click"
-                                                                        href="#"
-                                                                        style="font-size: 13px;color: var(--bg-color-0)">
-                                                                        <span class="fal fa-trash text-center"
-                                                                            style="width: 20px;color: var(--bg-color-0)"></span>
-                                                                        حذف
-                                                                    </a>
-                                                                    <form id="remove-offer-form" method="post"
-                                                                        action="/offer/{{ $offer->id }}">
-                                                                        @method('delete')
-                                                                        @csrf
-                                                                    </form>
+                                                            @if ($offer->user_id == auth()->id())
+                                                                <div class="dropdown show d-none dots-62bed6e9f2eff ">
+                                                                    <span
+                                                                        class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
+                                                                        style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
+                                                                        role="button" id="dropdownMenuLink"
+                                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                                        aria-expanded="false"></span>
+                                                                    <div class="dropdown-menu border"
+                                                                        aria-labelledby="dropdownMenuLink"
+                                                                        style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
+                                                                        <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 remove-dots-wedgit remove-offer-click"
+                                                                            href="#"
+                                                                            style="font-size: 13px;color: var(--bg-color-0)">
+                                                                            <span class="fal fa-trash text-center"
+                                                                                style="width: 20px;color: var(--bg-color-0)"></span>
+                                                                            حذف
+                                                                        </a>
+                                                                        <form id="remove-offer-form" method="post"
+                                                                            action="/offer/{{ $offer->id }}">
+                                                                            @method('delete')
+                                                                            @csrf
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     @if ($project->user->id == auth()->id() || $offer->user_id == auth()->id())
@@ -807,7 +810,7 @@
                                                     <div class="d-inline-block px-1" style="font-size:15px">
                                                         <a href="/freelancers/{{ $project->user->id }}"
                                                             style="color: inherit;">
-                                                            {{ $project->user->first_name . ' ' . $project->user->last_name }}
+                                                            {{ $project->user->fullName }}
                                                         </a>
                                                         <div class="d-block mt-1" style="font-size:10px;opacity: 0.7;">
                                                             <span class="d-inline-block">

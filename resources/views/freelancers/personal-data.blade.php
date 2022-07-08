@@ -113,7 +113,7 @@
                                     </div>
                                     <h5 class="text-center pt-2 mb-0 pb-0 mt-2 almaria"
                                         style="font-size: 23px;color: var(--bg-font-4); ">
-                                        {{ $user->first_name . ' ' . $user->last_name }}
+                                        {{ $user->fullName }}
                                         @if ($user->last_login == null)
                                             <span class="fas fa-circle" style="color:#3bc100;font-size:12px"></span>
                                         @endif
@@ -805,7 +805,7 @@
                                                             <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
                                                                 <a href="/freelancers/{{ $user->id }}"
                                                                     style="color: inherit;opacity: .8;">
-                                                                    {{ $user->first_name . ' ' . $user->last_name }}
+                                                                    {{ $user->fullName }}
                                                                 </a>
                                                                 <div class="d-block mt-1"
                                                                     style="font-size:10px;opacity: 0.6;">
@@ -954,7 +954,7 @@
                                                             <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
                                                                 <a href="/freelancers/{{ $user->id }}"
                                                                     style="color: inherit;opacity: .8;">
-                                                                    {{ $user->first_name . ' ' . $user->last_name }}
+                                                                    {{ $user->fullName }}
                                                                 </a>
                                                                 <div class="d-block mt-1"
                                                                     style="font-size:10px;opacity: 0.6;">
