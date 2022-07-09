@@ -483,7 +483,7 @@
                             <a class="navbar-brand" href="/">
                                 <img src="/site_images/logos/logo2-01.svg"
                                     style="height: 45px; background: var(--bg-second-bg); padding: 2px!important"
-                                    alt="لوجو موقع وسيط" id="nafezly-logo">
+                                    alt="لوجو موقع وسيط">
                             </a>
                         </div>
                         <div class="col-11 row px-0" style="justify-content: flex-end;">

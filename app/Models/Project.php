@@ -14,18 +14,27 @@ class Project extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'project_skills');
     }
+
     public function budget()
     {
         return $this->belongsTo(Budget::class);
     }
+
     public function offers()
     {
         return $this->hasMany(Offer::class);
     }
+    
     public function attachments()
     {
         return $this->hasMany(Attachment::class);

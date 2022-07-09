@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Budget;
 use App\Models\Project;
 use App\Models\Attachment;
+use App\Models\Category;
 use App\Models\ProjectSkill;
 use App\Models\Skill;
 use Illuminate\Http\Request;
@@ -39,6 +40,24 @@ class ProjectController extends Controller
                 'budgets' => Budget::all(),
                 'project' => Project::find($_GET['project_id'])
             ]);
+    }
+
+    public function show(Project $project)
+    {
+        if (!str_contains(url()->previous(), '/edit'))
+            Redirect::setIntendedUrl(url()->previous());
+        return view('projects.view', ['project' => $project]);
+    }
+
+    public function edit(Project $project)
+    {
+        if (auth()->id() != $project->user_id)
+            return abort(403);
+
+        $skills = Skill::all();
+        $budgets = Budget::all();
+        $categories = Category::all();
+        return view('projects.edit', compact('project', 'skills', 'budgets', 'categories'));
     }
 
     public function store(Request $request)
@@ -76,23 +95,6 @@ class ProjectController extends Controller
             }
         }
         return view('projects.view', ['project' => $project]);
-    }
-
-    public function show(Project $project)
-    {
-        if (!str_contains(url()->previous(), '/edit'))
-            Redirect::setIntendedUrl(url()->previous());
-        return view('projects.view', ['project' => $project]);
-    }
-
-    public function edit(Project $project)
-    {
-        if (auth()->id() != $project->user_id)
-            return abort(403);
-
-        $skills = Skill::all();
-        $budgets = Budget::all();
-        return view('projects.edit', compact('project', 'skills', 'budgets'));
     }
 
     public function update(Request $request, Project $project)

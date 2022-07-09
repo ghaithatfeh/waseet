@@ -51,7 +51,8 @@ class Portfolios extends Component
             ->when($this->skills != [], function ($query) {
                 $query->join('portfolio_skills', 'portfolios.id', 'portfolio_skills.portfolio_id')
                     ->whereIn('portfolio_skills.skill_id', $this->skills);
-            });
+            })
+            ->distinct();
 
         $portfolios = $query->orderBy('id', 'DESC')->paginate(21);
 

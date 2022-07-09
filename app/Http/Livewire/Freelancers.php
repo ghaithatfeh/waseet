@@ -52,7 +52,8 @@ class Freelancers extends Component
             ->when($this->skills != [], function ($query) {
                 $query->join('user_skills', 'users.id', 'user_skills.user_id')
                     ->whereIn('user_skills.skill_id', $this->skills);
-            });
+            })
+            ->distinct();
 
         $users = $query->paginate(21);
         return view('livewire.freelancers', ['users' => $users]);

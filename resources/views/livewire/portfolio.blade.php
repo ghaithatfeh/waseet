@@ -102,7 +102,7 @@
                                         class=" py-2  pt-3 pt-md-0 px-2 mb-0"> بحث </h2>
                                     <div class="col-12  px-2 mb-3  ">
                                         <input type="" name="key" class="form-control nafezly-filter "
-                                            data-filter="key" value="" wire:model="search">
+                                            data-filter="key" value="" wire:model.debounce.500ms="search">
                                     </div>
                                     <h2 style="font-size: 16px;color: var(--bg-color-0)" class=" py-2  pt-3 px-2 mb-0 ">
                                         التصنيفات </h2>

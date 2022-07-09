@@ -657,7 +657,7 @@ class SkillSeeder extends Seeder
             ["name" => "Estonian"],
             ["name" => "Kayako"],
             ["name" => "VueJs"],
-            ["name" => "Laravel"],
+            // ["name" => "Laravel"],
             ["name" => "Livewire"],
             ["name" => "Java Script"],
             ["name" => "Photoshop"],

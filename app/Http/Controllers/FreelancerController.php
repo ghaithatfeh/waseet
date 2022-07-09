@@ -33,12 +33,11 @@ class FreelancerController extends Controller
     public function personalData()
     {
         $user = User::where('id', auth()->id())
-            ->with(['projects', 'projects.budget', 'skills', 'country', 'category', 'services', 'services.category', 'services.images'])
+            ->with(['projects', 'projects.budget', 'skills', 'country', 'category', 'services', 'services.category', 'services.images', 'portfolios'])
             ->first();
 
         return view('freelancers.personal-data', [
             'user' => $user,
-            // 'projects' => Project::where('user_id', $user->id)->paginate(10),
             'categories' => Category::all(),
             'skills' => Skill::all()
         ]);

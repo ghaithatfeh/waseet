@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/services/delete-image/{image}', [ServiceController::class, 'deleteImage']);
     Route::delete('/projects/delete-file/{file}', [ProjectController::class, 'deleteImage']);
+    Route::delete('/portfolios/delete-image/{image}', [PortfolioController::class, 'deleteImage']);
 
     Route::post('/offer/store', [OfferController::class, 'store']);
     Route::delete('/offer/{offer}', [OfferController::class, 'destroy']);

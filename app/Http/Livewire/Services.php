@@ -59,7 +59,8 @@ class Services extends Component
             })
             ->when($this->budget != [], function ($query) {
                 $query->whereBetween('price', $this->budget);
-            });
+            })
+            ->distinct();
 
         $services = $query->orderBy('id', 'DESC')->paginate(21);
         return view('livewire.services', ['services' => $services]);

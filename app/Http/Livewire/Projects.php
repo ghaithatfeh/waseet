@@ -63,7 +63,8 @@ class Projects extends Component
                         $query->whereBetween('budgets.to', $this->budget)
                             ->orWhere('budgets.from', $this->budget[0]);
                     });
-            });
+            })
+            ->distinct();
 
         $projects = $query->orderBy('id', 'DESC')->paginate(20);
         return view('livewire.projects', ['projects' => $projects]);

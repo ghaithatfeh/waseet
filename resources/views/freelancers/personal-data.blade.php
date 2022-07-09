@@ -171,6 +171,22 @@
                                                 </div>
                                             </a>
                                         </div>
+                                        <div class="col-4 p-1  text-center font-1">
+                                            <a href="" class="d-block" @click.prevent="setSection('offers')"
+                                                :class="section == 'offers' && 'active'"
+                                                style="border-radius: 7px;overflow: hidden;">
+                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
+                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
+                                                    <div class="col-12 p-0 text-center">
+                                                        <span class="fal fa-handshake  d-inline-block  font-3"
+                                                            style="color: var(--bg-color-2);"></span>
+                                                        <div class="col-12 px-0 text-center title">
+                                                            عروضي
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
                                         <div class="col-4 p-1 text-center font-1">
                                             <a href="" class="d-block" @click.prevent="setSection('projects')"
                                                 :class="section == 'projects' && 'd-block active'"
@@ -188,7 +204,8 @@
                                             </a>
                                         </div>
                                         <div class="col-4 p-1  text-center font-1">
-                                            <a href="/my/portfolios" class="d-block"
+                                            <a href="" class="d-block" @click.prevent="setSection('portfolios')"
+                                                :class="section == 'portfolios' && 'd-block active'"
                                                 style="border-radius: 7px;overflow: hidden;">
                                                 <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
                                                     style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
@@ -213,22 +230,6 @@
                                                             style="color: var(--bg-color-2);"></span>
                                                         <div class="col-12 px-0 text-center title">
                                                             خدماتي
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-4 p-1  text-center font-1">
-                                            <a href="" class="d-block" @click.prevent="setSection('offers')"
-                                                :class="section == 'offers' && 'active'"
-                                                style="border-radius: 7px;overflow: hidden;">
-                                                <div class="col-12 p-2 text-center main-nafez-box-styles d-flex align-items-center"
-                                                    style="color: var(--bg-font-4);height: 80px;border-radius: 7px;overflow: hidden;">
-                                                    <div class="col-12 p-0 text-center">
-                                                        <span class="fal fa-handshake  d-inline-block  font-3"
-                                                            style="color: var(--bg-color-2);"></span>
-                                                        <div class="col-12 px-0 text-center title">
-                                                            عروضي
                                                         </div>
                                                     </div>
                                                 </div>
@@ -642,6 +643,116 @@
                                     </div>
                                 </div>
                             </form>
+                        </template>
+
+                        {{-- portfolios --}}
+                        <template x-if="section == 'portfolios'">
+                            <div style="padding: 0px;" class="col-12 row mt-0 mt-md-5">
+                                <div class="col-12 px-2">
+                                    <div style="background: var(--bg-second-bg);" class="col-12 px-0">
+                                        <div class="col-12  row px-0"
+                                            style="border-bottom: 1px solid var(--bg-main-bg);   ">
+                                            <div class="col-6   p-0">
+                                                <h5 style="color: var(--bg-color-0);font-size: 17px;"
+                                                    class="m-0 py-3 px-4 font-2 font-md-2  d-inline-block ">معرض أعمالي
+                                                </h5>
+                                            </div>
+                                            <div class="col-6 text-left px-2" dir="ltr" style="padding-top: 8px;">
+                                                <a href="/portfolios/create" class="d-inline-block ">
+                                                    <span class="btn btn-primary "
+                                                        style=" padding: 5px 20px 9px;cursor: pointer;border:none;">إضافة
+                                                        عمل</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 row pb-5" style="padding:10px 0px;">
+                                    <div class="col-12 row px-0">
+                                        @forelse ($user->portfolios as $portfolio)
+                                            <div class="col-6 col-sm-4 col-md-6 col-lg-4 p-1 p-md-2 portfolio-card">
+                                                <div class="col-12 px-0">
+                                                    <div class="col-12 p-2 main-nafez-box-styles"
+                                                        style="border-radius: 5px;">
+                                                        <div class="col-12 p-0 p-md-1 d-flex  row"
+                                                            style="border-radius: 0px!important;overflow: hidden;position: relative;">
+                                                            <div class="col-12 p-0 row ">
+                                                                <a href="/portfolios/{{ $portfolio->id }}"
+                                                                    class="pb-0 d-inline-block col-12 px-0">
+                                                                    <div class="col-12 px-0" style="">
+                                                                        <div class="col-12 px-0"
+                                                                            style="overflow: hidden;border-radius: 4px!important">
+                                                                            <img src="{{ asset('uploaded_images/portfolios/' . $portfolio->main_image) }}"
+                                                                                style="width: 100%!important;padding: 0px;border-radius: 4px!important"
+                                                                                class="portfolio-img">
+                                                                            <div class="col-12 px-0"
+                                                                                style="background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(81%, rgba(0, 0, 0, 0.6)));height: 50px;position: absolute;bottom: 0px;z-index: 0;border-radius: 0px 0px 0px 0px">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                                <div class=" pl-2  py-1 col-12"
+                                                                    style="position: absolute;z-index: 1;bottom: 10px;right: 0px;border-radius: 0px 50px 50px 0px">
+                                                                    <div class="col-12 px-0 almaria row text-right"
+                                                                        style="overflow: hidden;">
+                                                                        <a href="/freelancers/{{ $user->id }}">
+                                                                            <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
+                                                                                style="width: 25px;height: 25px;border-radius: 50%!important;"
+                                                                                class=" d-inline-block"
+                                                                                alt="{{ $user->fullName }}">
+                                                                        </a>
+                                                                        <div style="width: calc(100% - 25px);display: inline-block;position: relative;top: -4px;height:25px"
+                                                                            class="pt-1 text-right ">
+                                                                            <div style="font-size: 9px;position: relative;top:5px;height: 20px;overflow: hidden; color: #f1f1f1;"
+                                                                                class="d-flex pr-0 pl-2 portfolio-card-user-name text-right row col-12">
+                                                                                <div class="col-9 px-2">
+                                                                                    <a href="/freelancers/{{ $user->id }}"
+                                                                                        style="color: #f1f1f1;font-size: 12px;">
+                                                                                        {{ $user->fullName }}
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="col-3 pl-2 pr-0 pt-1 text-left "
+                                                                                    style="font-size: 10px">
+                                                                                    {{ $portfolio->viewers->count() }}
+                                                                                    <span class="fas fa-eye"></span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <h2 style="font-size: 9px;position: relative;bottom:-60px;height: 20px;overflow: hidden; color: #f1f1f1;"
+                                                                                class="d-block px-2 portfolio-card-details text-right">
+                                                                                {{ $portfolio->title }}
+                                                                            </h2>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            <div class="col-12 px-2">
+                                                <div class="row col-12 align-items-center"
+                                                    style="min-height: 50vh;margin: 0% 0px;background: var(--bg-second-bg)">
+                                                    <div class="row align-items-center">
+                                                        <div class="col text-center">
+                                                            <img src="https://cdn3.iconfinder.com/data/icons/line-icons-set/128/1-07-512.png"
+                                                                width="120" style="opacity: .7;">
+                                                            <div class="col-12 nafezly-alert font-1 mx-auto mt-3"
+                                                                style="max-width:100%;width:500px;">
+                                                                <h4 class="font-1 p-3 " style="line-height:1.8"> <span
+                                                                        class="fal fa-lightbulb"></span> للمستقلين: معرض
+                                                                    الأعمال هو قسم لإضافة سابقة أعمالك في مجال تخصصك، مثل
+                                                                    تصميم شعار، برمجة موقع
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforelse
+                                    </div>
+                                </div>
+                            </div>
                         </template>
 
                         {{-- services --}}

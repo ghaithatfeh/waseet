@@ -224,14 +224,13 @@
     </div>
 @endsection
 
-
 @section('script')
     <script>
         $("#service-form").validate({});
 
         $('.delete-btn').on('click', function() {
 
-            let image = $(this).attr('id');
+            let image_id = $(this).attr('id');
             Swal.fire({
                 title: "هل انت متأكد من حذف صورة الخدمة ؟",
                 icon: "warning",
@@ -245,7 +244,7 @@
                     $.ajax({
                         method: "delete",
                         context: $(this),
-                        url: "/services/delete-image/" + image,
+                        url: "/services/delete-image/" + image_id,
                         success: function(response) {
                             if (response) {
                                 this.parent().remove()

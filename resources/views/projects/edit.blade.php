@@ -43,19 +43,11 @@
                                         <div class="col-12 mt-2">
                                             <select class="form-control col-12" name="category_id" id="specializations"
                                                 required="">
-                                                <option selected=""></option>
-                                                <option value="1">أعمال وخدمات استشارية وإدارية
-                                                </option>
-                                                <option value="2">برمجة، تطوير المواقع والتطبيقات
-                                                </option>
-                                                <option value="3">تصميم وأعمال فنية وإبداعية
-                                                </option>
-                                                <option value="4">تسويق الكتروني ومبيعات</option>
-                                                <option value="5">كتابة، صناعة محتوى، ترجمة ولغات
-                                                </option>
-                                                <option value="6">تدريب، تعليم ومساعدة عن بعد
-                                                </option>
-                                                <option value="7">أمور أخرى</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->id }}"
+                                                        {{ $project->category->id == $category->id ? 'selected' : '' }}>
+                                                        {{ $category->name }}</option>
+                                                @endforeach
                                             </select>
                                             <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="naskh">
                                                 حدد الصنف الذي يتبع له مشروعك.
