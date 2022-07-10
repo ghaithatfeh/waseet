@@ -627,11 +627,10 @@
                                                                 </span>
                                                             </div>
                                                             <div class="mx-3 font-1 d-block">
-                                                                <a href="https://nafezly.com/u/ghaith_atfeh/portfolio"
+                                                                <a href="/freelancers/11?section=portfolios"
                                                                     style="font-size: 12px;opacity: 1" class="pt-1">
                                                                     <span class="fal fa-images"></span>
-                                                                    3 أعمال في المعرض
-                                                                    <!-- warning  -->
+                                                                    {{ $offer->user()->count() }} أعمال في المعرض
                                                                 </a>
                                                             </div>
                                                         </div>

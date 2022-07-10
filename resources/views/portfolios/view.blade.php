@@ -268,7 +268,7 @@
                                                 المشاهدات
                                             </div>
                                             <div class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                لاحظ
+                                                {{ $portfolio->viewers()->count() }}
                                             </div>
                                         </div>
                                         <div class="col-12 row" style="padding:4px 5px">

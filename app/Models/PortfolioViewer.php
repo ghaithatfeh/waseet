@@ -9,5 +9,5 @@ class PortfolioViewer extends Model
 {
     use HasFactory;
     protected $fillable = ['user_id', 'portfolio_id'];
-    public $timestaps = false;
+    public $timestamps = false;
 }

@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Portfolio;
 use App\Models\PortfolioImage;
 use App\Models\PortfolioSkill;
+use App\Models\PortfolioViewer;
 use App\Models\ProjectSkill;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Redirect;
@@ -49,23 +50,17 @@ class PortfolioController extends Controller
 
     public function show(Portfolio $portfolio)
     {
+        if (auth()->check() && auth()->id() != $portfolio->user_id) {
+            PortfolioViewer::firstOrCreate([
+                'portfolio_id' => $portfolio->id,
+                'user_id' => auth()->id()
+            ]);
+        }
+
         if (!str_contains(url()->previous(), '/edit'))
             Redirect::setIntendedUrl(url()->previous());
 
         return view('portfolios.view', ['portfolio' => $portfolio]);
-    }
-
-    public function destroy(Portfolio $portfolio)
-    {
-        if (auth()->id() != $portfolio->user_id)
-            return abort(403);
-
-        foreach ($portfolio->images as $image)
-            File::delete('uploaded_images/portfolios/' . $image->image_name);
-
-        File::delete('uploaded_images/portfolios/' . $portfolio->main_image);
-        $portfolio->delete();
-        return redirect()->intended();
     }
 
     public function store(Request $request)
@@ -130,7 +125,7 @@ class PortfolioController extends Controller
         if ($request->hasFile('main_image_input')) {
             $file = $request->file('main_image_input');
             $file_name = time() . '_' . $file->getClientOriginalName();
-            if ($file->move(public_path('uploaded_images/portfolios'), $file_name)){
+            if ($file->move(public_path('uploaded_images/portfolios'), $file_name)) {
                 $request['main_image'] = $file_name;
                 File::delete('uploaded_images/portfolios/' . $portfolio->main_image);
             }
@@ -162,5 +157,18 @@ class PortfolioController extends Controller
         File::delete('uploaded_images/portfolios/' . $image->image_name);
         $image->delete();
         return true;
+    }
+
+    public function destroy(Portfolio $portfolio)
+    {
+        if (auth()->id() != $portfolio->user_id)
+            return abort(403);
+
+        foreach ($portfolio->images as $image)
+            File::delete('uploaded_images/portfolios/' . $image->image_name);
+
+        File::delete('uploaded_images/portfolios/' . $portfolio->main_image);
+        $portfolio->delete();
+        return redirect()->intended();
     }
 }

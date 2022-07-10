@@ -14,7 +14,16 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <div x-data="{ activeItem: 'about' }" class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;">
+    <div class="col-12 px-0 " id="main-content" style="transition:all  0.5s  ease-in-out!important;" x-data="{
+        formType: true,
+        section: new URLSearchParams(window.location.search).get('section') ?? 'about',
+        setSection(newSection) {
+            const url = new URL(window.location);
+            url.searchParams.set('section', newSection);
+            window.history.pushState({}, '', url);
+            this.section = newSection;
+        }
+    }">
         <div class="col-12 pt-0 profile-banner  px-0 pb-md-4"
             style=" display: flex;background-size: cover;background-position: center;">
             <div class="container px-0 px-lg-3 pb-lg-1">
@@ -152,62 +161,42 @@
                                     display: none;
                                 }
                             </style>
+                            @php
+                                $items = [['section' => 'about', 'label' => 'نبذة عني', 'icon' => 'fal fa-user']];
+                                if ($user->portfolios()->count()) {
+                                    $items[] = ['section' => 'portfolios', 'label' => 'الأعمال', 'icon' => 'fal fa-images'];
+                                }
+                                if ($user->services()->count()) {
+                                    $items[] = ['section' => 'services', 'label' => 'الخدمات', 'icon' => 'fal fa-boxes'];
+                                }
+                                if ($user->projects()->count()) {
+                                    $items[] = ['section' => 'projects', 'label' => 'المشاريع', 'icon' => 'fal fa-suitcase'];
+                                }
+                            @endphp
                             <div class="user-nav row my-lg-0 d-flex" id="navbarSupportedContent"
                                 style="background:var(--bg-second-bg);justify-content: space-between;">
                                 <div class="d-inline-block px-0 hide-scrollbar" style="overflow-y:auto">
                                     <ul class=" ml-auto pr-lg-0 pr-0 d-flex "
                                         style=" background:var(--bg-second-bg);margin-bottom: 0px; border-radius: 5px; position: relative;">
-                                        <li class="nav-item text-center">
-                                            <a class="nav-link kufi font-small font-md-1 text-center"
-                                                :class="activeItem == 'about' ? 'active' : ''"
-                                                @click.prevent="activeItem = 'about'" href=""
-                                                style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-user font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> نبذة عني </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                :class="activeItem == 'portfolios' ? 'active' : ''"
-                                                @click.prevent="activeItem = 'portfolios'" href=""
-                                                style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-images font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> الأعمال </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                :class="activeItem == 'services' ? 'active' : ''"
-                                                @click.prevent="activeItem = 'services'" href=""
-                                                style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-boxes font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> الخدمات </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center"
-                                                :class="activeItem == 'projects' ? 'active' : ''"
-                                                @click.prevent="activeItem = 'projects'" href=""
-                                                style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-suitcase font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> المشاريع </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item  text-center">
-                                            <a class="nav-link kufi  font-small font-md-1 text-center" href=""
-                                                style="color: var(--bg-font-4);line-height: 1.2"><span
-                                                    class="fal fa-id-card-alt font-md-1 font-4"></span>
-                                                <div class="text-center mt-2 d-md-inline-block mt-md-0"> السيرة </div>
-                                            </a>
-                                        </li>
+                                        @foreach ($items as $item)
+                                            <li class="nav-item text-center">
+                                                <a class="nav-link kufi font-small font-md-1 text-center"
+                                                    :class="section == '{{ $item['section'] }}' ? 'active' : ''"
+                                                    @click.prevent="setSection('{{ $item['section'] }}')" href=""
+                                                    style="color: var(--bg-font-4);line-height: 1.2"><span
+                                                        class="{{ $item['icon'] }} font-md-1 font-4"></span>
+                                                    <div class="text-center mt-2 d-md-inline-block mt-md-0">
+                                                        {{ $item['label'] }} </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="form-inline my-2 my-lg-0 px-3 px-lg-3 d-none d-md-block pb-2">
                                     <div class="m-auto m-md-0  d-inline-block " style="max-width: 100%;padding-top: 13px">
                                         <div class="col-12 px-0 row">
                                             @if ($user->id == auth()->id())
-                                                <a href="/my/profile"
-                                                    class="d-inline-block">
+                                                <a href="/my/profile" class="d-inline-block">
                                                     <span class="btn btn-primary font-1 text-center   col-12"
                                                         style="border-radius: 2px">
                                                         <span class="fal fa-suitcase"></span>
@@ -269,12 +258,12 @@
             </div>
         </div>
 
-        <div class="col-12 pt-0 mt-md-5 mt-lg-4 pt-2 px-0 pb-5 mb-5" style="position: relative;">
+        <div class="col-12 pt-0 mt-md-5 mt-lg-4 pt-2 px-0" style="position: relative;">
             <div class="col-12 px-0  ">
-                <div class="container px-0 mb-5">
+                <div class="container px-0">
                     <div class="col-12 row px-0 response-container">
                         {{-- about component --}}
-                        <template x-if="activeItem == 'about'">
+                        <template x-if="section == 'about'">
                             <div class="col-12 col-lg-8 px-0">
                                 <div class="col-12 p-1 px-lg-3 my-lg-3 d-flex">
                                     <div class="panel panel-default mrg--bm px-0  rounded main-nafez-box-styles"
@@ -327,8 +316,7 @@
                                             </div>
                                             <div class="col-6 text-left pt-2">
                                                 @if (auth()->id() == $user->id)
-                                                    <a href="/my/profile"
-                                                        class="btn btn-primary  font-1 edit-bio-btn"
+                                                    <a href="/my/profile" class="btn btn-primary  font-1 edit-bio-btn"
                                                         style="cursor: pointer;"><span class="fal fa-edit"></span> تعديل
                                                     </a>
                                                 @endif
@@ -351,7 +339,7 @@
                         {{-- end component --}}
 
                         {{-- services component --}}
-                        <template x-if="activeItem == 'services'">
+                        <template x-if="section == 'services'">
                             <div class="col-12 col-lg-8 px-0 row my-lg-3 py-1">
                                 @foreach ($user->services as $service)
                                     <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
@@ -420,7 +408,7 @@
                         {{-- end component --}}
 
                         {{-- services component --}}
-                        <template x-if="activeItem == 'projects'">
+                        <template x-if="section == 'projects'">
                             <div class="col-12 col-lg-8 row my-lg-3 py-1">
                                 @foreach ($user->projects as $project)
                                     <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
@@ -442,22 +430,22 @@
                                                 <div class="col-12 px-0 row align-items-center justify-content-between text-truncate mb-2 mb-lg-0 d-lg-flex d-none"
                                                     style="flex-wrap: nowrap;">
                                                     <div class="d-flex align-items-center">
-                                                        <a href="/freelancers/{{ $project->user->id }}"
+                                                        <a href="/freelancers/{{ $user->id }}"
                                                             class="d-inline-block">
-                                                            <img src="{{ asset('uploaded_images/users/' . ($project->user->profile_image ?? 'defualt.png')) }}"
+                                                            <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
                                                                 style="width: 40px;border-radius:inherit;padding: 3px;;border-radius: 50%;height: 40px;border:1px solid rgb(139 139 139 / 18%);object-fit: cover;">
                                                         </a>
                                                         <div class="d-inline-block pl-0 pr-3" style="font-size:13px">
-                                                            <a href="/freelancers/{{ $project->user->id }}"
+                                                            <a href="/freelancers/{{ $user->id }}"
                                                                 style="color: inherit;opacity: .8;">
-                                                                {{ $project->user->fullName }}
+                                                                {{ $user->fullName }}
                                                             </a>
                                                             <div class="d-block mt-1"
                                                                 style="font-size:10px;opacity: 0.6;">
                                                                 <span class="d-inline-block">
                                                                     <span
                                                                         class="fas fa-map-marker-alt mb-1  pl-0 pl-md-1 "></span>
-                                                                    {{ $project->user->country->name ?? '' }}
+                                                                    {{ $user->country->name ?? '' }}
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -507,7 +495,7 @@
                                                         style="font-size: 12px;color: #777777">
                                                         <span class="far fa-map-marker-alt" aria-hidden="true"
                                                             style="font-size: 12px;width:18px;text-align: center;"></span>
-                                                        {{ $project->user->country->name ?? '' }}
+                                                        {{ $user->country->name ?? '' }}
                                                     </span>
                                                 </div>
                                                 <div class="d-inline-block d-lg-block px-1">
@@ -517,6 +505,73 @@
                                                             style="font-size: 12px;width:18px;text-align: center;color:#28a745;"></span>
                                                         {{ $project->status }}
                                                     </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </template>
+                        {{-- end component --}}
+
+                        {{-- portfolios component --}}
+                        <template x-if="section == 'portfolios'">
+                            <div class="col-12 col-lg-8 px-0 row my-lg-3 py-1">
+                                @foreach ($user->portfolios as $portfolio)
+                                    <div class="col-6 col-sm-4 col-md-6 col-lg-4 p-1 p-md-2 portfolio-card">
+                                        <div class="col-12 px-0">
+                                            <div class="col-12 p-2 main-nafez-box-styles" style="border-radius: 5px;">
+                                                <div class="col-12 p-0 p-md-1 d-flex  row"
+                                                    style="border-radius: 0px!important;overflow: hidden;position: relative;">
+                                                    <div class="col-12 p-0 row ">
+                                                        <a href="/portfolios/{{ $portfolio->id }}"
+                                                            class="pb-0 d-inline-block col-12 px-0">
+                                                            <div class="col-12 px-0" style="">
+                                                                <div class="col-12 px-0"
+                                                                    style="overflow: hidden;border-radius: 4px!important">
+                                                                    <img src="{{ asset('uploaded_images/portfolios/' . $portfolio->main_image) }}"
+                                                                        style="width: 100%!important;padding: 0px;border-radius: 4px!important"
+                                                                        class="portfolio-img">
+                                                                    <div class="col-12 px-0"
+                                                                        style="background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(81%, rgba(0, 0, 0, 0.6)));height: 50px;position: absolute;bottom: 0px;z-index: 0;border-radius: 0px 0px 0px 0px">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                        <div class=" pl-2  py-1 col-12"
+                                                            style="position: absolute;z-index: 1;bottom: 10px;right: 0px;border-radius: 0px 50px 50px 0px">
+                                                            <div class="col-12 px-0 almaria row text-right"
+                                                                style="overflow: hidden;">
+                                                                <a href="/freelancers/{{ $user->id }}">
+                                                                    <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
+                                                                        style="width: 25px;height: 25px;border-radius: 50%!important;"
+                                                                        class=" d-inline-block"
+                                                                        alt="{{ $user->fullName }}">
+                                                                </a>
+                                                                <div style="width: calc(100% - 25px);display: inline-block;position: relative;top: -4px;height:25px"
+                                                                    class="pt-1 text-right ">
+                                                                    <div style="font-size: 9px;position: relative;top:5px;height: 20px;overflow: hidden; color: #f1f1f1;"
+                                                                        class="d-flex pr-0 pl-2 portfolio-card-user-name text-right row col-12">
+                                                                        <div class="col-9 px-2">
+                                                                            <a href="/freelancers/{{ $user->id }}"
+                                                                                style="color: #f1f1f1;font-size: 12px;">
+                                                                                {{ $user->fullName }}
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-3 pl-2 pr-0 pt-1 text-left "
+                                                                            style="font-size: 10px">
+                                                                            {{ $portfolio->viewers->count() }} <span
+                                                                                class="fas fa-eye"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <h2 style="font-size: 9px;position: relative;bottom:-60px;height: 20px;overflow: hidden; color: #f1f1f1;"
+                                                                        class="d-block px-2 portfolio-card-details text-right">
+                                                                        {{ $portfolio->title }}
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

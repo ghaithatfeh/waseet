@@ -15,10 +15,11 @@ use Livewire\WithPagination;
 
 class FreelancerController extends Controller
 {
-    public function show(User $freelancer)
+    public function show($freelancer_id)
     {
+        $user = User::where('id', $freelancer_id)->with('projects.budget')->first();
         return view('freelancers.view', [
-            'user' => $freelancer
+            'user' => $user
         ]);
     }
 

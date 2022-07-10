@@ -259,9 +259,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-9 col-md-8 text-center content-area px-0 px-md-3 pb-2">
+                    <div class="col-12 col-lg-9 col-md-8 text-center content-area px-0 px-md-3">
                         <!-- content area -->
-
                         {{-- personal date --}}
                         <template x-if="section == 'account'">
                             <form method="POST" action="/freelancers/personal_data_update/{{ $user->id }}"
@@ -652,9 +651,9 @@
                                     <div style="background: var(--bg-second-bg);" class="col-12 px-0">
                                         <div class="col-12  row px-0"
                                             style="border-bottom: 1px solid var(--bg-main-bg);   ">
-                                            <div class="col-6   p-0">
+                                            <div class="col-6 p-0">
                                                 <h5 style="color: var(--bg-color-0);font-size: 17px;"
-                                                    class="m-0 py-3 px-4 font-2 font-md-2  d-inline-block ">معرض أعمالي
+                                                    class="m-0 py-3 px-4 font-2 font-md-2 d-inline-block">معرض أعمالي
                                                 </h5>
                                             </div>
                                             <div class="col-6 text-left px-2" dir="ltr" style="padding-top: 8px;">
@@ -667,7 +666,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 row pb-5" style="padding:10px 0px;">
+                                <div class="col-12 row" style="padding:10px 0px;">
                                     <div class="col-12 row px-0">
                                         @forelse ($user->portfolios as $portfolio)
                                             <div class="col-6 col-sm-4 col-md-6 col-lg-4 p-1 p-md-2 portfolio-card">
@@ -775,7 +774,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 row pb-5" style="padding:10px 0px;">
+                                <div class="col-12 row" style="padding:10px 0px;">
                                     @forelse ($user->services->sortByDesc('id') as $service)
                                         <div class="px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
                                             <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
@@ -887,7 +886,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 row pb-5 px-2" style="padding:10px 0px;">
+                                <div class="col-12 row px-2" style="padding:10px 0px;">
                                     @forelse ($user->projects->sortByDesc('id') as $project)
                                         <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
                                             style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
@@ -1036,7 +1035,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 row pb-5 px-2" style="padding:10px 0px;">
+                                <div class="col-12 row px-2" style="padding:10px 0px;">
                                     @forelse ($user->offers->sortByDesc('offers.created_at') as $offer)
                                         <div class="col-12 main-nafez-box-styles p-3 p-lg-4 mb-lg-3 mb-3 project-box"
                                             style="border-radius:5px;transition: 0.1s all ease-in-out;overflow: hidden;">
