@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->enum('gender', ['Male', 'Female'])->nullable();
             $table->date('birthdate')->nullable();
-            // $table->integer('likes')->default(0);
             $table->boolean('status')->default(1);
             $table->text('description')->nullable();
             // $table->text('social_media')->nullable();

@@ -94,21 +94,22 @@
                                                     </span>
                                                 </a>
                                             </div>
-                                            <div class=" text-right text-md-left  pr-2"
+                                            <div class="text-right text-md-left  pr-2"
                                                 style="width: 130px;position: relative;">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                            id="counter_628e639a6bf90">
-                                                            {{ $user->likes ?? '' }}
+                                                            id="counter_{{ $user->id }}_sm">
+                                                            {{ $user->likes()->count() ? $user->likes()->count() : '' }}
                                                         </span>
-                                                        <span class="d-inline-block love-favourite-area noselect  "
-                                                            style=" cursor: pointer;" data-id="628e639a6bf90"
-                                                            data-type="user" data-type_id="4483" id="love_id_628e639a6bf90">
-                                                            <span class="fa-heart love-favourite fal font-3"
-                                                                style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                                id="icon_628e639a6bf90"></span>
+                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                            style=" cursor: pointer;" data-id="{{ $user->id }}_sm"
+                                                            data-type="user" 
+                                                            id="love_id_{{ $user->id }}_sm">
+                                                            <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
+                                                                style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
+                                                                id="icon_{{ $user->id }}_sm"></span>
                                                         </span>
                                                         <div class="dropdown show d-none dots-628e639a6bf90 ">
                                                             <span
@@ -209,16 +210,16 @@
                                                     <div class="col-12 px-1 d-flex align-items-center">
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                            id="counter_628e639a6c189">
-                                                            {{ $user->likes != 0 ? $user->likes : '' }}
+                                                            id="counter_{{ $user->id }}">
+                                                            {{ $user->likes()->count() ? $user->likes()->count() : '' }}
                                                         </span>
-                                                        <span class="d-inline-block love-favourite-area noselect  "
-                                                            style=" cursor: pointer;" data-id="628e639a6c189"
-                                                            data-type="user" data-type_id="4483"
-                                                            id="love_id_628e639a6c189">
-                                                            <span class="fa-heart love-favourite fal font-3"
-                                                                style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                                id="icon_628e639a6c189"></span>
+                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                            style=" cursor: pointer;" data-id="{{ $user->id }}"
+                                                            data-type="user"
+                                                            id="love_id_{{ $user->id }}">
+                                                            <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
+                                                                style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
+                                                                id="icon_{{ $user->id }}"></span>
                                                         </span>
                                                         <div class="dropdown show d-none dots-628e639a6c189 ">
                                                             <span
@@ -324,7 +325,7 @@
                                         </div>
                                         <div class="col-12 py-3 d-flex row">
                                             @forelse ($user->skills as $skill)
-                                                <a href="https://nafezly.com/freelancers/skill/translation"
+                                                <a href="#"
                                                     class="d-inline-block btn font-small rounded-pill py-1 my-1 tag-class ml-1">
                                                     <span class="far fa-tags ml-1"></span> {{ $skill->name }}
                                                 </a>

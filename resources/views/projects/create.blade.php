@@ -144,6 +144,11 @@
                                         </h6>
                                     </label>
                                     <div id="files-names" class="mr-3"></div>
+                                    @error('files.*')
+                                        <label id="project_details-error" class="error" for="project_details">
+                                            {{ $message }}
+                                        </label>
+                                    @enderror
                                 </div>
                                 <input class="d-none" type="file" name="files[]" id="files" multiple>
                                 <script>

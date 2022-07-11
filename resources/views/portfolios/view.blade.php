@@ -72,15 +72,17 @@
                                             <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                 <div class="col-12 px-1 d-flex align-items-center">
                                                     <span class="d-inline-block pt-2 ml-1"
-                                                            style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                            id="counter_62cb394ad7c03">{{ $portfolio->likes()->count() ? $portfolio->likes()->count() : '' }}</span>
-                                                    <span class="d-inline-block love-favourite-area noselect  "
-                                                        style=" cursor: pointer;" data-id="62c968106f620"
-                                                        data-type="portfolio" data-type_id="32406"
-                                                        id="love_id_62c968106f620">
-                                                        <span class="fa-heart love-favourite fal font-3"
-                                                            style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                            id="icon_62c968106f620"></span>
+                                                        style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                        id="counter_{{ $portfolio->id }}">
+                                                        {{ $portfolio->likes()->count() ? $portfolio->likes()->count() : '' }}
+                                                    </span>
+                                                    <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $portfolio->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                        style=" cursor: pointer;" data-id="{{ $portfolio->id }}"
+                                                        data-type="portfolio"
+                                                        id="love_id_{{ $portfolio->id }}">
+                                                        <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $portfolio->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
+                                                            style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
+                                                            id="icon_{{ $portfolio->id }}"></span>
                                                     </span>
                                                     @if ($portfolio->user->id == auth()->id())
                                                         <div class="dropdown show d-none d-inline-block">
@@ -206,28 +208,28 @@
                             <div class="col-12 px-0 py-2">
                                 <ul style="display: block;padding: 0px;list-style: none;position: relative;"
                                     class="mt-2 mb-2 text-center">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://nafezly.com/portfolio/32406"
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-facebook-f d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 14px ;border:1px solid var(--bg-main-bg);color: #3b5998;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://twitter.com/share?url=https://nafezly.com/portfolio/32406"
+                                    <a href="https://twitter.com/share?url={{ Request::url() }}"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-twitter d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/portfolio/32406&title={{ $portfolio->title }}&summary={{ $portfolio->title }}&source=نفذلي"
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}&title={{ $portfolio->title }}&summary={{ $portfolio->title }}&source=نفذلي"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-linkedin-in d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://api.whatsapp.com/send?text=https://nafezly.com/portfolio/32406"
+                                    <a href="https://api.whatsapp.com/send?text={{ Request::url() }}"
                                         data-action="share/whatsapp/share" class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-whatsapp d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #2bb641;cursor: pointer;border-radius: 0"></span>
                                     </a>
                                     <span style="cursor: pointer;" class="d-inline-block p-1 copy-referral-btn"
-                                        data-url="https://nafezly.com/portfolio/32406" title="نسخ الرابط">
+                                        data-url="{{ Request::url() }}" title="نسخ الرابط">
                                         <span class="fal fa-copy d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: var(--bg-color-0);cursor: pointer;border-radius: 0"></span>
                                     </span>
@@ -346,28 +348,28 @@
                             <div class="col-12 px-0 py-2">
                                 <ul style="display: block;padding: 0px;list-style: none;position: relative;"
                                     class="mt-2 mb-2 text-center">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://nafezly.com/portfolio/32406"
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-facebook-f d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 14px ;border:1px solid var(--bg-main-bg);color: #3b5998;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://twitter.com/share?url=https://nafezly.com/portfolio/32406"
+                                    <a href="https://twitter.com/share?url={{ Request::url() }}"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-twitter d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/portfolio/32406&title={{ $portfolio->title }}&summary={{ $portfolio->title }}&source=نفذلي"
+                                    <a href="https://www.linkedin.com/shareArticle?url={{ Request::url() }}"
                                         class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-linkedin-in d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                     </a>
-                                    <a href="https://api.whatsapp.com/send?text=https://nafezly.com/portfolio/32406"
+                                    <a href="https://api.whatsapp.com/send?text={{ Request::url() }}"
                                         data-action="share/whatsapp/share" class="d-inline-block p-1" target="_blank">
                                         <span class="fab fa-whatsapp d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #2bb641;cursor: pointer;border-radius: 0"></span>
                                     </a>
                                     <span style="cursor: pointer;" class="d-inline-block p-1 copy-referral-btn"
-                                        data-url="https://nafezly.com/portfolio/32406" title="نسخ الرابط">
+                                        data-url="{{ Request::url() }}" title="نسخ الرابط">
                                         <span class="fal fa-copy d-inline-block "
                                             style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: var(--bg-color-0);cursor: pointer;border-radius: 0"></span>
                                     </span>

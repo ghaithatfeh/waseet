@@ -29,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
         Relation::enforceMorphMap([
             'project' => 'App\Models\Project',
             'offer' => 'App\Models\Offer',
+            'service' => 'App\Models\Service',
+            'portfolio' => 'App\Models\Portfolio',
+            'user' => 'App\Models\User',
         ]);
     }
 }

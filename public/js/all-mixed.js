@@ -14885,7 +14885,7 @@
                 method: "POST",
                 url: "/add-like",
                 data: {
-                    model_id: $(this).data("id"),
+                    model_id: String(e).replace('_sm', ''),
                     model_type: $(this).data("type"),
                     _token: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
                 }
@@ -14956,7 +14956,7 @@
         $(".copy-referral-btn").click((function () {
             $("#referral-input").val($(this).data("url"));
             var e = document.getElementById("referral-input");
-            e.select(), e.setSelectionRange(0, 99999), document.execCommand("copy"), Swal.fire({
+            e.select(), e.setSelectionRange(0, 99999), navigator.clipboard.writeText(e.value), Swal.fire({
                 title: "تم نسخ الرابط بنجاح",
                 icon: "success",
                 confirmButtonText: "حسناً"

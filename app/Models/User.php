@@ -29,7 +29,6 @@ class User extends Authenticatable
         'social_media',
         'gender',
         'birthdate',
-        'likes',
         'profile_image',
         'status',
         'category_id',
@@ -101,6 +100,12 @@ class User extends Authenticatable
         return $this->first_name . ' ' . $this->last_name;
     }
 
+    // Likeable
+    public function likes()
+    {
+        return $this->morphToMany(User::class, 'likeable');
+    }
+
     public function likedProjects()
     {
         return $this->morphedByMany(Project::class, 'likeable');
@@ -109,5 +114,20 @@ class User extends Authenticatable
     public function likedOffer()
     {
         return $this->morphedByMany(Offer::class, 'likeable');
+    }
+
+    public function likedService()
+    {
+        return $this->morphedByMany(Service::class, 'likeable');
+    }
+
+    public function likedPortfolios()
+    {
+        return $this->morphedByMany(Portfolio::class, 'likeable');
+    }
+
+    public function likedUsers()
+    {
+        return $this->morphedByMany(User::class, 'likeable');
     }
 }

@@ -46,14 +46,16 @@
                                                     <div class="col-12 px-1 d-flex align-items-center">
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                            id="counter_62cb394ad7c03">{{ $service->likes()->count() ? $service->likes()->count() : '' }}</span>
-                                                        <span class="d-inline-block love-favourite-area noselect "
-                                                            style=" cursor: pointer;" data-id="62b223353bf94"
-                                                            data-type="project" data-type_id="5990"
-                                                            id="love_id_62b223353bf94">
-                                                            <span class="fa-heart love-favourite fal font-3"
+                                                            id="counter_{{ $service->id }}">
+                                                            {{ $service->likes()->count() ? $service->likes()->count() : '' }}
+                                                        </span>
+                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $service->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                            style=" cursor: pointer;" data-id="{{ $service->id }}"
+                                                            data-type="service"
+                                                            id="love_id_{{ $service->id }}">
+                                                            <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $service->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
                                                                 style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
-                                                                id="icon_62b223353bf94"></span>
+                                                                id="icon_{{ $service->id }}"></span>
                                                         </span>
                                                         @if ($service->user->id == auth()->id())
                                                             <div class="dropdown show d-none d-inline-block">
@@ -180,40 +182,29 @@
                                 <div class="col-12 px-0 py-2">
                                     <ul style="display: block;padding: 0px;list-style: none;position: relative;"
                                         class="mt-2 mb-2 text-center">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-facebook-f d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 14px ;border:1px solid var(--bg-main-bg);color: #3b5998;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://twitter.com/share?url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://twitter.com/share?url={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-twitter d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA&title=تصميم صفحه ويب متجاوبه مع كل الشاشات&summary=سوف اقوم بإنشاء صفحه ويب كامله مقابل 10 دولار علي أن تكون الصفحه متجاوبه مع جميع الشاشات
-                                                            مع امكانيه استخدام التقنيات الحديثة مثل
-                                                            Sass
-                                                            Pug
-                                                            حتي يكون المشروع منظم بقدر الإمكان
-                                                            بالتأكيد استخدم في المشروع
-                                                            Html5
-                                                            Css3
-                                                            JavaScript or jQuery
-                                                            Bootstrap
-                                                            Pug
-                                                            Sass&source=نفذلي"
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-linkedin-in d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://api.whatsapp.com/send?text=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://api.whatsapp.com/send?text={{ Request::url() }}"
                                             data-action="share/whatsapp/share" class="d-inline-block p-1"
                                             target="_blank">
                                             <span class="fab fa-whatsapp d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #2bb641;cursor: pointer;border-radius: 0"></span>
                                         </a>
                                         <span style="cursor: pointer;" class="d-inline-block p-1 copy-referral-btn"
-                                            data-url="https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                            data-url="{{ Request::url() }}"
                                             title="نسخ الرابط">
                                             <span class="fal fa-copy d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: var(--bg-color-0);cursor: pointer;border-radius: 0"></span>
@@ -341,40 +332,29 @@
                                 <div class="col-12 px-0 py-2">
                                     <ul style="display: block;padding: 0px;list-style: none;position: relative;"
                                         class="mt-2 mb-2 text-center">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-facebook-f d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 14px ;border:1px solid var(--bg-main-bg);color: #3b5998;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://twitter.com/share?url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://twitter.com/share?url={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-twitter d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #00aced;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA&title=تصميم صفحه ويب متجاوبه مع كل الشاشات&summary=سوف اقوم بإنشاء صفحه ويب كامله مقابل 10 دولار علي أن تكون الصفحه متجاوبه مع جميع الشاشات
-                                                            مع امكانيه استخدام التقنيات الحديثة مثل
-                                                            Sass
-                                                            Pug
-                                                            حتي يكون المشروع منظم بقدر الإمكان
-                                                            بالتأكيد استخدم في المشروع
-                                                            Html5
-                                                            Css3
-                                                            JavaScript or jQuery
-                                                            Bootstrap
-                                                            Pug
-                                                            Sass&source=نفذلي"
+                                        <a href="https://www.linkedin.com/shareArticle?mini=false&url={{ Request::url() }}"
                                             class="d-inline-block p-1" target="_blank">
                                             <span class="fab fa-linkedin-in d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #0073b1;cursor: pointer;border-radius: 0"></span>
                                         </a>
-                                        <a href="https://api.whatsapp.com/send?text=https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                        <a href="https://api.whatsapp.com/send?text={{ Request::url() }}"
                                             data-action="share/whatsapp/share" class="d-inline-block p-1"
                                             target="_blank">
                                             <span class="fab fa-whatsapp d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: #2bb641;cursor: pointer;border-radius: 0"></span>
                                         </a>
                                         <span style="cursor: pointer;" class="d-inline-block p-1 copy-referral-btn"
-                                            data-url="https://nafezly.com/service/223-%D8%AA%D8%B5%D9%85%D9%8A%D9%85-%D8%B5%D9%81%D8%AD%D9%87-%D9%88%D9%8A%D8%A8-%D9%85%D8%AA%D8%AC%D8%A7%D9%88%D8%A8%D9%87-%D9%85%D8%B9-%D9%83%D9%84-%D8%A7%D9%84%D8%B4%D8%A7%D8%B4%D8%A7%D8%AA"
+                                            data-url="{{ Request::url() }}"
                                             title="نسخ الرابط">
                                             <span class="fal fa-copy d-inline-block "
                                                 style="width: 40px;height: 40px;padding: 11px 11px ;border:1px solid var(--bg-main-bg);color: var(--bg-color-0);cursor: pointer;border-radius: 0"></span>
