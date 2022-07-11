@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Project;
 use App\Models\Skill;
 use App\Models\User;
 use App\Models\UserSkill;
@@ -11,7 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Livewire\WithPagination;
 
 class FreelancerController extends Controller
 {

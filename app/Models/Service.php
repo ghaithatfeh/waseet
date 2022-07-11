@@ -14,16 +14,24 @@ class Service extends Model
     {
         return $this->belongsTo(User::class);
     }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'service_skills');
     }
+
     public function images()
     {
         return $this->hasMany(ServiceImage::class);
+    }
+
+    public function likes()
+    {
+        return $this->morphToMany(User::class, 'likeable');
     }
 }

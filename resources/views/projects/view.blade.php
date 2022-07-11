@@ -145,13 +145,18 @@
                                             <div class="d-inline-block mr-2">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
-                                                        <span class="d-inline-block love-favourite-area noselect "
-                                                            style=" cursor: pointer;" data-id="62b223353bf94"
-                                                            data-type="project" data-type_id="5990"
-                                                            id="love_id_62b223353bf94">
-                                                            <span class="fa-heart love-favourite fal font-3"
+                                                        <span class="d-inline-block pt-2 ml-1"
+                                                            style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                            id="counter_{{ $project->id }}">
+                                                            {{ $project->likes()->count() ? $project->likes()->count() : '' }}
+                                                        </span>
+                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $project->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                            style="cursor: pointer;" id="love_id_{{ $project->id }}"
+                                                            data-id="{{ $project->id }}" data-type="project">
+                                                            <span
+                                                                class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $project->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
                                                                 style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
-                                                                id="icon_62b223353bf94"></span>
+                                                                id="icon_{{ $project->id }}"></span>
                                                         </span>
                                                         @if ($project->user->id == auth()->id())
                                                             <div class="dropdown show d-none d-inline-block">
@@ -564,18 +569,19 @@
                                                         <div class="col-12 px-1 d-flex align-items-center">
                                                             <span class="d-inline-block pt-2 ml-1"
                                                                 style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                                id="counter_62bed6e9f2eff">
+                                                                id="counter_{{ $offer->id }}">
+                                                                {{ $offer->likes()->count() ? $offer->likes()->count() : '' }}
                                                             </span>
-                                                            <span class="d-inline-block love-favourite-area noselect  "
-                                                                style=" cursor: pointer;" data-id="62bed6e9f2eff"
-                                                                data-type="offer" data-type_id="25101"
-                                                                id="love_id_62bed6e9f2eff">
-                                                                <span class="fa-heart love-favourite fal font-3"
+                                                            <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $offer->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                                style=" cursor: pointer;" data-id="{{ $offer->id }}"
+                                                                data-type="offer"
+                                                                id="love_id_{{ $offer->id }}">
+                                                                <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $offer->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
                                                                     style=" padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3 ;"
-                                                                    id="icon_62bed6e9f2eff"></span>
+                                                                    id="icon_{{ $offer->id }}"></span>
                                                             </span>
                                                             @if ($offer->user_id == auth()->id())
-                                                                <div class="dropdown show d-none dots-62bed6e9f2eff ">
+                                                                <div class="dropdown show d-none dots-{{ $offer->id }} ">
                                                                     <span
                                                                         class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
                                                                         style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"

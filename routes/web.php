@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\PortfolioController;
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/offer/store', [OfferController::class, 'store']);
     Route::delete('/offer/{offer}', [OfferController::class, 'destroy']);
+
+    Route::post('/add-like', [Controller::class, 'addLike']);
 });
 
 Route::resources([

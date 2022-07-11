@@ -60,7 +60,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class);
     }
-    
+
     public function services()
     {
         return $this->hasMany(Service::class);
@@ -75,7 +75,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Country::class);
     }
-    
+
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'user_skills');
@@ -90,7 +90,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Offer::class);
     }
-    
+
     public function portfolios()
     {
         return $this->hasMany(Portfolio::class);
@@ -99,5 +99,15 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function likedProjects()
+    {
+        return $this->morphedByMany(Project::class, 'likeable');
+    }
+
+    public function likedOffer()
+    {
+        return $this->morphedByMany(Offer::class, 'likeable');
     }
 }

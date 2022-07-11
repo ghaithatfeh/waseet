@@ -44,6 +44,9 @@
                                             <div class="d-inline-block mr-2">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
+                                                        <span class="d-inline-block pt-2 ml-1"
+                                                            style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                            id="counter_62cb394ad7c03">{{ $service->likes()->count() ? $service->likes()->count() : '' }}</span>
                                                         <span class="d-inline-block love-favourite-area noselect "
                                                             style=" cursor: pointer;" data-id="62b223353bf94"
                                                             data-type="project" data-type_id="5990"
@@ -64,7 +67,7 @@
                                                                     aria-labelledby="dropdownMenuLink"
                                                                     style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
                                                                     <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 edit-dots-wedgit "
-                                                                        href="/services/{{$service->id}}/edit"
+                                                                        href="/services/{{ $service->id }}/edit"
                                                                         style="font-size: 13px;color: var(--bg-color-0)"><span
                                                                             class="fal fa-edit text-center"
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
@@ -77,7 +80,8 @@
                                                                             style="width: 20px;color: var(--bg-color-0)"></span>
                                                                         حذف
                                                                     </a>
-                                                                    <form id="remove-service-form" method="post" action="/services/{{$service->id}}">
+                                                                    <form id="remove-service-form" method="post"
+                                                                        action="/services/{{ $service->id }}">
                                                                         @method('delete')
                                                                         @csrf
                                                                     </form>

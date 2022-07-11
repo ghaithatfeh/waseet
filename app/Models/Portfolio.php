@@ -41,4 +41,9 @@ class Portfolio extends Model
     {
         return $this->belongsToMany(User::class, 'portfolio_viewers');
     }
+
+    public function likes()
+    {
+        return $this->morphToMany(User::class, 'likeable');
+    }
 }

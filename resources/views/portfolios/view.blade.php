@@ -72,9 +72,8 @@
                                             <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                 <div class="col-12 px-1 d-flex align-items-center">
                                                     <span class="d-inline-block pt-2 ml-1"
-                                                        style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
-                                                        id="counter_62c968106f620">
-                                                    </span>
+                                                            style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                            id="counter_62cb394ad7c03">{{ $portfolio->likes()->count() ? $portfolio->likes()->count() : '' }}</span>
                                                     <span class="d-inline-block love-favourite-area noselect  "
                                                         style=" cursor: pointer;" data-id="62c968106f620"
                                                         data-type="portfolio" data-type_id="32406"
