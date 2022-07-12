@@ -130,4 +130,30 @@ class User extends Authenticatable
     {
         return $this->morphedByMany(User::class, 'likeable');
     }
+
+
+    public function filled()
+    {
+        $attributes = collect($this->attributes);
+        unset(
+            $attributes['id'],
+            $attributes['email_verified_at'],
+            $attributes['remember_token'],
+            $attributes['status'],
+            $attributes['social_media'],
+            $attributes['created_at'],
+            $attributes['updated_at'],
+            $attributes['last_login'],
+        );
+
+        $totalCount  = $attributes->count();
+        $filledCount = 0;
+
+        $attributes->keys()
+            ->map(function ($key) use (&$filledCount) {
+                !empty($this->{$key}) ? $filledCount++ : $filledCount;
+            });
+
+        return ($filledCount / $totalCount) * 10;
+    }
 }

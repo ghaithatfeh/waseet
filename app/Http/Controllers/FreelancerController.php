@@ -15,9 +15,20 @@ class FreelancerController extends Controller
 {
     public function show($freelancer_id)
     {
-        $user = User::where('id', $freelancer_id)->with('projects.budget')->first();
+        $user = User::where('id', $freelancer_id)
+            ->with('projects.budget')
+            ->withCount('portfolios', 'projects', 'services', 'likes')
+            ->first();
+        $user_score = [
+            'profile' => $user->filled(),
+            'portfolios' => $user->portfolios_count < 5 ? $user->portfolios_count * 2 : 10,
+            'services' => $user->services_count < 10 ? $user->services_count : 10,
+            'projects' => $user->projects_count < 10 ? $user->projects_count : 10,
+            'likes' => $user->likes_count < 10 ? $user->likes_count : 10,
+        ];
         return view('freelancers.view', [
-            'user' => $user
+            'user' => $user,
+            'user_score' => $user_score
         ]);
     }
 

@@ -101,7 +101,7 @@
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
                                                             id="counter_{{ $user->id }}_sm">
-                                                            {{ $user->likes()->count() ? $user->likes()->count() : '' }}
+                                                            {{ $user->likes_count ? $user->likes_count : '' }}
                                                         </span>
                                                         <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
                                                             style=" cursor: pointer;" data-id="{{ $user->id }}_sm"
@@ -211,7 +211,7 @@
                                                         <span class="d-inline-block pt-2 ml-1"
                                                             style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
                                                             id="counter_{{ $user->id }}">
-                                                            {{ $user->likes()->count() ? $user->likes()->count() : '' }}
+                                                            {{ $user->likes_count ? $user->likes_count : '' }}
                                                         </span>
                                                         <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
                                                             style=" cursor: pointer;" data-id="{{ $user->id }}"
@@ -679,9 +679,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     </div>
-
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var defaultOptions = {
@@ -692,18 +692,22 @@
         var myChart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['ملف شخصي', 'أعمال', 'توثيق', 'خدمات', 'مشاريع', 'متميز'],
+                labels: ['ملف شخصي', 'أعمال',  'خدمات', 'مشاريع', 'متميز'],
                 datasets: [{
                     label: '# نقاط',
-                    data: [9, 8, 9, 5, 1, 6.4],
+                    data: [
+                        {{ $user_score['profile'] }},
+                        {{ $user_score['portfolios'] }},
+                        {{ $user_score['services'] }},
+                        {{ $user_score['projects'] }},
+                        {{ $user_score['likes'] }},
+                    ],
                     pointRadius: 0,
                     backgroundColor: [
                         'rgba(25, 150, 250, 0.8)',
-
                     ],
                     borderColor: [
                         '#2381c6',
-
                     ],
                     borderWidth: 1
                 }]
@@ -721,9 +725,7 @@
                     angleLines: {
                         display: false
                     },
-
                     pointLabels: {
-
                         fontSize: 12,
                         fontFamily: "'kufi-arabic', sans-serif"
                     },
@@ -743,19 +745,14 @@
                             fontStyle: '500'
                         }
                     }],
-
                 },
                 legend: {
-
                     display: false,
-
                 },
             },
             defaults: defaultOptions
         });
         myChart.options.tooltips.enabled = false;
-
-
 
         (function() {
             setTimeout(function() {

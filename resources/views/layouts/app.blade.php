@@ -432,7 +432,7 @@
                     <div class="navbar-nav px-0   hidden-slider-nav" style="padding-top: 0px!important">
                         <div class="col-12 " style="padding:3px"> </div>
                         <div class="nav-item ">
-                            <a class="nav-link" href="/my/profile"><span class="fal fa-suitcase mx-2"></span> تصفح
+                            <a class="nav-link" href="/projects"><span class="fal fa-suitcase mx-2"></span> تصفح
                                 المشاريع</a>
                         </div>
                         <div class="nav-item">
