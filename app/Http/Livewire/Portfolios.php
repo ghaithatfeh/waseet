@@ -37,6 +37,9 @@ class Portfolios extends Component
 
     public function render()
     {
+        if (request()->has('specialize'))
+            $this->categories[] = request()->specialize;
+
         $search_value = '%' . $this->search . '%';
 
         $query = Portfolio::select('portfolios.*')

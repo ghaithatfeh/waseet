@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-12 px-0 row">
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/3" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=3" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -51,7 +51,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/2" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=2" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -66,7 +66,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/1" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=1" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background: var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -81,7 +81,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/5" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=5" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -96,7 +96,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/4" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=4" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -111,7 +111,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/6" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=6" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                                 cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -126,7 +126,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/1" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=1" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                                 cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">
@@ -141,7 +141,7 @@
                                     </a>
                                 </div>
                                 <div class="col-6 col-md-6 col-lg-3 col-xl-3 p-2">
-                                    <a href="/service/7" style="color: var(--bg-color-0);">
+                                    <a href="/services?specialize=7" style="color: var(--bg-color-0);">
                                         <div class="col-12 px-0" style="
                                             cursor: pointer;background:var(--bg-second-bg);border-radius: 0px;">
                                             <div class="col-12 text-center py-4 px-0">

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="col-12 px-0" id="main-content" style="transition:all  0.5s  ease-in-out!important;">
-        <div class="col-12 " style="padding: 0px;
+        <div class="col-12 "
+            style="padding: 0px;
                                                 background-size: cover!important;
                                                 background-position: center!important;
                                                 background-repeat: no-repeat!important;
-                                                background-image: url('{{asset('site_images/background3.webp')}}')!important">
+                                                background-image: url('{{ asset('site_images/background3.webp') }}')!important">
             <div style="overflow-x: hidden;margin-top: -60px;" class="col-12 px-0">
                 <div class="container     d-flex" style="min-height: 60vh;">
                     <div class="col-12 row my-auto px-0">
@@ -109,17 +110,18 @@
                             </div>
                             <div
                                 class="col-12 col-md-6 px-md-2 font-2 font-md-3 pt-0  pt-0 mt-md-2 mt-4 order-1 order-md-2">
-                                <div style="    padding-bottom: 56.25%;    position: relative;
+                                <div
+                                    style="    padding-bottom: 56.25%;    position: relative;
                                                     display: block; overflow: hidden;">
-                                    <iframe style="position: absolute;
+                                    <iframe
+                                        style="position: absolute;
                                                 top: 0;
                                                 left: 0;
                                                 bottom: 0;
                                                 height: 100%;
                                                 width: 100%;
                                                 border: 0; "
-                                        {{-- src="https://www.youtube.com/embed/JLGS4fP3DLM?controls=1&rel=0&showinfo=0&color=white" --}}
-                                        allowfullscreen id="nafezly-video">
+                                        {{-- src="https://www.youtube.com/embed/JLGS4fP3DLM?controls=1&rel=0&showinfo=0&color=white" --}} allowfullscreen id="nafezly-video">
                                     </iframe>
                                 </div>
                             </div>
@@ -177,13 +179,12 @@
                                         <span class="fad fa-credit-card font-6 font-md-9" style="color: #ff9800"></span>
                                         <div
                                             class="col-12  text-center font-1 font-md-3 pt-3 px-0 home-specialization-header">
-                                            ادفع بكل أريحية
+                                            وسيط مجاني بالكامل
                                         </div>
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class="col-12 pt-2 px-0">
                                                 <p class="text-center  font-1" style="color: #666">
-                                                    لا تدفع إلا للأعمال التي يتم انجازها ويبقى الرصيد في
-                                                    حسابك حتى تستلم المشروع كاملاً
+                                                    لا تدفع إلا المبلغ الذي يكلفه مشروعك بدون اي زوائد او نسب ربحية عليه
                                                 </p>
                                             </div>
                                         </div>
@@ -270,17 +271,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=design">
+                                                <a href="/freelancers?specialize=3">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=design">
+                                                <a href="/portfolios?specialize=3">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=design,logos-design,covers-design,banners-design,business-cards,presentation-services,video,photo-editing">
+                                                    href="/services?specialize=3">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -307,17 +308,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=writing-translation">
+                                                <a href="/freelancers?specialize=5">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=writing-translation">
+                                                <a href="/portfolios?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=writing-translation,learn-programming,learn-marketing,learn-designing,learn-languages,learn-school-help">
+                                                    href="/services?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -343,17 +344,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=development">
+                                                <a href="/freelancers?specialize=2">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=development">
+                                                <a href="/portfolios?specialize=2">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=development,web-backend-services,html-css-services,content-management-systems,mobile-development,development-tech-services">
+                                                    href="/services?specialize=2">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -379,17 +380,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=writing-translation,training">
+                                                <a href="/freelancers?specialize=5">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=writing-translation,training">
+                                                <a href="/portfolios?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=writing-translation,writing-manual-pages,writing-audio,writing-proof-writing,writing-translation-subcat,writing-resume,writing-copy-writing">
+                                                    href="/services?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -415,17 +416,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=marketing">
+                                                <a href="/freelancers?specialize=4">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=marketing">
+                                                <a href="/portfolios?specialize=4">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=marketing,website-advertising,social-media-marketing,seo-services,reviews">
+                                                    href="/services?specialize=4">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -452,17 +453,17 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class=" pt-2 px-0 specialization-btns justify-content-center row pt-4"
                                                 style="position: absolute;">
-                                                <a href="/freelancers?specialize=training">
+                                                <a href="/freelancers?specialize=6">
                                                     <span class="btn btn-primary mx-1 btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px;">منفذين</span>
                                                 </a>
-                                                <a href="/portfolios?specialize=training">
+                                                <a href="/portfolios?specialize=6">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
                                                 <a
-                                                    href="/services?specialize=training,learn-programming,learn-marketing,learn-designing,learn-languages,learn-school-help">
+                                                    href="/services?specialize=6">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -483,7 +484,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 pt-md-0 pt-3 force-dark   " style="background: #f5f5f5">
+        <div class="col-12 pt-md-0 pt-3 force-dark" style="background: #f5f5f5">
             <div class="container pt-5 pb-5">
                 <div class="col-12 px-0 py-4 row">
                     <h2 class="text-center kufi  pb-0 col-12 font-3 font-md-4" style="color:var(--bg-color-0);">
@@ -688,7 +689,8 @@
             <div class="container  py-5 px-0">
                 <div class="col-12 px-0 py-5  text-center ">
                     <div class="col-12 text-center">
-                        <h2 class="text-center font-2 font-md-3 font-lg-4" style="color: #fff;line-height: 1.4">هل أنت جاهز
+                        <h2 class="text-center font-2 font-md-3 font-lg-4" style="color: #fff;line-height: 1.4">هل أنت
+                            جاهز
                             لبدء مشروعك الخاص ؟</h2>
                         <br>
                     </div>

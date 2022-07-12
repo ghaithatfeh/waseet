@@ -10,6 +10,7 @@ use App\Http\Livewire\Freelancers;
 use App\Http\Livewire\Portfolios;
 use App\Http\Livewire\Projects;
 use App\Http\Livewire\Services;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
@@ -42,7 +43,10 @@ Route::resources([
 ]);
 
 // livewire components
-Route::get('/service/{category}', Services::class);
+if (request()->has('specialize'))
+    Route::get('/services', Services::class);
+else
+    Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/freelancers', Freelancers::class);
 Route::get('/projects', Projects::class);
 Route::get('/portfolios', Portfolios::class);

@@ -34,11 +34,6 @@ class Services extends Component
         $this->resetPage();
     }
 
-    public function mount($category)
-    {
-        $this->categories[] = $category;
-    }
-
     public function updatingSearch()
     {
         $this->resetPage();
@@ -46,6 +41,8 @@ class Services extends Component
 
     public function render()
     {
+        $this->categories[] = request()->specialize;
+
         $search_value = '%' . $this->search . '%';
 
         $query = Service::with('images')
@@ -55,7 +52,7 @@ class Services extends Component
             })
             ->when($this->skills != [], function ($query) {
                 $query->join('service_skills', 'services.id', 'service_skills.service_id')
-                ->whereIn('service_skills.skill_id', $this->skills);
+                    ->whereIn('service_skills.skill_id', $this->skills);
             })
             ->when($this->budget != [], function ($query) {
                 $query->whereBetween('price', $this->budget);
