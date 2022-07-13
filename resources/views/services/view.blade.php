@@ -231,25 +231,6 @@
                                                 <div class="col-12 row" style="padding:4px 5px">
                                                     <div class="col-6 col-md-7 col-lg-6 col-xl-5 text-right  p-1"
                                                         style="color: var(--bg-color-0);font-size: 13px;">
-                                                        التقييمات
-                                                    </div>
-                                                    <div class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1  align-items-center"
-                                                        style="height:29px">
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:11px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:11px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:11px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:11px;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);font-size:11px;"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 row" style="padding:4px 5px">
-                                                    <div class="col-6 col-md-7 col-lg-6 col-xl-5 text-right  p-1"
-                                                        style="color: var(--bg-color-0);font-size: 13px;">
                                                         سعر الخدمة
                                                     </div>
                                                     <div
@@ -265,16 +246,6 @@
                                                     <div
                                                         class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
                                                         {{ $service->deadline }}
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 row" style="padding:4px 5px">
-                                                    <div class="col-6 col-md-7 col-lg-6 col-xl-5 text-right  p-1"
-                                                        style="color: var(--bg-color-0);font-size: 13px;">
-                                                        خدمات مباعة
-                                                    </div>
-                                                    <div
-                                                        class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 font-1">
-                                                        1
                                                     </div>
                                                 </div>
                                                 <div class="col-12 p-0 my-3"

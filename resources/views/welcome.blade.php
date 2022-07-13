@@ -110,19 +110,8 @@
                             </div>
                             <div
                                 class="col-12 col-md-6 px-md-2 font-2 font-md-3 pt-0  pt-0 mt-md-2 mt-4 order-1 order-md-2">
-                                <div
-                                    style="    padding-bottom: 56.25%;    position: relative;
-                                                    display: block; overflow: hidden;">
-                                    <iframe
-                                        style="position: absolute;
-                                                top: 0;
-                                                left: 0;
-                                                bottom: 0;
-                                                height: 100%;
-                                                width: 100%;
-                                                border: 0; "
-                                        {{-- src="https://www.youtube.com/embed/JLGS4fP3DLM?controls=1&rel=0&showinfo=0&color=white" --}} allowfullscreen id="nafezly-video">
-                                    </iframe>
+                                <div style="padding-bottom: 0%;position: relative;display: block; overflow: hidden;">
+                                    <img class="img-fluid" src="{{ asset('site_images/intro.png') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -280,8 +269,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=3">
+                                                <a href="/services?specialize=3">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -317,8 +305,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=5">
+                                                <a href="/services?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -353,8 +340,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=2">
+                                                <a href="/services?specialize=2">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -389,8 +375,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=5">
+                                                <a href="/services?specialize=5">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -425,8 +410,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=4">
+                                                <a href="/services?specialize=4">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
@@ -462,8 +446,7 @@
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">أعمال</span>
                                                 </a>
-                                                <a
-                                                    href="/services?specialize=6">
+                                                <a href="/services?specialize=6">
                                                     <span
                                                         class="btn btn-primary mx-1  btn-sm font-1  text-center mb-2 px-0"
                                                         style="border-radius: 2px;padding: 6px 16px;cursor: pointer;width: 80px">خدمات</span>
