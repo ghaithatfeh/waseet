@@ -16,7 +16,45 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return view('services.index');
+        $design_services = Service::withCount('likes')
+            ->with('category', 'images')
+            ->where('category_id', 3)
+            ->orderByDesc('likes_count')
+            ->take(8)
+            ->get();
+        $programming_services = Service::withCount('likes')
+            ->with('category', 'images')
+            ->where('category_id', 2)
+            ->orderByDesc('likes_count')
+            ->take(8)
+            ->get();
+        $voice_services = Service::withCount('likes')
+            ->with('category', 'images')
+            ->where('category_id', 1)
+            ->orderByDesc('likes_count')
+            ->take(8)
+            ->get();
+        $writing_services = Service::withCount('likes')
+            ->where('category_id', 5)
+            ->orderByDesc('likes_count')
+            ->take(8)
+            ->get();
+        $marketing_services = Service::withCount('likes')
+            ->where('category_id', 4)
+            ->orderByDesc('likes_count')
+            ->take(8)
+            ->get();
+
+        return view(
+            'services.index',
+            compact(
+                'design_services',
+                'programming_services',
+                'voice_services',
+                'writing_services',
+                'marketing_services',
+            )
+        );
     }
     public function create()
     {

@@ -510,69 +510,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8 col-lg-9 px-0 px-md-1 mb-5 search-response-container" wire:loading.class="loading-state">
+                <div class="col-12 col-md-8 col-lg-9 px-0 px-md-1 mb-5 search-response-container"
+                    wire:loading.class="loading-state">
                     <div class="col-12 row px-0">
                         @foreach ($services as $service)
-                            <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
-                                <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
-                                    <div class="col-12 position-relative" style="padding-top: 70%;">
-                                        <a href="{{ route('services.show', ['service' => $service]) }}"
-                                            class="d-block">
-                                            <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
-                                                style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
-                                        </a>
-                                    </div>
-                                    <div class="col-12 font-1 p-2 ">
-                                        <a href="{{ route('services.show', ['service' => $service]) }}"
-                                            class="d-block" style="height:60px;overflow: hidden;">
-                                            <h2 class="col-12 py-1 px-0"
-                                                style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
-                                                {{ $service->title }}
-                                            </h2>
-                                        </a>
-                                        <div class="col-12 py-1 px-0" style="height:23px;overflow:hidden;">
-                                            <a href="/service/{{ $service->category->id }}" class="d-block"
-                                                style="color:var(--bg-color-0);">
-                                                <span class="fal fa-tag"
-                                                    style="color:var(--bg-color-3);font-size: 11px;"></span>
-                                                <span style="opacity: .7;font-size: 11px;">
-                                                    {{ $service->category->name }}
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 nafezly-divider-full mb-0 mt-1 " style="min-height: 1px;">
-                                    </div>
-                                    <div class="col-12 px-0 d-flex py-1" style="justify-content:space-between">
-                                        <div class="d-inline-block py-2 pr-3"
-                                            style="height: 36px;overflow: hidden;width: auto;">
-                                            <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
-                                                class="d-inline-block text-nowrap">
-                                                {{ number_format($service->price) }}
-                                                <span class="fas fa-usd-circle" style="font-size:12px"></span>
+                        <div class="px-lg-3 px-2 pb-3 pb-md-4 col-6 col-sm-6 col-md-4">
+                            <div class="col-12 row main-nafez-box-styles service-card p-0 rounded">
+                                <div class="col-12 position-relative" style="padding-top: 70%;">
+                                    <a href="{{ route('services.show', ['service' => $service]) }}"
+                                        class="d-block">
+                                        <img src="{{ asset('uploaded_images/services/' . ($service->images[0]->image_name ?? '')) }}"
+                                            style="object-fit: cover;vertical-align: middle;position: absolute;top: 0;left: 0;max-height: 100%;width: 100%!important;height: 100%;padding: 8px;">
+                                    </a>
+                                </div>
+                                <div class="col-12 font-1 p-2 ">
+                                    <a href="{{ route('services.show', ['service' => $service]) }}"
+                                        class="d-block" style="height:60px;overflow: hidden;">
+                                        <h2 class="col-12 py-1 px-0"
+                                            style="line-height: 1.8;color:var(--bg-color-0);font-size: 14px;">
+                                            {{ $service->title }}
+                                        </h2>
+                                    </a>
+                                    <div class="col-12 py-1 px-0"
+                                        style="height:23px;overflow:hidden;">
+                                        <a href="/services?specialize={{ $service->category->id }}"
+                                            class="d-block" style="color:var(--bg-color-0);">
+                                            <span class="fal fa-tag"
+                                                style="color:var(--bg-color-3);font-size: 11px;"></span>
+                                            <span style="opacity: .7;font-size: 11px;">
+                                                {{ $service->category->name }}
                                             </span>
-                                        </div>
-                                        <div class="d-inline-block py-2 d-flex justify-content-end align-items-center float-left"
-                                            style="padding-left: 13px;">
-                                            <div class="col-12 p-0" style="white-space: nowrap;">
-                                                <span class="fas fa-star"
-                                                    style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                <span class="fas fa-star"
-                                                    style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                <span class="fas fa-star"
-                                                    style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                <span class="fas fa-star"
-                                                    style="color: var(--bg-color-4);font-size:10px;"></span>
-                                                <span class="fas fa-star"
-                                                    style="color: var(--bg-color-4);font-size:10px;"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 px-0"
-                                        style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                        </a>
                                     </div>
                                 </div>
+                                <div class="col-12 nafezly-divider-full mb-0 mt-1 "
+                                    style="min-height: 1px;">
+                                </div>
+                                <div class="col-12 px-0 d-flex py-1"
+                                    style="justify-content:space-between">
+                                    <div class="d-inline-block py-2 pr-3"
+                                        style="height: 36px;overflow: hidden;width: auto;">
+                                        <span style="color:#1dbf73;font-size: 14px;font-weight: bold"
+                                            class="d-inline-block text-nowrap">
+                                            {{ number_format($service->price) }}
+                                            <span class="fas fa-usd-circle"
+                                                style="font-size:12px"></span>
+                                        </span>
+                                    </div>
+                                    <div class="d-inline-block d-flex justify-content-end align-items-center float-left"
+                                        style="padding-left: 13px;">
+                                        <div class="col-12 p-0" style="white-space: nowrap;">
+                                            <span class="d-inline-block ml-0"
+                                                style="position: relative;bottom: 2px;color: var(--bg-color-0);opacity: .8;font-size: 13px"
+                                                id="counter_{{ $service->id }}">
+                                                {{ $service->likes_count ? $service->likes_count : '' }}
+                                            </span>
+                                            <span
+                                                class="mr-0 d-inline-block noselect added"
+                                                data-id="{{ $service->id }}" data-type="service"
+                                                id="love_id_{{ $service->id }}">
+                                                <span
+                                                    class="fa-heart love-favourite font-2 fas"
+                                                    style="padding: 7px 0px 4px 6px; border-radius: 50%!important;color: #2196f3;"
+                                                    id="icon_{{ $service->id }}"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 px-0"
+                                    style="margin: auto;border-top: 1px solid var(--bg-main-bg)">
+                                </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
                     <div class="col-12 px-0">

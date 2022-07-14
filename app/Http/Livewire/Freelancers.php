@@ -18,11 +18,6 @@ class Freelancers extends Component
     public $all_skills;
     public $skills = [];
 
-    public function __construct()
-    {
-        $this->all_skills = Skill::all();
-    }
-
     public function setSkills($data)
     {
         $this->skills = $data;
@@ -34,11 +29,15 @@ class Freelancers extends Component
         $this->resetPage();
     }
 
-    public function render()
+    public function mount()
     {
+        $this->all_skills = Skill::all();
         if (request()->has('specialize'))
             $this->categories[] = request()->specialize;
+    }
 
+    public function render()
+    {
         $search_value = '%' . $this->search . '%';
 
         $query = User::select('users.*')

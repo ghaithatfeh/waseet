@@ -18,11 +18,6 @@ class Projects extends Component
     public $skills = [];
     public $budget;
 
-    public function __construct()
-    {
-        $this->all_skills = Skill::all();
-    }
-
     public function setSkills($data)
     {
         $this->skills = $data;
@@ -38,6 +33,11 @@ class Projects extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function mount()
+    {
+        $this->all_skills = Skill::all();
     }
 
     public function render()

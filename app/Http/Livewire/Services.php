@@ -17,11 +17,6 @@ class Services extends Component
     public $skills = [];
     public $budget;
 
-    public function __construct()
-    {
-        $this->all_skills = Skill::all();
-    }
-
     public function setSkills($data)
     {
         $this->skills = $data;
@@ -39,13 +34,20 @@ class Services extends Component
         $this->resetPage();
     }
 
+    public function mount()
+    {
+        $this->all_skills = Skill::all();
+        if (request()->has('specialize'))
+            $this->categories[] = request('specialize');
+        if (request()->has('search'))
+            $this->search = request('search');
+    }
+
     public function render()
     {
-        $this->categories[] = request()->specialize;
-
         $search_value = '%' . $this->search . '%';
 
-        $query = Service::with('images')
+        $query = Service::with('images', 'category')->withCount('likes')
             ->where('title', 'LIKE', $search_value)
             ->when($this->categories != [], function ($query) {
                 $query->whereIn('category_id', $this->categories);

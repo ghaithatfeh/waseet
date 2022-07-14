@@ -43,7 +43,7 @@ Route::resources([
 ]);
 
 // livewire components
-if (request()->has('specialize'))
+if (request()->has('specialize') || request()->has('search'))
     Route::get('/services', Services::class);
 else
     Route::get('/services', [ServiceController::class, 'index']);

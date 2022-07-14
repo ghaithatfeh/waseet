@@ -19,27 +19,27 @@ class Portfolios extends Component
     public $all_categories;
     public $skills = [];
 
-    public function __construct()
-    {
-        $this->all_skills = Skill::all();
-        $this->all_categories = Category::all();
-    }
-
     public function setSkills($data)
     {
         $this->skills = $data;
         $this->resetPage();
     }
+
     public function updatingSearch()
     {
         $this->resetPage();
     }
 
-    public function render()
+    public function mount()
     {
+        $this->all_skills = Skill::all();
+        $this->all_categories = Category::all();
         if (request()->has('specialize'))
             $this->categories[] = request()->specialize;
+    }
 
+    public function render()
+    {
         $search_value = '%' . $this->search . '%';
 
         $query = Portfolio::select('portfolios.*')
