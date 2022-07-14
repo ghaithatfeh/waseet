@@ -26,9 +26,11 @@ class FreelancerController extends Controller
             'projects' => $user->projects_count < 10 ? $user->projects_count : 10,
             'likes' => $user->likes_count < 10 ? $user->likes_count : 10,
         ];
+        $user_avg_score = array_sum($user_score) / 5;
         return view('freelancers.view', [
             'user' => $user,
-            'user_score' => $user_score
+            'user_score' => $user_score,
+            'user_avg_score' => $user_avg_score
         ]);
     }
 

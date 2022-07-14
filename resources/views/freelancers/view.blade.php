@@ -24,7 +24,7 @@
             this.section = newSection;
         }
     }">
-        <div class="col-12 pt-0 profile-banner  px-0 pb-md-4"
+        <div class="col-12 pt-0 profile-banner px-0 pb-md-4"
             style=" display: flex;background-size: cover;background-position: center;">
             <div class="container px-0 px-lg-3 pb-lg-1">
                 <div class="col-12   px-0  mx-auto rounded-0 rounded-lg  bottom-md--60   "
@@ -40,7 +40,7 @@
                                         <circle class="circle-chart__background" stroke="#f1f1f1" stroke-width="1"
                                             fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
                                         <circle class="circle-chart__circle" stroke="#2196f3" stroke-width="1.5"
-                                            stroke-dasharray="64,100" stroke-linecap="round" fill="none" cx="16.91549431"
+                                            stroke-dasharray="{{ $user_avg_score * 10 }},100" stroke-linecap="round" fill="none" cx="16.91549431"
                                             cy="16.91549431" r="15.91549431" />
                                         <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
                                             style="width: 100%;border-radius: 50%!important;height: 150px;position: absolute;padding: 10px;object-fit: cover;"
@@ -75,27 +75,29 @@
                                         &nbsp; <span class="fas fa-map-marker-alt pl-2"></span>
                                         {{ $user->country->name ?? '' }}
                                     </h3>
-                                    <div class="col-12 px-0 text-center text-md-right col-12 col-lg-4 col-md-7 ">
+                                    {{-- اوسمة المستخدم --}}
+                                    {{-- <div class="col-12 px-0 text-center text-md-right col-12 col-lg-4 col-md-7 ">
                                         <span
                                             class="fad fa-badge-check font-4 text-center pt-1 nafezly-badge-style user_badge"
                                             data-placement='bottom' data-content='قام بتوثيق حسابه'></span>
                                         <span
                                             class="fad fa-users-crown font-4 text-center pt-1 nafezly-badge-style user_badge"
                                             data-placement='bottom' data-content='شريك نجاح'></span>
-                                    </div>
-                                    <div class="m-auto m-md-0 pt-2 d-block d-md-none row "
-                                        style="max-width: 100%;width: 300px;">
+                                    </div> --}}
+                                    <div class="m-auto m-md-0 py-2 d-block d-md-none row">
                                         <div class="col-12 px-0 row justify-content-center" style="">
-                                            <div style="width: calc(100% - 130px)">
-                                                <a href="/my/profile">
-                                                    <span class="btn btn-primary font-1 text-center   col-12"
-                                                        style="border-radius: 2px">
-                                                        <span class="fal fa-suitcase"></span> تعديل المعلومات الشخصية
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="text-right text-md-left  pr-2"
-                                                style="width: 130px;position: relative;">
+                                            @if ($user->id == auth()->id())
+                                                <div>
+                                                    <a href="/my/profile">
+                                                        <span class="btn btn-primary font-1 text-center   col-12"
+                                                            style="border-radius: 2px">
+                                                            <span class="fal fa-suitcase"></span> تعديل المعلومات الشخصية
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            @endif
+                                            <div class="text-right text-md-left pr-2"
+                                                style="position: relative;">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
                                                         <span class="d-inline-block pt-2 ml-1"
@@ -103,38 +105,15 @@
                                                             id="counter_{{ $user->id }}_sm">
                                                             {{ $user->likes_count ? $user->likes_count : '' }}
                                                         </span>
-                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                        <span
+                                                            class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
                                                             style=" cursor: pointer;" data-id="{{ $user->id }}_sm"
-                                                            data-type="user" 
-                                                            id="love_id_{{ $user->id }}_sm">
-                                                            <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
+                                                            data-type="user" id="love_id_{{ $user->id }}_sm">
+                                                            <span
+                                                                class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
                                                                 style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
                                                                 id="icon_{{ $user->id }}_sm"></span>
                                                         </span>
-                                                        <div class="dropdown show d-none dots-628e639a6bf90 ">
-                                                            <span
-                                                                class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
-                                                                style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
-                                                                role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                                                                aria-haspopup="true" aria-expanded="false"></span>
-                                                            <div class="dropdown-menu border"
-                                                                aria-labelledby="dropdownMenuLink"
-                                                                style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
-                                                                <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 report-nafezly "
-                                                                    href="#"
-                                                                    style="font-size: 13px;color: var(--bg-color-0)"
-                                                                    data-toggle=modal data-target=.report-nafezly-modal
-                                                                    data-type="user" data-type_id="4483"><span
-                                                                        class="fal fa-flag text-center"
-                                                                        style="width: 20px;color: var(--bg-color-0)"></span>
-                                                                    إبلاغ</a>
-                                                            </div>
-                                                            <style type="text/css">
-                                                                .dots-628e639a6bf90 {
-                                                                    display: inline-block !important;
-                                                                }
-                                                            </style>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -183,8 +162,8 @@
                                             <li class="nav-item text-center">
                                                 <a class="nav-link kufi font-small font-md-1 text-center"
                                                     :class="section == '{{ $item['section'] }}' ? 'active' : ''"
-                                                    @click.prevent="setSection('{{ $item['section'] }}')" href=""
-                                                    style="color: var(--bg-font-4);line-height: 1.2"><span
+                                                    @click.prevent="setSection('{{ $item['section'] }}')"
+                                                    href="" style="color: var(--bg-font-4);line-height: 1.2"><span
                                                         class="{{ $item['icon'] }} font-md-1 font-4"></span>
                                                     <div class="text-center mt-2 d-md-inline-block mt-md-0">
                                                         {{ $item['label'] }} </div>
@@ -213,39 +192,15 @@
                                                             id="counter_{{ $user->id }}">
                                                             {{ $user->likes_count ? $user->likes_count : '' }}
                                                         </span>
-                                                        <span class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
+                                                        <span
+                                                            class="d-inline-block love-favourite-area noselect {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'added' : '' }}"
                                                             style=" cursor: pointer;" data-id="{{ $user->id }}"
-                                                            data-type="user"
-                                                            id="love_id_{{ $user->id }}">
-                                                            <span class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
+                                                            data-type="user" id="love_id_{{ $user->id }}">
+                                                            <span
+                                                                class="fa-heart love-favourite font-3 {{ in_array(auth()->id(), $user->likes->pluck('id')->toArray()) ? 'fas' : 'fal' }}"
                                                                 style="padding: 7px 6px 4px 6px; border-radius: 50%!important;color: #2196f3;"
                                                                 id="icon_{{ $user->id }}"></span>
                                                         </span>
-                                                        <div class="dropdown show d-none dots-628e639a6c189 ">
-                                                            <span
-                                                                class="fal fa-ellipsis-v hover-light btn btn-light border-0  rounded hover-darker"
-                                                                style="cursor: pointer;color: var(--bg-color-0);background: var(--bg-main-bg);padding: 2px 10px;"
-                                                                role="button" id="dropdownMenuLink"
-                                                                data-toggle="dropdown" aria-haspopup="true"
-                                                                aria-expanded="false"></span>
-                                                            <div class="dropdown-menu border"
-                                                                aria-labelledby="dropdownMenuLink"
-                                                                style="box-shadow: rgb(10 14 29 / 2%) 0px 8px 16px 0px, rgb(119 119 119 / 8%) 0px 8px 64px 0px;border-radius: 5px;">
-                                                                <a class="dropdown-item font-md-1 pr-2 hover-darker pl-3 report-nafezly "
-                                                                    href="#"
-                                                                    style="font-size: 13px;color: var(--bg-color-0)"
-                                                                    data-toggle=modal data-target=.report-nafezly-modal
-                                                                    data-type="user" data-type_id="4483"><span
-                                                                        class="fal fa-flag text-center"
-                                                                        style="width: 20px;color: var(--bg-color-0)"></span>
-                                                                    إبلاغ</a>
-                                                            </div>
-                                                            <style type="text/css">
-                                                                .dots-628e639a6c189 {
-                                                                    display: inline-block !important;
-                                                                }
-                                                            </style>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </span>
@@ -680,7 +635,7 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -692,7 +647,7 @@
         var myChart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['ملف شخصي', 'أعمال',  'خدمات', 'مشاريع', 'متميز'],
+                labels: ['ملف شخصي', 'أعمال', 'خدمات', 'مشاريع', 'متميز'],
                 datasets: [{
                     label: '# نقاط',
                     data: [

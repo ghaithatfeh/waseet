@@ -530,20 +530,6 @@
                                                                         style="font-size: 15px;line-height: 1.1;"
                                                                         class="pt-0 kufi  mt-0 d-inline-block">
                                                                         {{ $offer->user->fullName }}
-                                                                        <div class="d-block">
-                                                                            <div style="position: relative;top: 0px;">
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                                <span class="fal fa-star"
-                                                                                    style="color: var(--bg-color-4);font-size:9px;"></span>
-                                                                            </div>
-                                                                        </div>
                                                                     </a>
                                                                     <span
                                                                         style="color: #919191;position: relative;top: 0px"
@@ -636,10 +622,10 @@
                                                                 </span>
                                                             </div>
                                                             <div class="mx-3 font-1 d-block">
-                                                                <a href="/freelancers/11?section=portfolios"
+                                                                <a href="/freelancers/{{ $offer->user_id }}?section=portfolios"
                                                                     style="font-size: 12px;opacity: 1" class="pt-1">
                                                                     <span class="fal fa-images"></span>
-                                                                    {{ $offer->user()->count() }} أعمال في المعرض
+                                                                    {{ $offer->user->portfolios()->count() }} أعمال في المعرض
                                                                 </a>
                                                             </div>
                                                         </div>
