@@ -566,7 +566,7 @@
                                                         style="font-size: 12px;color: #777777">
                                                         <span class="fas fa-check-circle " aria-hidden="true"
                                                             style="font-size: 12px;width:18px;text-align: center;color:#28a745;"></span>
-                                                        {{ $project->status }}
+                                                        {{ __($project->status) }}
                                                     </span>
                                                 </div>
                                             </div>

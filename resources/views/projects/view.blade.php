@@ -731,7 +731,7 @@
                                                     <span
                                                         style="background:#28a745; color: #fff; padding: 0px 7px 1px!important; display: inline-block;position: relative ;font-size: 10px;border-radius:2px;line-height: 1.6;"
                                                         class=" p-1">
-                                                        {{ $project->status }}
+                                                        {{ __($project->status) }}
                                                     </span>
                                                 </div>
                                             </div>

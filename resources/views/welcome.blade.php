@@ -210,7 +210,7 @@
                                         <div class="col-12 px-0" style="min-height: 67px">
                                             <div class="col-12 pt-2 px-0">
                                                 <p class="text-center  font-1" style="color: #666">
-                                                    تصفح المبدعين و اطلع على ملفاتهم الشخصية ووظف مار تراه
+                                                    تصفح المبدعين و اطلع على ملفاتهم الشخصية ووظف ما تراه
                                                     مناسباً للوظيفة
                                                 </p>
                                             </div>

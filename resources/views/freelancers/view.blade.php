@@ -40,8 +40,8 @@
                                         <circle class="circle-chart__background" stroke="#f1f1f1" stroke-width="1"
                                             fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
                                         <circle class="circle-chart__circle" stroke="#2196f3" stroke-width="1.5"
-                                            stroke-dasharray="{{ $user_avg_score * 10 }},100" stroke-linecap="round" fill="none" cx="16.91549431"
-                                            cy="16.91549431" r="15.91549431" />
+                                            stroke-dasharray="{{ $user_avg_score * 10 }},100" stroke-linecap="round"
+                                            fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
                                         <img src="{{ asset('uploaded_images/users/' . ($user->profile_image ?? 'defualt.png')) }}"
                                             style="width: 100%;border-radius: 50%!important;height: 150px;position: absolute;padding: 10px;object-fit: cover;"
                                             alt="الصورة الشخصية" />
@@ -96,8 +96,7 @@
                                                     </a>
                                                 </div>
                                             @endif
-                                            <div class="text-right text-md-left pr-2"
-                                                style="position: relative;">
+                                            <div class="text-right text-md-left pr-2" style="position: relative;">
                                                 <div class="p-0 d-inline-block mr-auto" style="white-space: nowrap;">
                                                     <div class="col-12 px-1 d-flex align-items-center">
                                                         <span class="d-inline-block pt-2 ml-1"
@@ -162,8 +161,8 @@
                                             <li class="nav-item text-center">
                                                 <a class="nav-link kufi font-small font-md-1 text-center"
                                                     :class="section == '{{ $item['section'] }}' ? 'active' : ''"
-                                                    @click.prevent="setSection('{{ $item['section'] }}')"
-                                                    href="" style="color: var(--bg-font-4);line-height: 1.2"><span
+                                                    @click.prevent="setSection('{{ $item['section'] }}')" href=""
+                                                    style="color: var(--bg-font-4);line-height: 1.2"><span
                                                         class="{{ $item['icon'] }} font-md-1 font-4"></span>
                                                     <div class="text-center mt-2 d-md-inline-block mt-md-0">
                                                         {{ $item['label'] }} </div>
@@ -459,7 +458,7 @@
                                                         style="font-size: 12px;color: #777777">
                                                         <span class="fas fa-check-circle " aria-hidden="true"
                                                             style="font-size: 12px;width:18px;text-align: center;color:#28a745;"></span>
-                                                        {{ $project->status }}
+                                                        {{ __($project->status) }}
                                                     </span>
                                                 </div>
                                             </div>

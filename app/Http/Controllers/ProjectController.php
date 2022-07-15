@@ -33,12 +33,14 @@ class ProjectController extends Controller
         if (!isset($_GET['project_id']))
             return view('projects.create', [
                 'skills' => Skill::all(),
-                'budgets' => Budget::all()
+                'budgets' => Budget::all(),
+                'categories' => Category::all()
             ]);
         else
             return view('projects.create', [
                 'skills' => Skill::all(),
                 'budgets' => Budget::all(),
+                'categories' => Category::all(),
                 'project' => Project::find($_GET['project_id'])
             ]);
     }
