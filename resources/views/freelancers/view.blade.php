@@ -142,13 +142,13 @@
                             </style>
                             @php
                                 $items = [['section' => 'about', 'label' => 'نبذة عني', 'icon' => 'fal fa-user']];
-                                if ($user->portfolios()->count()) {
+                                if ($user->portfolios_count) {
                                     $items[] = ['section' => 'portfolios', 'label' => 'الأعمال', 'icon' => 'fal fa-images'];
                                 }
-                                if ($user->services()->count()) {
+                                if ($user->services_count) {
                                     $items[] = ['section' => 'services', 'label' => 'الخدمات', 'icon' => 'fal fa-boxes'];
                                 }
-                                if ($user->projects()->count()) {
+                                if ($user->projects_count) {
                                     $items[] = ['section' => 'projects', 'label' => 'المشاريع', 'icon' => 'fal fa-suitcase'];
                                 }
                             @endphp
@@ -551,58 +551,34 @@
                                                 <col class="col-xs-6">
                                             </colgroup>
                                             <tbody class="py-2">
-                                                <tr>
-                                                    <td style="color: var(--bg-font-4)">التقييمات</td>
-                                                    <td style="color: var(--bg-font-4)">
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);;"></span>
-                                                        <span class="fas fa-star"
-                                                            style="color: var(--bg-color-4);;"></span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span style="color: var(--bg-font-4)">انجاز ( كمنفذ مشاريع )</span>
-                                                    </td>
-                                                    <td style="color: var(--bg-font-4)">
-                                                        <a href="https://nafezly.com/u/mogtaba_ahmed/sales"
-                                                            style="color: var(--bg-font-4">
-                                                            ( 12 خدمات )
-                                                        </a>
-                                                        -
-                                                        <a href="https://nafezly.com/u/mogtaba_ahmed/offers"
-                                                            style="color: var(--bg-font-4">
-                                                            ( 12 مشاريع )
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><span style="color: var(--bg-font-4)">اتمام الصفقات ( كمنفذ مشاريع
-                                                            )</span>
-                                                    </td>
-                                                    <td style="color: var(--bg-font-4);">
-                                                        <div class="d-flex row align-items-center">
-                                                            <div class="col p-0 ml-1">
-                                                                <div class="progress rounded" style="height: 8px;">
-                                                                    <div class="progress-bar text-center font-small d-flex align-items-center"
-                                                                        role="progressbar"
-                                                                        style="width: 100%;background:var(--bg-color-3)"
-                                                                        aria-valuenow="100" aria-valuemin="0"
-                                                                        aria-valuemax="100"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex align-items-center justify-content-center"
-                                                                style="width:39px">
-                                                                100 %
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @if ($user->portfolios_count)
+                                                    <tr>
+                                                        <td style="color: var(--bg-font-4)">الاعمال المعروضة</td>
+                                                        <td style="color: var(--bg-font-4)">
+                                                            {{ $user->portfolios_count }} اعمال
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                @if ($user->services_count)
+                                                    <tr>
+                                                        <td>
+                                                            <span style="color: var(--bg-font-4)">الخدمات المقدمة</span>
+                                                        </td>
+                                                        <td style="color: var(--bg-font-4)">
+                                                            {{ $user->services_count }} خدمات
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                                @if ($user->projects_count)
+                                                    <tr>
+                                                        <td>
+                                                            <span style="color: var(--bg-font-4)">المشاريع المنشورة</span>
+                                                        </td>
+                                                        <td style="color: var(--bg-font-4);">
+                                                            {{ $user->projects_count }} مشاريع
+                                                        </td>
+                                                    </tr>
+                                                @endif
                                                 <tr>
                                                     <td style="color: var(--bg-font-4)">انشاء الحساب</td>
                                                     <td style="color: var(--bg-font-4)">

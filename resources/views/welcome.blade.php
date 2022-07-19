@@ -19,8 +19,8 @@
                                     <h2 style="color: #fbfbfb; border-radius: 6px;line-height: 1.9;font-size: 15px"
                                         class="px-3 pb-3 mb-2  text-center font-md-2 font-lg-3">وظّف مستقلين
                                         محترفين لإنجاز أعمالك</h2>
-                                    <form method="GET" action="/project/create-guest">
-                                        <div class="col-12  row mx-auto " style="width: 800px;max-width: 100%;">
+                                    <form method="GET" action="/projects/create">
+                                        <div class="col-12 row mx-auto" style="width: 800px;max-width: 100%;">
                                             <input type="text" name="title" class="form-control border-0"
                                                 style="max-width:100%;border-radius: 5px;padding: 26px!important;border:none!important;"
                                                 placeholder="أدخل عنوان المشروع الذي تريد تنفيذه..." maxlength="250">
@@ -28,7 +28,7 @@
                                                 style="width: 150px;border-radius: 5px;color: #fff;position: absolute;top: 4px; left: 19px;height: 44px;"><span
                                                     class="fal fa-paper-plane"></span> أضف مشروعك</button>
                                         </div>
-                                        <div class="col-12 px-0 row mx-auto mt-3 pt-1 "
+                                        <div class="col-12 px-0 row mx-auto mt-3 pt-1"
                                             style="width: 800px;max-width: 100%;">
                                             <button class="btn btn-primary text-center mx-auto d-inline-block d-md-none"
                                                 style="width: 150px;border-radius: 0px;color: #fff;height: 44px;border-radius: 5px;"><span

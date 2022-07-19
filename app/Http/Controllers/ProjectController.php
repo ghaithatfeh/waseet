@@ -30,19 +30,18 @@ class ProjectController extends Controller
     }
     public function create()
     {
-        if (!isset($_GET['project_id']))
-            return view('projects.create', [
-                'skills' => Skill::all(),
-                'budgets' => Budget::all(),
-                'categories' => Category::all()
-            ]);
-        else
-            return view('projects.create', [
-                'skills' => Skill::all(),
-                'budgets' => Budget::all(),
-                'categories' => Category::all(),
-                'project' => Project::find($_GET['project_id'])
-            ]);
+        $data = [
+            'skills' => Skill::all(),
+            'budgets' => Budget::all(),
+            'categories' => Category::all()
+        ];
+        if (isset($_GET['project_id']))
+            $data['project'] = Project::find($_GET['project_id']);
+
+        if (isset($_GET['title']))
+            session(['project_title' => $_GET['title']]);
+
+        return view('projects.create', $data);
     }
 
     public function show(Project $project)
@@ -98,6 +97,7 @@ class ProjectController extends Controller
                     Attachment::create(['project_id' => $project->id, 'file_name' => $file_name]);
             }
         }
+        $request->session()->forget('project_title');
         return view('projects.view', ['project' => $project]);
     }
 

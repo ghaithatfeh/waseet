@@ -279,7 +279,7 @@
                                             </div>
                                             <div class="col-6 col-md-5 col-lg-6 col-xl-7 px-0 text-right p-1 "
                                                 style="font-size:12px">
-                                                <a href="#">
+                                                <a href="/portfolios?specialize={{ $portfolio->category->id }}">
                                                     {{ $portfolio->category->name }}
                                                 </a>
                                             </div>

@@ -23,8 +23,8 @@
                                                         style="background:var(--bg-main-bg);position: absolute;top: 17px;right: 20px; border-radius: 3px!important">الاسم
                                                         الاول</label>
                                                     <input id="firstname" type="text"
-                                                        class="form-control mt-2 d-inline-block " name="first_name" value=""
-                                                        required autocomplete="off" autofocus
+                                                        class="form-control mt-2 d-inline-block " name="first_name"
+                                                        value="" required autocomplete="off" autofocus
                                                         style=";height: 42px;border-radius: 3px!important">
                                                 </div>
                                             </div>
@@ -35,8 +35,8 @@
                                                         style="background:var(--bg-main-bg);position: absolute;top: 17px;right: 20px; border-radius: 3px!important">اسم
                                                         العائلة</label>
                                                     <input id="lastname" type="text"
-                                                        class="form-control mt-2 d-inline-block " name="last_name" value=""
-                                                        required autocomplete="off" autofocus
+                                                        class="form-control mt-2 d-inline-block " name="last_name"
+                                                        value="" required autocomplete="off" autofocus
                                                         style=";height: 42px;border-radius: 3px!important">
                                                 </div>
                                             </div>
@@ -46,9 +46,15 @@
                                                         class="col-form-label text-md-right mb-1 font-small px-2 py-1 d-inline"
                                                         style="background:var(--bg-main-bg);position: absolute;top: 17px;right: 20px; border-radius: 3px!important">البريد
                                                         الالكتروني</label>
-                                                    <input id="email" type="email" class="form-control mt-2 d-inline-block "
-                                                        name="email" value="" required autocomplete="off" autofocus
+                                                    <input id="email" type="email"
+                                                        class="form-control mt-2 d-inline-block " name="email"
+                                                        value="" required autocomplete="off" autofocus
                                                         style=";height: 42px;border-radius: 3px!important">
+                                                        @error('email')
+                                                            <label id="project_details-error" class="error" for="project_details">
+                                                                {{ $message }}
+                                                            </label>
+                                                        @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group row mb-4 col-12   px-0 pt-2 ">
@@ -58,8 +64,8 @@
                                                         style="background:var(--bg-main-bg);position: absolute;top: 17px;right: 20px;border-radius: 3px!important">كلمة
                                                         المرور</label>
                                                     <input id="password" type="password"
-                                                        class="form-control mt-2 d-inline-block " name="password" value=""
-                                                        required autocomplete="off" autofocus
+                                                        class="form-control mt-2 d-inline-block " name="password"
+                                                        value="" required autocomplete="off" autofocus
                                                         style=";height: 42px;border-radius: 3px!important" minlength="6">
                                                 </div>
                                             </div>
@@ -71,9 +77,9 @@
                                                         كلمة المرور </label>
                                                     <input id="password" type="password"
                                                         class="form-control mt-2 d-inline-block "
-                                                        name="password_confirmation" value="" required autocomplete="off"
-                                                        autofocus style=";height: 42px;border-radius: 3px!important"
-                                                        minlength="6">
+                                                        name="password_confirmation" value="" required
+                                                        autocomplete="off" autofocus
+                                                        style=";height: 42px;border-radius: 3px!important" minlength="6">
                                                 </div>
                                             </div>
                                             <div class="col-12  pb-2 px-2">
@@ -82,8 +88,8 @@
                                             <div class="form-group row mb-4 col-12   px-0 pt-2 ">
                                                 <div class="col-md-12 px-2 pt-0 row" style="position: relative;">
                                                     <div class="col-12 px-0 pt-1 font-1" style="line-height:1.9">
-                                                        بتسجيلك في منصة وسيط فإنك توافق علي <a href="/terms">شروط
-                                                            الاستخدام</a> و <a href="/privacy-policy">سياسة الخصوصية</a>
+                                                        بتسجيلك في منصة وسيط فإنك توافق علي <a href="#">شروط
+                                                            الاستخدام</a> و <a href="#">سياسة الخصوصية</a>
                                                     </div>
                                                     <div class="col-12 px-0 text-left pt-3">
                                                         <button type="submit"

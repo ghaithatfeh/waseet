@@ -256,18 +256,6 @@
                                             {{ $user->country->name ?? '' }}
                                         </span>
                                     </h2>
-                                    <h6 class="text-center pt-1" style="color: #c5c5c5">
-                                        <span class="fas fa-star"
-                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        <span class="fas fa-star"
-                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        <span class="fas fa-star"
-                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        <span class="fas fa-star"
-                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                        <span class="fas fa-star"
-                                            style="color: var(--bg-color-4);font-size:10px;"></span>
-                                    </h6>
                                     <div class="col-12 py-3" style="background: var(--bg-second-bg)"><a
                                             href="/freelancers/{{ $user->id }}" style="display: block;"><span
                                                 class="btn btn-success text-center hover-darker col-12 font-1"

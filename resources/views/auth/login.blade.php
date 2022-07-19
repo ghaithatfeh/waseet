@@ -91,9 +91,9 @@
                                         <li class=" d-block"><a href="{{ route('register') }}"
                                                 class="naskh py-2 d-block"><span class="fas fa-circle font-small"
                                                     style="color:var(--bg-color-3);"></span> لا أملك حساب بعد</a></li>
-                                        <li class="d-block"><a href="/password/reset"
+                                        {{-- <li class="d-block"><a href="/password/reset"
                                                 class="naskh py-2 d-block"><span class="fas fa-circle font-small"
-                                                    style="color:var(--bg-color-3);"></span> نسيت كلمة المرور</a></li>
+                                                    style="color:var(--bg-color-3);"></span> نسيت كلمة المرور</a></li> --}}
                                     </ul>
                                 </div>
                             </div>

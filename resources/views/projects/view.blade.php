@@ -440,20 +440,16 @@
                                                                 <div class="col-12 mb-3"></div>
                                                                 <div class="col-12 px-0">
                                                                     <ul>
+                                                                        <li style="font-size: 13px;color: var(--bg-font-4);" class="naskh">
+                                                                            قم بإضافة تفاصيل العرض بشكل مفهوم ودقيق
+                                                                        </li>
                                                                         <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">لا
-                                                                            تستخدم وسائل تواصل خارجية</li>
+                                                                            class="naskh">
+                                                                            قم بالاهتمام بمعرض اعمالك كي يتم اختيارك
+                                                                        </li>
                                                                         <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">لا
-                                                                            تضع روابط خارجية، قم بالاهتمام <a
-                                                                                href="/my/portfolios" class="naskh">
-                                                                                بمعرض أعمالك </a> بدلا منها</li>
-                                                                        <li style="font-size: 13px;color: var(--bg-font-4);"
-                                                                            class="naskh">اقرا
-                                                                            <a href="https://blog.nafezly.com/how-to-write-good-proposal-in-nafezly/"
-                                                                                class="naskh">هنا كيف تضيف عرضا
-                                                                                مميزا
-                                                                                على أي مشروع </a>
+                                                                            class="naskh">
+                                                                        انتظر من صاحب المشروع التواصل معك لقبول عرضك
                                                                         </li>
                                                                     </ul>
                                                                 </div>

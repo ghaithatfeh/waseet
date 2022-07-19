@@ -156,4 +156,15 @@ class User extends Authenticatable
 
         return ($filledCount / $totalCount) * 10;
     }
+
+
+    public function chats()
+    {
+        return $this->belongsToMany(Chat::class, 'user_chat');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

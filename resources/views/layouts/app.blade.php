@@ -15,110 +15,17 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/all-mixed.css') }}">
     <link rel="icon" type="image/png" href="" />
     <link rel="icon" type="image/png" sizes="512x512" href="" />
-    <style>
-        /* @font-face {
-            font-family: kufi-arabic;
-            font-style: normal;
-            font-weight: 400;
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Regular.eot);
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.woff2) format('woff2'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.woff) format('woff'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.ttf) format('truetype')
+
+
+    <style type="text/css">
+        .control_indicator {
+            --bg-second-bg: #282e39 !important;
         }
 
-        @font-face {
-            font-family: Tajawal;
-            src: url(../fonts/Tajawal-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Tajawal-Regular.woff) format('woff'), url(../fonts/Tajawal-Regular.ttf) format('truetype'), url(../fonts/Tajawal-Regular.svg#Tajawal-Regular) format('svg');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: NeoSansArabic;
-            src: url(../fonts/NeoSansArabic.eot);
-            src: url(../fonts/NeoSansArabic.eot?#iefix) format('embedded-opentype'), url(../fonts/NeoSansArabic.woff2) format('woff2'), url(../fonts/NeoSansArabic.woff) format('woff'), url(../fonts/NeoSansArabic.ttf) format('truetype');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: droid sans arabic;
-            src: url(../fonts/DroidSansArabic.woff2) format('woff2'), url(../fonts/DroidSansArabic.woff) format('woff');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: kh-font;
-            src: url(../fonts/PHKhalid-Regular.woff2) format('woff2'), url(../fonts/PHKhalid-Regular.woff) format('woff');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: Dubai;
-            src: url(../fonts/Dubai-Regular.woff2) format('woff2'), url(../fonts/Dubai-Regular.woff) format('woff');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: Almarai-Regular;
-            src: url(../fonts/Almarai-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/Almarai-Regular.woff) format('woff'), url(../fonts/Almarai-Regular.ttf) format('truetype'), url(../fonts/Almarai-Regular.svg#Almarai-Regular) format('svg');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: Naskh;
-            src: url(../fonts/NotoNaskhArabic-Regular.woff2) format('woff2');
-            font-weight: 400;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: kufi-arabic;
-            font-style: normal;
-            font-weight: 400;
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Regular.eot);
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Regular.eot?#iefix) format('embedded-opentype'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.woff2) format('woff2'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.woff) format('woff'), url(../fonts/kufi-fixed/NotoKufiArabic-Regular.ttf) format('truetype')
-        }
-
-        @font-face {
-            font-family: kufi-arabic;
-            font-style: normal;
-            font-weight: 700;
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Bold.eot);
-            src: url(../fonts/kufi-fixed/NotoKufiArabic-Bold.eot?#iefix) format('embedded-opentype'), url(../fonts/kufi-fixed/NotoKufiArabic-Bold.woff2) format('woff2'), url(../fonts/kufi-fixed/NotoKufiArabic-Bold.woff) format('woff'), url(../fonts/kufi-fixed/NotoKufiArabic-Bold.ttf) format('truetype')
-        }
-
-        @font-face {
-            font-family: Frutiger;
-            src: url(../fonts/Frutiger-Light.woff2) format("woff2"), url(../fonts/Frutiger-Light.woff) format("woff"), url(../fonts/Frutiger-Light.ttf) format("truetype");
-            font-weight: 300;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: Frutiger;
-            src: url(../fonts/Frutiger-Medium.woff2) format("woff2"), url(../fonts/Frutiger-Medium.woff) format("woff"), url(../fonts/Frutiger-Medium.ttf) format("truetype");
-            font-weight: 500;
-            font-style: normal
-        }
-
-        @font-face {
-            font-family: Frutiger;
-            src: url(../fonts/Frutiger-Bold.woff2) format("woff2"), url(../fonts/Frutiger-Bold.woff) format("woff"), url(../fonts/Frutiger-Bold.ttf) format("truetype");
-            font-weight: 700;
-            font-style: normal
-        } */
-    </style>
-
-    <style>
         .loading-state {
             opacity: 0.3;
         }
-    </style>
 
-    <style type="text/css">
         #nafezly-navbar {
             box-shadow: unset !important;
         }

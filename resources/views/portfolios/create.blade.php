@@ -8,14 +8,6 @@
                         <div class="col px-0 font-2 font-lg-4 pt-1">
                             إضافة عمل
                         </div>
-                        <div class="col px-0 text-left d-lg-none">
-                            <a href="https://www.youtube.com/watch?v=-wjFfII5UbA" class="btn hover-darker d-inline-block"
-                                style="border-radius: 0px;font-size: 13px;margin-top:1px;border:1px solid var(--bg-color-3);color: var(--bg-color-3)"
-                                target="_blank">
-                                <span class="far fa-play" style="font-size: 13px;color: var(--bg-color-3)"></span> نصائح
-                                إضافة العمل
-                            </a>
-                        </div>
                     </div>
                     <div class="px-0 main-nafez-box-styles  col-12 col-lg-8">
                         <form action="/portfolios" method="POST" class="col-12 px-0 row" id="portfolio-form"

@@ -8,27 +8,19 @@
                         <div class="col px-0 font-2 font-lg-4 pt-1">
                             إضافة مشروع
                         </div>
-                        <div class="col px-0 text-left  d-lg-none">
-                            <a href="https://www.youtube.com/watch?v=0xor8bLf5NE" class="btn hover-darker d-inline-block"
-                                style="border-radius: 0px;font-size: 13px;margin-top:1px;border:1px solid var(--bg-color-3);color: var(--bg-color-3)"
-                                target="_blank">
-                                <span class="fal fa-play" style="font-size: 13px;color: var(--bg-color-3)"></span> نصائح
-                                إضافة المشروع
-                            </a>
-                        </div>
                     </div>
-                    <div class="col-12    px-0 main-nafez-box-styles col-12 col-lg-8">
+                    <div class="col-12 px-0 main-nafez-box-styles col-12 col-lg-8">
                         <form method="POST" action="/projects" class="col-12 px-0 row" id="project-form"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="col-12 row  py-0 px-0 px-md-2 ">
+                            <div class="col-12 row  py-0 px-0 px-md-2">
                                 <div class="col-12 px-0 mt-2">
-                                    <div class="col-12 mt-3 kufi font-1 ">
+                                    <div class="col-12 mt-3 kufi font-1">
                                         عنوان المشروع
                                     </div>
                                     <div class="col-12 mt-2">
                                         <input type="text" name="title" class="form-control" required=""
-                                            minlength="10" value="{{ $project->title ?? '' }}" id="project_name"
+                                            minlength="10" value="{{ $project->title ?? session('project_title') ?? '' }}" id="project_name"
                                             autofocus="">
                                         <div style="font-size: 13px;color:var(--bg-font-4);opacity: .6;" class="pt-1 naskh">
                                             أدرج عنوانا موجزا يصف مشروعك بشكل دقيق. </div>
@@ -169,11 +161,6 @@
                         <div class="col-12 px-2">
                             <div class="col-12 px-0 mb-4">
                                 <h6 class="pb-2 col-12 px-0">أنشر مشروعك على وسيط</h6>
-                                {{-- <div class="col-12 px-0 d-none d-lg-block mb-2">
-                                    <iframe
-                                        src="https://www.youtube.com/embed/0xor8bLf5NE?controls=1&rel=0&showinfo=0&color=white"
-                                        style="width: 100%;height: 202px" allowfullscreen></iframe>
-                                </div> --}}
                                 <div class="col-12 px-0">
                                     <p style="color: var(--bg-font-4);font-size: 16px" class="naskh">تساعدك منصة
                                         وسيط على الوصول إلى أفضل المستقلين المحترفين لإنجاز أعمالك عن بعد . بعد إضافة

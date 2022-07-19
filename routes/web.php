@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\OfferController;
@@ -50,3 +51,7 @@ else
 Route::get('/freelancers', Freelancers::class);
 Route::get('/projects', Projects::class);
 Route::get('/portfolios', Portfolios::class);
+
+
+
+Route::get('/chat', [ChatController::class, 'index']);
